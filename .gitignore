@@ -1,3 +1,9 @@
+# Jupyter-book products
+_build
+
+# PyCharm cruft
+*.idea
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

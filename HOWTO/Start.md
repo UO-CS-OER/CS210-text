@@ -57,3 +57,25 @@ pip install -r requirements.txt
 
 ## Step 3:  Test the build
 
+You should be able to build the derived HTML version of the book from
+the markdown sources with this command: 
+
+```commandline
+jupyter-book build Intro_to_CS
+```
+
+You can abbreviate "jupyter-book" to "jb". 
+
+If it works without errors, the end of the output should look 
+something like this: 
+
+```commandline
+Finished generating HTML for book.
+Your book's HTML pages are here:
+    Intro_to_CS/_build/html/
+You can look at your book by opening this file in a browser:
+    Intro_to_CS/_build/html/index.html
+Or paste this line directly into your browser bar:
+    file:///Users/michal/Dropbox/22F-210/Book/CS210-text/Intro_to_CS/_build/html/index.html        
+```
+
