@@ -19,7 +19,7 @@ clear mental model of how your Python programs work.  At first this
 may seem trivial, and hardly any improvement over remembering the
 observable effects of particular sequences of commands.  As you tackle
 larger problems, a clear and accurate mental model will become more 
-and more important.  It will be the difference between a huge and 
+and more helpful.  It will be the difference between a huge and 
 disordered set of particulars, beyond the capacity of human memory, 
 and a much smaller, systematic set of basic understandings into 
 which it is easier to fit one more piece.
@@ -58,11 +58,48 @@ version 3.10 or greater of Python.
 
 ## The Python Notional Computer
 
+A notional computer is like a building toy, perhaps wooden
+blocks, Legos, Tinker Toys, or something similar. The kit comes with a
+handful of basic
+parts that can be combined to build an unlimited
+set of more complex structures. A particular kit provides us both
+some basic parts and some ways of putting them together.  Likewise a 
+programming language provides us some basic elements like objects of 
+particular types, and ways of building up larger structures from them. 
+A _program_ is like a set of directions for constructing and 
+manipulating a structure, the _execution state_ of the running program. 
+
 The Python notional computer presents us with a program execution state
 consisting of a set of _name spaces_.   A name space is an 
-association of _names_ with _value_.  A _value_ (also called an 
-_object_) has a type, 
-which determines what we can do with it.  
+association of _names_ with _value_.  A _value_ is a reference to an 
+_object_.  The type of the object determines what we can do with it 
+(like the shape of a block). 
+
+We can _bind_ value to a name with _assignment_, which we write `=`. 
+
+```{code-cell} python
+x = 23
+```
+
+```{figure} img/bind_x_23.*
+
+The name _x_ is bound to a value, which is a reference to
+an object containing the integer 23.  
+```
+
+It is tempting to pronounce this "x equals 23", because it looks 
+like a mathematical equation.  We suggest pronouncing it "x gets 
+23", because it is really a _statement_ or command that binds the 
+a reference to an object representing the integer 
+to the name "x".  
+
+One way to see how different this is from the 
+"equals" we know from math is to try turning it around --- what 
+happens if 
+you write `23 = x` instead of `x = 23`?   Try it in IDLE or, if you 
+are reading this in a executable format, try modifying the code cell 
+above. 
+
 
 ### Some Python object types
 
@@ -74,6 +111,10 @@ Python supports the following basic types (as well as some others).
 | float | Floating point, an approximation of a real number. | 3.1415 |
 | str | String, which is what we call text. Strings may contain many kinds of characters, including Ελληνικά and 漢子.| "Hello world" | 
 | bool | Boolean (truth value) | False |
+
+
+
+### Lists 
 
 Python also gives us ways of combining values into composite objects.
 The combination we will use most are _lists_, which are sequences of 
@@ -89,3 +130,37 @@ dolls).
 Lists within lists are "nested", like nested dolls.  (Image by user 
 Fanghong in Mediawiki commons, used under CC by SA license.) 
 ```
+
+We can "nest" lists as deeply as we want, e.g., 
+`[["corvids", ["crow", "raven"]], ["primates", ["lemur", "human"]]]`
+is a list with two elements.  The first element of that list is a 
+list with two elements, and the first element of _that_ list is a 
+string ("corvids").   
+
+
+
+### Dictionaries
+
+A _dictionary_  (type `dict`) is like a table with a column with two 
+columns. We could construct a `dict` like the kind of dictionary in 
+which we look up word definitions: 
+
+```{code-cell} python
+d = { 
+  "mouse" : "A small rodent", 
+  "rat" : "A somewhat larger rodent", 
+  "bat" : "A flying rodent",
+  42 : "The answer to life, the universe, and everything"
+  }
+print(d)
+```
+
+What happens if you modify the code above to add an additional 
+definition for "mouse", perhaps "A computer input device", without 
+removing the first definition?  What does this tell you about the 
+`dict` type in Python? 
+
+
+
+
+

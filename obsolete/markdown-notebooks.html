@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Before we begin &#8212; Introduction to Computer Science I</title>
+    <title>Notebooks with MyST Markdown &#8212; Introduction to Computer Science I</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="A Notional Computer" href="01-1-Notional_Computer.html" />
-    <link rel="prev" title="Introduction to Computer Science, part 1" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,14 +111,14 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-0-Ready.html">
    Before we begin
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="01-1-Notional_Computer.html">
+  <a class="reference internal" href="../01-Intro/01-1-Notional_Computer.html">
    A Notional Computer
   </a>
  </li>
@@ -183,7 +181,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/01-Intro/01-0-Ready.md"
+        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/obsolete/markdown-notebooks.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -243,7 +241,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F01-Intro/01-0-Ready.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2Fobsolete/markdown-notebooks.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -271,7 +269,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/01-Intro/01-0-Ready.ipynb"
+        <a href="../_sources/obsolete/markdown-notebooks.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -288,7 +286,7 @@ title="Download notebook file"
       </li>
       
       <li>
-        <a href="../_sources/01-Intro/01-0-Ready.md"
+        <a href="../_sources/obsolete/markdown-notebooks.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -348,48 +346,19 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-python">
-   Why Python
+  <a class="reference internal nav-link" href="#an-example-cell">
+   An example cell
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#install-python-3-on-your-computer">
-   Install Python 3 on Your Computer
+  <a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">
+   Create a notebook with MyST Markdown
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-and-install">
-     Download and Install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#macos-install">
-     MacOS Install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#windows-10-install">
-     Windows 10 Install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linux-install">
-     Linux Install
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#execute-python-statements-and-programs">
-   Execute Python statements and programs
+  <a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">
+   Quickly add YAML metadata for MyST Notebooks
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executing-python-commands">
-     Executing Python commands
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -400,7 +369,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Before we begin</h1>
+                <h1>Notebooks with MyST Markdown</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -411,48 +380,19 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-python">
-   Why Python
+  <a class="reference internal nav-link" href="#an-example-cell">
+   An example cell
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#install-python-3-on-your-computer">
-   Install Python 3 on Your Computer
+  <a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">
+   Create a notebook with MyST Markdown
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-and-install">
-     Download and Install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#macos-install">
-     MacOS Install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#windows-10-install">
-     Windows 10 Install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linux-install">
-     Linux Install
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#execute-python-statements-and-programs">
-   Execute Python statements and programs
+  <a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">
+   Quickly add YAML metadata for MyST Notebooks
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executing-python-commands">
-     Executing Python commands
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -464,131 +404,50 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="before-we-begin">
-<h1>Before we begin<a class="headerlink" href="#before-we-begin" title="Permalink to this headline">#</a></h1>
-<p><em>Introduction to Computer Science</em> is about
-computational thinking.  The principles and techniques
-you will learn are not limited to a single programming
-language, let alone a particular computer or operating system.
-But we have to start somewhere, and that <em>somewhere</em>
-requires us to choose a programming language and to
-install it and supporting tools on the computer that
-you will use to work projects.</p>
-<section id="why-python">
-<h2>Why Python<a class="headerlink" href="#why-python" title="Permalink to this headline">#</a></h2>
-<p>In this course we will use Python version 3, and
-specifically Python version 3.10 or higher.
-Python is widely used in data science and scientific
-computing, in cartography, in web development,
-in machine learning, and in many other domains, but
-that is not why we have chosen it. We have chosen Python 3 because
-we believe it is a good language for <em>learning to program</em>.   Python
-3 is</p>
-<ul class="simple">
-<li><p>Consistent.  There are few “special cases” to remember in Python,
-which makes it easier to remember how things work and to build on
-what you know.</p></li>
-<li><p>Concise.  Python does not require a lot of boilerplate, which
-makes it easier to read example code.</p></li>
-<li><p>Well-provisioned.  Although there are many extras that you <em>could</em>
-add, a standard and straightforward installation of Python is
-enough to build many interesting projects.</p></li>
-</ul>
-<p>That is not to say that Python is a perfect language.  It is
-certainly not the only programming language you will ever want or
-need to learn.   But among the programming langauges available to us
-today, we believe it is an excellent starting point.</p>
-</section>
-<section id="install-python-3-on-your-computer">
-<h2>Install Python 3 on Your Computer<a class="headerlink" href="#install-python-3-on-your-computer" title="Permalink to this headline">#</a></h2>
-<p>Python 3 runs well on a wide variety of computers.  You will
-need a laptop or desktop computer; tablets and phones will not be a
-good environment for learning to program in Python.  The precise
-steps for installing Python 3, as well as the precise commands for
-starting Python programming tools, necessarily varies depending on
-whether you are using Linux, MacOS, or Windows.   We will cover
-the basics first in a generic manner, then provide some detailed
-notes for the most common platforms.</p>
-<section id="download-and-install">
-<h3>Download and Install<a class="headerlink" href="#download-and-install" title="Permalink to this headline">#</a></h3>
-<p>Start by visiting <code class="docutils literal notranslate"><span class="pre">python.org</span></code> with your web browser.</p>
-<p><img alt="Visit Python.org" src="../_images/python-org.png" /></p>
-<p>Select <code class="docutils literal notranslate"><span class="pre">Downloads</span></code> and choose the installer or archive for your
-computer.  Typically you will want the download labeled as “Latest
-Python 3 Release” for MacOS or Windows.  If you are a Linux user,
-select “Source code”.  Then follow directions for your particular
-platform.</p>
-</section>
-<section id="macos-install">
-<h3>MacOS Install<a class="headerlink" href="#macos-install" title="Permalink to this headline">#</a></h3>
-<p>The MacOS installer will work like other MacOS application
-installers. You should not have to do anything extra.</p>
-</section>
-<section id="windows-10-install">
-<h3>Windows 10 Install<a class="headerlink" href="#windows-10-install" title="Permalink to this headline">#</a></h3>
-<p>TBD</p>
-</section>
-<section id="linux-install">
-<h3>Linux Install<a class="headerlink" href="#linux-install" title="Permalink to this headline">#</a></h3>
-<p>You <em>may</em> find it easier to install using <code class="docutils literal notranslate"><span class="pre">apt-get</span></code> or a similar
-package installer for the version of Linux that you use.  You can
-find example instructions in
-<a class="reference external" href="https://docs.python-guide.org/starting/install3/linux/">The Hitchhikers Guide to Linux</a>.<br />
-Alternatively, you can download a “tarball” archive of the sources from
-<a class="reference external" href="http://Python.org">Python.org</a>.   As a Linux user, you are probably familiar with these
-steps, which are similar to installation of many other tools in Linux.</p>
-</section>
-</section>
-<section id="execute-python-statements-and-programs">
-<h2>Execute Python statements and programs<a class="headerlink" href="#execute-python-statements-and-programs" title="Permalink to this headline">#</a></h2>
-<section id="executing-python-commands">
-<h3>Executing Python commands<a class="headerlink" href="#executing-python-commands" title="Permalink to this headline">#</a></h3>
-<p>Python commands (<em>statements</em>) may be executed immediately in a
-<em>console</em>, or stored in a program file (often called a <em>script</em>) for
-execution later.  In this course we will use <em>IDLE</em> both to execute
-statements directly and to edit and execute program files. (Later we
-will explore additional ways to edit and execute Python programs.)</p>
-<p>Once you have
-<a class="reference internal" href="#"><span class="doc std std-doc">installed Python 3 on your computer</span></a>, you
-should be able to start <em>IDLE</em> from the command line.  It should look
-something like this:</p>
-<p><img alt="IDLE shell at start-up" src="../_images/IDLE.png" /></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> symbol is a <em>prompt</em> indicating that
-the Python shell, or console, is ready to
-receive a statement and execute it.</p>
-<p>Try this by typing <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello!&quot;)</span></code> on the
-line with the prompt.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="notebooks-with-myst-markdown">
+<h1>Notebooks with MyST Markdown<a class="headerlink" href="#notebooks-with-myst-markdown" title="Permalink to this headline">#</a></h1>
+<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
+See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
+This page shows off a notebook written in MyST Markdown.</p>
+<section id="an-example-cell">
+<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this headline">#</a></h2>
+<p>With MyST Markdown, you can define code cells with a directive like so:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
 </div>
-<p>What happens if you change to “print” to “Print” or “PRINT”?  Does
-this tell you something about the rules of the Python language?</p>
-<p>Whenever you are curious about some rule or characteristic of the
-Python programming language, you should design and carry out
-micro-experiments to build understanding.  As in a full-blown
-scientific experiment, you will get the most from a micro-experiment
-if you have a specific prediction based on a hypothesis about the
-language.  For example, your hypothesis might be “Python is
-case-insensitive; ‘Print’ and ‘print’ should do the same thing.”<br />
-Your prediction would then be that <code class="docutils literal notranslate"><span class="pre">Print(&quot;Hello&quot;)</span></code> causes “Hello”
-to be printed.  Your experiment would <em>disconfirm</em> this prediction,
-telling you that the hypothesis was incorrect:  Python is case
-sensitive.  Performing little experiments as you work is much faster
-than correcting a lot of code that was built on wrong assumptions!</p>
-<p>Of course there are other ways you can learn details of Python
-language rules. You should already have bookmarked the
-<a class="reference external" href="https://docs.python.org/3/library/index.html">Python library documentation</a>
-in your browser.  (If you haven’t, do it now!)</p>
+<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
+executed with your default Jupyter kernel, and their outputs will be displayed
+in-line with the rest of your content.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
+</div>
 </section>
+<section id="create-a-notebook-with-myst-markdown">
+<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this headline">#</a></h2>
+<p>MyST Markdown notebooks are defined by two things:</p>
+<ol class="simple">
+<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
+See the YAML at the top of this page for example.</p></li>
+<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
+</ol>
+<p>That’s all that is needed to get started!</p>
+</section>
+<section id="quickly-add-yaml-metadata-for-myst-notebooks">
+<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Permalink to this headline">#</a></h2>
+<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -605,7 +464,7 @@ in your browser.  (If you haven’t, do it now!)</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./01-Intro"
+            path: "./obsolete"
         },
         predefinedOutput: true
     }
@@ -619,20 +478,6 @@ in your browser.  (If you haven’t, do it now!)</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction to Computer Science, part 1</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="01-1-Notional_Computer.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">A Notional Computer</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

@@ -93,7 +93,7 @@ const thebe_selector_output = ".output, .cell_output"
         
       
       
-      <img src="../_static/logo.png" class="logo" alt="logo">
+      <img src="../_static/logo-provisional.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Introduction to Computer Science I</h1>
@@ -361,6 +361,16 @@ title="Print to PDF"
      Some Python object types
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists">
+     Lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dictionaries">
+     Dictionaries
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -397,6 +407,16 @@ title="Print to PDF"
      Some Python object types
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists">
+     Lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dictionaries">
+     Dictionaries
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -416,7 +436,7 @@ clear mental model of how your Python programs work.  At first this
 may seem trivial, and hardly any improvement over remembering the
 observable effects of particular sequences of commands.  As you tackle
 larger problems, a clear and accurate mental model will become more
-and more important.  It will be the difference between a huge and
+and more helpful.  It will be the difference between a huge and
 disordered set of particulars, beyond the capacity of human memory,
 and a much smaller, systematic set of basic understandings into
 which it is easier to fit one more piece.</p>
@@ -451,11 +471,46 @@ version 3.10 or greater of Python.</p>
 </section>
 <section id="the-python-notional-computer">
 <h2>The Python Notional Computer<a class="headerlink" href="#the-python-notional-computer" title="Permalink to this headline">#</a></h2>
+<p>A notional computer is like a building toy, perhaps wooden
+blocks, Legos, Tinker Toys, or something similar. The kit comes with a
+handful of basic
+parts that can be combined to build an unlimited
+set of more complex structures. A particular kit provides us both
+some basic parts and some ways of putting them together.  Likewise a
+programming language provides us some basic elements like objects of
+particular types, and ways of building up larger structures from them.
+A <em>program</em> is like a set of directions for constructing and
+manipulating a structure, the <em>execution state</em> of the running program.</p>
 <p>The Python notional computer presents us with a program execution state
 consisting of a set of <em>name spaces</em>.   A name space is an
-association of <em>names</em> with <em>value</em>.  A <em>value</em> (also called an
-<em>object</em>) has a type,
-which determines what we can do with it.</p>
+association of <em>names</em> with <em>value</em>.  A <em>value</em> is a reference to an
+<em>object</em>.  The type of the object determines what we can do with it
+(like the shape of a block).</p>
+<p>We can <em>bind</em> value to a name with <em>assignment</em>, which we write <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">23</span>
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-default" id="id1">
+<img alt="../_images/bind_x_23.svg" src="../_images/bind_x_23.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The name <em>x</em> is bound to a value, which is a reference to
+an object containing the integer 23.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>It is tempting to pronounce this “x equals 23”, because it looks
+like a mathematical equation.  We suggest pronouncing it “x gets
+23”, because it is really a <em>statement</em> or command that binds the
+a reference to an object representing the integer
+to the name “x”.</p>
+<p>One way to see how different this is from the
+“equals” we know from math is to try turning it around — what
+happens if
+you write <code class="docutils literal notranslate"><span class="pre">23</span> <span class="pre">=</span> <span class="pre">x</span></code> instead of <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">23</span></code>?   Try it in IDLE or, if you
+are reading this in a executable format, try modifying the code cell
+above.</p>
 <section id="some-python-object-types">
 <h3>Some Python object types<a class="headerlink" href="#some-python-object-types" title="Permalink to this headline">#</a></h3>
 <p>Python supports the following basic types (as well as some others).</p>
@@ -485,6 +540,9 @@ which determines what we can do with it.</p>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="lists">
+<h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h3>
 <p>Python also gives us ways of combining values into composite objects.
 The combination we will use most are <em>lists</em>, which are sequences of
 other values.  For example, <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">&quot;buckle</span> <span class="pre">my</span> <span class="pre">shoe&quot;]</span></code> is a list of
@@ -494,10 +552,43 @@ dolls).</p>
 <figure class="align-default" id="matryoshka">
 <a class="reference internal image-reference" href="../_images/800px-Matryoshka_transparent.png"><img alt="../_images/800px-Matryoshka_transparent.png" src="../_images/800px-Matryoshka_transparent.png" style="height: 150px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Lists within lists are “nested”, like nested dolls.  (Image by user
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Lists within lists are “nested”, like nested dolls.  (Image by user
 Fanghong in Mediawiki commons, used under CC by SA license.)</span><a class="headerlink" href="#matryoshka" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<p>We can “nest” lists as deeply as we want, e.g.,
+<code class="docutils literal notranslate"><span class="pre">[[&quot;corvids&quot;,</span> <span class="pre">[&quot;crow&quot;,</span> <span class="pre">&quot;raven&quot;]],</span> <span class="pre">[&quot;primates&quot;,</span> <span class="pre">[&quot;lemur&quot;,</span> <span class="pre">&quot;human&quot;]]]</span></code>
+is a list with two elements.  The first element of that list is a
+list with two elements, and the first element of <em>that</em> list is a
+string (“corvids”).</p>
+</section>
+<section id="dictionaries">
+<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h3>
+<p>A <em>dictionary</em>  (type <code class="docutils literal notranslate"><span class="pre">dict</span></code>) is like a table with a column with two
+columns. We could construct a <code class="docutils literal notranslate"><span class="pre">dict</span></code> like the kind of dictionary in
+which we look up word definitions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s2">&quot;mouse&quot;</span> <span class="p">:</span> <span class="s2">&quot;A small rodent&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;rat&quot;</span> <span class="p">:</span> <span class="s2">&quot;A somewhat larger rodent&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;bat&quot;</span> <span class="p">:</span> <span class="s2">&quot;A flying rodent&quot;</span><span class="p">,</span>
+  <span class="mi">42</span> <span class="p">:</span> <span class="s2">&quot;The answer to life, the universe, and everything&quot;</span>
+  <span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;mouse&#39;: &#39;A small rodent&#39;, &#39;rat&#39;: &#39;A somewhat larger rodent&#39;, &#39;bat&#39;: &#39;A flying rodent&#39;, 42: &#39;The answer to life, the universe, and everything&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>What happens if you modify the code above to add an additional
+definition for “mouse”, perhaps “A computer input device”, without
+removing the first definition?  What does this tell you about the
+<code class="docutils literal notranslate"><span class="pre">dict</span></code> type in Python?</p>
 </section>
 </section>
 </section>
@@ -545,7 +636,7 @@ Fanghong in Mediawiki commons, used under CC by SA license.)</span><a class="hea
   
     By Michal Young, Boyana Norris, and Ram Durairajan<br/>
   
-      &copy; Copyright 2022.<br/>
+      &copy; Copyright 2022 University of Oregon.  Creative Commons Share-Alike Attribution license..<br/>
 </p>
         </footer>
     </div>
