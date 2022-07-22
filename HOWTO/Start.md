@@ -79,3 +79,68 @@ Or paste this line directly into your browser bar:
     file:///Users/michal/Dropbox/22F-210/Book/CS210-text/Intro_to_CS/_build/html/index.html        
 ```
 
+## Step 4: Deploy
+
+  Using ghp-import per
+  [https://jupyterbook.org/en/stable/publish/gh-pages.html](https://jupyterbook.org/en/stable/publish/gh-pages.html)
+
+### 4a: Create a branch for derived objects 
+
+Create `gh-pages` branch in forked repository.  You can do this in 
+the web interface to github:  Pull down "branches", search for a 
+"gh-pages" branch, and click on the option to create the branch 
+based on your "main" branch.   
+
+This is a slight abuse of what git 
+branches are intended for, but it is the standard way to create a
+gitub pages site that you populate yourself (rather than using the
+Jekyll process that github provides).
+
+![Search for the gh-pages branch to create it](img/gh-pages-branch.png)
+
+### 4b: Push derived objects to the `gh-pages` branch
+
+This is what `ghp-import` does.   Again, it's not what a branch in
+git is normally designed for, but it is idiomatic on github. 
+
+`ghp-import -n -p -f Intro_to_CS/_build/html`.  
+
+This copies the 
+`_build` subdirectory into the `gh-pages` branch on github, 
+replacing the copy of the `main` branch.  
+End of output should look like 
+
+```commandline
+    Enumerating objects: 235, done.
+    Counting objects: 100% (235/235), done.
+    Delta compression using up to 8 threads
+    Compressing objects: 100% (81/81), done.
+    Writing objects: 100% (235/235), 2.27 MiB | 1.79 MiB/s, done.
+    Total 235 (delta 59), reused 235 (delta 59), pack-reused 0
+    remote: Resolving deltas: 100% (59/59), done.
+    To https://github.com/UO-CS-OER/CS210-text
+     + 7636e01...d5e3c75 gh-pages -> gh-pages (forced update)
+```
+
+## 4c: Github publishes the branch as a pages site
+
+This step is automated in github with no action by you. 
+Github will recognize 
+_the contents of that branch as a github pages site, and create it. 
+In a few minutes, an "environment" for github pages will appear in 
+the github web interface:_ 
+
+![github builds a github-pages environment from the gh-pages 
+  branch](img/github-pages-environ.png)
+
+## 4d: Check your github pages site
+
+Clicking on "github-pages" will bring you to a log of 
+"deployments", i.e., a record of github recognizing an update to 
+the `gh-pages` branch and publishing it.  A "view deployment" 
+button on the right will take you to the actual site, which will 
+have a name based on your repository name.  For example, for the 
+University of Oregon repository at 
+`https://github.com/UO-CS-OER/CS210-text`, the corresponding 
+github pages site is 
+`https://uo-cs-oer.github.io/CS210-text/`. 
