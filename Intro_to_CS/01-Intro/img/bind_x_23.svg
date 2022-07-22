@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="73.125 45 335.25 156.375" width="335.25" height="156.375">
+  <defs>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="Canvas_1" fill-opacity="1" stroke-opacity="1" stroke-dasharray="none" fill="none" stroke="none">
+    <title>Canvas 1</title>
+    <rect fill="white" x="73.125" y="45" width="335.25" height="156.375"/>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_2">
+        <rect x="73.125" y="73.125" width="105.75" height="128.25" fill="#efefef"/>
+      </g>
+      <g id="Graphic_3">
+        <text transform="translate(78.125 50)" fill="#666">
+          <tspan font-family="Helvetica Neue" font-size="12" fill="#666" x="3907985e-19" y="11">Namespace</tspan>
+        </text>
+      </g>
+      <g id="Graphic_4">
+        <rect x="201.375" y="73.125" width="207" height="128.25" fill="#efefef"/>
+      </g>
+      <g id="Graphic_5">
+        <text transform="translate(206.375 53.789)" fill="#666">
+          <tspan font-family="Helvetica Neue" font-size="12" fill="#666" x="0" y="11">Object space</tspan>
+        </text>
+      </g>
+      <g id="Group_7">
+        <g id="Graphic_8">
+          <rect x="120.375" y="84.375" width="37.125" height="34.875" fill="white"/>
+          <rect x="120.375" y="84.375" width="37.125" height="34.875" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_6">
+          <rect x="83.25" y="84.375" width="37.125" height="34.875" fill="white"/>
+          <rect x="83.25" y="84.375" width="37.125" height="34.875" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(88.25 92.5885)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="9.4185" y="15">x</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Graphic_9">
+        <rect x="229.5" y="84.375" width="81.352" height="34.875" fill="white"/>
+        <rect x="229.5" y="84.375" width="81.352" height="34.875" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(234.5 92.5885)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="26.78" y="15">23</tspan>
+        </text>
+      </g>
+      <g id="Graphic_11">
+        <text transform="translate(235.493 118.625)" fill="#666">
+          <tspan font-family="Helvetica Neue" font-size="12" fill="#666" x="9023893e-19" y="11">int</tspan>
+        </text>
+      </g>
+      <g id="Graphic_12">
+        <circle cx="141.1875" cy="101.8125" r="7.31251168465761" fill="#ccc"/>
+      </g>
+      <g id="Line_13">
+        <line x1="148.5" y1="101.8125" x2="219.6" y2="101.8125" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
