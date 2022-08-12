@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Before we begin" href="01-0-Ready.html" />
+    <link rel="prev" title="A Course in Computational Thinking" href="01-0-Ready.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -115,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01-0-Ready.html">
-   Before we begin
+   A Course in Computational Thinking
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -357,8 +357,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#some-python-object-types">
-     Some Python object types
+    <a class="reference internal nav-link" href="#some-python-data-types">
+     Some Python data types
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -372,6 +372,11 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scopes">
+   Scopes
+  </a>
  </li>
 </ul>
 
@@ -403,8 +408,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#some-python-object-types">
-     Some Python object types
+    <a class="reference internal nav-link" href="#some-python-data-types">
+     Some Python data types
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -418,6 +423,11 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scopes">
+   Scopes
+  </a>
  </li>
 </ul>
 
@@ -440,6 +450,17 @@ and more helpful.  It will be the difference between a huge and
 disordered set of particulars, beyond the capacity of human memory,
 and a much smaller, systematic set of basic understandings into
 which it is easier to fit one more piece.</p>
+<p>Depending on your background in computing, much of this chapter may
+be review for you.  If you have learned to program in a different
+programming
+language, such as C or Java or Javascript, you may note some
+differences between concepts you are familiar with and our notional
+Python computer.  But even if you have programmed before in Python,
+and feel that you have a good grasp of basic concepts such as
+variables and types, you should read this chapter with some care to
+ensure that your mental model is consistent with the model that we
+will rely upon as we dive deeper into computational problem solving
+through Python programming.</p>
 <section id="languages-present-notional-computers">
 <h2>Languages present notional computers<a class="headerlink" href="#languages-present-notional-computers" title="Permalink to this headline">#</a></h2>
 <p>A programming language presents us an abstraction of a physical
@@ -502,17 +523,19 @@ an object containing the integer 23.</span><a class="headerlink" href="#id1" tit
 </figure>
 <p>It is tempting to pronounce this “x equals 23”, because it looks
 like a mathematical equation.  We suggest pronouncing it “x gets
-23”, because it is really a <em>statement</em> or command that binds the
+23”, because it is really a command that binds
 a reference to an object representing the integer
 to the name “x”.</p>
 <p>One way to see how different this is from the
 “equals” we know from math is to try turning it around — what
-happens if
-you write <code class="docutils literal notranslate"><span class="pre">23</span> <span class="pre">=</span> <span class="pre">x</span></code> instead of <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">23</span></code>?   Try it in IDLE or, if you
-are reading this in a executable format, try modifying the code cell
-above.</p>
-<section id="some-python-object-types">
-<h3>Some Python object types<a class="headerlink" href="#some-python-object-types" title="Permalink to this headline">#</a></h3>
+happens if you write <code class="docutils literal notranslate"><span class="pre">23</span> <span class="pre">=</span> <span class="pre">x</span></code> instead of <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">23</span></code>?   Try it in IDLE or,
+if you are reading this in a executable format, try modifying the code
+cell above.</p>
+<p>Bindings can appear in different <em>scopes</em>, also known as <em>name
+spaces</em>.  We will say more about that after introducing a few of
+Python’s data types.</p>
+<section id="some-python-data-types">
+<h3>Some Python data types<a class="headerlink" href="#some-python-data-types" title="Permalink to this headline">#</a></h3>
 <p>Python supports the following basic types (as well as some others).</p>
 <table class="colwidths-auto table">
 <thead>
@@ -540,10 +563,54 @@ above.</p>
 </tr>
 </tbody>
 </table>
+<p>Every value in Python has a type.  For example, <code class="docutils literal notranslate"><span class="pre">0</span></code> has type <code class="docutils literal notranslate"><span class="pre">int</span></code>,
+but <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code> has type <code class="docutils literal notranslate"><span class="pre">str</span></code>.   The meaning of an operation like
+addition depends on the types of values.  To see this clearly,
+consider addition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;111&quot;</span> <span class="o">+</span> <span class="s2">&quot;222&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;111222&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>For strings (type <code class="docutils literal notranslate"><span class="pre">str</span></code>), addition means concatenation.  What
+happens if you remove the quotes, so that the code cell above is
+addition of <code class="docutils literal notranslate"><span class="pre">int</span></code> values instead of <code class="docutils literal notranslate"><span class="pre">str</span></code> values?  What if you make
+one of the values an integer, but not the other?   (Try it in IDLE
+or in the code cell above).</p>
+<p>Sometimes an operation on one values of one type can produce a value
+of another type.  For example, the values <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code> are both
+integers (type <code class="docutils literal notranslate"><span class="pre">int</span></code>).  What is the value of <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">/</span> <span class="pre">2</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Besides common arithmetic operations like <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code>, the basic
+types have many built-in <em>functions</em> like <code class="docutils literal notranslate"><span class="pre">max</span></code> and
+<code class="docutils literal notranslate"><span class="pre">round</span></code>.   For example, <code class="docutils literal notranslate"><span class="pre">max(5,</span> <span class="pre">7)</span></code> and <code class="docutils literal notranslate"><span class="pre">max(7,</span> <span class="pre">5)</span></code> both produce the
+value <code class="docutils literal notranslate"><span class="pre">7</span></code>.   We say call <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">7</span></code> the <em>arguments</em> of the <code class="docutils literal notranslate"><span class="pre">max</span></code>
+function in this example, and say that it <em>returns</em> 7.   There is
+no difference between <em>arguments</em> of a function like “max” and
+<em>operands</em> of an operator like <code class="docutils literal notranslate"><span class="pre">+</span></code> except in how we write them.</p>
 </section>
 <section id="lists">
 <h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h3>
-<p>Python also gives us ways of combining values into composite objects.
+<p>Python also gives us ways of combining values into composite
+objects.
 The combination we will use most are <em>lists</em>, which are sequences of
 other values.  For example, <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">&quot;buckle</span> <span class="pre">my</span> <span class="pre">shoe&quot;]</span></code> is a list of
 three elements, two <code class="docutils literal notranslate"><span class="pre">int</span></code> objects and a <code class="docutils literal notranslate"><span class="pre">str</span></code> object.  The elements of
@@ -558,9 +625,17 @@ Fanghong in Mediawiki commons, used under CC by SA license.)</span><a class="hea
 </figure>
 <p>We can “nest” lists as deeply as we want, e.g.,
 <code class="docutils literal notranslate"><span class="pre">[[&quot;corvids&quot;,</span> <span class="pre">[&quot;crow&quot;,</span> <span class="pre">&quot;raven&quot;]],</span> <span class="pre">[&quot;primates&quot;,</span> <span class="pre">[&quot;lemur&quot;,</span> <span class="pre">&quot;human&quot;]]]</span></code>
-is a list with two elements.  The first element of that list is a
+denotes a list with two elements.  The first element of that list is a
 list with two elements, and the first element of <em>that</em> list is a
 string (“corvids”).</p>
+<figure class="align-default" id="nested">
+<a class="reference internal image-reference" href="../_images/nested-list.png"><img alt="../_images/nested-list.png" src="../_images/nested-list.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">List elements can be references to other lists, as well as other
+kinds of object, as illustrated by this representation of
+<code class="docutils literal notranslate"><span class="pre">[[&quot;corvids&quot;,</span> <span class="pre">[&quot;crow&quot;,</span> <span class="pre">&quot;raven&quot;]],</span> <span class="pre">[&quot;primates&quot;,</span> <span class="pre">[&quot;lemur&quot;,</span> <span class="pre">&quot;human&quot;]]]</span></code></span><a class="headerlink" href="#nested" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="dictionaries">
 <h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h3>
@@ -585,11 +660,84 @@ which we look up word definitions:</p>
 </div>
 </div>
 </div>
-<p>What happens if you modify the code above to add an additional
+<p>What happens if you modify the code above to add another
 definition for “mouse”, perhaps “A computer input device”, without
 removing the first definition?  What does this tell you about the
 <code class="docutils literal notranslate"><span class="pre">dict</span></code> type in Python?</p>
 </section>
+</section>
+<section id="scopes">
+<h2>Scopes<a class="headerlink" href="#scopes" title="Permalink to this headline">#</a></h2>
+<p>Binding of a value to a name takes place in a <em>scope</em>.  The same
+name might have different bindings in different scopes.  In
+particular, execution of a function creates a scope for variables
+that are bound within the function.</p>
+<p>You can think of scopes as being stacked one atop another.  When we
+begin executing a function, a new scope is stacked atop the others.<br />
+When it finishes, that scope is removed from the stack, uncovering
+the scope that was previously on top.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Global scope</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">19</span>
+
+<span class="k">def</span> <span class="nf">example</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">77</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is bound to </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> within example&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y is bound to </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> within example&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;m is bound to </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2"> within example&quot;</span><span class="p">)</span>
+
+<span class="c1"># Executing &quot;example&quot; creates the new scope</span>
+<span class="n">example</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># When &quot;example&quot; finishes, the new scope is deleted</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;After example, x is bound to </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;After example, y is bound to </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;After example, m is bound to </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x is bound to 23 within example
+y is bound to 77 within example
+m is bound to 23 within example
+After example, x is bound to 23
+After example, y is bound to 42
+After example, m is bound to 19
+</pre></div>
+</div>
+</div>
+</div>
+<p>During execution of <code class="docutils literal notranslate"><span class="pre">example(x)</span></code>, the scopes created by the example
+above look like this:</p>
+<p><img alt="Scopes during execution of " src="../_images/bind_stack.png" /></p>
+<p>There are several things to notice:</p>
+<ul class="simple">
+<li><p>Although there are two name spaces (scopes) in the example, there
+is only one object space.</p></li>
+<li><p>When we call <code class="docutils literal notranslate"><span class="pre">example(x)</span></code>, the value
+bound to <code class="docutils literal notranslate"><span class="pre">x</span></code> in the global scope is bound to <code class="docutils literal notranslate"><span class="pre">m</span></code> in the scope of
+<code class="docutils literal notranslate"><span class="pre">example(x)</span></code>.  We say that the “actual argument” <code class="docutils literal notranslate"><span class="pre">x</span></code> is bound to
+the “formal argument” <code class="docutils literal notranslate"><span class="pre">m</span></code> in <code class="docutils literal notranslate"><span class="pre">example(m:</span> <span class="pre">int)</span></code>.  This is always
+how values are passed to functions in Python.</p></li>
+<li><p>The same value, an <code class="docutils literal notranslate"><span class="pre">int</span></code> object containing the integer 23, is
+bound to more than one name.  This is called <em>aliasing</em>.</p></li>
+</ul>
+<p>Aliasing of the same int object to the name <code class="docutils literal notranslate"><span class="pre">m</span></code> in the
+execution of <code class="docutils literal notranslate"><span class="pre">example</span></code>, and to <code class="docutils literal notranslate"><span class="pre">x</span></code> in the global namespace, is
+hardly noticeable.  We might compute some new value by adding the
+values of 23 and 42, but that would be an entirely new <code class="docutils literal notranslate"><span class="pre">int</span></code> object.
+We would not be changing the int object <code class="docutils literal notranslate"><span class="pre">23</span></code> mean something else
+(thank goodness).  We call <code class="docutils literal notranslate"><span class="pre">int</span></code> objects <em>immutable</em> because they
+can never change value.</p>
+<p>You can watch the example in action with
+<a class="reference external" href="https://pythontutor.com/render.html#code=%23%20Global%20scope%0Ax%20%3D%2023%0Ay%20%3D%2042%0Am%20%3D%2019%0A%0Adef%20example%28m%3A%20int%29%3A%0A%20%20%20%20y%20%3D%2077%0A%20%20%20%20print%28f%22x%20is%20bound%20to%20%7Bx%7D%20within%20example%22%29%0A%20%20%20%20print%28f%22y%20is%20bound%20to%20%7By%7D%20within%20example%22%29%0A%20%20%20%20print%28f%22m%20is%20bound%20to%20%7Bm%7D%20within%20example%22%29%0A%0A%23%20Executing%20%22example%22%20creates%20the%20new%20scope%0Aexample%28x%29%0A%23%20When%20%22example%22%20finishes,%20the%20new%20scope%20is%20deleted%0A%0Aprint%28f%22After%20example,%20x%20is%20bound%20to%20%7Bx%7D%22%29%0Aprint%28f%22After%20example,%20y%20is%20bound%20to%20%7By%7D%22%29%0Aprint%28f%22After%20example,%20m%20is%20bound%20to%20%7Bm%7D%22%29&amp;cumulative=false&amp;curInstr=7&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Python Tutor</a>.
+It should look very similar to our illustration above, except Python
+Tutor will not draw the <code class="docutils literal notranslate"><span class="pre">int</span></code> objects in the object space.  They
+really are objects, but Python Tutor draws the integer values
+without the objects that hold them to reduce clutter.</p>
 </section>
 </section>
 
@@ -624,7 +772,7 @@ removing the first definition?  What does this tell you about the
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Before we begin</p>
+            <p class="prev-next-title">A Course in Computational Thinking</p>
         </div>
     </a>
 </div>
@@ -636,7 +784,7 @@ removing the first definition?  What does this tell you about the
   
     By Michal Young, Boyana Norris, and Ram Durairajan<br/>
   
-      &copy; Copyright 2022 University of Oregon.  Creative Commons Share-Alike Attribution license..<br/>
+      &copy; Copyright 2022 University of Oregon.  Creative Commons Share-Alike Attribution license.<br/>
 </p>
         </footer>
     </div>
