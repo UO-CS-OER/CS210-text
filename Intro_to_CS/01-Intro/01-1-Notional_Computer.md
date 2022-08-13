@@ -53,43 +53,162 @@ collection of circuits, it is possible to _learn to program_, and
 not only _learn to program this particular machine_.  
 
 The notional computers presented by different programming languages, 
-such as Python, Javascript, Java, and C++, may differ in some 
-important ways, and yet have many things in common.  As your 
+such as Python, Javascript, Java, and C++, differ in some 
+important ways, yet have many things in common.  As your 
 knowledge grows, you will likely use several languages, sometimes 
 even on the same project.  A clear understanding of what those 
 notional computers have in common will help you transfer your 
 understanding of programming in one language to others.  A clear 
 understanding of their differences will help you keep them straight, 
-choose well, and use them together. 
+choose well, and use them together.  
 
 For now it is best to focus on a single programming language and the 
-notional computer it presents us.  We have chosen Python as an 
-excellent first language, because it presents an exceptionally 
+notional computer it presents us.  We have chosen Python as a first 
+language because it presents an exceptionally 
 simple and uniform notional computer.  In particular we will use
-version 3.10 or greater of Python. 
+version 3.10 or greater of Python. We will occasionally note ways 
+in which the Python notional computer resembles that of other 
+languages, and ways in which it differs from languages that you may 
+already be familiar with or that you are likely to use in the future. 
 
 ## The Python Notional Computer
 
 A notional computer is like a building toy, perhaps wooden
-blocks, Legos, Tinker Toys, or something similar. The kit comes with a
-handful of basic
+blocks, Legos, or Tinker Toys. The kit comes 
+with a handful of basic
 parts that can be combined to build an unlimited
 set of more complex structures. A particular kit provides us both
 some basic parts and some ways of putting them together.  Likewise a 
 programming language provides us some basic elements like objects of 
 particular types, and ways of building up larger structures from them. 
 A _program_ is like a set of directions for constructing and 
-manipulating a structure, the _execution state_ of the running program. 
+manipulating a structure, the _execution state_ of the running program.
 
-The Python notional computer presents us with a program execution state
-consisting of a set of _name spaces_.   A name space is an 
-association of _names_ with _value_.  A _value_ is a reference to an 
-_object_.  The type of the object determines what we can do with it 
-(like the shape of a block). 
+### Basic Python data types
 
-We can _bind_ value to a name with _assignment_, which we write `=`. 
+Python supports the following basic types (as well as some others).
 
-```{code-cell} python
+|  Python type |  Meaning  | Example |
+|--------------|-----------|---------|
+| int | Integer; represented precisely. | 42 |Python integers can be arbitrarily large |
+| float | Floating point, an approximation of a real number. | 3.1415 |
+| str | String, which is what we call text. Strings may contain many kinds of characters, including Ελληνικά and 漢子.| "Hello world" | 
+| bool | Boolean (truth value) | False |
+
+Every value in Python has a type.  For example, `0` has type `int`, 
+but `"0"` has type `str`.   The meaning of an operation like 
+addition depends on the types of values.  To see this clearly, 
+consider addition.   
+
+```{code-cell} python3
+"111" + "222"
+```
+
+For strings (type `str`), addition means concatenation.  What 
+happens if you remove the quotes, so that the code cell above is 
+addition of `int` values instead of `str` values?  What if you make 
+one of the values an integer, but not the other?   (Try it in IDLE 
+or in the code cell above). 
+
+Sometimes an operation on values of one type can produce a value 
+of another type.  For example, the values `5` and `2` are both 
+integers (type `int`).  What is the value of `5 / 2`?
+
+```{code-cell} python3
+5 / 2
+```
+
+Besides common arithmetic operations like `+` and `-`, the basic 
+types have many built-in _functions_ like `max` and 
+`round`.   For example, `max(5, 7)` and `max(7, 5)` both produce the 
+value `7`.   We say call `5` and `7` the _arguments_ of the `max` 
+function in this example, and we say it _returns_ 7.  
+
+Just as we can build complex expressions like `(5 + 3) / 2` by 
+combining operations like `+` and `/`, we can use the result of one 
+function as an argument to another, like `max(min(2, 3), 7)`.  We 
+can also freely mix function calls and operations, like
+`max(3 + 7, 8)` or `min(3, 7) + len("Some text")`. 
+
+There is 
+no difference between _arguments_ of a function like "max" and 
+_operands_ of an operator like `+` except in how we write them.  
+
+```{code-cell} python3
+min(3, 7) + len("Some text")
+```
+
+### Collections 
+
+Python also gives us ways of combining values in composite 
+objects, called _collections_.  
+
+### Lists 
+
+The collections we will use most are _lists_, which are sequences of 
+other values.  For example, `[1, 2, "buckle my shoe"]` is a list of
+three elements.  The first two elements are `int` (integer) objects and 
+the 
+third is a 
+`str` (string) object.  The elements of
+a list may also be lists (we call this _nesting_, like matryoshka 
+dolls).
+
+```{figure} img/800px-Matryoshka_transparent.png
+:height: 150px
+:name: Matryoshka
+
+Lists within lists are "nested", like nested dolls.  (Image by user 
+Fanghong in Mediawiki commons, used under CC by SA license.) 
+```
+
+We can _nest_ lists as deeply as we like. 
+`[["corvids", ["crow", "raven"]], ["primates", ["lemur", "human"]]]`
+denotes a list with two elements.  The first element of that list is a 
+list with two elements, and the first element of _that_ list is a 
+string ("corvids").   
+
+```{figure} img/nested-list.png
+:height: 300px
+:name: nested
+
+List elements can be references to other lists, as well as other
+kinds of object, as illustrated by this representation of 
+`[["corvids", ["crow", "raven"]], ["primates", ["lemur", "human"]]]`
+```
+
+
+### Dictionaries
+
+A _dictionary_ collection (type `dict`) is like a table with a column 
+with two 
+columns. We could construct a `dict` like the kind of dictionary in 
+which we look up word definitions: 
+
+```{code-cell} python3
+d = { 
+  "mouse" : "A small rodent", 
+  "rat" : "A somewhat larger rodent", 
+  "bat" : "A flying rodent",
+  42 : "The answer to life, the universe, and everything"
+  }
+print(d)
+```
+
+What happens if you modify the code above to add another 
+definition for "mouse", perhaps "A computer input device", without 
+removing the first definition?  What does this tell you about the 
+`dict` type in Python?   (Try it in IDLE or by editing the code cell 
+above.)
+
+## Binding
+
+As a Python program runs, the _execution state_ is modified. 
+An important component of the execution state is a set of _bindings_,
+which are associations of names with objects that contain values. 
+We can _bind_ a name with _assignment_, which we write `=`. 
+
+```{code-cell} python3
 x = 23
 ```
 
@@ -111,127 +230,132 @@ happens if you write `23 = x` instead of `x = 23`?   Try it in IDLE or,
 if you are reading this in a executable format, try modifying the code
 cell above. 
 
-Bindings can appear in different _scopes_, also known as _name 
-spaces_.  We will say more about that after introducing a few of 
-Python's data types. 
+We call `x` a _variable_ because it can be bound to different values 
+at different times as the program executes.  If we have an 
+assignment like `x = y + 2`, the right-hand side of the assignment 
+(`y + 2`) is evaluated first, using the current binding of `y`, and 
+then the result is bound to `x`.  We can even use a current binding of 
+a variable to compute a new binding for the same variable: 
 
-
-### Some Python data types
-
-Python supports the following basic types (as well as some others).
-
-|  Python type |  Meaning  | Example |
-|--------------|-----------|---------|
-| int | Integer; represented precisely. | 42 |Python integers can be arbitrarily large |
-| float | Floating point, an approximation of a real number. | 3.1415 |
-| str | String, which is what we call text. Strings may contain many kinds of characters, including Ελληνικά and 漢子.| "Hello world" | 
-| bool | Boolean (truth value) | False |
-
-Every value in Python has a type.  For example, `0` has type `int`, 
-but `"0"` has type `str`.   The meaning of an operation like 
-addition depends on the types of values.  To see this clearly, 
-consider addition.   
-
-```{code-cell} python
-"111" + "222"
+```{code-cell}  python3
+x = 7
+print(x)
+x = x + 2
+print(x)
 ```
 
-For strings (type `str`), addition means concatenation.  What 
-happens if you remove the quotes, so that the code cell above is 
-addition of `int` values instead of `str` values?  What if you make 
-one of the values an integer, but not the other?   (Try it in IDLE 
-or in the code cell above). 
+## Objects and Values
 
-Sometimes an operation on one values of one type can produce a value 
-of another type.  For example, the values `5` and `2` are both 
-integers (type `int`).  What is the value of `5 / 2`?
+When we say that a variable like `x` has a value like `9`, we really 
+mean that `x` is bound to an object, and the object contains the 
+`int` value `9`.  It is easier to ignore that detail and
+just say that 
+`x` "has the value" 
+`9`.  Often that is just fine.
 
-```{code-cell} python
-5 / 2
+The distinction between binding to a value and binding to an object 
+containing a value matters when we are dealing with composite 
+_collection_ objects like lists and dictionaries.  It is possible 
+for two different names to be bound to the same collection object.  
+Moreover, the value of a collection object can be modified.  For 
+example, when we add an element to a list with `append`, we do not 
+get a new, longer list object.  Rather, we _mutate_ (that is, change)
+the value in the existing list object.  
+
+Consider the following. 
+
+```{code-cell} python3
+a = ["one", "two", "three"]
+b = ["one", "two", "three"]
+c = b
+c.append("four")
+print(a)
+print(b)
+print(c)
 ```
 
-Besides common arithmetic operations like `+` and `-`, the basic 
-types have many built-in _functions_ like `max` and 
-`round`.   For example, `max(5, 7)` and `max(7, 5)` both produce the 
-value `7`.   We say call `5` and `7` the _arguments_ of the `max` 
-function in this example, and say that it _returns_ 7.   There is 
-no difference between _arguments_ of a function like "max" and 
-_operands_ of an operator like `+` except in how we write them.
+Can you explain what happens when we execute the Python code above?  
+It helps to have a mental picture of the objects bound to the 
+variables `a`, `b`, and `c`: 
 
-### Lists 
+```{figure} img/bind_alias_before.png
 
-Python also gives us ways of combining values into composite 
-objects.
-The combination we will use most are _lists_, which are sequences of 
-other values.  For example, `[1, 2, "buckle my shoe"]` is a list of
-three elements, two `int` objects and a `str` object.  The elements of
-a list may also be lists (we call this _nesting_, like matryoshka 
-dolls).
-
-```{figure} img/800px-Matryoshka_transparent.png
-:height: 150px
-:name: Matryoshka
-
-Lists within lists are "nested", like nested dolls.  (Image by user 
-Fanghong in Mediawiki commons, used under CC by SA license.) 
+Variables _b_ and _c_ are bound to the same `list` object. 
+Variable _a_ is bound to a different object, although it
+contains the same `str` elements.   We say _b_ and _c_
+are _aliases_.   
 ```
 
-We can "nest" lists as deeply as we want, e.g., 
-`[["corvids", ["crow", "raven"]], ["primates", ["lemur", "human"]]]`
-denotes a list with two elements.  The first element of that list is a 
-list with two elements, and the first element of _that_ list is a 
-string ("corvids").   
+When we executed `c.append("four")`, we change the value of the 
+object that both variable `c` and variable `b` are bound to: 
 
-```{figure} img/nested-list.png
-:height: 300px
-:name: nested
+```{figure} img/bind_alias_before.png
 
-List elements can be references to other lists, as well as other
-kinds of object, as illustrated by this representation of 
-`[["corvids", ["crow", "raven"]], ["primates", ["lemur", "human"]]]`
+Variables _b_ and _c_ are bound to the same `list` object. 
+Variable _a_ is bound to a different object, although it
+contains the same `str` elements.   We say _b_ and _c_
+are _aliases_.   
 ```
 
+You may be tempted to skip over this part of the notional computer 
+state without fully understanding it.  Don't!  Although it seems 
+confusing at first, it is the key to making sense of much that 
+follows.  You must understand that two variables can be bound to the 
+same object, so that changing (_mutating_) the value of that object 
+changes the value associated with both variables.  We will see that 
+this is actually a powerful tool we can use when we write new 
+_functions_. 
 
-### Dictionaries
+## Scopes and Functions
 
-A _dictionary_  (type `dict`) is like a table with a column with two 
-columns. We could construct a `dict` like the kind of dictionary in 
-which we look up word definitions: 
+So far we have considered a single _name space_ in which the name of 
+a variable can be bound to an object containing a value.  If we had 
+only a single name space, it would be very difficult to write large 
+and complex programs.  Such a program might have thousands of 
+variables, which would force us to give them names like
+`angle_x_btwn_fuselage_and_main_fin`.  Programming would be 
+unpleasant, and reading programs written by others would be even 
+more unpleasant. 
 
-```{code-cell} python
-d = { 
-  "mouse" : "A small rodent", 
-  "rat" : "A somewhat larger rodent", 
-  "bat" : "A flying rodent",
-  42 : "The answer to life, the universe, and everything"
-  }
-print(d)
+Python makes it easier for us to use short but meaningful names by 
+allowing us to have more than one set of bindings, called _scopes_. 
+The same variable name can have different bindings in different scopes.
+
+In particular, execution of a function creates a scope for variables 
+that are bound within the function.  In addition to the built-in 
+functions like `max` and `len`, we can write our own functions.  We 
+call our own functions just like we call the built-in functions. 
+
+```{code-cell} python3
+def middle(x: int, y: int) -> int: 
+  """Returns the an integer roughly midway between x and y"""
+  result = (x + y) // 2
+  return result
+  
+a = middle(12, 16)
+print(a)
 ```
 
-What happens if you modify the code above to add another 
-definition for "mouse", perhaps "A computer input device", without 
-removing the first definition?  What does this tell you about the 
-`dict` type in Python? 
-
-## Scopes
-
-Binding of a value to a name takes place in a _scope_.  The same 
-name might have different bindings in different scopes.  In 
-particular, execution of a function creates a scope for variables 
-that are bound within the function.  
+In the code cell above, integers `12` and `16` are passed as 
+_arguments_ to function `middle`.  Objects containing these `int` 
+values are bound to variables `x` and `y` in a _scope_ (separate 
+name space) when `middle` begins execution.  This _scope_ is 
+discarded when function `middle` finishes execution by returning the 
+result value. 
 
 You can think of scopes as being stacked one atop another.  When we 
-begin executing a function, a new scope is stacked atop the others.  
+begin executing a function, a new scope is stacked atop the others.
 When it finishes, that scope is removed from the stack, uncovering
 the scope that was previously on top.  
 
-```{code-cell} python
+```{code-cell} python3
 # Global scope
 x = 23
 y = 42
 m = 19
 
 def example(m: int):
+    """Example to illustrate scope"""
     y = 77
     print(f"x is bound to {x} within example")
     print(f"y is bound to {y} within example")
@@ -279,7 +403,21 @@ Tutor will not draw the `int` objects in the object space.  They
 really are objects, but Python Tutor draws the integer values 
 without the objects that hold them to reduce clutter. 
 
+## Control Flow:  Loops and Decisions
 
+The operations we have performed so far have been very simple.  We 
+can build up more complex operations by writing and calling 
+functions, and in fact this is a fundamental tool in composing 
+programs.  We need one more kind of "glue" for constructing more 
+complex programs from simple parts:  Control flow. 
+
+We have already written sequences of commands (statements).  We did 
+not say explicitly that they are executed in order, one after the 
+other, but you likely inferred that even if you were not previously 
+familiar with a sequential, imperative programming language like 
+Python.  (There are other kinds of languages, but _imperative_ 
+languages that modify an execution _state_ through a sequence of 
+commands are most common.)  
 
 
 
