@@ -36,6 +36,7 @@ ensure that your mental model is consistent with the model that we
 will rely upon as we dive deeper into computational problem solving 
 through Python programming. 
 
+
 ## Languages present notional computers 
 
 A programming language presents us an abstraction of a physical 
@@ -137,6 +138,7 @@ _operands_ of an operator like `+` except in how we write them.
 ```{code-cell} python3
 min(3, 7) + len("Some text")
 ```
+
 
 ### Collections 
 
@@ -343,6 +345,22 @@ name space) when `middle` begins execution.  This _scope_ is
 discarded when function `middle` finishes execution by returning the 
 result value. 
 
+Note the syntax of a Python function.  The body of the function is 
+indented.  The _head_ of the function indicates the _formal 
+arguments_ (`x` and `y` in this case) and their types, as well as 
+the type of result the function will return.  The number and types 
+of the formal arguments and the type of the result are called the 
+_signature_ of the function.  You can think of them as a (part of) a 
+contract between the function and code that calls the function. The 
+rest of the contract is given by the _docstring comment_ immediately 
+after the head.  In addition to being visible in your Python source 
+code, the docstring comment is available through the `help` function:
+
+```{code-cell}  python3
+help(middle)
+```
+
+
 You can think of scopes as being stacked one atop another.  When we 
 begin executing a function, a new scope is stacked atop the others.
 When it finishes, that scope is removed from the stack, uncovering
@@ -418,6 +436,99 @@ familiar with a sequential, imperative programming language like
 Python.  (There are other kinds of languages, but _imperative_ 
 languages that modify an execution _state_ through a sequence of 
 commands are most common.)  
+
+### Decisions: The "if" statement
+
+Python provides an `if` 
+construct for choosing between possible actions.  We'll illustrate 
+it with a very simple example: 
+
+```{code-cell} python3
+x = 17
+y = 30
+if x > y: 
+    x_y_max = x
+else: 
+    x_y_max = y
+print(x_y_max)
+```
+
+We can _nest_ `if` statements within other `if` statements: 
+
+```{code-cell} python3
+x = 17
+y = 30
+z = 15
+if x > y: 
+    if x > z:
+      biggest = x
+    else:
+      biggest = z
+else:
+    if y > z:
+      biggest = y
+    else: 
+      biggest = z
+print(biggest)
+```
+
+Sometimes we can write simpler, clearer code by using `elif` instead of 
+nesting `if` statements.  Combining comparisons with `and` and `or` 
+can also help.  
+
+```{code-cell} python3
+x = 17
+y = 30
+z = 15
+if x > y and x > z:
+  biggest = x
+elif y > x and y > z:
+  biggest = y
+else:
+  biggest = z
+print(biggest)
+```
+
+```{note}
+We have chosen an over-simplified example to illustrate `if` and 
+`elif`.  An even better way to find the largest of three values 
+would be to use Python's built-in `max` function.
+```
+
+### Repetition (looping): `for` 
+
+Often we need to repeat the same action with different values.  Most 
+commonly we will want to perform an action with each element of a 
+collection (e.g., a `list` or `dict` object).  Python lets us do 
+this with a _for loop_, like this: 
+
+```{code-cell} python3
+animals = ["elephant", "tapir", "manatee"]
+for pet in animals:
+    print(pet)
+```
+
+Typically, when we _loop through_ a collection of objects, we 
+accumulate some information about the collection as a whole. Suppose,
+for example, we wanted to determine the number of characters 
+(letters) in all the animal names together.  We would _initialize_ a 
+total just before the loop, then _accumulate_ values within the loop.
+
+```{code-cell} python3
+animals = ["elephant", "tapir", "manatee"]
+total_length = 0
+for pet in animals:
+    total_length = total_length + len(pet)
+print(total_length)
+```
+
+This is such a common _pattern_ that it has a name, the _accumulator 
+pattern_.  
+
+We will see many variations on `for` loops and on the accumulator 
+pattern in projects.  There are other kinds of loops in Python (e.g.,
+a `while` loop repeats as long as some condition is true), but `for` 
+loops are most common. 
 
 
 

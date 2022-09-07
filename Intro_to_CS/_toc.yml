@@ -3,6 +3,9 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: 01-Intro/01-0-Ready.md
-- file: 01-Intro/01-1-Notional_Computer.md
+parts:
+  - caption: 01 Getting a Start
+    chapters:
+    - file: 01-Intro/01-01-Prospectus.md
+    - file: 01-Intro/01-02-Install.md
+    - file: 01-Intro/01-03-Kickstart.md
