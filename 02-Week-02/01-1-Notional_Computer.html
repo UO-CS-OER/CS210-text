@@ -52,7 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="A Course in Computational Thinking" href="01-0-Ready.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -112,15 +111,25 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  01 Getting a Start
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="01-0-Ready.html">
+  <a class="reference internal" href="../01-Intro/01-01-Prospectus.html">
    A Course in Computational Thinking
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   A Notional Computer
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-02-Install.html">
+   Installing Python and IDLE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-03-Kickstart.html">
+   Python Programming Kickstart
   </a>
  </li>
 </ul>
@@ -182,7 +191,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/01-Intro/01-1-Notional_Computer.md"
+        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/02-Week-02/01-1-Notional_Computer.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -242,7 +251,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F01-Intro/01-1-Notional_Computer.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F02-Week-02/01-1-Notional_Computer.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -270,7 +279,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/01-Intro/01-1-Notional_Computer.ipynb"
+        <a href="../_sources/02-Week-02/01-1-Notional_Computer.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -287,7 +296,7 @@ title="Download notebook file"
       </li>
       
       <li>
-        <a href="../_sources/01-Intro/01-1-Notional_Computer.md"
+        <a href="../_sources/02-Week-02/01-1-Notional_Computer.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -686,9 +695,9 @@ third is a
 a list may also be lists (we call this <em>nesting</em>, like matryoshka
 dolls).</p>
 <figure class="align-default" id="matryoshka">
-<a class="reference internal image-reference" href="../_images/800px-Matryoshka_transparent.png"><img alt="../_images/800px-Matryoshka_transparent.png" src="../_images/800px-Matryoshka_transparent.png" style="height: 150px;" /></a>
+<a class="reference internal image-reference" href="02-Week-02/img/800px-Matryoshka_transparent.png"><img alt="02-Week-02/img/800px-Matryoshka_transparent.png" src="02-Week-02/img/800px-Matryoshka_transparent.png" style="height: 150px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Lists within lists are “nested”, like nested dolls.  (Image by user
+<p><span class="caption-text">Lists within lists are “nested”, like nested dolls.  (Image by user
 Fanghong in Mediawiki commons, used under CC by SA license.)</span><a class="headerlink" href="#matryoshka" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -698,9 +707,9 @@ denotes a list with two elements.  The first element of that list is a
 list with two elements, and the first element of <em>that</em> list is a
 string (“corvids”).</p>
 <figure class="align-default" id="nested">
-<a class="reference internal image-reference" href="../_images/nested-list.png"><img alt="../_images/nested-list.png" src="../_images/nested-list.png" style="height: 300px;" /></a>
+<a class="reference internal image-reference" href="02-Week-02/img/nested-list.png"><img alt="02-Week-02/img/nested-list.png" src="02-Week-02/img/nested-list.png" style="height: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">List elements can be references to other lists, as well as other
+<p><span class="caption-text">List elements can be references to other lists, as well as other
 kinds of object, as illustrated by this representation of
 <code class="docutils literal notranslate"><span class="pre">[[&quot;corvids&quot;,</span> <span class="pre">[&quot;crow&quot;,</span> <span class="pre">&quot;raven&quot;]],</span> <span class="pre">[&quot;primates&quot;,</span> <span class="pre">[&quot;lemur&quot;,</span> <span class="pre">&quot;human&quot;]]]</span></code></span><a class="headerlink" href="#nested" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -752,7 +761,7 @@ We can <em>bind</em> a name with <em>assignment</em>, which we write <code class
 </div>
 <figure class="align-default" id="id1">
 <img alt="../_images/bind_x_23.svg" src="../_images/bind_x_23.svg" /><figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">The name <em>x</em> is bound to a value, which is a reference to
+<p><span class="caption-text">The name <em>x</em> is bound to a value, which is a reference to
 an object containing the integer 23.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -832,7 +841,7 @@ variables <code class="docutils literal notranslate"><span class="pre">a</span><
 <figure class="align-default" id="id2">
 <img alt="../_images/bind_alias_before.png" src="../_images/bind_alias_before.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Variables <em>b</em> and <em>c</em> are bound to the same <code class="docutils literal notranslate"><span class="pre">list</span></code> object.
+<p><span class="caption-text">Variables <em>b</em> and <em>c</em> are bound to the same <code class="docutils literal notranslate"><span class="pre">list</span></code> object.
 Variable <em>a</em> is bound to a different object, although it
 contains the same <code class="docutils literal notranslate"><span class="pre">str</span></code> elements.   We say <em>b</em> and <em>c</em>
 are <em>aliases</em>.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
@@ -843,7 +852,7 @@ object that both variable <code class="docutils literal notranslate"><span class
 <figure class="align-default" id="id3">
 <img alt="../_images/bind_alias_before.png" src="../_images/bind_alias_before.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Variables <em>b</em> and <em>c</em> are bound to the same <code class="docutils literal notranslate"><span class="pre">list</span></code> object.
+<p><span class="caption-text">Variables <em>b</em> and <em>c</em> are bound to the same <code class="docutils literal notranslate"><span class="pre">list</span></code> object.
 Variable <em>a</em> is bound to a different object, although it
 contains the same <code class="docutils literal notranslate"><span class="pre">str</span></code> elements.   We say <em>b</em> and <em>c</em>
 are <em>aliases</em>.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
@@ -1152,7 +1161,7 @@ loops are most common.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./01-Intro"
+            path: "./02-Week-02"
         },
         predefinedOutput: true
     }
@@ -1166,13 +1175,6 @@ loops are most common.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="01-0-Ready.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">A Course in Computational Thinking</p>
-        </div>
-    </a>
 </div>
             </footer>
         </div>

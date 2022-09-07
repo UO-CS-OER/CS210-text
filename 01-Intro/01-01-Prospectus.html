@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="A Notional Computer" href="01-1-Notional_Computer.html" />
+    <link rel="next" title="Installing Python and IDLE" href="01-02-Install.html" />
     <link rel="prev" title="Introduction to Computer Science, part 1" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -113,15 +113,25 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  01 Getting a Start
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    A Course in Computational Thinking
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="01-1-Notional_Computer.html">
-   A Notional Computer
+  <a class="reference internal" href="01-02-Install.html">
+   Installing Python and IDLE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-03-Kickstart.html">
+   Python Programming Kickstart
   </a>
  </li>
 </ul>
@@ -183,7 +193,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/01-Intro/01-0-Ready.md"
+        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/01-Intro/01-01-Prospectus.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -243,7 +253,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F01-Intro/01-0-Ready.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F01-Intro/01-01-Prospectus.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -271,7 +281,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/01-Intro/01-0-Ready.ipynb"
+        <a href="../_sources/01-Intro/01-01-Prospectus.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -288,7 +298,7 @@ title="Download notebook file"
       </li>
       
       <li>
-        <a href="../_sources/01-Intro/01-0-Ready.md"
+        <a href="../_sources/01-Intro/01-01-Prospectus.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -360,31 +370,9 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#install-python-3-on-your-computer">
-   Install Python 3 on Your Computer
+  <a class="reference internal nav-link" href="#getting-a-start">
+   Getting a Start
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-and-install">
-     Download and Install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#macos-install">
-     MacOS Install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#windows-10-install">
-     Windows 10 Install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linux-install">
-     Linux Install
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -418,31 +406,9 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#install-python-3-on-your-computer">
-   Install Python 3 on Your Computer
+  <a class="reference internal nav-link" href="#getting-a-start">
+   Getting a Start
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-and-install">
-     Download and Install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#macos-install">
-     MacOS Install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#windows-10-install">
-     Windows 10 Install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linux-install">
-     Linux Install
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -495,20 +461,25 @@ The design of a bridge or an automobile is
 complex and expensive, but the main expense of building a bridge is
 in the physical construction, and not the design.
 The cost of building cars at industrial scale is likewise much larger
-than the cost of designing a car.  The <em>things</em> designed by computer
-scientists and
-software developers are <em>computations</em>.  Computations are
-constructed by computers, following our designs.  Computations are
-weightless
-and cheap, while the designs of those computations, which we call
+than the cost of designing a car.</p>
+<p>The <em>things</em> designed (but not constructed) by
+software developers are <em>computations</em>.
+The computations are
+constructed by computers, following our designs.
+Computations
+are weightless and cheap.<br />
+The designs of those computations, which we call
 <em>programs</em> or <em>software</em> or perhaps <em>software systems</em>, are complex
-and expensive.  By removing many of the limits of
-engineering physical things, computing exposes a different set of
-limits and challenges.</p>
+and expensive. Any part of the construction that can be fully
+automated becomes cheap, but there always remains some part of the
+design that is necessarily human, complex, and demanding.<br />
+Computing exposes the expense of design by removing the
+limits of engineering physical things.</p>
 <p>All these things that computing is <em>not</em> may shed some light on what
-computing and computer science <em>are</em>.  It is concerned with
+computing and computer science <em>are</em>.  Computer science is concerned
+with
 <em>design</em> of computations, and like other design disciplines it
-requires creative problem solving. It requires forming and using
+requires creative problem-solving. It requires forming and using
 abstract, often mathematical models, without losing track of their
 relation to concrete artifacts.  It especially requires
 careful control of complexity, decomposing problems into smaller
@@ -527,13 +498,12 @@ more creative problem solver.</p>
 you will learn in <em>Introduction to Computer Science</em>
 are not limited to a single programming
 language, let alone a particular computer or operating system.
-But we have to start somewhere, and that <em>somewhere</em>
-requires us to choose a programming language and to
-install it and supporting tools on the computer that
-you will use to work projects.</p>
+But we have to start somewhere.  That <em>somewhere</em>
+requires us to choose a programming language, and to
+practice using it.</p>
 <section id="why-python">
 <h3>Why Python<a class="headerlink" href="#why-python" title="Permalink to this headline">#</a></h3>
-<p>In this course we will use Python version 3, and
+<p>In this course we will use Python,
 specifically Python version 3.10 or higher.
 Python is widely used in data science and scientific
 computing, in cartography, in web development,
@@ -557,45 +527,27 @@ need to learn.   But among the programming langauges available to us
 today, we believe it is an excellent starting point.</p>
 </section>
 </section>
-<section id="install-python-3-on-your-computer">
-<h2>Install Python 3 on Your Computer<a class="headerlink" href="#install-python-3-on-your-computer" title="Permalink to this headline">#</a></h2>
-<p>Python 3 runs well on a wide variety of computers.  You will
-need a laptop or desktop computer; tablets and phones will not be a
-good environment for learning to program in Python.  The precise
-steps for installing Python 3, as well as the precise commands for
-starting Python programming tools, necessarily varies depending on
-whether you are using Linux, MacOS, or Windows.   We will cover
-the basics first in a generic manner, then provide some detailed
-notes for the most common platforms.</p>
-<section id="download-and-install">
-<h3>Download and Install<a class="headerlink" href="#download-and-install" title="Permalink to this headline">#</a></h3>
-<p>Start by visiting <code class="docutils literal notranslate"><span class="pre">python.org</span></code> with your web browser.</p>
-<p><img alt="Visit Python.org" src="../_images/python-org.png" /></p>
-<p>Select <code class="docutils literal notranslate"><span class="pre">Downloads</span></code> and choose the installer or archive for your
-computer.  Typically you will want the download labeled as “Latest
-Python 3 Release” for MacOS or Windows.  If you are a Linux user,
-select “Source code”.  Then follow directions for your particular
-platform.</p>
-</section>
-<section id="macos-install">
-<h3>MacOS Install<a class="headerlink" href="#macos-install" title="Permalink to this headline">#</a></h3>
-<p>The MacOS installer will work like other MacOS application
-installers. You should not have to do anything extra.</p>
-</section>
-<section id="windows-10-install">
-<h3>Windows 10 Install<a class="headerlink" href="#windows-10-install" title="Permalink to this headline">#</a></h3>
-<p>TBD</p>
-</section>
-<section id="linux-install">
-<h3>Linux Install<a class="headerlink" href="#linux-install" title="Permalink to this headline">#</a></h3>
-<p>You <em>may</em> find it easier to install using <code class="docutils literal notranslate"><span class="pre">apt-get</span></code> or a similar
-package installer for the version of Linux that you use.  You can
-find example instructions in
-<a class="reference external" href="https://docs.python-guide.org/starting/install3/linux/">The Hitchhikers Guide to Linux</a>.<br />
-Alternatively, you can download a “tarball” archive of the sources from
-<a class="reference external" href="http://Python.org">Python.org</a>.   As a Linux user, you are probably familiar with these
-steps, which are similar to installation of many other tools in Linux.</p>
-</section>
+<section id="getting-a-start">
+<h2>Getting a Start<a class="headerlink" href="#getting-a-start" title="Permalink to this headline">#</a></h2>
+<p>The pre-requisites for <em>Introduction to Computer Science</em> include
+a basic familiarity with programming.  That familiarity may
+take many forms (not necessarily programming in Python).  Also,
+student knowledge from a course some time ago or from self study may
+be rusty or incomplete.</p>
+<p>If you have not programmed at all, but want to tackle this very
+demanding course, we can recommend the
+<a class="reference external" href="https://cscircles.cemc.uwaterloo.ca/">Computer Science Circles</a>
+online lessons as a good and thorough introduction.  Even if
+you have programmed in Python before, you may find the CS Circles
+materials valuable as a refresher.</p>
+<p>The remaining sections of this chapter provide brief instructions
+for installing Python 3 on the computer you will use for your
+projects, and then <em>just enough</em> introduction to Python programming
+to tackle an initial project.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="01-02-Install.html"><span class="doc std std-doc">Install Python</span></a></p></li>
+<li><p><a class="reference internal" href="01-03-Kickstart.html"><span class="doc std std-doc">Python Programming Kickstart</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -633,10 +585,10 @@ steps, which are similar to installation of many other tools in Linux.</p>
             <p class="prev-next-title">Introduction to Computer Science, part 1</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01-1-Notional_Computer.html" title="next page">
+    <a class='right-next' id="next-link" href="01-02-Install.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">A Notional Computer</p>
+        <p class="prev-next-title">Installing Python and IDLE</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
