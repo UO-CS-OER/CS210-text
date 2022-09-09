@@ -313,12 +313,18 @@ bad_bad_bad(3)    # Not obvious that we are changing s!
 print(s)
 ```
 
-In the example above, `bad_bad_bad` is a function that accesses and 
+In this example, `bad_bad_bad` is a function that accesses and 
 even changes the variable called `s`, not in its own namespace (the 
 local scope of the function) but in the global scope of the program.
 The function is at least appropriately named.  This is almost always 
 a bad idea.  Python nonetheless permits it because there are a few, 
 rare cases in which accessing a global variable is needed.  
+
+If you are reading the online version of this text, you can
+[step through `bad_bad_bad` in PythonTutor](
+https://pythontutor.com/render.
+html#code=def%20bad_bad_bad%28x%3A%20int%29%3A%0A%20%20%20%20%22%22%22Don't%20do%20this!%22%22%22%0A%20%20%20%20s.append%28x%29%20%20%20%23%20s%20is%20not%20local%20to%20bad_bad_bad.%20%0A%20%20%20%20%0As%20%3D%20%5B1,%202%5D%0Abad_bad_bad%283%29%20%20%20%20%23%20Not%20obvious%20that%20we%20are%20changing%20s!%20%0Aprint%28s%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false). 
+
 
 One case in which we might need to access a global variable from 
 within a function is when the global variable is some kind of fixed 
@@ -401,6 +407,13 @@ print(foo())
 print(foo())
 print(foo())
 ```
+
+If you are reading online, you can
+[trace it in PythonTutor](
+https://pythontutor.com/render.html#code=count_foo%20%3D%200%0A%0Adef%20foo%28%29%20-%3E%20int%3A%20%0A%20%20%20%20%22%22%22This%20will%20work.%20%20That%20doesn't%20make%20it%20a%20good%20idea.%22%22%22%0A%20%20%20%20global%20count_foo%0A%20%20%20%20count_foo%20%3D%20count_foo%20%2B%201%0A%20%20%20%20return%20count_foo%0A%20%20%0Aprint%28foo%28%29%29%0Aprint%28foo%28%29%29%0Aprint%28foo%28%29%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+).
+
+
 
 ## Hygiene and pragmatics
 
