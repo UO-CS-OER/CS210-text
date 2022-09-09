@@ -12,7 +12,7 @@ kernelspec:
   language: python
   name: python3
 ---
-
+:orphan:
 # Notebooks with MyST Markdown
 
 Jupyter Book also lets you write text-based notebooks using MyST Markdown.

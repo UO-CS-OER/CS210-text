@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Function Hygiene in Python &#8212; Introduction to Computer Science I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Binding in Python: Functions and Scope" href="02-02-Scope.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo-provisional.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Computer Science I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Computer Science, part 1
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  01 Getting a Start
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-01-Prospectus.html">
+   A Course in Computational Thinking
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-02-Install.html">
+   Installing Python and IDLE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-03-Kickstart.html">
+   Python Programming Kickstart
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  02 Writing Functions
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-01-Functions.html">
+   Designing and building functions in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-02-Scope.html">
+   Binding in Python:  Functions and Scope
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Function Hygiene in Python
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/02-Functions/02-03-Hygiene.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/UO-CS-OER/CS210-text"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F02-Functions/02-03-Hygiene.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/02-Functions/02-03-Hygiene.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/02-Functions/02-03-Hygiene.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#function-headers-and-docstrings">
+   Function headers and docstrings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#names-matter">
+   Names matter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arguments">
+   Arguments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#information-hiding">
+   Information hiding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docstrings">
+   Docstrings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#argument-names">
+   Argument names
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results-effects-and-side-effects">
+   Results, effects, and side effects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#side-effects">
+   Side effects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-of-function-hygiene-guidelines">
+   Summary of function hygiene guidelines
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Function Hygiene in Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#function-headers-and-docstrings">
+   Function headers and docstrings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#names-matter">
+   Names matter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arguments">
+   Arguments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#information-hiding">
+   Information hiding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docstrings">
+   Docstrings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#argument-names">
+   Argument names
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results-effects-and-side-effects">
+   Results, effects, and side effects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#side-effects">
+   Side effects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-of-function-hygiene-guidelines">
+   Summary of function hygiene guidelines
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="function-hygiene-in-python">
+<h1>Function Hygiene in Python<a class="headerlink" href="#function-hygiene-in-python" title="Permalink to this headline">#</a></h1>
+<section id="function-headers-and-docstrings">
+<h2>Function headers and docstrings<a class="headerlink" href="#function-headers-and-docstrings" title="Permalink to this headline">#</a></h2>
+<p>Consider again the <code class="docutils literal notranslate"><span class="pre">abs_diff</span></code> function defined in the prior chapter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">abs_diff</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Absolute value of the difference between x and y.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The name of the new function will be <code class="docutils literal notranslate"><span class="pre">abs_diff</span></code>.  Following
+<a class="reference external" href="https://peps.python.org/pep-0008/">Python naming conventions</a>, it
+is made of lower case letters (no capital letters), with parts
+separated by underscore (”<code class="docutils literal notranslate"><span class="pre">_</span></code>”).<br />
+The triple-quoted string immediately following the function header
+is the <em>docstring comment</em>.</p>
+</section>
+<section id="names-matter">
+<h2>Names matter<a class="headerlink" href="#names-matter" title="Permalink to this headline">#</a></h2>
+<p>We have chosen
+<code class="docutils literal notranslate"><span class="pre">abs_diff</span></code> rather than <code class="docutils literal notranslate"><span class="pre">absolute_difference</span></code> to keep it short.<br />
+We have not shortened it further to <code class="docutils literal notranslate"><span class="pre">a_d</span></code>, nor chosen an arbitrary
+name like <code class="docutils literal notranslate"><span class="pre">theta</span></code>, because it is important for the name to be
+mnemonic and suggestive of its purpose.</p>
+<p>How long is long enough?  How descriptive must a name be?
+Kernighan and Plauger provide nuanced and pragmatic guidance to
+naming in their classic book
+<a class="reference external" href="https://en.wikipedia.org/wiki/The_Elements_of_Programming_Style"><em>The Elements of Program Style</em></a>.
+Although the original version of that book uses examples from older
+programming languages that you may never encounter, the essential
+principles remain valid.  One of these is that distinctiveness
+(avoiding names that can be confused with each other) is paramount.
+For example, <code class="docutils literal notranslate"><span class="pre">hours_weekday_worked</span></code> and <code class="docutils literal notranslate"><span class="pre">hours_weekend_worked</span></code> are a
+terrible pair, because they are distinguished only by middle words
+which moreover look similar.  The shorter <code class="docutils literal notranslate"><span class="pre">wkend_hours</span></code> and
+<code class="docutils literal notranslate"><span class="pre">wkday_hours</span></code> are easier to distinguish.</p>
+<p>A second principle, which
+like distinctiveness is rooted in properties of human memory, is
+that a name which is defined in one place and then referenced far
+away needs to be more descriptive than a name
+that is defined and
+then used just once nearby (e.g., within the span of code that is
+likely to be visible on the same screen of text).</p>
+</section>
+<section id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">#</a></h2>
+<p>Function <code class="docutils literal notranslate"><span class="pre">abs_diff</span></code> has two <em>arguments</em>, also called <em>formal
+parameters</em>, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, and returns a single
+<code class="docutils literal notranslate"><span class="pre">int</span></code> value.  This information comprises the <em>signature</em> of
+function <code class="docutils literal notranslate"><span class="pre">abs_diff</span></code>, which is <em>(int, int) -&gt; int</em>.  This is enough
+to tell us that <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">abs_diff(5,</span> <span class="pre">7)</span></code> is a legal assignment that
+assigns an <code class="docutils literal notranslate"><span class="pre">int</span></code> value to <code class="docutils literal notranslate"><span class="pre">x</span></code>, but <code class="docutils literal notranslate"><span class="pre">abs_diff(&quot;cats&quot;,</span> <span class="pre">&quot;dogs&quot;)</span></code> is
+an error, as is <code class="docutils literal notranslate"><span class="pre">abs_diff(3,</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">&quot;turtles&quot;</span></code>.</p>
+<p>Less obviously, <code class="docutils literal notranslate"><span class="pre">abs_diff(3.2,</span> <span class="pre">5.4)</span></code> is a programming error, even
+though it will return 2.2.  This is because the header of a function
+together with its docstring
+is a contract between the author of the function and anyone
+who calls that function (even if they are the same person).  Passing
+a floating point number like 3.2 to <code class="docutils literal notranslate"><span class="pre">abs_diff</span></code> breaks that contract.</p>
+<p>Why do we care about this “contract”, if the code works?
+Because the contract also states what the author of
+the function is permitted to change without notice.  Calling a
+function in a way that violates the contract might work today, but
+fail sometime later when the author of the function makes a
+perfectly acceptable change to the body of the function.  The user
+of a function must only rely on the contract as given in the
+function header and docstring.  This applies even if the author and
+the user are the same programmer!  It is all too easy to make a
+small and seemingly harmless change to one part of a program and
+accidentally break a completely different part because of some
+forgotten dependency.</p>
+</section>
+<section id="information-hiding">
+<h2>Information hiding<a class="headerlink" href="#information-hiding" title="Permalink to this headline">#</a></h2>
+<p>We treat the body of the function as
+if it were invisible to the programmer who writes calls to that
+function, and subject to change without notice, even if it is the same
+programmer.  This is called <em>information hiding</em>.
+Students and beginning programmers often find <em>information hiding</em>
+unintuitive and bothersome.  Understandably so, because as a
+beginner they write most code individually, and seldom work on the
+same project for more than a few weeks.  This is apt to change as
+you tackle larger and more complex projects.  The software systems
+that matter to people are typically collaborative or change hands
+over time, and they last much longer than you might imagine.  Even
+the original developer of a function will find themselves
+essentially an outsider when they return to it after a few months
+working on other parts of an application.</p>
+<p>There is another reason for clear, simple contracts and information
+hiding.  Programs are written by humans.  Human brains are amazing,
+but one thing they do not do well is maintain a large number of
+details in working memory.  We solve complex problems by decomposing
+them into smaller problems, then composing simple solutions of
+sub-problems to solve the overall problem.  This is <em>only</em> possible
+if we can ignore and abstract away details of some of the
+sub-problems while working on other parts.   If we need to
+understand <em>how</em> a function works to understand <em>what</em> it does, then
+we can’t suppress that detail in any part of the program that uses
+the function.  Information hiding is an essential tool for
+controlling complexity by giving us permission to ignore most
+details most of the time, focusing in on just a few at a time.</p>
+</section>
+<section id="docstrings">
+<h2>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">#</a></h2>
+<p>As useful as the <em>signature</em> of a function is in telling us what
+kind of values we can pass to it and what kind of value we can
+expect back from it, the signature alone cannot tell us everything
+we need to know.  The name can help, but it’s not enough:  We can
+guess that <code class="docutils literal notranslate"><span class="pre">abs_diff</span></code> probably does not give us the sum or the
+product of its arguments, but the docstring comment immediately
+following the function header gives us a more complete description.</p>
+<p>The Python interpreter makes the
+docstring comment available through its built-in help system:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">abs_diff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function abs_diff in module __main__:
+
+abs_diff(x: int, y: int) -&gt; int
+    Absolute value of the difference between x and y.
+</pre></div>
+</div>
+</div>
+</div>
+<p>As with choosing names, writing docstring comments that are clear
+but concise is a delicate art that requires care and practice.</p>
+</section>
+<section id="argument-names">
+<h2>Argument names<a class="headerlink" href="#argument-names" title="Permalink to this headline">#</a></h2>
+<p>What about those formal argument names, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>?  Should they be
+longer?  Would it help?  If there were particular meanings
+associated with them (e.g., if the first argument should be a height
+in centimeters and second should be an angle in degrees), then <code class="docutils literal notranslate"><span class="pre">x</span></code>
+and <code class="docutils literal notranslate"><span class="pre">y</span></code> would be poor names.   Consider the following function,
+in which longer names are needed:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">relative_error</span><span class="p">(</span><span class="n">est</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">expected</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Relative error of estimate (est) as non-negative fraction </span>
+<span class="sd">    of expected value.</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>Here the formal parameters are <code class="docutils literal notranslate"><span class="pre">est</span></code> (for estimate) and <code class="docutils literal notranslate"><span class="pre">expected</span></code>
+(for expected value, i.e., for the value that <code class="docutils literal notranslate"><span class="pre">est</span></code> should be close
+to).   These have been chosen to be <em>mnemonic</em>.  You can probably
+guess that <code class="docutils literal notranslate"><span class="pre">est</span></code> means “estimate” even without context.  Without
+context it is less likely that you would guess that <code class="docutils literal notranslate"><span class="pre">expected</span></code> means
+“the value we expected to get”, but in the context of a function
+called <code class="docutils literal notranslate"><span class="pre">relative_error</span></code> it is clear.</p>
+<p>These formal parameters are not interchangeable;
+<code class="docutils literal notranslate"><span class="pre">relative_error(3.5,</span> <span class="pre">3.8)</span></code> will
+not give the same result as <code class="docutils literal notranslate"><span class="pre">relative_error(3.8,</span> <span class="pre">3.5)</span></code>.  If we give
+them meaningless names like <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, we are very likely to reverse
+them and get the wrong answers.  Ambiguous names would be dangerous
+in that case!   In the case of <code class="docutils literal notranslate"><span class="pre">abs_diff</span></code>, on the other hand, <code class="docutils literal notranslate"><span class="pre">x</span></code>
+and <code class="docutils literal notranslate"><span class="pre">y</span></code> are just numbers, nothing more, which is what their generic
+names communicate.</p>
+<p>Names that are distinguished only by suffixes, like <code class="docutils literal notranslate"><span class="pre">v1</span></code>, <code class="docutils literal notranslate"><span class="pre">v2</span></code>, <code class="docutils literal notranslate"><span class="pre">v3</span></code>,
+etc., are never acceptable, because they are too easy to confuse.
+Arbitrary names like your favorite colors or your pets are also not
+acceptable, even for generic values for which <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> would be
+acceptable, because they falsely <em>appear</em> to have some meaning.</p>
+</section>
+<section id="results-effects-and-side-effects">
+<h2>Results, effects, and side effects<a class="headerlink" href="#results-effects-and-side-effects" title="Permalink to this headline">#</a></h2>
+<p>A function should normally <em>either</em> return a well-documented result
+<em>or</em> have some well-documented effect on the arguments it is passed,
+but not both. For example, here is a function that returns a list
+containing just the positive elements from a list of integers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">select_pos</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Returns a list of the positive elements from m.&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">m</span><span class="p">:</span> 
+        <span class="k">if</span> <span class="n">el</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+    
+<span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">li_selection</span> <span class="o">=</span> <span class="n">select_pos</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;li after selection is </span><span class="si">{</span><span class="n">li</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;selection is </span><span class="si">{</span><span class="n">li_selection</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>li after selection is [1, 0, 2, 0, 3, 0]
+selection is [1, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">select_pos</span></code> is ok … it returns a well-documented result and it
+does not have effects on anything outside its own scope.<br />
+We could also write a function that appends the positive elements of
+one list to another:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">append_pos</span><span class="p">(</span><span class="n">src</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">dest</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+    <span class="sd">&quot;&quot;&quot;Positive elements of src are appended to dest.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">src</span><span class="p">:</span> 
+        <span class="k">if</span> <span class="n">el</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dest</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+    
+<span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">li_selection</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">append_pos</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="n">li_selection</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;li after selection is </span><span class="si">{</span><span class="n">li</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;li_selection is </span><span class="si">{</span><span class="n">li_selection</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>li after selection is [1, 0, 2, 0, 3, 0]
+li_selection is [1, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">append_pos</span></code> is also ok … it has a well-documented effect, and it
+does not return a result.  (Technically it returns a special value
+called <code class="docutils literal notranslate"><span class="pre">None</span></code>.)</p>
+<p>Usually we want a function or method to <em>either</em> return a result
+<em>or</em> have an effect, but not both.  For example, the built-in
+function <code class="docutils literal notranslate"><span class="pre">sorted</span></code> returns a sorted list without changing the list it
+is given, while the list method <code class="docutils literal notranslate"><span class="pre">sort</span></code> puts the list into sorted
+order but does not return a result.
+In the rare cases that doing both makes a program
+significantly shorter, clearer, or faster, we must document that
+combination particularly well. A rare example of a built-in method
+that has both an effect and a result is the <code class="docutils literal notranslate"><span class="pre">list</span></code> method <code class="docutils literal notranslate"><span class="pre">pop</span></code>,
+which both removes an item from the list and returns it.</p>
+</section>
+<section id="side-effects">
+<h2>Side effects<a class="headerlink" href="#side-effects" title="Permalink to this headline">#</a></h2>
+<p>When a function or method affects something <em>other than</em> its
+arguments or the object on which a method is called, it is called a
+<em>side effect</em>.  Side effects make it easy to create program bugs and
+hard to find and correct them. One case where side effects may be
+justifiable is in output, e.g., printing something, logging
+something to a file, or presenting a graphic.  The more <em>obvious</em>
+and <em>well-documented</em> such a side effect is, the less chance it will
+lead to a frustrating debugging session as unexpected effects seem
+to come from nowhere.</p>
+</section>
+<section id="summary-of-function-hygiene-guidelines">
+<h2>Summary of function hygiene guidelines<a class="headerlink" href="#summary-of-function-hygiene-guidelines" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Make the function header and docstring a <em>contract</em> between the
+author and user of the function.  The user should not depend on
+details of the body of the function, or even have to read the body
+of the function to know how to use it correctly.</p></li>
+<li><p>Use names that are sufficiently clear and distinct.  They don’t
+have to be long, but they must be understandable in the context in
+which they will be used.</p></li>
+<li><p>Generic names like <code class="docutils literal notranslate"><span class="pre">x</span></code> are ok only for
+generic purposes like “some number”, never for something specific
+like “the number of sides of the polygon.”  The names of your pets
+or siblings are only acceptable if the program computing something
+about your pets or siblings.</p></li>
+<li><p>A function (or method) should <em>either</em> return a result <em>or</em> have
+an effect.  Very seldom should a function or method have both an
+effect and a result, and those rare cases must be carefully
+documented.</p></li>
+<li><p>Side effects are particularly dangerous.  Avoid them when
+practical, and particularly avoid side effects that could go
+unnoticed, unless you love long and confusing debugging sessions.</p></li>
+<li><p>You may be tempted to ignore these guidelines because you will be
+the only user of the functions you write.  The you of next week
+will be angry at the you of this week if you do.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./02-Functions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="02-02-Scope.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Binding in Python:  Functions and Scope</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Michal Young, Boyana Norris, and Ram Durairajan<br/>
+  
+      &copy; Copyright 2022 University of Oregon.  Creative Commons Share-Alike Attribution license.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
