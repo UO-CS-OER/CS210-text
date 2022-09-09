@@ -391,7 +391,7 @@ print(f"After example, m is bound to {m}")
 During execution of `example(x)`, the scopes created by the example 
 above look like this: 
 
-![Scopes during execution of `example(x)`](img/bind_stack.png)
+![Scopes during execution of `example(x)`](../02-Functions/img/bind_stack.png)
 
 There are several things to notice: 
 

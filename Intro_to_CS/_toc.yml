@@ -9,8 +9,9 @@ parts:
       - file: 01-Intro/01-01-Prospectus.md
       - file: 01-Intro/01-02-Install.md
       - file: 01-Intro/01-03-Kickstart.md
+
   - caption: 02 Writing Functions
     chapters:
       - file: 02-Functions/02-01-Functions.md
-      - file: 02-02-Scope.md
-      - file: 02-03-Hygiene.md
+      - file: 02-Functions/02-02-Scope.md
+      - file: 02-Functions/02-03-Hygiene.md

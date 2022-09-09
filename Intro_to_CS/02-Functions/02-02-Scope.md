@@ -51,7 +51,7 @@ use.  You do not need to memorize them all!
 Recall that methods are very much like functions, but instead of a 
 function call like `len(s)`, we make a method call like `s.strip()`.
 The methods of the built-in types are not listed in the table above,
-but they are documented with the types of data they operate on.  
+but they are documented with the types of data they operate on.
 For example, `strip` is described in
 [documentation for type `str`](
 https://docs.python.org/3/library/stdtypes.html#string-methods).
@@ -147,11 +147,9 @@ def abs_diff(x: int, y: int) -> int:
 The name of the new function will be `abs_diff`.  Following
 [Python naming conventions](https://peps.python.org/pep-0008/), it 
 is made of lower case letters (no capital letters), with parts 
-separated by underscore ("`_`").  Names matter:  We have chosen 
-`abs_diff` rather than `absolute_difference` to keep it short.   
-We have not shortened it further to `a_d`, nor chosen an arbitrary 
-name like `theta`, because it is important for the name to be 
-mnemonic and suggestive of its purpose.  
+separated by underscore ("`_`").  The following
+[chapter on pragmatics](02-03-Hygiene.md)
+discusses the choice of name in more depth. 
 
 Function `abs_diff` has two _arguments_, also called _formal 
 parameters_, `x` and `y`.   The _actual parameters_ passed to 
@@ -168,76 +166,12 @@ though it will return 2.2.  This is because the header of a function
 is a sort of contract between the author of the function and anyone 
 who calls that function (even if they are the same person).  Passing 
 a floating point number like 3.2 to `abs_diff` breaks that contract.
+As [the next chapter](02-03-Hygiene.md) discusses in more depth,
+it is essential that a programmer who wants to make use of
+`abs_diff` be able to depend entirely on the contract given by
+the function header and docstring, without referring to the body of 
+the function. 
 
-Why do we care?  Because the contract also states what the author of 
-the function is permitted to change without notice.  Calling a 
-function in a way that violates the contract might work today, but 
-fail sometime later when the author of the function makes a 
-perfectly acceptable change to the body of the function.  The user 
-of a function must only rely on the contract as given in the 
-function header and docstring.  
-
-We treat the body of the function as 
-if it were invisible to the programmer who writes calls to that 
-function, and subject to change without notice, even if it is the same 
-programmer.  This is called _information hiding_. 
-Students and beginning programmers often find _information hiding_ 
-unintuitive and bothersome.  Understandably so, because as a 
-beginner they write most code individually, and seldom work on the 
-same project for more than a few weeks.  This is apt to change as 
-you take on larger and more complex projects.  The software systems 
-that matter to people are typically collaborative or change hands 
-over time, and they last much longer than you might imagine.  Even 
-the original developer of a function will find themselves 
-essentially an outsider when they return to it after a few months 
-working on other parts of an application. 
-
-There is another reason for clear, simple contracts and information 
-hiding.  Programs are written by humans.  Human brains are amazing, 
-but one thing they do not do well is maintain a large number of 
-details in working memory.  We solve complex problems by decomposing 
-them into smaller problems, then composing simple solutions of 
-sub-problems to solve the overall problem.  This is _only_ possible 
-if we can ignore and abstract away details of some of the 
-sub-problems while working on other parts.   If we need to 
-understand _how_ a function works to understand _what_ it does, then 
-we can't suppress that detail in any part of the program that uses 
-the function.  Information hiding is an essential tool for 
-controlling complexity by giving us permission to ignore most 
-details most of the time, focusing in on just a few at a time. 
-
-As useful as the _signature_ of a function is in telling us what 
-kind of values we can pass to it and what kind of value we can 
-expect back from it, the signature alone cannot tell us everything 
-we need to know.  The name can help, but it's not enough:  We can 
-guess that `abs_diff` probably does not give us the sum or the 
-product of its arguments, but the docstring comment immediately 
-following the function header gives us a more complete description.
-As with choosing names, writing docstring comments that are clear 
-but concise is a delicate art that requires care and practice.
-
-What about those formal argument names, `x` and `y`?  Should they be 
-longer?  Would it help?  If there were particular meanings 
-associated with them (e.g., if the first argument should be a height 
-in centimeters and second should be an angle in degrees), then `x` 
-and `y` would be poor names.   Consider the following function,
-in which longer names are needed: 
-
-```python3
-def relative_error(est: float, expected: float) -> float:
-    """Relative error of estimate (est) as non-negative fraction 
-    of expected value.
-    """"
-```
-Here the formal parameters are `est` (for estimate) and `expected` 
-(for expected value, i.e., for the value that `est` should be close 
-to).  They are not interchangeable; `relative_error(3.5, 3.8)` will 
-not be the same as `relative_error(3.8, 3.5)`.  If we give them 
-meaningless names like `x` and `y`, we are very likely to reverse 
-them and get the wrong answers.  Ambiguous names would be dangerous 
-in that case!   In the case of `abs_diff`, on the other hand, `x` 
-and `y` are just numbers, nothing more, which is what their generic 
-names communicate. 
 
 ## Scope
 
@@ -258,6 +192,12 @@ z = diff(x, y)
 print(z)
 print(a)     # Error!  Variable a doesn't exist here. 
 ```
+
+It may help to see this example step-by-step in PythonTutor.  If you 
+are viewing this chapter in a web browser, use the 
+"next" button in the frame below to step through it. 
+
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20diff%28a%3A%20int,%20b%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Returns%20a%20-%20b.%22%22%22%0A%20%20%20%20return%20a%20-%20b%0A%0Ax%20%3D%2017%0Ay%20%3D%2014%0Az%20%3D%20diff%28x,%20y%29%0Aprint%28z%29%0Aprint%28a%29%20%20%20%20%20%23%20Error!%20%20Variable%20a%20doesn't%20exist%20here.&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
 In the example above, function `diff`, the value of `x` is assigned 
 to the formal parameter `a` and the value of `y` is assigned to the 
@@ -281,6 +221,11 @@ x = example(41)
 print(x)
 print(thing)    # No thing here! 
 ```
+
+You can also 
+[step through this example in PythonTutor.](
+https://pythontutor.com/render.html#code=def%20example%28a%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Example%20return%20a%20%2B%201.%22%22%22%0A%20%20%20%20thing%20%3D%20a%0A%20%20%20%20return%20thing%20%2B%201%0A%20%20%20%20%0Ax%20%3D%20example%2841%29%0Aprint%28x%29%0Aprint%28thing%29%20%20%20%20%23%20No%20thing%20here!&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+)
 
 We say that both `a` and `thing` exist in the _local scope_ of 
 function `example`.   It is even possible for two or more variables 
@@ -308,6 +253,11 @@ print(f"After example, y is bound to {y}")
 print(f"After example, m is bound to {m}")
 ```
 
+You can
+[step through this example in PythonTutor](
+https://pythontutor.com/render.html#code=%23%20Global%20scope%0Ax%20%3D%2023%0Ay%20%3D%2042%0Am%20%3D%2019%0A%0Adef%20example%28m%3A%20int%29%3A%0A%20%20%20%20%22%22%22Example%20to%20illustrate%20scope%22%22%22%0A%20%20%20%20y%20%3D%2077%0A%20%20%20%20print%28f%22x%20is%20bound%20to%20%7Bx%7D%20within%20example%22%29%0A%20%20%20%20print%28f%22y%20is%20bound%20to%20%7By%7D%20within%20example%22%29%0A%20%20%20%20print%28f%22m%20is%20bound%20to%20%7Bm%7D%20within%20example%22%29%0A%0A%23%20Executing%20%22example%22%20creates%20the%20new%20scope%0Aexample%28x%29%0A%23%20When%20%22example%22%20finishes,%20the%20new%20scope%20is%20deleted%0A%0Aprint%28f%22After%20example,%20x%20is%20bound%20to%20%7Bx%7D%22%29%0Aprint%28f%22After%20example,%20y%20is%20bound%20to%20%7By%7D%22%29%0Aprint%28f%22After%20example,%20m%20is%20bound%20to%20%7Bm%7D%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+)
+
 During execution of `example(x)`, the scopes created by the example 
 above look like this: 
 
@@ -315,16 +265,20 @@ above look like this:
 
 There are several things to notice: 
 
-- Although there are two name spaces (scopes) in the example, there 
-  is only one object space.  This will become important when we 
-  consider objects that can be modified. 
-- When we call `example(x)`, the value 
-  bound to `x` in the global scope is bound to `m` in the scope of 
+- Although there are two name spaces (scopes) in the example, there
+  is only one object space.  PythonTutor shows the `int` values
+  directly in frames as a simplification, but they are actually
+  objects in object space.  
+- When we call `example(x)`, the value
+  bound to `x` in the global scope is bound to `m` in the scope of
   `example(x)`.  We say that the "actual argument" `x` is bound to 
-  the "formal argument" `m` in `example(m: int)`.  This is always 
-  how values are passed to functions in Python. 
-- The same value, an `int` object containing the integer 23, is 
-  bound to more than one name.  This is called _aliasing_.
+  the "formal argument" `m` in `example(m: int)`.  This is always
+  how values are passed to functions in Python.
+- The same value, an `int` object containing the integer 23, is
+  bound to more than one name.  This is called _aliasing_.  
+  It will become important when we consider objects like 
+  lists that can be modified, with intentional effects
+  or unintentional [side effects](Functions:Hygiene:side-effects).
 
 
 Aliasing of the same int object to the name `m` in the 
@@ -342,4 +296,119 @@ Tutor will not draw the `int` objects in the object space.  They
 really are objects, but Python Tutor draws the integer values 
 without the objects that hold them to reduce clutter. 
 
+## Global variables
 
+Generally we want to keep the local variables in one function 
+execution completely separate not only from the local variables of 
+other functions, but also from the global namespace of our program. 
+We do _not_ want to write code like this: 
+
+```{code-cell} python3
+def bad_bad_bad(x: int):
+    """Don't do this!"""
+    s.append(x)   # s is not local to bad_bad_bad. 
+    
+s = [1, 2]
+bad_bad_bad(3)    # Not obvious that we are changing s! 
+print(s)
+```
+
+In the example above, `bad_bad_bad` is a function that accesses and 
+even changes the variable called `s`, not in its own namespace (the 
+local scope of the function) but in the global scope of the program.
+The function is at least appropriately named.  This is almost always 
+a bad idea.  Python nonetheless permits it because there are a few, 
+rare cases in which accessing a global variable is needed.  
+
+One case in which we might need to access a global variable from 
+within a function is when the global variable is some kind of fixed 
+constant or configuration.  For example, an anagram finder might 
+depend on a file that holds a list of dictionary words.  We do not 
+want to bury the name of that file inside some function.  We might 
+instead define it near the beginning of the program as a _global 
+constant_, like the variable `DICT` in the Jumbler project: 
+
+```python
+DICT = "shortdict.txt"    # Short version for testing & debugging
+# DICT = "dict.txt"       # Full dictionary word list
+
+# ... other code ... 
+
+def find(anagram: str):
+    """Print words in DICT that match anagram.
+    ... test cases here ... 
+    """
+    dict_file = open(DICT, "r") 
+    #  Reference to DICT is better than burying
+    #  the configuration setting here in the function.
+    for line in dict_file:
+          word = line.strip()
+          if word == anagram:
+              print(word)
+```
+
+Note the Python convention of using all upper case letters to make it 
+clear to readers of this code that `DICT` is a global variable.  
+
+Very rarely we might need to update a global variable from within a 
+function.  This is quite unusual, and never something to be done 
+without first considering alternatives.  One of those rare cases is 
+when for some reason we need to keep a count of how many times a 
+function has been called.  We cannot keep the count in a variable 
+that is local to the function, because then the local variable would 
+disappear after each call.  A new variable would be created each 
+time the function is called.   This code will not even work: 
+
+```{code-cell} python3
+:tags: ["raises-exception"]
+
+count_foo = 0
+
+def foo() -> int: 
+  """This will not work!"""
+  count_foo = count_foo + 1
+  return count_foo
+  
+print(foo())
+print(foo())
+print(foo())
+```
+
+What happened here?  While we may have intended to access the global 
+variable `count_foo` from within `foo`, we did not. Because there is 
+an assignment to `count_foo`, Python has created a local variable 
+`count_foo`.  It has the same name, but it is not the same variable, 
+because it is in the namespace (scope) of the execution of function 
+`foo`.  When Python attempts to evaluate `count_foo + 1`, it 
+references  the local variable `count_foo` and finds that it does not 
+yet have a value. Hence the "UnboundLocalError". 
+
+If we really, really wanted to reference and change a global 
+variable, Python will allow us to _explicitly_ declare that it is 
+the global variable `count_foo` we want to refer to, and not a new 
+local variable with the same name.  
+
+```{code-cell} python3
+count_foo = 0
+
+def foo() -> int: 
+    """This will work.  That doesn't make it a good idea."""
+    global count_foo
+    count_foo = count_foo + 1
+    return count_foo
+  
+print(foo())
+print(foo())
+print(foo())
+```
+
+## Hygiene and pragmatics
+
+Even in this section devoted to the basic mechanics of defining and 
+calling functions, it has been difficult to completely avoid talking 
+about _good_ and _bad_ approaches.  The
+[next section](02-03-Hygiene.md)
+takes up hygiene of function design in more depth.  
+Instructions for [our project](https://github.com/UO-CS210/pi)
+discusses pragmatics of choosing parts of the code to decompose into 
+functions. 

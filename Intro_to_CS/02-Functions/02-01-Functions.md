@@ -25,9 +25,9 @@ In this chapter we will take a deeper dive into functions in Python:
 How they work, how to write and test them, and how to design them.
 The last part, learning to design _good_ functions that are useful, 
 readable, testable, and maintainable, is most challenging.  We will 
-not master it in a week or in ten weeks, not even in ten years.  
+not master it in a week or in ten weeks, not even in ten years.
 Like learning to play a musical instrument or cooking or playing a 
-sport, one can spend a lifetime improving, expanding, refining 
+sport, one can spend a lifetime improving, expanding, and refining 
 technique.  Our shorter term objective is to establish a basic level 
 of competence to begin. 
 
@@ -49,7 +49,7 @@ these as guidelines for _function hygiene_.
 
 * [Function Hygiene in Python](02-03-Hygiene.md)
 
-Basic hygiene may help us avoid some harmful practices.  We would 
+Basic hygiene helps us avoid some harmful practices.  We would 
 like to go farther and learn to design really well-chosen, useful, even 
 elegant functions.  How do we choose functions?  Of all the ways we 
 could decompose a complex problem into smaller, simpler sub-problems,
@@ -58,8 +58,12 @@ these deeper issues are best taken in the context of a project.
 
 * [Project: Estimating Pi](https://github.com/UO-CS210/pi)
 
-In addition to illustrating Monte Carlo simulation, an important 
+The project illustrates Monte Carlo simulation, an important 
 computational technique that is applied in fields from games to 
-biology, ecology, and economics, the project documentation walks you 
-through the thought process of decomposing a project into smaller 
-parts, and choosing an order in which to build and test those parts. 
+biology, ecology, and economics.  The project documentation also
+walks you through the thought process of decomposing a project into
+smaller parts and choosing an order in which to build and test
+those parts.  Decomposing problems and composing solutions is a core 
+_computational thinking_ skill that you will use and refine as long 
+as you are solving problems with computational techniques.  It can 
+also be useful to you in other problem-solving domains.
