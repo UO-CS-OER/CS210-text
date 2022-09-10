@@ -118,11 +118,10 @@ the module, so it refers to function `random` found in module
 This section introduces many closely related terms like _scope_, 
 _namespace_, and _frame_, as well as some terms like _argument_ that 
 are often used interchangeably with other terms like _parameter_ in 
-Python documentation.  It can be confusing!  There is a short 
-discussion of terminology at the end of this section.
+Python documentation.  It can be confusing!  We have provided
+a short [discussion of terminology](02-04-Terms.md) to help you
+keep them straight.
 :::
-
-
 
 
 ### Finding useful modules
