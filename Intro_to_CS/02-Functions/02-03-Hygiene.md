@@ -37,7 +37,7 @@ is the _docstring comment_.
 ## Names matter
 
 We have chosen 
-`abs_diff` rather than `absolute_difference` to keep it short.   
+`abs_diff` rather than `absolute_difference` to keep it short. 
 We have not shortened it further to `a_d`, nor chosen an arbitrary 
 name like `theta`, because it is important for the name to be 
 mnemonic and suggestive of its purpose. 
@@ -52,15 +52,17 @@ programming languages that you may never encounter, the essential
 principles remain valid.  One of these is that distinctiveness 
 (avoiding names that can be confused with each other) is paramount.
 For example, `hours_weekday_worked` and `hours_weekend_worked` are a 
-terrible pair, because they are distinguished only by middle words 
-which moreover look similar.  The shorter `wkend_hours` and 
-`wkday_hours` are easier to distinguish.  
+bad pair, because they are distinguished only by middle words 
+that look similar.  `weekend_hours` and 
+`weekday_hours`, or even `wkend_hours` and `wkday_hours`, are 
+easier to distinguish because their differences are more 
+prominent. 
 
 A second principle, which 
 like distinctiveness is rooted in properties of human memory, is 
 that a name which is defined in one place and then referenced far 
 away needs to be more descriptive than a name 
-that is defined and 
+that is defined and
 then used just once nearby (e.g., within the span of code that is 
 likely to be visible on the same screen of text).
 
@@ -82,7 +84,7 @@ who calls that function (even if they are the same person).  Passing
 a floating point number like 3.2 to `abs_diff` breaks that contract.
 
 Why do we care about this "contract", if the code works?
-Because the contract also states what the author of 
+Because the contract determines what the author of 
 the function is permitted to change without notice.  Calling a 
 function in a way that violates the contract might work today, but 
 fail sometime later when the author of the function makes a 
@@ -104,7 +106,9 @@ Students and beginning programmers often find _information hiding_
 unintuitive and bothersome.  Understandably so, because as a 
 beginner they write most code individually, and seldom work on the 
 same project for more than a few weeks.  This is apt to change as 
-you tackle larger and more complex projects.  The software systems 
+you tackle larger and more complex projects.
+
+The software systems 
 that matter to people are typically collaborative or change hands 
 over time, and they last much longer than you might imagine.  Even 
 the original developer of a function will find themselves 
@@ -114,12 +118,14 @@ working on other parts of an application.
 There is another reason for clear, simple contracts and information 
 hiding.  Programs are written by humans.  Human brains are amazing, 
 but one thing they do not do well is maintain a large number of 
-details in working memory.  We solve complex problems by decomposing 
+details in working memory.  
+
+We solve complex problems by decomposing 
 them into smaller problems, then composing simple solutions of 
 sub-problems to solve the overall problem.  This is _only_ possible 
 if we can ignore and abstract away details of some of the 
 sub-problems while working on other parts.   If we need to 
-understand _how_ a function works to understand _what_ it does, then 
+understand _how_ a function works to understand _what_ it does,
 we can't suppress that detail in any part of the program that uses 
 the function.  Information hiding is an essential tool for 
 controlling complexity by giving us permission to ignore most 
@@ -143,7 +149,7 @@ help(abs_diff)
 ```
 
 As with choosing names, writing docstring comments that are clear 
-but concise is a delicate art that requires care and practice.
+but concise is an art that requires care and practice.
 
 ## Argument names 
 
@@ -172,7 +178,7 @@ called `relative_error` it is clear.
 These formal parameters are not interchangeable;
 `relative_error(3.5, 3.8)` will 
 not give the same result as `relative_error(3.8, 3.5)`.  If we give 
-them meaningless names like `x` and `y`, we are very likely to reverse 
+them meaningless names like `x` and `y`, we are likely to reverse 
 them and get the wrong answers.  Ambiguous names would be dangerous 
 in that case!   In the case of `abs_diff`, on the other hand, `x` 
 and `y` are just numbers, nothing more, which is what their generic 
@@ -207,7 +213,7 @@ print(f"selection is {li_selection}")
 ```
 
 `select_pos` is ok ... it returns a well-documented result and it 
-does not have effects on anything outside its own scope.  
+does not have effects on anything outside its local scope.
 We could also write a function that appends the positive elements of 
 one list to another: 
 
@@ -229,8 +235,9 @@ print(f"li_selection is {li_selection}")
 does not return a result.  (Technically it returns a special value 
 called `None`.)
 
-Usually we want a function or method to _either_ return a result 
-_or_ have an effect, but not both.  For example, the built-in 
+We generally avoid creating functions or methods that both
+return a result _and_ have a result. It is easier to understand just 
+one or the other. For example, the built-in 
 function `sorted` returns a sorted list without changing the list it 
 is given, while the list method `sort` puts the list into sorted 
 order but does not return a result.

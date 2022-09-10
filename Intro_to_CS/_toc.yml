@@ -15,3 +15,4 @@ parts:
       - file: 02-Functions/02-01-Functions.md
       - file: 02-Functions/02-02-Scope.md
       - file: 02-Functions/02-03-Hygiene.md
+      - file: 02-Functions/02-04-Terms.md
