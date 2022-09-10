@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Designing and Building Functions in Python &#8212; Introduction to Computer Science I</title>
+    <title>Review of terms &#8212; Introduction to Computer Science I</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Binding in Python: Functions and Scope" href="02-02-Scope.html" />
-    <link rel="prev" title="Python Programming Kickstart" href="../01-Intro/01-03-Kickstart.html" />
+    <link rel="prev" title="Function Hygiene in Python" href="02-03-Hygiene.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -141,19 +140,24 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-01-Functions.html">
    Designing and Building Functions in Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-02-Scope.html">
-   Binding in Python:  Functions and Scope
+   Binding:  Functions and Scope
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-03-Hygiene.html">
    Function Hygiene in Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Review of terms
   </a>
  </li>
 </ul>
@@ -215,7 +219,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/02-Functions/02-01-Functions.md"
+        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/02-Functions/02-04-Terms.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -275,7 +279,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F02-Functions/02-01-Functions.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F02-Functions/02-04-Terms.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -303,7 +307,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/02-Functions/02-01-Functions.ipynb"
+        <a href="../_sources/02-Functions/02-04-Terms.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -320,7 +324,7 @@ title="Download notebook file"
       </li>
       
       <li>
-        <a href="../_sources/02-Functions/02-01-Functions.md"
+        <a href="../_sources/02-Functions/02-04-Terms.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -357,23 +361,80 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scope-namespace-frame-symbol-table">
+   Scope, namespace, frame, symbol table
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-and-global-variables">
+   Local and global variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formal-and-actual-arguments-parameters">
+   Formal and actual arguments (parameters)
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Designing and Building Functions in Python</h1>
+                <h1>Review of terms</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scope-namespace-frame-symbol-table">
+   Scope, namespace, frame, symbol table
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-and-global-variables">
+   Local and global variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formal-and-actual-arguments-parameters">
+   Formal and actual arguments (parameters)
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -381,59 +442,65 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="designing-and-building-functions-in-python">
-<h1>Designing and Building Functions in Python<a class="headerlink" href="#designing-and-building-functions-in-python" title="Permalink to this headline">#</a></h1>
-<p>As we discussed in the
-<a class="reference internal" href="../01-Intro/01-03-Kickstart.html"><span class="doc std std-doc">prior chapter</span></a>,
-<em>controlling complexity</em> is the main challenge in programming,
-and <em>functions</em> are one of the primary ways
-we can decompose complex programs into
-<em>brain-size chunks</em>.</p>
-<p>In this chapter we will take a deeper dive into functions in Python:
-How they work, how to write and test them, and how to design them.
-The last part, learning to design <em>good</em> functions that are useful,
-readable, testable, and maintainable, is most challenging.  We will
-not master it in a week or in ten weeks, not even in ten years.
-Like learning to play a musical instrument or cooking or playing a
-sport, one can spend a lifetime improving, expanding, and refining
-technique.  Our shorter term objective is to establish a basic level
-of competence to begin.</p>
-<p>We begin with a brief look at the <em>mechanics</em> of functions.  This
-includes the syntax for writing a function header, and a few basic
-rules that they should conform to.  Most importantly, you must
-understand how <em>formal arguments</em> and other variables that are
-<em>local</em> to a function relate to variables outside the function. This
-is called <em>scope</em>.</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="02-02-Scope.html"><span class="doc std std-doc">Scope in Python</span></a></p></li>
-</ul>
-<p>With those mechanics in hand, we can make our first (and certainly
-not our last) foray into function design.  We will look at some
-basic guidelines that (almost) all functions should follow.  We will
-also look at testing functions, and writing documentation that is
-useful for users and maintainers of functions.  We might refer to
-these as guidelines for <em>function hygiene</em>.</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="02-03-Hygiene.html"><span class="doc std std-doc">Function Hygiene in Python</span></a></p></li>
-</ul>
-<p>Basic hygiene helps us avoid some harmful practices.  We would
-like to go farther and learn to design really well-chosen, useful, even
-elegant functions.  How do we choose functions?  Of all the ways we
-could decompose a complex problem into smaller, simpler sub-problems,
-what makes some better than others?  Our first steps toward grasping
-these deeper issues are best taken in the context of a project.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/UO-CS210/pi">Project: Estimating Pi</a></p></li>
-</ul>
-<p>The project illustrates Monte Carlo simulation, an important
-computational technique that is applied in fields from games to
-biology, ecology, and economics.  The project documentation also
-walks you through the thought process of decomposing a project into
-smaller parts and choosing an order in which to build and test
-those parts.  Decomposing problems and composing solutions is a core
-<em>computational thinking</em> skill that you will use and refine as long
-as you are solving problems with computational techniques.  It can
-also be useful to you in other problem-solving domains.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="review-of-terms">
+<h1>Review of terms<a class="headerlink" href="#review-of-terms" title="Permalink to this headline">#</a></h1>
+<p>Terminology of functions and scopes can be confusing, because there
+are many different terms commonly used for the same or almost the
+same concept … even in the Python documentation.</p>
+<section id="scope-namespace-frame-symbol-table">
+<h2>Scope, namespace, frame, symbol table<a class="headerlink" href="#scope-namespace-frame-symbol-table" title="Permalink to this headline">#</a></h2>
+<p>A <em>namespace</em> may also be called a <em>symbol table</em> or a <em>frame</em>.<br />
+These terms are not quite identical (a <em>frame</em> is really a
+structure inside the Python interpreter used to implement a
+<em>namespace</em>), but they are so closely related that you can treat
+them as synonyms.</p>
+<p>The term <em>scope</em> is also almost
+interchangeable with <em>namespace</em>, except “local scope” means
+“the namespace of the currently executing function.”  There is
+always exactly one “local” scope and one “global” scope, while there
+may be many namespaces that are temporarily inaccessible.</p>
+<p>Every frame implements a namespace, which may be the local scope or
+global scope.  Outside of any function, the local scope and the
+global scope may be the same namespace.</p>
+<p>The technical distinctions may matter
+to you someday if you build your own programming language interpreter.<br />
+For now you can treat <em>namespace</em>, <em>scope</em>, and <em>frame</em>
+as synonyms.</p>
+</section>
+<section id="local-and-global-variables">
+<h2>Local and global variables<a class="headerlink" href="#local-and-global-variables" title="Permalink to this headline">#</a></h2>
+<p>A <em>local variable</em> is a variable in the namespace (scope) of a
+function, accessible only when that function is executing.  A
+<em>global variable</em> is a variable defined in the global namespace,
+which may also be accessible from within functions.</p>
+</section>
+<section id="formal-and-actual-arguments-parameters">
+<h2>Formal and actual arguments (parameters)<a class="headerlink" href="#formal-and-actual-arguments-parameters" title="Permalink to this headline">#</a></h2>
+<p>The terms <em>parameter</em> (<em>formal parameter</em> or <em>actual parameter</em>)
+and <em>argument</em> (<em>formal argument</em> or <em>actual argument</em>) are
+synonymous.  The author of
+this chapter looked to the Python documentation to see which term
+was standard in Python.  The disappointing answer was “both”.</p>
+<p>It could be
+confusing to pair “formal parameter” with “actual argument”, so we will
+try to be consistent in preferring “argument” in both contexts.
+Occasionally we will use both terms, since you will often encounter
+“formal parameter” in other documentation.<br />
+Sometimes we will mess up … let us know so we can fix
+inconsistencies in this text.</p>
+<p>When we use the term <em>argument</em> in the context of defining a
+function, we mean <em>formal argument</em>, that is, the name that will be
+used within the function body.  When we use
+the term <em>argument</em> in the context of calling a function, we mean
+<em>actual argument</em>, that is, the value transmitted to the function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>  <span class="c1"># a is a formal argument</span>
+    <span class="sd">&quot;&quot;&quot;Does nothing&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>      <span class="c1"># x is an actual argument</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -463,19 +530,12 @@ also be useful to you in other problem-solving domains.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../01-Intro/01-03-Kickstart.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="02-03-Hygiene.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Python Programming Kickstart</p>
+            <p class="prev-next-title">Function Hygiene in Python</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="02-02-Scope.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Binding in Python:  Functions and Scope</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

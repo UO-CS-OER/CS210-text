@@ -524,7 +524,7 @@ is the <em>docstring comment</em>.</p>
 <section id="names-matter">
 <h2>Names matter<a class="headerlink" href="#names-matter" title="Permalink to this headline">#</a></h2>
 <p>We have chosen
-<code class="docutils literal notranslate"><span class="pre">abs_diff</span></code> rather than <code class="docutils literal notranslate"><span class="pre">absolute_difference</span></code> to keep it short.<br />
+<code class="docutils literal notranslate"><span class="pre">abs_diff</span></code> rather than <code class="docutils literal notranslate"><span class="pre">absolute_difference</span></code> to keep it short.
 We have not shortened it further to <code class="docutils literal notranslate"><span class="pre">a_d</span></code>, nor chosen an arbitrary
 name like <code class="docutils literal notranslate"><span class="pre">theta</span></code>, because it is important for the name to be
 mnemonic and suggestive of its purpose.</p>
@@ -537,9 +537,11 @@ programming languages that you may never encounter, the essential
 principles remain valid.  One of these is that distinctiveness
 (avoiding names that can be confused with each other) is paramount.
 For example, <code class="docutils literal notranslate"><span class="pre">hours_weekday_worked</span></code> and <code class="docutils literal notranslate"><span class="pre">hours_weekend_worked</span></code> are a
-terrible pair, because they are distinguished only by middle words
-which moreover look similar.  The shorter <code class="docutils literal notranslate"><span class="pre">wkend_hours</span></code> and
-<code class="docutils literal notranslate"><span class="pre">wkday_hours</span></code> are easier to distinguish.</p>
+bad pair, because they are distinguished only by middle words
+that look similar.  <code class="docutils literal notranslate"><span class="pre">weekend_hours</span></code> and
+<code class="docutils literal notranslate"><span class="pre">weekday_hours</span></code>, or even <code class="docutils literal notranslate"><span class="pre">wkend_hours</span></code> and <code class="docutils literal notranslate"><span class="pre">wkday_hours</span></code>, are
+easier to distinguish because their differences are more
+prominent.</p>
 <p>A second principle, which
 like distinctiveness is rooted in properties of human memory, is
 that a name which is defined in one place and then referenced far
@@ -564,7 +566,7 @@ is a contract between the author of the function and anyone
 who calls that function (even if they are the same person).  Passing
 a floating point number like 3.2 to <code class="docutils literal notranslate"><span class="pre">abs_diff</span></code> breaks that contract.</p>
 <p>Why do we care about this “contract”, if the code works?
-Because the contract also states what the author of
+Because the contract determines what the author of
 the function is permitted to change without notice.  Calling a
 function in a way that violates the contract might work today, but
 fail sometime later when the author of the function makes a
@@ -586,7 +588,8 @@ Students and beginning programmers often find <em>information hiding</em>
 unintuitive and bothersome.  Understandably so, because as a
 beginner they write most code individually, and seldom work on the
 same project for more than a few weeks.  This is apt to change as
-you tackle larger and more complex projects.  The software systems
+you tackle larger and more complex projects.</p>
+<p>The software systems
 that matter to people are typically collaborative or change hands
 over time, and they last much longer than you might imagine.  Even
 the original developer of a function will find themselves
@@ -595,12 +598,13 @@ working on other parts of an application.</p>
 <p>There is another reason for clear, simple contracts and information
 hiding.  Programs are written by humans.  Human brains are amazing,
 but one thing they do not do well is maintain a large number of
-details in working memory.  We solve complex problems by decomposing
+details in working memory.</p>
+<p>We solve complex problems by decomposing
 them into smaller problems, then composing simple solutions of
 sub-problems to solve the overall problem.  This is <em>only</em> possible
 if we can ignore and abstract away details of some of the
 sub-problems while working on other parts.   If we need to
-understand <em>how</em> a function works to understand <em>what</em> it does, then
+understand <em>how</em> a function works to understand <em>what</em> it does,
 we can’t suppress that detail in any part of the program that uses
 the function.  Information hiding is an essential tool for
 controlling complexity by giving us permission to ignore most
@@ -633,7 +637,7 @@ abs_diff(x: int, y: int) -&gt; int
 </div>
 </div>
 <p>As with choosing names, writing docstring comments that are clear
-but concise is a delicate art that requires care and practice.</p>
+but concise is an art that requires care and practice.</p>
 </section>
 <section id="argument-names">
 <h2>Argument names<a class="headerlink" href="#argument-names" title="Permalink to this headline">#</a></h2>
@@ -659,7 +663,7 @@ called <code class="docutils literal notranslate"><span class="pre">relative_err
 <p>These formal parameters are not interchangeable;
 <code class="docutils literal notranslate"><span class="pre">relative_error(3.5,</span> <span class="pre">3.8)</span></code> will
 not give the same result as <code class="docutils literal notranslate"><span class="pre">relative_error(3.8,</span> <span class="pre">3.5)</span></code>.  If we give
-them meaningless names like <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, we are very likely to reverse
+them meaningless names like <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, we are likely to reverse
 them and get the wrong answers.  Ambiguous names would be dangerous
 in that case!   In the case of <code class="docutils literal notranslate"><span class="pre">abs_diff</span></code>, on the other hand, <code class="docutils literal notranslate"><span class="pre">x</span></code>
 and <code class="docutils literal notranslate"><span class="pre">y</span></code> are just numbers, nothing more, which is what their generic
@@ -701,7 +705,7 @@ selection is [1, 2, 3]
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">select_pos</span></code> is ok … it returns a well-documented result and it
-does not have effects on anything outside its own scope.<br />
+does not have effects on anything outside its local scope.
 We could also write a function that appends the positive elements of
 one list to another:</p>
 <div class="cell docutils container">
@@ -730,8 +734,9 @@ li_selection is [1, 2, 3]
 <p><code class="docutils literal notranslate"><span class="pre">append_pos</span></code> is also ok … it has a well-documented effect, and it
 does not return a result.  (Technically it returns a special value
 called <code class="docutils literal notranslate"><span class="pre">None</span></code>.)</p>
-<p>Usually we want a function or method to <em>either</em> return a result
-<em>or</em> have an effect, but not both.  For example, the built-in
+<p>We generally avoid creating functions or methods that both
+return a result <em>and</em> have a result. It is easier to understand just
+one or the other. For example, the built-in
 function <code class="docutils literal notranslate"><span class="pre">sorted</span></code> returns a sorted list without changing the list it
 is given, while the list method <code class="docutils literal notranslate"><span class="pre">sort</span></code> puts the list into sorted
 order but does not return a result.

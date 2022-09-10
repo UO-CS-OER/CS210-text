@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 
-# Binding in Python:  Functions and Scope
+# Binding:  Functions and Scope
 
 In the prior chapter and accompanying project we both used functions 
 that come built-in to Python (like `max` and `sorted`) and functions 
@@ -114,6 +114,17 @@ refers to the module.  The part after the `.` is in the namespace of
 the module, so it refers to function `random` found in module 
 `random`. 
 
+:::{note}
+This section introduces many closely related terms like _scope_, 
+_namespace_, and _frame_, as well as some terms like _argument_ that 
+are often used interchangeably with other terms like _parameter_ in 
+Python documentation.  It can be confusing!  There is a short 
+discussion of terminology at the end of this section.
+:::
+
+
+
+
 ### Finding useful modules
 
 It is not practical to memorize the names of all the modules in the 
@@ -152,7 +163,7 @@ separated by underscore ("`_`").  The following
 discusses the choice of name in more depth. 
 
 Function `abs_diff` has two _arguments_, also called _formal 
-parameters_, `x` and `y`.   The _actual parameters_ passed to 
+parameters_, `x` and `y`.   The _actual arguments_ passed to 
 `abs_diff` must be `int` objects representing integers.  The 
 function header also indicates that `abs_diff` will return a single 
 `int` value.  This information comprises the _signature_ of
@@ -200,8 +211,8 @@ are viewing this chapter in a web browser, use the
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20diff%28a%3A%20int,%20b%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Returns%20a%20-%20b.%22%22%22%0A%20%20%20%20return%20a%20-%20b%0A%0Ax%20%3D%2017%0Ay%20%3D%2014%0Az%20%3D%20diff%28x,%20y%29%0Aprint%28z%29%0Aprint%28a%29%20%20%20%20%20%23%20Error!%20%20Variable%20a%20doesn't%20exist%20here.&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
 In the example above, function `diff`, the value of `x` is assigned 
-to the formal parameter `a` and the value of `y` is assigned to the 
-formal parameter `b`, so we get `17 - 14` which is 3.  Also, the 
+to the formal argument `a` and the value of `y` is assigned to the 
+formal argument `b`, so we get `17 - 14` which is 3.  Also, the 
 variables `a` and `b` exist only while `diff` is executing, so the 
 final statement will cause an error ("NameError", which 
 basically means there is no variable `a` at that point in the program.)
@@ -232,7 +243,7 @@ function `example`.   It is even possible for two or more variables
 with the same name to exist in different scopes.   
 
 ```{code-cell} python3
-# Global scope
+# Global scope (global frame or namespace)
 x = 23
 y = 42
 m = 19
@@ -244,7 +255,7 @@ def example(m: int):
     print(f"y is bound to {y} within example")
     print(f"m is bound to {m} within example")
 
-# Executing "example" creates the new scope
+# Executing "example" creates the new local scope
 example(x)
 # When "example" finishes, the new scope is deleted
 
@@ -265,7 +276,8 @@ above look like this:
 
 There are several things to notice: 
 
-- Although there are two name spaces (scopes) in the example, there
+- Although there are two name spaces (scopes or frames) in the example, 
+  there
   is only one object space.  PythonTutor shows the `int` values
   directly in frames as a simplification, but they are actually
   objects in object space.  
@@ -322,9 +334,7 @@ rare cases in which accessing a global variable is needed.
 
 If you are reading the online version of this text, you can
 [step through `bad_bad_bad` in PythonTutor](
-https://pythontutor.com/render.
-html#code=def%20bad_bad_bad%28x%3A%20int%29%3A%0A%20%20%20%20%22%22%22Don't%20do%20this!%22%22%22%0A%20%20%20%20s.append%28x%29%20%20%20%23%20s%20is%20not%20local%20to%20bad_bad_bad.%20%0A%20%20%20%20%0As%20%3D%20%5B1,%202%5D%0Abad_bad_bad%283%29%20%20%20%20%23%20Not%20obvious%20that%20we%20are%20changing%20s!%20%0Aprint%28s%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false). 
-
+https://pythontutor.com/render.html#code=def%20bad_bad_bad%28x%3A%20int%29%3A%0A%20%20%20%20%22%22%22Don't%20do%20this!%22%22%22%0A%20%20%20%20s.append%28x%29%20%20%20%23%20s%20is%20not%20local%20to%20bad_bad_bad.%20%0A%20%20%20%20%0As%20%3D%20%5B1,%202%5D%0Abad_bad_bad%283%29%20%20%20%20%23%20Not%20obvious%20that%20we%20are%20changing%20s!%20%0Aprint%28s%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false). 
 
 One case in which we might need to access a global variable from 
 within a function is when the global variable is some kind of fixed 
@@ -413,8 +423,6 @@ If you are reading online, you can
 https://pythontutor.com/render.html#code=count_foo%20%3D%200%0A%0Adef%20foo%28%29%20-%3E%20int%3A%20%0A%20%20%20%20%22%22%22This%20will%20work.%20%20That%20doesn't%20make%20it%20a%20good%20idea.%22%22%22%0A%20%20%20%20global%20count_foo%0A%20%20%20%20count_foo%20%3D%20count_foo%20%2B%201%0A%20%20%20%20return%20count_foo%0A%20%20%0Aprint%28foo%28%29%29%0Aprint%28foo%28%29%29%0Aprint%28foo%28%29%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
 ).
 
-
-
 ## Hygiene and pragmatics
 
 Even in this section devoted to the basic mechanics of defining and 
@@ -425,3 +433,10 @@ takes up hygiene of function design in more depth.
 Instructions for [our project](https://github.com/UO-CS210/pi)
 discusses pragmatics of choosing parts of the code to decompose into 
 functions. 
+
+## Terminology
+
+The many terms like _scope_ and _frame_ can be confusing, especially 
+since you will encounter different names for the same or closely 
+related concepts in documentation.  We have provided a brief
+[terminology review](02-04-Terms.md) to help you sort them out.

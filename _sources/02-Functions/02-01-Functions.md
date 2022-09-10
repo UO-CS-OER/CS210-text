@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 
-# Designing and building functions in Python
+# Designing and Building Functions in Python
 
 As we discussed in the
 [prior chapter](../01-Intro/01-03-Kickstart.md),
