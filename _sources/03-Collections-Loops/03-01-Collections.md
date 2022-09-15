@@ -494,8 +494,8 @@ for ch in s:
 ```
 
 There are more.  In Python, "things you can loop through" are called 
-_iterables_.  When we loop through indexes for a list `l` using `range
-(len(l))`, we are actually iterating through elements of a `range` 
+_iterables_.  When we loop through indexes for a list `l` using
+`range(len(l))`, we are actually iterating through elements of a `range` 
 object: 
 
 ```{code-cell} python3
@@ -510,7 +510,10 @@ that you can loop through, but we won't do that in this course.
 
 The [project for this week](https://github.com/UO-CS210/enrollment) 
 asks you to produce a summary report from a class roster. It uses 
-lists, dictionaries, and tuples, as well 
+lists, dictionaries, and tuples.  The pattern above, using a `dict` to 
+keep several counts of items in a list, is the key to counting the 
+number of students in each major. 
+
 
 
 
