@@ -34,8 +34,25 @@ the timing of traffic lights in your current city was selected by the
 [Transyt](https://en.wikipedia.org/wiki/TRANSYT-7F) system, whose 
 core method is exactly this.   
 
+```{note}
+I chose the Transyt software as an example 
+because I know it was 
+used to set the light timings in Eugene, Oregon decades ago.  I know
+because my first assignment as a junior programmer was to make
+that software work on the IBM mainframe computer then used by the city.
+I encountered Transyt again several years later, when my spouse
+was working for a transportation research group at University of California, Irvine. 
+Useful programs last a long time, and evolve, sometimes through 
+generations of programmers.  The Transyt system today is likely 
+different in many ways than the code I encountered 40+ years ago.  
+It may have been completely rewritten in a more modern programming 
+language (or maybe not).  Almost certainly, though, the core 
+method "guess and refine" approach to optimization remains the same. 
+-MY
+```
+
 Simulations of physical systems are complex, but we can illustrate 
-the approach more simply with a "system" that is simply a math 
+the approach more simply with a "system" that is just a math 
 formula.  Suppose we wanted to find the square root of a number 
 greater than 1.0.   Suppose all we knew is that 
 
