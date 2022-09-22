@@ -17,20 +17,30 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-def exists_in_table((li: list, table: dict) -> bool: 
-    """True if any elements of li are keys in table"""
-    for elem in li:
-        if elem in table: 
-            return True
-    return False
-   
-print(exists_in_table(itinerary, populations))
+city_names = [
+  'Beaverton', 'Bend', 'Corvallis', 'Eugene', 
+  'Gresham', 'Hillsboro', 'Medford', 'Portland',
+  'Salem', 'Springfield']
+city_pops = [
+    108037, 112264, 65850, 192605,
+    124413, 117296, 95003, 705278, 
+    195495, 68481]
+    
+big_city = max_index(city_pops)
+
+print(city_names[i], city_pop[i])
 ------------------
 
-[0;36m  Input [0;32mIn [27][0;36m[0m
-[0;31m    def exists_in_table((li: list, table: dict) -> bool:[0m
-[0m                        ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [7][0m, in [0;36m<cell line: 12>[0;34m()[0m
+[1;32m      5[0m city_pops [38;5;241m=[39m [
+[1;32m      6[0m     [38;5;241m108037[39m, [38;5;241m112264[39m, [38;5;241m65850[39m, [38;5;241m192605[39m,
+[1;32m      7[0m     [38;5;241m124413[39m, [38;5;241m117296[39m, [38;5;241m95003[39m, [38;5;241m705278[39m, 
+[1;32m      8[0m     [38;5;241m195495[39m, [38;5;241m68481[39m]
+[1;32m     10[0m big_city [38;5;241m=[39m max_index(city_pops)
+[0;32m---> 12[0m [38;5;28mprint[39m(city_names[i], [43mcity_pop[49m[i])
 
-SyntaxError: invalid syntax (1690124480.py, line 1)
+[0;31mNameError[0m: name 'city_pop' is not defined
+NameError: name 'city_pop' is not defined
 

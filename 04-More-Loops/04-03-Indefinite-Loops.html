@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>A Course in Computational Thinking &#8212; Introduction to Computer Science I</title>
+    <title>Indefinite loops &#8212; Introduction to Computer Science I</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installing Python and IDLE" href="01-02-Install.html" />
-    <link rel="prev" title="Introduction to Computer Science, part 1" href="../intro.html" />
+    <link rel="next" title="Successive Approximation" href="04-04-Successive-Approximation.html" />
+    <link rel="prev" title="Parallel Lists" href="04-02-Parallel-Lists.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -118,19 +118,19 @@ const thebe_selector_output = ".output, .cell_output"
   01 Getting a Start
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-01-Prospectus.html">
    A Course in Computational Thinking
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="01-02-Install.html">
+  <a class="reference internal" href="../01-Intro/01-02-Install.html">
    Installing Python and IDLE
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="01-03-Kickstart.html">
+  <a class="reference internal" href="../01-Intro/01-03-Kickstart.html">
    Python Programming Kickstart
   </a>
  </li>
@@ -179,47 +179,25 @@ const thebe_selector_output = ".output, .cell_output"
   04 More Loops and Collections
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../04-More-Loops/04-01-More-Loops.html">
+  <a class="reference internal" href="04-01-More-Loops.html">
    Loops and more loops
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../04-More-Loops/04-02-Parallel-Lists.html">
-   –
-jupytext:
-formats: md:myst
-text_representation:
-extension: .myst
-format_name: myst
-format_version: 1.1
-jupytext_version: 1.10.3
-kernelspec:
-display_name: Python 3
-language: python
-name: python3
+  <a class="reference internal" href="04-02-Parallel-Lists.html">
+   Parallel Lists
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../04-More-Loops/04-03-Indefinite-Loops.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Indefinite loops
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../04-More-Loops/04-04-Successive-Approximation.html">
-   –
-jupytext:
-formats: md:myst
-text_representation:
-extension: .myst
-format_name: myst
-format_version: 1.1
-jupytext_version: 1.10.3
-kernelspec:
-display_name: Python 3
-language: python
-name: python3
+  <a class="reference internal" href="04-04-Successive-Approximation.html">
+   Successive Approximation
   </a>
  </li>
 </ul>
@@ -281,7 +259,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/01-Intro/01-01-Prospectus.md"
+        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/04-More-Loops/04-03-Indefinite-Loops.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -341,7 +319,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F01-Intro/01-01-Prospectus.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F04-More-Loops/04-03-Indefinite-Loops.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -369,7 +347,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/01-Intro/01-01-Prospectus.ipynb"
+        <a href="../_sources/04-More-Loops/04-03-Indefinite-Loops.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -386,7 +364,7 @@ title="Download notebook file"
       </li>
       
       <li>
-        <a href="../_sources/01-Intro/01-01-Prospectus.md"
+        <a href="../_sources/04-More-Loops/04-03-Indefinite-Loops.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -446,20 +424,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-to-program">
-   Learning to Program
+  <a class="reference internal nav-link" href="#example-merging-sorted-lists">
+   Example: Merging sorted lists
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-python">
-     Why Python
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#getting-a-start">
-   Getting a Start
+  <a class="reference internal nav-link" href="#breaking-out">
+   Breaking out
   </a>
  </li>
 </ul>
@@ -471,7 +442,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>A Course in Computational Thinking</h1>
+                <h1>Indefinite loops</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -482,20 +453,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-to-program">
-   Learning to Program
+  <a class="reference internal nav-link" href="#example-merging-sorted-lists">
+   Example: Merging sorted lists
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-python">
-     Why Python
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#getting-a-start">
-   Getting a Start
+  <a class="reference internal nav-link" href="#breaking-out">
+   Breaking out
   </a>
  </li>
 </ul>
@@ -508,134 +472,125 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="a-course-in-computational-thinking">
-<h1>A Course in Computational Thinking<a class="headerlink" href="#a-course-in-computational-thinking" title="Permalink to this headline">#</a></h1>
-<p><em>Introduction to Computer Science</em> is a foundational course in
-computer science.  It is a course in programming, but more than that,
-it is a course in computational thinking.</p>
-<p>What’s so special about <em>computational</em> thinking and problem solving?
-Is it a branch of engineering, or math, or is it a science?
-Computing certainly draws from all of those fields, and also
-contributes to them, but in some ways it is unique.</p>
-<p>Computing and computer science do not seek to characterize the
-natural world, although many computer programs (e.g., environmental
-models, computer aided design and numerical control) incorporate
-models of the natural world.  Computing is increasingly a core tool
-used in the natural sciences, and computational thinking can be
-useful to scientists, but core concerns of the natural sciences and
-computing are distinct.</p>
-<p>Some areas of computing (particularly usability and user interface
-design, and software engineering) draw heavily from the social
-sciences, especially psychology but also fields as diverse as
-anthropology, linguistics, and economics.  Despite some overlap,
-though (e.g., economic game theory in the design of computer network
-protocols, visual attention in user interface design), the core
-concerns of computing are mostly distinct from the core concerns of
-the social sciences.</p>
-<p>Like mathematics, computing requires
-rigorous reasoning about formal, abstract systems.<br />
-Some areas of computer science produce mathematical proofs, as you
-will be required to do if you continue with computer science through
-courses in data structures and algorithms.<br />
-However, computer scientists are more concerned than mathematicians
-with the <em>things</em> their formal systems represent.</p>
-<p>Like engineers, computer scientists and software developers
-construct abstract
-representations of <em>things</em> to
-reason  effectively about them.
-There is an important difference in the kinds of <em>thing</em> that
-computing produces, relative to conventional engineering.
-The design of a bridge or an automobile is
-complex and expensive, but the main expense of building a bridge is
-in the physical construction, and not the design.
-The cost of building cars at industrial scale is likewise much larger
-than the cost of designing a car.</p>
-<p>The <em>things</em> designed (but not constructed) by
-software developers are <em>computations</em>.
-The computations are
-constructed by computers, following our designs.
-Computations
-are weightless and cheap.<br />
-The designs of those computations, which we call
-<em>programs</em> or <em>software</em> or perhaps <em>software systems</em>, are complex
-and expensive. Any part of the construction that can be fully
-automated becomes cheap, but there always remains some part of the
-design that is necessarily human, complex, and demanding.<br />
-Computing exposes the expense of design by removing the
-limits of engineering physical things.</p>
-<p>All these things that computing is <em>not</em> may shed some light on what
-computing and computer science <em>are</em>.  Computer science is concerned
-with
-<em>design</em> of computations, and like other design disciplines it
-requires creative problem-solving. It requires forming and using
-abstract, often mathematical models, without losing track of their
-relation to concrete artifacts.  It especially requires
-careful control of complexity, decomposing problems into smaller
-sub-problems and organizing them to maintain intellectual control.
-Many disciplines incorporate these concerns to some extent, but they
-are the very core of computing.</p>
-<p>In tackling a core, rigorous course in computing, you should
-certainly become a better programmer.  But if skill in programming
-is the only thing you gain from this course, then we have failed.
-If you as a learner and we as your teachers are successful, a
-rigorous course in computational thinking will make you a better and
-more creative problem solver.</p>
-<section id="learning-to-program">
-<h2>Learning to Program<a class="headerlink" href="#learning-to-program" title="Permalink to this headline">#</a></h2>
-<p>The principles and techniques
-you will learn in <em>Introduction to Computer Science</em>
-are not limited to a single programming
-language, let alone a particular computer or operating system.
-But we have to start somewhere.  That <em>somewhere</em>
-requires us to choose a programming language, and to
-practice using it.</p>
-<section id="why-python">
-<h3>Why Python<a class="headerlink" href="#why-python" title="Permalink to this headline">#</a></h3>
-<p>In this course we will use Python,
-specifically Python version 3.10 or higher.
-Python is widely used in data science and scientific
-computing, in cartography, in web development,
-in machine learning, and in many other domains, but
-that is not why we have chosen it. We have chosen Python 3 because
-we believe it is a good language for <em>learning to program</em>.   Python
-3 is</p>
-<ul class="simple">
-<li><p>Consistent.  There are few “special cases” to remember in Python,
-which makes it easier to remember how things work and to build on
-what you know.</p></li>
-<li><p>Concise.  Python does not require a lot of boilerplate, which
-makes it easier to read example code.</p></li>
-<li><p>Well-provisioned.  Although there are many extras that you <em>could</em>
-add, a standard and straightforward installation of Python is
-enough to build many interesting projects.</p></li>
-</ul>
-<p>That is not to say that Python is a perfect language.  It is
-certainly not the only programming language you will ever want or
-need to learn.   But among the programming langauges available to us
-today, we believe it is an excellent starting point.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="indefinite-loops">
+<h1>Indefinite loops<a class="headerlink" href="#indefinite-loops" title="Permalink to this headline">#</a></h1>
+<p>Loops that iterate through the elements of a
+collection are most common, but a loop can also be written to
+iterate as long as some condition holds.  Sometimes such a loop is
+useful even when we are iterating through collections, but not
+stepping through them at a pace of one item per iteration.</p>
+<section id="example-merging-sorted-lists">
+<h2>Example: Merging sorted lists<a class="headerlink" href="#example-merging-sorted-lists" title="Permalink to this headline">#</a></h2>
+<p>Suppose we want to <em>merge</em> two lists that are already in
+sorted order.   While we could just concatenate and then sort short
+lists, that approach would not be good if the lists had
+millions of elements, or if instead of lists in memory we were
+reading two streams of network data and producing a merged output
+stream.  In that case we would need a loop that advances through
+just one or the other list on each iteration.  I’ll illustrate with
+short lists:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># My lists of precious and cheap rocks are each sorted</span>
+<span class="n">precious</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;amber&quot;</span><span class="p">,</span> <span class="s2">&quot;amethyst&quot;</span><span class="p">,</span> <span class="s2">&quot;diamond&quot;</span><span class="p">,</span> <span class="s2">&quot;ruby&quot;</span><span class="p">]</span>
+<span class="n">cheap</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;basalt&quot;</span><span class="p">,</span> <span class="s2">&quot;granite&quot;</span><span class="p">,</span> <span class="s2">&quot;pumice&quot;</span><span class="p">,</span> <span class="s2">&quot;shale&quot;</span><span class="p">]</span>
+
+<span class="c1"># I want to combine them into one sorted list</span>
+<span class="c1"># Start at the beginning of each list</span>
+<span class="n">i_precious</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">i_cheap</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">rocks</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="n">i_precious</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">precious</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i_cheap</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">cheap</span><span class="p">):</span>
+    <span class="c1"># We&#39;ll add one element to rocks on each iteration, </span>
+    <span class="c1"># but it could come from either the precious or the cheap list.</span>
+    <span class="k">if</span> <span class="n">precious</span><span class="p">[</span><span class="n">i_precious</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">cheap</span><span class="p">[</span><span class="n">i_cheap</span><span class="p">]:</span>
+        <span class="n">rocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precious</span><span class="p">[</span><span class="n">i_precious</span><span class="p">])</span>
+        <span class="n">i_precious</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="n">rocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cheap</span><span class="p">[</span><span class="n">i_cheap</span><span class="p">])</span>
+        <span class="n">i_cheap</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+<span class="c1"># One of the lists, cheap or precious, has not been used up.</span>
+<span class="c1"># One of these two loops will execute zero times, and one will </span>
+<span class="c1"># execute at least once. </span>
+<span class="k">while</span> <span class="n">i_precious</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">precious</span><span class="p">):</span>
+    <span class="n">rocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precious</span><span class="p">[</span><span class="n">i_precious</span><span class="p">])</span>
+    <span class="n">i_precious</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i_cheap</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">cheap</span><span class="p">):</span>
+    <span class="n">rocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cheap</span><span class="p">[</span><span class="n">i_cheap</span><span class="p">])</span>
+    <span class="n">i_cheap</span> <span class="o">+=</span> <span class="mi">1</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">rocks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;amber&#39;, &#39;amethyst&#39;, &#39;basalt&#39;, &#39;diamond&#39;, &#39;granite&#39;, &#39;pumice&#39;, &#39;ruby&#39;, &#39;shale&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-</section>
-<section id="getting-a-start">
-<h2>Getting a Start<a class="headerlink" href="#getting-a-start" title="Permalink to this headline">#</a></h2>
-<p>The pre-requisites for <em>Introduction to Computer Science</em> include
-a basic familiarity with programming.  That familiarity may
-take many forms (not necessarily programming in Python).  Also,
-student knowledge from a course some time ago or from self study may
-be rusty or incomplete.</p>
-<p>If you have not programmed at all, but want to tackle this very
-demanding course, we can recommend the
-<a class="reference external" href="https://cscircles.cemc.uwaterloo.ca/">Computer Science Circles</a>
-online lessons as a good and thorough introduction.  Even if
-you have programmed in Python before, you may find the CS Circles
-materials valuable as a refresher.</p>
-<p>The remaining sections of this chapter provide brief instructions
-for installing Python 3 on the computer you will use for your
-projects, and then <em>just enough</em> introduction to Python programming
-to tackle an initial project.</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="01-02-Install.html"><span class="doc std std-doc">Install Python</span></a></p></li>
-<li><p><a class="reference internal" href="01-03-Kickstart.html"><span class="doc std std-doc">Python Programming Kickstart</span></a></p></li>
-</ul>
+<section id="breaking-out">
+<h2>Breaking out<a class="headerlink" href="#breaking-out" title="Permalink to this headline">#</a></h2>
+<p>The condition for finishing and exiting a loop is not always in the
+<code class="docutils literal notranslate"><span class="pre">while</span></code> condition.  Sometimes it is more convenient to place the
+test somewhere in the body of the loop.  In that case we may write
+what appears to be an infinite loop with <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">true:</span></code>, and use the
+<code class="docutils literal notranslate"><span class="pre">break</span></code> statement for the actual exit.  The code for combining lists
+of rocks could also be written with a single loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i_precious</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">i_cheap</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">rocks</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="n">i_precious</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">precious</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i_cheap</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">cheap</span><span class="p">):</span>
+        <span class="c1"># Both lists have more items.  Take the smallest.</span>
+        <span class="k">if</span> <span class="n">precious</span><span class="p">[</span><span class="n">i_precious</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">cheap</span><span class="p">[</span><span class="n">i_cheap</span><span class="p">]:</span>
+            <span class="n">rocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precious</span><span class="p">[</span><span class="n">i_precious</span><span class="p">])</span>
+            <span class="n">i_precious</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="n">rocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cheap</span><span class="p">[</span><span class="n">i_cheap</span><span class="p">])</span>
+            <span class="n">i_cheap</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">i_precious</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">precious</span><span class="p">):</span> 
+        <span class="c1"># Only precious rocks remain.  Take the next. </span>
+        <span class="n">rocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precious</span><span class="p">[</span><span class="n">i_precious</span><span class="p">])</span>
+        <span class="n">i_precious</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">i_cheap</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">cheap</span><span class="p">):</span>
+        <span class="c1"># Only cheap rocks remain.  Take the next. </span>
+        <span class="n">rocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cheap</span><span class="p">[</span><span class="n">i_cheap</span><span class="p">])</span>
+        <span class="n">i_cheap</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="c1"># Both lists are exhausted; we&#39;re done! </span>
+        <span class="k">break</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">rocks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;amber&#39;, &#39;amethyst&#39;, &#39;basalt&#39;, &#39;diamond&#39;, &#39;granite&#39;, &#39;pumice&#39;, &#39;ruby&#39;, &#39;shale&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Usually we want to be sure that the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement will be
+executed after a predictable number of iterations.  In the loop
+above, we can argue that each iteration adds one to either <code class="docutils literal notranslate"><span class="pre">i_cheap</span></code>
+or <code class="docutils literal notranslate"><span class="pre">i_precious</span></code>, and that the total number of loop iterations will
+be exactly <code class="docutils literal notranslate"><span class="pre">len(precious)</span> <span class="pre">+</span> <span class="pre">len(cheap)</span></code>.</p>
+<p>In some other situations it may be much harder to determine how many
+times an indefinite loop could execute.  For example, we may be
+simulating a physical system until some condition holds, or trying
+different solutions to a puzzle.
+If we cannot be sure of eventually executing the <code class="docutils literal notranslate"><span class="pre">break</span></code>
+statement, we could replace the <code class="docutils literal notranslate"><span class="pre">while</span></code> with a <code class="docutils literal notranslate"><span class="pre">for</span></code> to set an
+upper limit on the number of iterations.  That is the approach we
+will take  in this week’s project, in which the main loop is an
+attempt to improve an assignment of events to geographic clusters.</p>
 </section>
 </section>
 
@@ -652,7 +607,7 @@ to tackle an initial project.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./01-Intro"
+            path: "./04-More-Loops"
         },
         predefinedOutput: true
     }
@@ -666,17 +621,17 @@ to tackle an initial project.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="04-02-Parallel-Lists.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction to Computer Science, part 1</p>
+            <p class="prev-next-title">Parallel Lists</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01-02-Install.html" title="next page">
+    <a class='right-next' id="next-link" href="04-04-Successive-Approximation.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Installing Python and IDLE</p>
+        <p class="prev-next-title">Successive Approximation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -1,3 +1,7 @@
+---
+:orphan:
+---
+
 # README:  Book-wide 'img' directory
 
 This directory is for images that are "global" to the book, 
