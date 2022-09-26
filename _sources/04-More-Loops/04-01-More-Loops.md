@@ -58,6 +58,6 @@ may require a
 little more refinement. [Our wildfire clustering project](
 https://github.com/UO-CS210/wildfire
 ) instantiates "make an initial guess" as "randomly assign fires to 
-clusters" and "improve it" as "reassign based on proximity", and 
+clusters", "improve it" as "reassign based on proximity", and 
 "not good enough" as "assignments are still changing, so maybe we 
 can do better." 

@@ -1,0 +1,63 @@
+Traceback (most recent call last):
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 641, in run_until_complete
+    return future.result()
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def palindrome_v2(word: list[str], first: int, last: int) -> bool: 
+    """True if word[first:last] is a palindrome.
+    first and last must be non-negative integers.
+    """
+    # Base cases
+    if last - first < 2:
+        return True
+    # Recursive case
+    x = word[first]
+    y = word[last]
+    return x == y and palindrome_v2(word, first+1, last-1)
+    
+def is_it_palindrome(word: str) -> bool:
+    """Print palindrome judgment for a string"""
+    letters = list(word)
+    if palindrome_v1(letters, 0, len(letters)-1):
+        print(f"'{word}' is a palindrome")
+    else:
+        print(f"'{word}' is NOT a palindrome")
+
+is_it_palindrome("racecar")
+is_it_palindrome("noon")
+is_it_palindrome("faff")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [5][0m, in [0;36m<cell line: 21>[0;34m()[0m
+[1;32m     18[0m     [38;5;28;01melse[39;00m:
+[1;32m     19[0m         [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m"[39m[38;5;124m'[39m[38;5;132;01m{[39;00mword[38;5;132;01m}[39;00m[38;5;124m'[39m[38;5;124m is NOT a palindrome[39m[38;5;124m"[39m)
+[0;32m---> 21[0m [43mis_it_palindrome[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mracecar[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[1;32m     22[0m is_it_palindrome([38;5;124m"[39m[38;5;124mnoon[39m[38;5;124m"[39m)
+[1;32m     23[0m is_it_palindrome([38;5;124m"[39m[38;5;124mfaff[39m[38;5;124m"[39m)
+
+Input [0;32mIn [5][0m, in [0;36mis_it_palindrome[0;34m(word)[0m
+[1;32m     14[0m [38;5;124;03m"""Print palindrome judgment for a string"""[39;00m
+[1;32m     15[0m letters [38;5;241m=[39m [38;5;28mlist[39m(word)
+[0;32m---> 16[0m [38;5;28;01mif[39;00m [43mpalindrome_v1[49m[43m([49m[43mletters[49m[43m,[49m[43m [49m[38;5;241;43m0[39;49m[43m,[49m[43m [49m[38;5;28;43mlen[39;49m[43m([49m[43mletters[49m[43m)[49m[38;5;241;43m-[39;49m[38;5;241;43m1[39;49m[43m)[49m:
+[1;32m     17[0m     [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m"[39m[38;5;124m'[39m[38;5;132;01m{[39;00mword[38;5;132;01m}[39;00m[38;5;124m'[39m[38;5;124m is a palindrome[39m[38;5;124m"[39m)
+[1;32m     18[0m [38;5;28;01melse[39;00m:
+
+[0;31mTypeError[0m: palindrome_v1() takes 1 positional argument but 3 were given
+TypeError: palindrome_v1() takes 1 positional argument but 3 were given
+

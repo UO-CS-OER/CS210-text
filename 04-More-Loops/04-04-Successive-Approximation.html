@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Successive Approximation &#8212; Introduction to Computer Science I</title>
+    <title>Successive approximation &#8212; Introduction to Computer Science I</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,6 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Recursive Functions" href="../05-Recursion/05-01-Recursion.html" />
     <link rel="prev" title="Indefinite loops" href="04-03-Indefinite-Loops.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -198,7 +199,19 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Successive Approximation
+   Successive approximation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  05 Recursion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Recursion/05-01-Recursion.html">
+   Recursive Functions
   </a>
  </li>
 </ul>
@@ -414,7 +427,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Successive Approximation</h1>
+                <h1>Successive approximation</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -427,7 +440,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="successive-approximation">
-<h1>Successive Approximation<a class="headerlink" href="#successive-approximation" title="Permalink to this headline">#</a></h1>
+<h1>Successive approximation<a class="headerlink" href="#successive-approximation" title="Permalink to this headline">#</a></h1>
 <p>Suppose you had a machine that was not very smart, but could compute
 things and check certain simple conditions very quickly.  You might
 call such a machine a “computer”.  If you directed it carefully,
@@ -454,14 +467,18 @@ used to set the light timings in Eugene, Oregon decades ago.  I know
 because my first assignment as a junior programmer was to make
 that software work on the IBM mainframe computer then used by the city.
 I encountered Transyt again several years later, when my spouse
-was working for a transportation research group at University of California, Irvine.
+was working for a transportation research group
+at University of California, Irvine.
 Useful programs last a long time, and evolve, sometimes through
-generations of programmers.  The Transyt system today is likely
-different in many ways than the code I encountered 40+ years ago.<br />
-It may have been completely rewritten in a more modern programming
-language (or maybe not).  Almost certainly, though, the core
-method “guess and refine” approach to optimization remains the same.
--MY</p>
+generations of programmers.  The Transyt system today is
+different in some ways than the code I encountered many years ago.
+It may have been rewritten in a more modern programming
+language (or maybe not).  The
+“guess and refine” approach to optimization has been extended in
+<a class="reference external" href="https://mctrans.ce.ufl.edu/highway-capacity-software-hcs/transyt-7f/">Transyt 7F</a>
+to a modern <em>genetic search</em> algorithm that maintains multiple
+guesses for refinement, but the core approach remains the
+same. -MY</p>
 </div>
 <p>Simulations of physical systems are complex, but we can illustrate
 the approach more simply with a “system” that is just a math
@@ -596,6 +613,13 @@ good solution.</p>
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Indefinite loops</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../05-Recursion/05-01-Recursion.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Recursive Functions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

@@ -1,0 +1,966 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Recursive Functions &#8212; Introduction to Computer Science I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Successive approximation" href="../04-More-Loops/04-04-Successive-Approximation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo-provisional.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Computer Science I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Computer Science, part 1
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  01 Getting a Start
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-01-Prospectus.html">
+   A Course in Computational Thinking
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-02-Install.html">
+   Installing Python and IDLE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-03-Kickstart.html">
+   Python Programming Kickstart
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  02 Writing Functions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-01-Functions.html">
+   Designing and Building Functions in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-02-Scope.html">
+   Binding:  Functions and Scope
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-03-Hygiene.html">
+   Function Hygiene in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-04-Terms.html">
+   Review of terms
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  03 Collections and Loops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-Collections-Loops/03-01-Collections.html">
+   Collections and Loops
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  04 More Loops and Collections
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-01-More-Loops.html">
+   Loops and more loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-02-Parallel-Lists.html">
+   Parallel Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-03-Indefinite-Loops.html">
+   Indefinite loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-04-Successive-Approximation.html">
+   Successive approximation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  05 Recursion
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Recursive Functions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/05-Recursion/05-01-Recursion.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/UO-CS-OER/CS210-text"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F05-Recursion/05-01-Recursion.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/05-Recursion/05-01-Recursion.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/05-Recursion/05-01-Recursion.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shrinking-pieces-of-a-collection">
+   Shrinking pieces of a collection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logical-values">
+   Logical values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-wrapper-function">
+   A wrapper function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursion-for-hierarchical-data-structures">
+   Recursion for hierarchical data structures
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Recursive Functions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shrinking-pieces-of-a-collection">
+   Shrinking pieces of a collection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logical-values">
+   Logical values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-wrapper-function">
+   A wrapper function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursion-for-hierarchical-data-structures">
+   Recursion for hierarchical data structures
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="recursive-functions">
+<h1>Recursive Functions<a class="headerlink" href="#recursive-functions" title="Permalink to this headline">#</a></h1>
+<p>We have written many functions that call other functions.  Could we
+write a function that calls itself?  A function that calls itself
+directly or indirectly is called a <em>recursive</em> functon.
+We would have to be careful, of
+course.  The following will not work:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mult_v1</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+        <span class="sd">&quot;&quot;&quot;Use commutative law to multiply, a*b = b*a&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">mult_v1</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">mult_v1</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This circular definition of multiplication in terms of
+multiplication fails, as we expect.  It’s a kind an <em>infinite
+recursive loop</em>.  Python will eventually report a <code class="docutils literal notranslate"><span class="pre">RecursionError</span></code>
+exception:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">RecursionError</span><span class="p">:</span> <span class="n">maximum</span> <span class="n">recursion</span> <span class="n">depth</span> <span class="n">exceeded</span>
+</pre></div>
+</div>
+<p>And yet we can write a recursive function for multiplication. The
+following is a slow way to multiply integers,
+but it works:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mult_v2</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+    <span class="sd">&quot;&quot;&quot;Multiplication by repeated addition.</span>
+<span class="sd">    a and b must be non-negative integers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">b</span> <span class="o">+</span> <span class="n">mult_v2</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">mult_v2</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p>Why does <code class="docutils literal notranslate"><span class="pre">mult_v2</span></code> work, without causing an infinite
+recursive loop?   The key is that while <code class="docutils literal notranslate"><span class="pre">mult_v2</span></code>
+makes a recursive call on <code class="docutils literal notranslate"><span class="pre">mult_v2</span></code>, the same function, it does not
+call <code class="docutils literal notranslate"><span class="pre">mult_v2</span></code> on the same argument values.  The recursive call is made
+with a smaller value for <code class="docutils literal notranslate"><span class="pre">a</span></code>, until eventually <code class="docutils literal notranslate"><span class="pre">a</span></code> must be 0.  We
+can think of it as transforming <code class="docutils literal notranslate"><span class="pre">mult_v2(3,</span> <span class="pre">5)</span></code> first into
+<code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">mult_v2(2,</span> <span class="pre">5)</span></code>, then <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">5</span> <span class="pre">+</span> <span class="pre">mult_v2(1,</span> <span class="pre">5)</span></code>, then
+<code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">5</span> <span class="pre">+</span> <span class="pre">5</span> <span class="pre">+</span> <span class="pre">mult_v2(1,</span> <span class="pre">5)</span></code>, and finally <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">5</span> <span class="pre">+</span> <span class="pre">5</span> <span class="pre">+</span> <span class="pre">0</span></code>.</p>
+<p>You can <a class="reference external" href="https://pythontutor.com/render.html#code=def%20mult%28a%3A%20int,%20b%3A%20int%29%20-%3E%20int%3A%20%0A%20%20%20%20%22%22%22Multiplication%20by%20repeated%20addition.%0A%20%20%20%20a%20and%20b%20must%20be%20non-negative%20integers.%0A%20%20%20%20%22%22%22%0A%20%20%20%20if%20a%20%3D%3D%200%3A%20%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20return%20b%20%2B%20mult%28a%20-%201,%20b%29%0A%20%20%20%20%0Aprint%28mult%283,%205%29%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">visualize this progression in PythonTutor</a>.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">mult_v2</span></code>, the code is divided into a <em>base
+case</em> (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">0</span></code>) and a <em>recursive case</em> (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>, which we have
+simplified to <code class="docutils literal notranslate"><span class="pre">else</span></code>).  Our recursive functions will always have
+this structure.  The base case is a case that can be handled
+directly, without a recursive call.  The recursive case must make
+the recursive call on data values that are “smaller” in the sense
+that with repeated application the function must eventually reach
+the base case.  When we write recursive functions involving numbers,
+“smaller” is usually our familiar notion of “smaller numbers”.  When
+we write other kinds of recursive functions, we may have to think
+harder about what “smaller” could mean, to guarantee that we always
+reach the base case.</p>
+<p>Recursion in computing is closely related to induction in
+mathematics.    Not surprisingly, then, many inductive definitions can
+be straightforwardly translated into recursive functions.  For
+example, the factorial function can be inductively defined as:
+<span class="math notranslate nohighlight">\(
+n! = \left\{ \begin{array}{ll}
+            1 &amp; \textrm{if } n &lt; 2\\
+            n \times (n-1)! &amp; 
+              \textrm{otherwise }
+            \end{array}
+      \right.
+\)</span></p>
+<p>Again we see a <em>base case</em> (n &lt; 2) and a recursive (or inductive)
+case. Mathematicians might define the base case before or after the
+inductive case, but in programming we will almost always check the base
+case first.  We can translate the mathematical definition above to
+Python very simply:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+    <span class="sd">&quot;&quot;&quot;The inductive definition of factorial&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    
+<span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<p>While math is full of inductive definitions that can become
+recursive functions, recursion is not limited to
+mathematical or numerical problems.   Often in computing, recursion
+is applied to collections (lists, dicts, etc).  Sometimes the
+recursive call is on a <em>smaller piece</em> of a collection.  Other times
+the data itself is hierarchical, and the recursive calls follow the
+hierarchical structure of the data.</p>
+<section id="shrinking-pieces-of-a-collection">
+<h2>Shrinking pieces of a collection<a class="headerlink" href="#shrinking-pieces-of-a-collection" title="Permalink to this headline">#</a></h2>
+<p>A palindrome is a word or phrase that is the same written forwards
+or backwards.  For example, “kayak” is a palindrome, as are
+“rotator” and “wow”.  We can define palindromes inductively as
+follows:</p>
+<ul class="simple">
+<li><p>A single letter word is always a palindrome (even if it’s a very
+boring palindrome).</p></li>
+<li><p>The empty string is also a palindrome.</p></li>
+<li><p>If some sequence of letters <em>w</em> is a palindrome, and <em>x</em> is a
+letter, then <em>xwx</em> is a palindrome.</p></li>
+</ul>
+<p>The first two parts of the definition may seem a little strange.  If
+you were asked for examples of palindromes, you probably would not
+answer with “a” or “I”.  You almost certainly wouldn’t answer with
+the empty string.  But strange as they seem, we need these as
+<em>base cases</em>!  (I will return to this below and write a “helper
+function” that can prevent us from accepting these trivial palindromes.)</p>
+<p>The third rule, which says that <em>xwx</em> is a palindrome if <em>x</em> is a
+letter and <em>w</em> is a palindrome, is the recursive case.  The
+definition looks like it is adding a letter <em>x</em> to both ends of a
+word, but we will use it backwards:  Given a word <em>xwy</em>, we will
+check whether <em>x</em> and <em>y</em> are the same letter, and then make the
+recursive call on a shorter word <em>w</em>.</p>
+<p>This will be simpler with a list of letters than with a string.<br />
+Python makes it easy to get such a list of letters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;hotdog&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;h&#39;, &#39;o&#39;, &#39;t&#39;, &#39;d&#39;, &#39;o&#39;, &#39;g&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now I want to write a recursive function that returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if its
+argument is a palindrome, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.  In the first
+version, I’ll use Python list operations to extract the first, last,
+and middle letters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">palindrome_v1</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> 
+    <span class="sd">&quot;&quot;&quot;True if word is a palindrome&quot;&quot;&quot;</span>
+    <span class="c1"># Base cases</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="c1"># Recursive case</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>     <span class="c1"># First letter</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Middle letters, could be empty</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>    <span class="c1"># Last letter</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">palindrome_v1</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">is_it_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Print palindrome judgment for a string&quot;&quot;&quot;</span>
+    <span class="n">letters</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">palindrome_v1</span><span class="p">(</span><span class="n">letters</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">&#39; is a palindrome&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">&#39; is NOT a palindrome&quot;</span><span class="p">)</span>
+
+<span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;racecar&quot;</span><span class="p">)</span>
+<span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;noon&quot;</span><span class="p">)</span>
+<span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;faff&quot;</span><span class="p">)</span>
+<span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;racecar&#39; is a palindrome
+&#39;noon&#39; is a palindrome
+&#39;faff&#39; is NOT a palindrome
+&#39;a&#39; is a palindrome
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can <a class="reference external" href="https://pythontutor.com/render.html#code=from%20typing%20import%20List%20%20%23%20Required%20for%20Python%20v%203.6%0A%0Adef%20palindrome_v1%28word%3A%20List%5Bstr%5D%29%20-%3E%20bool%3A%20%0A%20%20%20%20%22%22%22True%20if%20word%20is%20a%20palindrome%22%22%22%0A%20%20%20%20%23%20Base%20cases%0A%20%20%20%20if%20len%28word%29%20%3C%202%3A%0A%20%20%20%20%20%20%20%20return%20True%0A%20%20%20%20%23%20Recursive%20case%0A%20%20%20%20x%20%3D%20word%5B0%5D%20%20%20%20%20%23%20First%20letter%0A%20%20%20%20w%20%3D%20word%5B1%3A-1%5D%20%20%23%20Middle%20letters,%20could%20be%20empty%0A%20%20%20%20y%20%3D%20word%5B-1%5D%20%20%20%20%23%20Last%20letter%0A%20%20%20%20return%20x%20%3D%3D%20y%20and%20palindrome_v1%28w%29%0A%20%20%20%20%0Adef%20is_it_palindrome%28word%3A%20str%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Print%20palindrome%20judgment%20for%20a%20string%22%22%22%0A%20%20%20%20letters%20%3D%20list%28word%29%0A%20%20%20%20if%20palindrome_v1%28letters%29%3A%0A%20%20%20%20%20%20%20%20print%28f%22%27%7Bword%7D%27%20is%20a%20palindrome%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28f%22%27%7Bword%7D%27%20is%20NOT%20a%20palindrome%22%29%0A%0Ais_it_palindrome%28%22racecar%22%29&amp;cumulative=false&amp;curInstr=34&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">visualize the execution of <code class="docutils literal notranslate"><span class="pre">palindrome_v2</span></code> with Python Tutor</a>.</p>
+</section>
+<section id="logical-values">
+<h2>Logical values<a class="headerlink" href="#logical-values" title="Permalink to this headline">#</a></h2>
+<p>Sometimes the value that becomes “smaller” with each recursive call
+is not the value of an individual variable, but some conceptual
+value that can derived from one or several variables.  I will call
+these “logical values” (as versus “physical values” in an individual
+variable); another term
+you might encounter is “ghost variables”.</p>
+<p>Instead of
+decomposing the list of letters in <code class="docutils literal notranslate"><span class="pre">word</span></code> as in <code class="docutils literal notranslate"><span class="pre">palindrome_v1</span></code>, we
+might pass indexes of the first and last letters considered.  Then
+we can pass the same list in a recursive call, but make the <em>logical</em>
+value smaller by passing different indexes of the first and last
+letter under consideration, stopping when they cross (indicating an
+empty word) or meet (indicating a word of one character).</p>
+<p><img alt="Recursive calls passing index of first and last letter in&quot;logical&quot; word value" src="../_images/racecar-palindrome.png" /></p>
+<p>Instead of checking whether <code class="docutils literal notranslate"><span class="pre">len(word)</span> <span class="pre">&lt;</span> <span class="pre">2</span></code>, we will check whether
+<code class="docutils literal notranslate"><span class="pre">last</span> <span class="pre">-</span> <span class="pre">first</span> <span class="pre">&lt;</span> <span class="pre">1</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">palindrome_v2</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> 
+    <span class="sd">&quot;&quot;&quot;True if word[first:last] is a palindrome.</span>
+<span class="sd">    first and last must be non-negative integers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Base cases</span>
+    <span class="k">if</span> <span class="n">last</span> <span class="o">-</span> <span class="n">first</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="c1"># Recursive case</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="n">first</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="n">last</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">palindrome_v2</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">first</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">last</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">is_it_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Print palindrome judgment for a string&quot;&quot;&quot;</span>
+    <span class="n">letters</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">palindrome_v2</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">&#39; is a palindrome&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">&#39; is NOT a palindrome&quot;</span><span class="p">)</span>
+
+<span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;racecar&quot;</span><span class="p">)</span>
+<span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;noon&quot;</span><span class="p">)</span>
+<span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;faff&quot;</span><span class="p">)</span>
+<span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;racecar&#39; is a palindrome
+&#39;noon&#39; is a palindrome
+&#39;faff&#39; is NOT a palindrome
+&#39;a&#39; is a palindrome
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-wrapper-function">
+<h2>A wrapper function<a class="headerlink" href="#a-wrapper-function" title="Permalink to this headline">#</a></h2>
+<p>We noted above that we might not like to consider “a” or “I”
+palindromes, and we might especially not like considering the empty
+string “” a palindrome.  Also <code class="docutils literal notranslate"><span class="pre">palindrome_v2</span></code> takes a list and two
+integers as arguments.  We’d rather have a function that takes a
+string and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> only if that string is a palindrome of at
+least two letters.  A typical way of “fixing up” a function is by
+writing another function to “wrap” it.</p>
+<p>A convention in Python is that a name that starts with underscore
+(<code class="docutils literal notranslate"><span class="pre">&quot;_&quot;</span></code>) is meang to be “hidden” or “internal”.  For palindrome
+checking, we can give the <em>wrapper</em> function a “public” name
+<code class="docutils literal notranslate"><span class="pre">palindrome</span></code>, and use <code class="docutils literal notranslate"><span class="pre">_palindrome</span></code> for its internal partner that
+does the main work.   The wrapper function <code class="docutils literal notranslate"><span class="pre">palindrome</span></code> will just
+check the special cases (rejecting empty and one-letter candidates)
+and call the internal function <code class="docutils literal notranslate"><span class="pre">_palindrome</span></code> with the arguments it
+requires.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> 
+    <span class="sd">&quot;&quot;&quot;Is word a palindrome of at least 2 letters?&quot;&quot;&quot;</span>
+    <span class="n">letters</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_palindrome</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> 
+    <span class="sd">&quot;&quot;&quot;True if word[first:last] is a palindrome.</span>
+<span class="sd">    first and last must be non-negative integers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Base cases</span>
+    <span class="k">if</span> <span class="n">last</span> <span class="o">-</span> <span class="n">first</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="c1"># Recursive case</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="n">first</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="n">last</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">palindrome_v2</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">first</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">last</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">is_it_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Print palindrome judgment for a string&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">&#39; is a palindrome&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">&#39; is NOT a palindrome&quot;</span><span class="p">)</span>
+
+<span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;racecar&quot;</span><span class="p">)</span>
+<span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;noon&quot;</span><span class="p">)</span>
+<span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;faff&quot;</span><span class="p">)</span>
+<span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;racecar&#39; is a palindrome
+&#39;noon&#39; is a palindrome
+&#39;faff&#39; is NOT a palindrome
+&#39;a&#39; is a palindrome
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the wrapper function rejected “a”.</p>
+<p><a class="reference external" href="https://github.com/UO-CS210/flood-fill">Our project for this week</a> makes recursive calls to fill cells in a grid.  The grid is always
+the same size in the recursive calls, but the “logical value” that
+gets smaller is the number of cells that can be filled.  This
+logical value must be smaller with each level of recursive call, and
+when it is zero the base case must apply, ending the recursion.</p>
+<p>We will see other projects in which recursive calls are made with
+the same collection (usually a list) but with smaller and smaller
+logical portions of that collection.</p>
+</section>
+<section id="recursion-for-hierarchical-data-structures">
+<h2>Recursion for hierarchical data structures<a class="headerlink" href="#recursion-for-hierarchical-data-structures" title="Permalink to this headline">#</a></h2>
+<p>We have seen that lists can be nested within lists.  So far we have
+used lists within lists mainly to represent grids or matrices.
+We might also encounter more
+irregular nested structures.  We might not know in advance how
+deeply the lists will be nested or how long they will be.</p>
+<p>How could we sum the integers in a nest of lists like this?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="mi">8</span><span class="p">],</span> <span class="mi">9</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Python provides an <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> function that we can use to
+determine whether a value is a <code class="docutils literal notranslate"><span class="pre">list</span></code>, an <code class="docutils literal notranslate"><span class="pre">int</span></code>, or something else:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">what_is_that</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print a description of v&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2"> is a list!&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2"> is an integer!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>  
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2"> is neither a list nor an integer&quot;</span><span class="p">)</span>
+        
+<span class="n">what_is_that</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="mi">8</span><span class="p">],</span> <span class="mi">9</span><span class="p">])</span>
+<span class="n">what_is_that</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, 2, [3, 4], 5, [6, 7], 8], 9] is a list!
+4 is an integer!
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> to distinguish between the base case and
+recursive case in a function to sum the integers in nested lists
+like the example above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_atoms</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+    <span class="sd">&quot;&quot;&quot;Sum the integer elements of nested lists&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">m</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">m</span><span class="p">:</span> 
+            <span class="nb">sum</span> <span class="o">+=</span> <span class="n">sum_atoms</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">sum</span>
+    <span class="c1"># Neither an int nor a list?  Ignore it. </span>
+    <span class="k">return</span> <span class="mi">0</span>
+    
+<span class="n">s</span> <span class="o">=</span> <span class="n">sum_atoms</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">sum_atoms</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="mi">8</span><span class="p">],</span> <span class="mi">9</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+45
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hierarchical data structures are very common:  For example, the
+_D_ocument _O_bject _M_odel (DOM) tree representation of a web
+page.  A web server transmits HTML web content to a browser as text
+with  “tags” like <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> describing its hieararchical
+structure. The browser
+transforms that text into a DOM tree that manifests the
+hierarchical structure (e.g., a paragraph (<code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>) in the text might be
+nested within a division (<code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code>), which might be nested within
+another division.  If interaction is controlled by JavaScript
+functions, those functions act on the DOM tree, not the text.
+We will see many more examples of recursion with hierarchical data
+structures in later courses, when we have more techniques for
+building those data structures.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05-Recursion"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../04-More-Loops/04-04-Successive-Approximation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Successive approximation</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Michal Young, Boyana Norris, and Ram Durairajan<br/>
+  
+      &copy; Copyright 2022 University of Oregon.  Creative Commons Share-Alike Attribution license.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

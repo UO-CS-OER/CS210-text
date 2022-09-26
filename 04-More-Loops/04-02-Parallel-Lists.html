@@ -201,6 +201,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  05 Recursion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Recursion/05-01-Recursion.html">
+   Recursive Functions
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav></div>
@@ -498,7 +510,7 @@ column for populations.</p>
 </div>
 </div>
 <p>This seems fine, but suppose I notice that the populations are
-somewhat out of date.  I might want to add 10% to each population.<br />
+somewhat out of date.  I might want to add 10% to each population.
 I might even already have a function that adds 10% to each element
 of a list of numbers, but I can’t apply that function to this list
 of tuples.  Any function that works on this data has to “know about”
@@ -530,7 +542,7 @@ on.  We call these <em>parallel arrays</em> or, in Python, <em>parallel lists</e
 because they “line up”.</p>
 <p>The advantage of parallel lists is that it is easier to do
 something to all the elements of one column, as long as I don’t
-change the order of elements in a column.<br />
+change the order of elements in a column.
 Scientific computing packages like scipy and statistical computing
 packages like Python’s Pandas typically keep numerical data in parallel
 arrays for this reason.
@@ -644,7 +656,7 @@ is not actually a list, but rather a <em>zip object</em>.  Python does
 not produce the list of tuples all at once, but
 rather one row at a time as needed.  This is called <em>laziness</em>.
 We can mostly ignore laziness when
-we use access all the rows in prder, as the <code class="docutils literal notranslate"><span class="pre">sorted</span></code> function
+we use access all the rows in order, as the <code class="docutils literal notranslate"><span class="pre">sorted</span></code> function
 does.  It will cause a problem if we try to access row <em>n</em> out of
 order, e.g., <code class="docutils literal notranslate"><span class="pre">by_row[5]</span></code>.   Later (but not in this course) you may
 want to zip together extremely long or even <em>infinite</em> sequences, using
@@ -690,22 +702,12 @@ of</em> that item.</p>
     
 <span class="n">big_city</span> <span class="o">=</span> <span class="n">max_index</span><span class="p">(</span><span class="n">city_pops</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">city_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">city_pop</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">city_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">city_pops</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 12&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">city_pops</span> <span class="o">=</span> <span class="p">[</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="mi">108037</span><span class="p">,</span> <span class="mi">112264</span><span class="p">,</span> <span class="mi">65850</span><span class="p">,</span> <span class="mi">192605</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="mi">124413</span><span class="p">,</span> <span class="mi">117296</span><span class="p">,</span> <span class="mi">95003</span><span class="p">,</span> <span class="mi">705278</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="mi">195495</span><span class="p">,</span> <span class="mi">68481</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">big_city</span> <span class="o">=</span> <span class="n">max_index</span><span class="p">(</span><span class="n">city_pops</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="n">city_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">city_pop</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;city_pop&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Springfield 68481
 </pre></div>
 </div>
 </div>

@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 
-# Successive Approximation
+# Successive approximation
 
 Suppose you had a machine that was not very smart, but could compute 
 things and check certain simple conditions very quickly.  You might 
@@ -41,14 +41,19 @@ used to set the light timings in Eugene, Oregon decades ago.  I know
 because my first assignment as a junior programmer was to make
 that software work on the IBM mainframe computer then used by the city.
 I encountered Transyt again several years later, when my spouse
-was working for a transportation research group at University of California, Irvine. 
+was working for a transportation research group
+at University of California, Irvine. 
 Useful programs last a long time, and evolve, sometimes through 
-generations of programmers.  The Transyt system today is likely 
-different in many ways than the code I encountered 40+ years ago.  
-It may have been completely rewritten in a more modern programming 
-language (or maybe not).  Almost certainly, though, the core 
-method "guess and refine" approach to optimization remains the same. 
--MY
+generations of programmers.  The Transyt system today is
+different in some ways than the code I encountered many years ago.
+It may have been rewritten in a more modern programming 
+language (or maybe not).  The
+"guess and refine" approach to optimization has been extended in 
+[Transyt 7F](
+https://mctrans.ce.ufl.edu/highway-capacity-software-hcs/transyt-7f/)
+to a modern _genetic search_ algorithm that maintains multiple 
+guesses for refinement, but the core approach remains the
+same. -MY
 ```
 
 Simulations of physical systems are complex, but we can illustrate 

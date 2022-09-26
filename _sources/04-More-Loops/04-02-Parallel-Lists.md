@@ -37,7 +37,7 @@ or_cities_pops = [
 ```
 
 This seems fine, but suppose I notice that the populations are 
-somewhat out of date.  I might want to add 10% to each population.  
+somewhat out of date.  I might want to add 10% to each population.
 I might even already have a function that adds 10% to each element 
 of a list of numbers, but I can't apply that function to this list 
 of tuples.  Any function that works on this data has to "know about" 
@@ -70,7 +70,7 @@ because they "line up".
 
 The advantage of parallel lists is that it is easier to do 
 something to all the elements of one column, as long as I don't
-change the order of elements in a column.  
+change the order of elements in a column.
 Scientific computing packages like scipy and statistical computing 
 packages like Python's Pandas typically keep numerical data in parallel 
 arrays for this reason. 
@@ -137,7 +137,7 @@ is not actually a list, but rather a _zip object_.  Python does
 not produce the list of tuples all at once, but 
 rather one row at a time as needed.  This is called _laziness_.
 We can mostly ignore laziness when 
-we use access all the rows in prder, as the `sorted` function 
+we use access all the rows in order, as the `sorted` function 
 does.  It will cause a problem if we try to access row _n_ out of 
 order, e.g., `by_row[5]`.   Later (but not in this course) you may 
 want to zip together extremely long or even _infinite_ sequences, using 
@@ -181,7 +181,7 @@ city_pops = [
     
 big_city = max_index(city_pops)
 
-print(city_names[i], city_pop[i])
+print(city_names[i], city_pops[i])
 ```
 
 We will use this technique in our[clustering project](
