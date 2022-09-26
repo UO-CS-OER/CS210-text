@@ -20,3 +20,14 @@ parts:
   - caption: 03 Collections and Loops
     chapters:
       - file: 03-Collections-Loops/03-01-Collections.md
+
+  - caption: 04 More Loops and Collections
+    chapters:
+      - file: 04-More-Loops/04-01-More-Loops.md
+      - file: 04-More-Loops/04-02-Parallel-Lists.md
+      - file: 04-More-Loops/04-03-Indefinite-Loops.md
+      - file: 04-More-Loops/04-04-Successive-Approximation.md
+
+  - caption: 05 Recursion
+    chapters:
+      - file: 05-Recursion/05-01-Recursion.md
