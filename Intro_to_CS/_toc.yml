@@ -31,3 +31,8 @@ parts:
   - caption: 05 Recursion
     chapters:
       - file: 05-Recursion/05-01-Recursion.md
+
+  - caption: 06 Binding and Scope
+    chapters:
+      - file: 06-Binding/06-01-Binding.md
+      - file: 06-Binding/06-02-Alias.md
