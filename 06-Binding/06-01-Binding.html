@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>A Course in Computational Thinking &#8212; Introduction to Computer Science I</title>
+    <title>Binding and scope &#8212; Introduction to Computer Science I</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installing Python and IDLE" href="01-02-Install.html" />
-    <link rel="prev" title="Introduction to Computer Science, part 1" href="../intro.html" />
+    <link rel="next" title="Aliasing" href="06-02-Alias.html" />
+    <link rel="prev" title="Recursive Functions" href="../05-Recursion/05-01-Recursion.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -118,19 +118,19 @@ const thebe_selector_output = ".output, .cell_output"
   01 Getting a Start
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-01-Prospectus.html">
    A Course in Computational Thinking
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="01-02-Install.html">
+  <a class="reference internal" href="../01-Intro/01-02-Install.html">
    Installing Python and IDLE
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="01-03-Kickstart.html">
+  <a class="reference internal" href="../01-Intro/01-03-Kickstart.html">
    Python Programming Kickstart
   </a>
  </li>
@@ -213,6 +213,33 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  06 Binding and Scope
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Binding and scope
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-02-Alias.html">
+   Aliasing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-03-Scopes.html">
+   Scopes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-04-Binding-Recursion.html">
+   Binding in Recursive Functions
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav></div>
@@ -271,7 +298,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/01-Intro/01-01-Prospectus.md"
+        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/06-Binding/06-01-Binding.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -349,7 +376,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F01-Intro/01-01-Prospectus.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F06-Binding/06-01-Binding.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -377,7 +404,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/01-Intro/01-01-Prospectus.ipynb"
+        <a href="../_sources/06-Binding/06-01-Binding.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -394,7 +421,7 @@ title="Download notebook file"
       </li>
       
       <li>
-        <a href="../_sources/01-Intro/01-01-Prospectus.md"
+        <a href="../_sources/06-Binding/06-01-Binding.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -454,20 +481,34 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-to-program">
-   Learning to Program
+  <a class="reference internal nav-link" href="#aliasing">
+   <span class="xref myst">
+    Aliasing
+   </span>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-python">
-     Why Python
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#getting-a-start">
-   Getting a Start
+  <a class="reference internal nav-link" href="#scopes">
+   <span class="xref myst">
+    Scopes
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tbd">
+   TBD
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binding-and-recursion">
+   <span class="xref myst">
+    Binding and recursion
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project">
+   Project
   </a>
  </li>
 </ul>
@@ -479,7 +520,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>A Course in Computational Thinking</h1>
+                <h1>Binding and scope</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -490,20 +531,34 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-to-program">
-   Learning to Program
+  <a class="reference internal nav-link" href="#aliasing">
+   <span class="xref myst">
+    Aliasing
+   </span>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-python">
-     Why Python
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#getting-a-start">
-   Getting a Start
+  <a class="reference internal nav-link" href="#scopes">
+   <span class="xref myst">
+    Scopes
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tbd">
+   TBD
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binding-and-recursion">
+   <span class="xref myst">
+    Binding and recursion
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project">
+   Project
   </a>
  </li>
 </ul>
@@ -516,134 +571,50 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="a-course-in-computational-thinking">
-<h1>A Course in Computational Thinking<a class="headerlink" href="#a-course-in-computational-thinking" title="Permalink to this headline">#</a></h1>
-<p><em>Introduction to Computer Science</em> is a foundational course in
-computer science.  It is a course in programming, but more than that,
-it is a course in computational thinking.</p>
-<p>What’s so special about <em>computational</em> thinking and problem solving?
-Is it a branch of engineering, or math, or is it a science?
-Computing certainly draws from all of those fields, and also
-contributes to them, but in some ways it is unique.</p>
-<p>Computing and computer science do not seek to characterize the
-natural world, although many computer programs (e.g., environmental
-models, computer aided design and numerical control) incorporate
-models of the natural world.  Computing is increasingly a core tool
-used in the natural sciences, and computational thinking can be
-useful to scientists, but core concerns of the natural sciences and
-computing are distinct.</p>
-<p>Some areas of computing (particularly usability and user interface
-design, and software engineering) draw heavily from the social
-sciences, especially psychology but also fields as diverse as
-anthropology, linguistics, and economics.  Despite some overlap,
-though (e.g., economic game theory in the design of computer network
-protocols, visual attention in user interface design), the core
-concerns of computing are mostly distinct from the core concerns of
-the social sciences.</p>
-<p>Like mathematics, computing requires
-rigorous reasoning about formal, abstract systems.<br />
-Some areas of computer science produce mathematical proofs, as you
-will be required to do if you continue with computer science through
-courses in data structures and algorithms.<br />
-However, computer scientists are more concerned than mathematicians
-with the <em>things</em> their formal systems represent.</p>
-<p>Like engineers, computer scientists and software developers
-construct abstract
-representations of <em>things</em> to
-reason  effectively about them.
-There is an important difference in the kinds of <em>thing</em> that
-computing produces, relative to conventional engineering.
-The design of a bridge or an automobile is
-complex and expensive, but the main expense of building a bridge is
-in the physical construction, and not the design.
-The cost of building cars at industrial scale is likewise much larger
-than the cost of designing a car.</p>
-<p>The <em>things</em> designed (but not constructed) by
-software developers are <em>computations</em>.
-The computations are
-constructed by computers, following our designs.
-Computations
-are weightless and cheap.<br />
-The designs of those computations, which we call
-<em>programs</em> or <em>software</em> or perhaps <em>software systems</em>, are complex
-and expensive. Any part of the construction that can be fully
-automated becomes cheap, but there always remains some part of the
-design that is necessarily human, complex, and demanding.<br />
-Computing exposes the expense of design by removing the
-limits of engineering physical things.</p>
-<p>All these things that computing is <em>not</em> may shed some light on what
-computing and computer science <em>are</em>.  Computer science is concerned
-with
-<em>design</em> of computations, and like other design disciplines it
-requires creative problem-solving. It requires forming and using
-abstract, often mathematical models, without losing track of their
-relation to concrete artifacts.  It especially requires
-careful control of complexity, decomposing problems into smaller
-sub-problems and organizing them to maintain intellectual control.
-Many disciplines incorporate these concerns to some extent, but they
-are the very core of computing.</p>
-<p>In tackling a core, rigorous course in computing, you should
-certainly become a better programmer.  But if skill in programming
-is the only thing you gain from this course, then we have failed.
-If you as a learner and we as your teachers are successful, a
-rigorous course in computational thinking will make you a better and
-more creative problem solver.</p>
-<section id="learning-to-program">
-<h2>Learning to Program<a class="headerlink" href="#learning-to-program" title="Permalink to this headline">#</a></h2>
-<p>The principles and techniques
-you will learn in <em>Introduction to Computer Science</em>
-are not limited to a single programming
-language, let alone a particular computer or operating system.
-But we have to start somewhere.  That <em>somewhere</em>
-requires us to choose a programming language, and to
-practice using it.</p>
-<section id="why-python">
-<h3>Why Python<a class="headerlink" href="#why-python" title="Permalink to this headline">#</a></h3>
-<p>In this course we will use Python,
-specifically Python version 3.10 or higher.
-Python is widely used in data science and scientific
-computing, in cartography, in web development,
-in machine learning, and in many other domains, but
-that is not why we have chosen it. We have chosen Python 3 because
-we believe it is a good language for <em>learning to program</em>.   Python
-3 is</p>
-<ul class="simple">
-<li><p>Consistent.  There are few “special cases” to remember in Python,
-which makes it easier to remember how things work and to build on
-what you know.</p></li>
-<li><p>Concise.  Python does not require a lot of boilerplate, which
-makes it easier to read example code.</p></li>
-<li><p>Well-provisioned.  Although there are many extras that you <em>could</em>
-add, a standard and straightforward installation of Python is
-enough to build many interesting projects.</p></li>
-</ul>
-<p>That is not to say that Python is a perfect language.  It is
-certainly not the only programming language you will ever want or
-need to learn.   But among the programming langauges available to us
-today, we believe it is an excellent starting point.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="binding-and-scope">
+<h1>Binding and scope<a class="headerlink" href="#binding-and-scope" title="Permalink to this headline">#</a></h1>
+<p>We touched on variable bindings in local and global scopes in
+<a class="reference internal" href="../02-Functions/02-01-Functions.html"><span class="doc std std-doc">Chapter 2</span></a>.  It is time to both
+review that material and take a deeper dive.</p>
+<section id="aliasing">
+<h2><a class="reference internal" href="06-02-Alias.html"><span class="doc std std-doc">Aliasing</span></a><a class="headerlink" href="#aliasing" title="Permalink to this headline">#</a></h2>
+<p>We begin with a review of how <em>variables</em> are bound to <em>objects</em>
+containing <em>values</em> in <em>name spaces</em>.  This time, we focus especially
+on the consequences
+of <em>aliasing</em>, when two variables are bound to the same object.
+This leads us to make an important distinction between <em>mutable</em> and
+<em>immutable</em> objects.</p>
 </section>
+<section id="scopes">
+<h2><a class="reference internal" href="06-03-Scopes.html"><span class="doc std std-doc">Scopes</span></a><a class="headerlink" href="#scopes" title="Permalink to this headline">#</a></h2>
+<p>In Python (as in most programming
+languages), <em>activation records</em> reside as <em>frames</em> on a <em>stack</em>.
+Objects containing values, on the other hand, reside in the <em>heap</em>.
+Understanding <em>stack allocation</em> and <em>heap allocation</em> is
+fundamental to understanding functions in Python.</p>
+<p>With this understanding of binding, frames in the stack, and objects
+in the heap containing values, we can describe more precisely what
+Python does when it encounters a variable name, including “qualified
+names” from other modules.</p>
 </section>
-<section id="getting-a-start">
-<h2>Getting a Start<a class="headerlink" href="#getting-a-start" title="Permalink to this headline">#</a></h2>
-<p>The pre-requisites for <em>Introduction to Computer Science</em> include
-a basic familiarity with programming.  That familiarity may
-take many forms (not necessarily programming in Python).  Also,
-student knowledge from a course some time ago or from self study may
-be rusty or incomplete.</p>
-<p>If you have not programmed at all, but want to tackle this very
-demanding course, we can recommend the
-<a class="reference external" href="https://cscircles.cemc.uwaterloo.ca/">Computer Science Circles</a>
-online lessons as a good and thorough introduction.  Even if
-you have programmed in Python before, you may find the CS Circles
-materials valuable as a refresher.</p>
-<p>The remaining sections of this chapter provide brief instructions
-for installing Python 3 on the computer you will use for your
-projects, and then <em>just enough</em> introduction to Python programming
-to tackle an initial project.</p>
+<section id="tbd">
+<h2>TBD<a class="headerlink" href="#tbd" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="01-02-Install.html"><span class="doc std std-doc">Install Python</span></a></p></li>
-<li><p><a class="reference internal" href="01-03-Kickstart.html"><span class="doc std std-doc">Python Programming Kickstart</span></a></p></li>
+<li><p>qualified names (imported modules)</p></li>
+<li><p>stack and heap (review)</p></li>
 </ul>
+</section>
+<section id="binding-and-recursion">
+<h2><a class="reference internal" href="06-04-Binding-Recursion.html"><span class="doc std std-doc">Binding and recursion</span></a><a class="headerlink" href="#binding-and-recursion" title="Permalink to this headline">#</a></h2>
+<p>Recursive functions follow the same scope rules as any other
+functions.  We revisit the palindrome example from the previous
+chapter to illustrate how binding rules and stack allocation of
+activation
+records work together.</p>
+</section>
+<section id="project">
+<h2>Project<a class="headerlink" href="#project" title="Permalink to this headline">#</a></h2>
+<p>TBD</p>
 </section>
 </section>
 
@@ -660,7 +631,7 @@ to tackle an initial project.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./01-Intro"
+            path: "./06-Binding"
         },
         predefinedOutput: true
     }
@@ -674,17 +645,17 @@ to tackle an initial project.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../05-Recursion/05-01-Recursion.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction to Computer Science, part 1</p>
+            <p class="prev-next-title">Recursive Functions</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01-02-Install.html" title="next page">
+    <a class='right-next' id="next-link" href="06-02-Alias.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Installing Python and IDLE</p>
+        <p class="prev-next-title">Aliasing</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

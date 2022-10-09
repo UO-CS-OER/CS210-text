@@ -1,0 +1,975 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Scopes &#8212; Introduction to Computer Science I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Aliasing" href="06-02-Alias.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo-provisional.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Computer Science I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Computer Science, part 1
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  01 Getting a Start
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-01-Prospectus.html">
+   A Course in Computational Thinking
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-02-Install.html">
+   Installing Python and IDLE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-03-Kickstart.html">
+   Python Programming Kickstart
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  02 Writing Functions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-01-Functions.html">
+   Designing and Building Functions in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-02-Scope.html">
+   Binding:  Functions and Scope
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-03-Hygiene.html">
+   Function Hygiene in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-04-Terms.html">
+   Review of terms
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  03 Collections and Loops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-Collections-Loops/03-01-Collections.html">
+   Collections and Loops
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  04 More Loops and Collections
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-01-More-Loops.html">
+   Loops and more loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-02-Parallel-Lists.html">
+   Parallel Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-03-Indefinite-Loops.html">
+   Indefinite loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-04-Successive-Approximation.html">
+   Successive approximation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  05 Recursion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Recursion/05-01-Recursion.html">
+   Recursive Functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  06 Binding and Scope
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-01-Binding.html">
+   Binding and scope
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-02-Alias.html">
+   Aliasing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Scopes
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/06-Binding/06-03-Scopes.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/UO-CS-OER/CS210-text"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F06-Binding/06-03-Scopes.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/06-Binding/06-03-Scopes.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/06-Binding/06-03-Scopes.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#which-variables-are-local">
+   Which variables are local?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formal-arguments-are-local-variables">
+   Formal arguments are local variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modifying-an-element-does-not-bind-the-collection">
+   Modifying an element does not bind the collection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap">
+   Recap
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Scopes</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#which-variables-are-local">
+   Which variables are local?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formal-arguments-are-local-variables">
+   Formal arguments are local variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modifying-an-element-does-not-bind-the-collection">
+   Modifying an element does not bind the collection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap">
+   Recap
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="scopes">
+<h1>Scopes<a class="headerlink" href="#scopes" title="Permalink to this headline">#</a></h1>
+<p>If we have a variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, that variable may
+exist in more than one namespace.  Some of these namespaces are
+in <em>stack frames</em>, created when a function is called.  Python
+searches namespaces in a
+particular order, which determines which <code class="docutils literal notranslate"><span class="pre">x</span></code> it finds.</p>
+<p>Python always searches in this order:</p>
+<ul class="simple">
+<li><p>The <em>local</em> scope.  This is the namespace in the top stack frame,
+which generally corresponds to the function that is currently
+executing.  If a function is not executing (e.g., you are
+executing code within a source file that is not part of any
+function), then the local scope will be the namespace of the
+module (see below).</p></li>
+<li><p>The <em>enclosing</em> scope.  Later you may find it useful to define
+functions within other functions.  For now the enclosing scope
+will be the same as the global scope.</p></li>
+<li><p>The <em>global</em> scope.  This is a namespace of the module (source
+file) of the code that is currently executing.  It is where our
+functions and global variables live.</p></li>
+<li><p>The <em>builtin</em> scope.  This is a namespace for the builtin
+functions (and some other things) that are always available in
+Python.  For example, when you type <code class="docutils literal notranslate"><span class="pre">len(&quot;abc&quot;)</span></code>, Python usually
+finds <code class="docutils literal notranslate"><span class="pre">len</span></code> in the <em>builtin</em> scope.</p></li>
+</ul>
+<p>This is called <em>LEGB resolution order</em>.  To remember it, imagine
+that a football player’s dominant leg is
+“leg A”, and their other leg is “leg B”.  A skilled football (soccer)
+player must practice kicking with leg B.</p>
+<p>When a name exists in more than one of these scopes, Python
+uses the name it
+finds first. We say the other occurrences of the name are <em>shadowed</em>,
+i.e., covered up and hidden.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shadow the built-in len function</span>
+<span class="k">def</span> <span class="nf">len</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+    <span class="sd">&quot;&quot;&quot;Don&#39;t do this.  Avoid shadowing built-ins!&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">21</span>
+   
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;Short string&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python looks first in the <em>local</em> namespace, but does not find <code class="docutils literal notranslate"><span class="pre">len</span></code>.<br />
+There is no enclosing namespace, so it next looks in the <em>global</em>
+namespace, and finds function <code class="docutils literal notranslate"><span class="pre">len</span></code> defined in this module.  It does
+not look farther, so it uses the <code class="docutils literal notranslate"><span class="pre">len</span></code> function defined in this
+module instead of the built-in <code class="docutils literal notranslate"><span class="pre">len</span></code> function.</p>
+<p><img alt="Shadowing a built-in function" src="../_images/shadow-len.png" /></p>
+<p>It can be hard to remember and avoid all the built-in names. Try as
+I may to avoid it, I often accidentally shadow a
+built-in function with a variable.  This can lead to confusing error
+messages.</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Oops</span>
+
+<span class="k">def</span> <span class="nf">total_length</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+    <span class="sd">&quot;&quot;&quot;Total length of all the strings in l&quot;&quot;&quot;</span>
+    <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span> 
+        <span class="n">tot</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">tot</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">total_length</span><span class="p">([</span><span class="s2">&quot;this&quot;</span><span class="p">,</span> <span class="s2">&quot;that&quot;</span><span class="p">,</span> <span class="s2">&quot;the other&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 10&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="n">tot</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">return</span> <span class="n">tot</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="n">total_length</span><span class="p">([</span><span class="s2">&quot;this&quot;</span><span class="p">,</span> <span class="s2">&quot;that&quot;</span><span class="p">,</span> <span class="s2">&quot;the other&quot;</span><span class="p">]))</span>
+
+<span class="nn">Input In [2],</span> in <span class="ni">total_length</span><span class="nt">(l)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span> 
+<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">tot</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">return</span> <span class="n">tot</span>
+
+<span class="ne">TypeError</span>: &#39;int&#39; object is not callable
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="An integer shadowing a built-in function" src="../_images/int-shadow-func.png" /></p>
+<p>When Python complains that some type is “not callable”, it is a
+strong clue that we have accidentally shadowed a function with a
+variable.</p>
+<section id="which-variables-are-local">
+<h2>Which variables are local?<a class="headerlink" href="#which-variables-are-local" title="Permalink to this headline">#</a></h2>
+<p>Since a function can use both global variables and local variables,
+how can we tell which is which?  If we assign a value to a variable
+(bind it) <em>anywhere</em> in a function, Python will create a
+variable with that name in the local scope of the function.
+If we use the variable but do not bind it within the function,
+Python will not create a local variable, so it will find a global
+variable instead.  In other words, the local variables of a function
+are the variables that are bound within the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;global x&gt;&gt;&quot;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;global y&gt;&gt;&quot;</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Access both local and global variables&quot;&quot;&quot;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Something new&quot;</span>       <span class="c1"># y is bound here! </span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39; while executing f&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; while executing f&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39;, y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; before calling f()&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========  Calling f  ========&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========  After call to f ====&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39;, y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; after calling f&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x is &#39;&lt;&lt;global x&gt;&gt;&#39;, y is &#39;&lt;&lt;global y&gt;&gt;&#39; before calling f()
+========  Calling f  ========
+The value of x is &#39;&lt;&lt;global x&gt;&gt;&#39; while executing f
+The value of y is &#39;Something new&#39; while executing f
+========  After call to f ====
+x is &#39;&lt;&lt;global x&gt;&gt;&#39;, y is &#39;&lt;&lt;global y&gt;&gt;&#39; after calling f
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="Binding makes a variable local" src="../_images/binding-makes-local.png" /></p>
+<p>Binding <code class="docutils literal notranslate"><span class="pre">y</span></code> within <code class="docutils literal notranslate"><span class="pre">f</span></code> makes <code class="docutils literal notranslate"><span class="pre">y</span></code> a local variable
+<em>throughout</em> f, even before the assignment that binds it.  Notice
+what happens if we move the assignment after the print statements:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;global x&gt;&gt;&quot;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;global y&gt;&gt;&quot;</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Access both local and global variables&quot;&quot;&quot;</span>
+    <span class="c1"># assignment to y has not been made yet</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39; while executing f&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; while executing f&quot;</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Something new&quot;</span>       <span class="c1"># y is bound here! </span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39;, y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; before calling f()&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========  Calling f  ========&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========  After call to f ====&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39;, y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; after calling f&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x is &#39;&lt;&lt;global x&gt;&gt;&#39;, y is &#39;&lt;&lt;global y&gt;&gt;&#39; before calling f()
+========  Calling f  ========
+The value of x is &#39;&lt;&lt;global x&gt;&gt;&#39; while executing f
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 13&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39;, y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; before calling f()&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========  Calling f  ========&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">f</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========  After call to f ====&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39;, y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; after calling f&quot;</span><span class="p">)</span>
+
+<span class="nn">Input In [4],</span> in <span class="ni">f</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># assignment to y has not been made yet</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39; while executing f&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; while executing f&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Something new&quot;</span>
+
+<span class="ne">UnboundLocalError</span>: local variable &#39;y&#39; referenced before assignment
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="formal-arguments-are-local-variables">
+<h2>Formal arguments are local variables<a class="headerlink" href="#formal-arguments-are-local-variables" title="Permalink to this headline">#</a></h2>
+<p>When we call a function <code class="docutils literal notranslate"><span class="pre">f</span></code>, we bind the values of <em>actual
+arguments</em> to the <em>formal arguments</em> of f.  These bindings create
+local variables, just as if we had written an assignment statement
+for each formal argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;global x&gt;&gt;&quot;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;global y&gt;&gt;&quot;</span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;x will be bound by a call, and y by assignment, </span>
+<span class="sd">    so both x and y will be local variables.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39; while g is executing&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; while g is executing&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y is </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> before calling g(y)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========  Calling g ========&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========  After call to g ====&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39;, y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; after calling g(y)&quot;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x is &lt;&lt;global x&gt;&gt;, y is &lt;&lt;global y&gt;&gt; before calling g(y)
+========  Calling g ========
+The value of x is &#39;&lt;&lt;global y&gt;&gt;&#39; while g is executing
+The value of y is &#39;&lt;&lt;global y&gt;&gt;&#39; while g is executing
+========  After call to g ====
+x is &#39;&lt;&lt;global x&gt;&gt;&#39;, y is &#39;&lt;&lt;global y&gt;&gt;&#39; after calling g(y)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">x</span></code> is made local by binding of the actual argument to a local
+argument, and <code class="docutils literal notranslate"><span class="pre">y</span></code> is made local by binding in an assignment.<br />
+Although both <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are local, they are both aliases of the
+global <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p><img alt="Local variables are made local by any kind of binding" src="../_images/arg-binding-makes-local.png" /></p>
+</section>
+<section id="modifying-an-element-does-not-bind-the-collection">
+<h2>Modifying an element does not bind the collection<a class="headerlink" href="#modifying-an-element-does-not-bind-the-collection" title="Permalink to this headline">#</a></h2>
+<p>It may seem that setting an element of a list or other collection is
+an “assignment to” a variable, but it does not make a new binding to
+the variable itself.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">():</span> 
+    <span class="sd">&quot;&quot;&quot;This function does NOT bind m; </span>
+<span class="sd">    it only modifies an element of m.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">m</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">37</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Within g the value of m is now </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Before g() the value of m is </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;After g() the value of m is </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before g() the value of m is [1, 2, 3, 4]
+Within g the value of m is now [1, 2, 37, 4]
+After g() the value of m is [1, 2, 37, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This can be confusing, but it makes sense if you think about the way
+Python executes <code class="docutils literal notranslate"><span class="pre">m[2]</span> <span class="pre">=</span> <span class="pre">37</span></code>.  First it finds <code class="docutils literal notranslate"><span class="pre">m</span></code>, then it finds
+element <code class="docutils literal notranslate"><span class="pre">2</span></code> of <code class="docutils literal notranslate"><span class="pre">m</span></code> and changes that.  <code class="docutils literal notranslate"><span class="pre">m</span></code> is still associated with
+the same reference to the same list, unchanged.  The value of <code class="docutils literal notranslate"><span class="pre">m</span></code>
+has been modified, but the binding of <code class="docutils literal notranslate"><span class="pre">m</span></code> has not changed.</p>
+<p><img alt="Assigning to one element of a collection doesn't make thecollection local" src="../_images/mutate-element.png" /></p>
+<p>If we did not want to modify the global <code class="docutils literal notranslate"><span class="pre">m</span></code> within <code class="docutils literal notranslate"><span class="pre">g</span></code>, we could
+avoid it by making a copy.  Most collection types (<code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>,
+and some others) have a <code class="docutils literal notranslate"><span class="pre">copy</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">():</span> 
+    <span class="sd">&quot;&quot;&quot;This function binds v</span>
+<span class="sd">    to a copy of the global m.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">37</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Within g the value of v is now </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Within g the value of m is still </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Before g() the value of m is </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;After g() the value of m is </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before g() the value of m is [1, 2, 3, 4]
+Within g the value of v is now [1, 2, 37, 4]
+Within g the value of m is still [1, 2, 3, 4]
+After g() the value of m is [1, 2, 3, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="Making a copy before mutating a collection" src="../_images/mutate-local-copy.png" /></p>
+<p>What would happen if we tried to make a copy with <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">m.copy()</span></code>
+instead of introducing a new variable <code class="docutils literal notranslate"><span class="pre">v</span></code>?   It will not work!
+Recall that binding a variable <em>anywhere</em> in a function makes it a
+local variable <em>everywhere</em> in the function.</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">():</span> 
+    <span class="sd">&quot;&quot;&quot;This function binds attempts to bind</span>
+<span class="sd">    local m to a copy of global m, but it fails</span>
+<span class="sd">    because every reference to m is to the local m. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">m</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">37</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Within g the value of m is now </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="n">g</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [8],</span> in <span class="ni">&lt;cell line: 12&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">m</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">37</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Within g the value of m is now </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">g</span><span class="p">()</span>
+
+<span class="nn">Input In [8],</span> in <span class="ni">g</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">g</span><span class="p">():</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="sd">&quot;&quot;&quot;This function binds attempts to bind</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="sd">     local m to a copy of global m, but it fails</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="sd">     because every reference to m is to the local m. </span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">m</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">37</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Within g the value of m is now </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="ne">UnboundLocalError</span>: local variable &#39;m&#39; referenced before assignment
+</pre></div>
+</div>
+</div>
+</div>
+<p>The local
+<code class="docutils literal notranslate"><span class="pre">m</span></code> shadows the global <code class="docutils literal notranslate"><span class="pre">m</span></code>.  Thus <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">m.copy()</span></code>
+tries to make a copy of the local variable, which will fail because
+the local variable hasn’t been given a value yet.</p>
+<p><img alt="Can't reuse name for copy into local variable" src="../_images/copy-recycled-name.png" /></p>
+</section>
+<section id="recap">
+<h2>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">#</a></h2>
+<p>The scope rules in Python are simple, but their consequences can be
+confusing.  There are just two rules to remember:</p>
+<ul class="simple">
+<li><p>Python searches for names in <em>LEGB</em> order, _L_ocal, _E_nclosing,
+_G_lobal,  _B_uilt-in.  (So far we have seen just <em>LGM</em>, but
+“LEG-B” is easier to pronounce and thus easier to remember.)</p></li>
+<li><p>The _L_ocal variables of a function are those that have been
+<em>bound</em> through an explicit assignment or through argument passing.</p></li>
+</ul>
+<p>Everything else follows from these two rules.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "UO-CS-OER/CS210-text",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./06-Binding"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="06-02-Alias.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Aliasing</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Michal Young, Boyana Norris, and Ram Durairajan<br/>
+  
+      &copy; Copyright 2022 University of Oregon.  Creative Commons Share-Alike Attribution license.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -197,7 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../04-More-Loops/04-04-Successive-Approximation.html">
-   Successive Approximation
+   Successive approximation
   </a>
  </li>
 </ul>
@@ -285,6 +285,24 @@ title="Launch on Binder"
   </span>
 <span class="headerbtn__text-container">Binder</span>
 </a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
 
       </li>
       
@@ -575,7 +593,11 @@ installers. You should not have to do anything extra.</p>
 </section>
 <section id="windows-10-install">
 <h3>Windows 10 Install<a class="headerlink" href="#windows-10-install" title="Permalink to this headline">#</a></h3>
-<p>TBD</p>
+<p>Press the “Download Python 3.x” (currently 3.10.7) button.
+If the <a class="reference external" href="https://www.python.org/downloads/">download page</a> offers
+you “Latest Python 3 Release” or “Latest Python 2 Release”,  Choose
+the Python 3 release.  This will download an installer.<br />
+Run the installer and follow its directions.</p>
 </section>
 <section id="linux-install">
 <h3>Linux Install<a class="headerlink" href="#linux-install" title="Permalink to this headline">#</a></h3>
@@ -635,8 +657,8 @@ before.</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "UO-CS-OER/CS210-text",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",

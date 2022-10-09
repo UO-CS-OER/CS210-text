@@ -236,7 +236,7 @@ is_it_palindrome("faff")
 is_it_palindrome("a")
 ```
 
-
+(final-palindrome)=
 ## A wrapper function
 
 We noted above that we might not like to consider "a" or "I" 
@@ -247,8 +247,9 @@ string and returns `True` only if that string is a palindrome of at
 least two letters.  A typical way of "fixing up" a function is by 
 writing another function to "wrap" it.  
 
-A convention in Python is that a name that starts with underscore 
-(`"_"`) is meang to be "hidden" or "internal".  For palindrome 
+By convention in Python,  a name that begins with an underscore 
+character (`"_"`) is "hidden" or "internal" to a module.  For 
+palindrome 
 checking, we can give the _wrapper_ function a "public" name 
 `palindrome`, and use `_palindrome` for its internal partner that 
 does the main work.   The wrapper function `palindrome` will just 
@@ -259,8 +260,11 @@ requires.
 ```{code-cell} python3
 def palindrome(word: str) -> bool: 
     """Is word a palindrome of at least 2 letters?"""
+    if len(word) < 2: 
+        return False
     letters = list(word)
     return _palindrome(letters, 0, len(letters)-1)
+    
     
 def _palindrome(word: list[str], first: int, last: int) -> bool: 
     """True if word[first:last] is a palindrome.
@@ -272,7 +276,8 @@ def _palindrome(word: list[str], first: int, last: int) -> bool:
     # Recursive case
     x = word[first]
     y = word[last]
-    return x == y and palindrome_v2(word, first+1, last-1)
+    return x == y and _palindrome(word, first+1, last-1)
+    
     
 def is_it_palindrome(word: str) -> bool:
     """Print palindrome judgment for a string"""
@@ -281,11 +286,13 @@ def is_it_palindrome(word: str) -> bool:
     else:
         print(f"'{word}' is NOT a palindrome")
 
+
 is_it_palindrome("racecar")
 is_it_palindrome("noon")
 is_it_palindrome("faff")
 is_it_palindrome("a")
 ```
+
 Note that the wrapper function rejected "a". 
 
 [Our project for this week](
@@ -355,7 +362,7 @@ print(t)
 ```
 
 Hierarchical data structures are very common:  For example, the 
-_D_ocument _O_bject _M_odel (DOM) tree representation of a web
+Document Object Model (DOM) tree representation of a web
 page.  A web server transmits HTML web content to a browser as text 
 with  "tags" like `<p>` and `<div>` describing its hieararchical 
 structure. The browser 

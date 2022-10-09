@@ -54,6 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Binding and scope" href="../06-Binding/06-01-Binding.html" />
     <link rel="prev" title="Successive approximation" href="../04-More-Loops/04-04-Successive-Approximation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -214,6 +215,33 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  06 Binding and Scope
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-Binding/06-01-Binding.html">
+   Binding and scope
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-Binding/06-02-Alias.html">
+   Aliasing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-Binding/06-03-Scopes.html">
+   Scopes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-Binding/06-04-Binding-Recursion.html">
+   Binding in Recursive Functions
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav></div>
@@ -286,6 +314,24 @@ title="Launch on Binder"
   </span>
 <span class="headerbtn__text-container">Binder</span>
 </a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
 
       </li>
       
@@ -753,7 +799,7 @@ empty word) or meet (indicating a word of one character).</p>
 </div>
 </section>
 <section id="a-wrapper-function">
-<h2>A wrapper function<a class="headerlink" href="#a-wrapper-function" title="Permalink to this headline">#</a></h2>
+<span id="final-palindrome"></span><h2>A wrapper function<a class="headerlink" href="#a-wrapper-function" title="Permalink to this headline">#</a></h2>
 <p>We noted above that we might not like to consider “a” or “I”
 palindromes, and we might especially not like considering the empty
 string “” a palindrome.  Also <code class="docutils literal notranslate"><span class="pre">palindrome_v2</span></code> takes a list and two
@@ -761,8 +807,9 @@ integers as arguments.  We’d rather have a function that takes a
 string and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> only if that string is a palindrome of at
 least two letters.  A typical way of “fixing up” a function is by
 writing another function to “wrap” it.</p>
-<p>A convention in Python is that a name that starts with underscore
-(<code class="docutils literal notranslate"><span class="pre">&quot;_&quot;</span></code>) is meang to be “hidden” or “internal”.  For palindrome
+<p>By convention in Python,  a name that begins with an underscore
+character (<code class="docutils literal notranslate"><span class="pre">&quot;_&quot;</span></code>) is “hidden” or “internal” to a module.  For
+palindrome
 checking, we can give the <em>wrapper</em> function a “public” name
 <code class="docutils literal notranslate"><span class="pre">palindrome</span></code>, and use <code class="docutils literal notranslate"><span class="pre">_palindrome</span></code> for its internal partner that
 does the main work.   The wrapper function <code class="docutils literal notranslate"><span class="pre">palindrome</span></code> will just
@@ -773,8 +820,11 @@ requires.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> 
     <span class="sd">&quot;&quot;&quot;Is word a palindrome of at least 2 letters?&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="kc">False</span>
     <span class="n">letters</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_palindrome</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
     
 <span class="k">def</span> <span class="nf">_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> 
     <span class="sd">&quot;&quot;&quot;True if word[first:last] is a palindrome.</span>
@@ -786,7 +836,8 @@ requires.</p>
     <span class="c1"># Recursive case</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="n">first</span><span class="p">]</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="n">last</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">palindrome_v2</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">first</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">last</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">first</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">last</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
     
 <span class="k">def</span> <span class="nf">is_it_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Print palindrome judgment for a string&quot;&quot;&quot;</span>
@@ -794,6 +845,7 @@ requires.</p>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">&#39; is a palindrome&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">&#39; is NOT a palindrome&quot;</span><span class="p">)</span>
+
 
 <span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;racecar&quot;</span><span class="p">)</span>
 <span class="n">is_it_palindrome</span><span class="p">(</span><span class="s2">&quot;noon&quot;</span><span class="p">)</span>
@@ -806,7 +858,7 @@ requires.</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;racecar&#39; is a palindrome
 &#39;noon&#39; is a palindrome
 &#39;faff&#39; is NOT a palindrome
-&#39;a&#39; is a palindrome
+&#39;a&#39; is NOT a palindrome
 </pre></div>
 </div>
 </div>
@@ -889,7 +941,7 @@ like the example above.</p>
 </div>
 </div>
 <p>Hierarchical data structures are very common:  For example, the
-_D_ocument _O_bject _M_odel (DOM) tree representation of a web
+Document Object Model (DOM) tree representation of a web
 page.  A web server transmits HTML web content to a browser as text
 with  “tags” like <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> describing its hieararchical
 structure. The browser
@@ -908,8 +960,8 @@ building those data structures.</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "UO-CS-OER/CS210-text",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -937,6 +989,13 @@ building those data structures.</p>
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Successive approximation</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../06-Binding/06-01-Binding.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Binding and scope</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

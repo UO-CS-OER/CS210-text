@@ -197,7 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../04-More-Loops/04-04-Successive-Approximation.html">
-   Successive Approximation
+   Successive approximation
   </a>
  </li>
 </ul>
@@ -285,6 +285,24 @@ title="Launch on Binder"
   </span>
 <span class="headerbtn__text-container">Binder</span>
 </a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
 
       </li>
       
@@ -1115,8 +1133,8 @@ through on <code class="docutils literal notranslate"><span class="pre">docs</sp
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "UO-CS-OER/CS210-text",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",

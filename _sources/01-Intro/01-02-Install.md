@@ -49,7 +49,11 @@ installers. You should not have to do anything extra.
 
 ### Windows 10 Install
 
-TBD
+Press the "Download Python 3.x" (currently 3.10.7) button. 
+If the [download page](https://www.python.org/downloads/) offers
+you "Latest Python 3 Release" or "Latest Python 2 Release",  Choose 
+the Python 3 release.  This will download an installer.  
+Run the installer and follow its directions. 
 
 ### Linux Install
 
