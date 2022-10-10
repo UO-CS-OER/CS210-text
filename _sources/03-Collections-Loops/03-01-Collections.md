@@ -176,7 +176,7 @@ are _immutable_.  We can
 create new tuples based on the contents of other tuples, but we 
 cannot change the value or length of a tuple.
 
-To write a literal list value, we separate them by commas, usually 
+To write a literal tuple value, we separate them by commas, usually 
 in parentheses: 
 
 `("a", "b", "c")`.  
