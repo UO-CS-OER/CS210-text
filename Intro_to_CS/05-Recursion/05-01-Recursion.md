@@ -236,7 +236,7 @@ is_it_palindrome("faff")
 is_it_palindrome("a")
 ```
 
-
+(final-palindrome)=
 ## A wrapper function
 
 We noted above that we might not like to consider "a" or "I" 
@@ -260,6 +260,8 @@ requires.
 ```{code-cell} python3
 def palindrome(word: str) -> bool: 
     """Is word a palindrome of at least 2 letters?"""
+    if len(word) < 2: 
+        return False
     letters = list(word)
     return _palindrome(letters, 0, len(letters)-1)
     
@@ -274,7 +276,7 @@ def _palindrome(word: list[str], first: int, last: int) -> bool:
     # Recursive case
     x = word[first]
     y = word[last]
-    return x == y and palindrome_v2(word, first+1, last-1)
+    return x == y and _palindrome(word, first+1, last-1)
     
     
 def is_it_palindrome(word: str) -> bool:
@@ -360,7 +362,7 @@ print(t)
 ```
 
 Hierarchical data structures are very common:  For example, the 
-_D_ocument _O_bject _M_odel (DOM) tree representation of a web
+Document Object Model (DOM) tree representation of a web
 page.  A web server transmits HTML web content to a browser as text 
 with  "tags" like `<p>` and `<div>` describing its hieararchical 
 structure. The browser 
