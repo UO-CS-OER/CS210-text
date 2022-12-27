@@ -22,7 +22,7 @@ must read each entry from the file.
 
 But suppose that instead of checking just 'schnoggle', we wish to 
 check thousands of combinations of letters as we search for a legal 
-word in word game like Scrabble, Boggle, or another word game. It 
+word in word game like Scrabble or Boggle. It 
 will be worthwhile to read the file just once and store it in a list.
 If we sort the list (just once!), we can thereafter search for each 
 candidate word very quickly --- much more quickly than a linear search. 
@@ -111,7 +111,7 @@ Had we been searching instead for 'kabobs', we would have eliminated
 ![Searching from jelly to jelly](img/bsearch-kabobs-jelly-jelly.png)
 
 Since 'jelly' < 'kabobs', 
-we would conclude that 'kabob' must appear after 'jelly', i.e., in 
+we would conclude that 'kabobs' must appear after 'jelly', i.e., in 
 the range of positions from 10 to 9.  That is an empty range, so
 we would conclude there are 
 no kabobs in our list of foods. 
@@ -121,7 +121,8 @@ no kabobs in our list of foods.
 That is the tactic that binary search uses.  Initially we 
 search the whole list, but at each step we either find the value we 
 are searching for, or we eliminate half of the remaining range. If 
-the whole range is eliminated (e.g., a range from 10..9), then we conclude that value is not in the list.
+the whole range is eliminated (e.g., a range from 10..9),
+then we conclude that value is not in the list.
 
 ```{code-cell} python3
 def binary_search(s, lst: list[str]) -> bool: 

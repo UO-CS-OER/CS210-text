@@ -600,7 +600,7 @@ to the program.</p>
 <p>We might be able to measure the performance of a
 particular execution of the program on a particular system and
 determine that it took 3.5 seconds.   Sometimes we do need that
-kind of masurement, but we also need a more
+kind of measurement, but we also need a more
 general way to
 talk about the efficiency of the <em>program</em> that will tell us something
 about its relative speed on other data sets and other computers.
@@ -624,7 +624,7 @@ constant factors like <em>m</em> and <em>b</em> matter less than the exponent of
 the leading term.  For example, if we have one program whose
 performance is described by <span class="math notranslate nohighlight">\(t_1 = mx + b\)</span>, and another program whose
 performance is described by <span class="math notranslate nohighlight">\(t_2 = nx^2 + c\)</span>, we typically prefer
-the former even if <span class="math notranslate nohighlight">\(m &gt;&gt; n\)</span> and <span class="math notranslate nohighlight">\(b &gt;&gt; c\)</span>.  <span class="math notranslate nohighlight">\(t_1\)</span> may be larger when
+the former even if <span class="math notranslate nohighlight">\(m \gg n\)</span> and <span class="math notranslate nohighlight">\(b \gg c\)</span>.  <span class="math notranslate nohighlight">\(t_1\)</span> may be larger when
 <span class="math notranslate nohighlight">\(x\)</span> is small, but for very large values of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(t_2\)</span> will certainly
 be larger.</p>
 <figure class="align-default" id="id1">
@@ -638,12 +638,10 @@ when <span class="math notranslate nohighlight">\(x\)</span> is small, but the l
 and thereafter the quadratic function grows much faster.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Why do we focus on large problem sizes?<br />
-Modern computers
-are so fast that, in most cases, our programs
-process a small amount of data in the blink
-of an eye.  When we try to use the same approach for a
-much larger problem, it might become problematic.  For example,
+<p>We seldom care whether our program takes a hundredth of a second or a
+tenth of a second on a small problem.  Our focus is on efficiency
+with large problem sizes, where performance is more likely to be
+an issue.  For example,
 consider the following function for determining whether a list
 of integers contains any duplicate items:</p>
 <div class="cell docutils container">
@@ -748,36 +746,37 @@ proportional to the logarithm of the problem size.  We can seldom
 achieve logarithmic time for a whole program, since we must at
 least read the data it processes (already that requires linear
 time), but sometimes an individual function can have logarithmic
-performance.  <em>Binary search</em> is a</p></li>
+performance.  <a class="reference internal" href="07-02-Binary-Search.html"><span class="doc std std-doc"><em>Binary search</em></span></a> is an
+example of an algorithm that requires logarithmic time.</p></li>
 <li><p><em>Linear time</em>:  The execution time of the program or function is
 directly proportional to problem size. For example, the built-in
 function <code class="docutils literal notranslate"><span class="pre">max</span></code> has performance that is <em>linear</em> in the length
 of the list it is given.</p></li>
-<li><p><em>log-linear time</em>: Execution time proportional to the problem size
+<li><p><em>Log-linear time</em>: Execution time proportional to the problem size
 times the logarithm of problem size. For example, the built-in
 Python function <code class="docutils literal notranslate"><span class="pre">sorted</span></code> has log-linear performance.</p></li>
 <li><p><em>Quadratic time</em>: Performance is proportional to the square of the
 problem size.  A quadratic time algorithm may be perfectly fine
 if we know the problem size can never be large, but it is apt to
 be unsatisfactory for very large data sets.</p></li>
-<li><p><em>cubic, quartic, … polynomial time</em>: Some functions could
+<li><p><em>Cubic, quartic, … polynomial time</em>: Some functions could
 require time proportional to <span class="math notranslate nohighlight">\(n^3\)</span>, <span class="math notranslate nohighlight">\(n^4\)</span>, etc., a polynomial with
 a leading exponent larger than 2.  There are some problems for
 which this is the best we can do, but these algorithms are
 unlikely to be satisfactory for large problems. ‘</p></li>
-<li><p><em>exponential</em>:  If the performance of a
+<li><p><em>Exponential</em>:  If the performance of a
 function or program is proportional to a function with problem
 size in the exponent, e.g., <span class="math notranslate nohighlight">\(2^n\)</span>, we say it is exponential.
 Consider for example an algorithm that must check every <em>subset</em>
 of a set of <span class="math notranslate nohighlight">\(n\)</span> elements.  There are <span class="math notranslate nohighlight">\(2^n\)</span> such subsets.<br />
 Functions that require time that is exponential in problem size
-can be applied only to very small problems, as even <span class="math notranslate nohighlight">\(2^20\)</span> is over
-a million, and <span class="math notranslate nohighlight">\(2^32\)</span> is over 4 billion.</p></li>
+can be applied only to very small problems, as even <span class="math notranslate nohighlight">\(2^{20}\)</span> is over
+a million, and <span class="math notranslate nohighlight">\(2^{32}\)</span> is over 4 billion.</p></li>
 </ul>
 <p>Note that for a programmer, “exponential” is not just a synonym for
 “very big”.  It has a precise meaning.  Computer scientists use the
-term <em>hard problem</em> to mean <em>a
-problem for which the only possible solutions require exponential
+term <em>hard problem</em> to mean
+<em>a problem for which the only possible solutions require exponential
 time</em>.   We may cringe when others use the term “exponential” to mean
 “really big”, but we are ok with others using the term “hard” in
 more informal senses.</p>
@@ -787,8 +786,8 @@ more informal senses.</p>
 <p>A <em>constant time</em> algorithm can usually be written without any loops,
 or with a loop that does not depend on the input data.</p>
 <p>A <em>linear time</em> algorithm usually involves a loop that depends on
-the problem size, e.g., a loop through the elements of a list.  To
-be linear time, the operations within the loop must be constant time.</p>
+problem size, e.g., a loop through the elements of a list.  Each
+step within the loop must execute in constant time.</p>
 <p>A loop that requires linear time, followed by another loop that
 requires linear time, is still linear time.</p>
 <p>When we put one loop <em>inside</em> another loop (nested), the complexity
@@ -834,17 +833,26 @@ might be tempted to think it would execute in linear time.  However,
 the <code class="docutils literal notranslate"><span class="pre">index</span></code> method of the <code class="docutils literal notranslate"><span class="pre">list</span></code> type is also a loop through the
 elements of the list.  The nested loop may  be out of our sight, but
 it is still there, and the result is still quadratic complexity.</p>
-<p>Here are some Python built-in functions and methods that are loops:</p>
+<p>Here are some Python built-in functions and methods that are
+loops when applied to lists.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">max(l)</span></code>, <code class="docutils literal notranslate"><span class="pre">min(l)</span></code>, <code class="docutils literal notranslate"><span class="pre">sum(l)</span></code>  loop over elements of <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">l.count(v)</span></code> loops over elements of <code class="docutils literal notranslate"><span class="pre">l</span></code> to count occurrences of <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">l.index(v)</span></code> loops over elements of <code class="docutils literal notranslate"><span class="pre">l</span></code> to find the first
-occurrence of <code class="docutils literal notranslate"><span class="pre">v</span></code></p></li>
+occurrence of <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">in</span> <span class="pre">l</span></code> loops over elements of <code class="docutils literal notranslate"><span class="pre">l</span></code> searching for <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l.remove(v)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sort(l),</span> <span class="pre">l.sorted()</span></code> contain more complex loops that require time
 proportional to <span class="math notranslate nohighlight">\(n \lg n\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the length of <span class="math notranslate nohighlight">\(l\)</span> and
 <span class="math notranslate nohighlight">\(\lg\)</span> means logarithm base 2.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">s[i],</span> <span class="pre">s.pop(i)</span></code> loop over the items after position <code class="docutils literal notranslate"><span class="pre">i</span></code> to
+slide them forward.  However, <code class="docutils literal notranslate"><span class="pre">s.pop()</span></code> is a constant time operation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s.insert(i,</span> <span class="pre">x)</span></code> loops over the items after position <code class="docutils literal notranslate"><span class="pre">i</span></code> to make
+room.  However, <code class="docutils literal notranslate"><span class="pre">s.append(x)</span></code> is a constant time operation.</p></li>
 </ul>
+<p>Dicts support some of the same operations as lists, but <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">in</span> <span class="pre">d</span></code> is
+a constant time operation if <code class="docutils literal notranslate"><span class="pre">d</span></code> is a dict.  <code class="docutils literal notranslate"><span class="pre">max(d)</span></code>, <code class="docutils literal notranslate"><span class="pre">min(d)</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">sum(d)</span></code> are loops over elements of <code class="docutils literal notranslate"><span class="pre">d</span></code>, just as if <code class="docutils literal notranslate"><span class="pre">d</span></code> were a list.</p>
 </section>
 <section id="perspective">
 <h2>Perspective<a class="headerlink" href="#perspective" title="Permalink to this headline">#</a></h2>
@@ -861,12 +869,10 @@ because test cases are typically small.  It may even be acceptable
 <em>most</em> of the time in production use, but then one day when it
 encounters a larger problem and slows an application unacceptably,
 it will likely be while the system is under heavy load.</p>
-<p>Algorithmic efficiency is a
-key consideration for performance-critical systems, but not
-the whole job. While
-algorithmic
-efficiency focuses on the <em>shape</em> of the curve
-it is typically followed by <em>performance tuning</em> to squeeze out
+<p>Algorithmic efficiency is one key consideration for performance-critical
+systems, but not the only consideration.
+Algorithm design focusing on the <em>shape</em> of the curve
+is typically followed by <em>performance tuning</em> to squeeze out
 additional constant factors.
 Halving the time required by some
 function is “only” a constant factor, but halving the time required

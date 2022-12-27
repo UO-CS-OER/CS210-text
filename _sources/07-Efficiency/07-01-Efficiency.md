@@ -25,7 +25,7 @@ to the program.
 We might be able to measure the performance of a 
 particular execution of the program on a particular system and 
 determine that it took 3.5 seconds.   Sometimes we do need that 
-kind of masurement, but we also need a more 
+kind of measurement, but we also need a more 
 general way to 
 talk about the efficiency of the _program_ that will tell us something 
 about its relative speed on other data sets and other computers. 
@@ -51,7 +51,7 @@ constant factors like _m_ and _b_ matter less than the exponent of
 the leading term.  For example, if we have one program whose 
 performance is described by $t_1 = mx + b$, and another program whose 
 performance is described by $t_2 = nx^2 + c$, we typically prefer 
-the former even if $m >> n$ and $b >> c$.  $t_1$ may be larger when 
+the former even if $m \gg n$ and $b \gg c$.  $t_1$ may be larger when 
 $x$ is small, but for very large values of $x$, $t_2$ will certainly 
 be larger.  
 
@@ -64,12 +64,10 @@ when $x$ is small, but the lines cross around $x = 12$
 and thereafter the quadratic function grows much faster. 
 ```
 
-Why do we focus on large problem sizes?  
-Modern computers 
-are so fast that, in most cases, our programs 
-process a small amount of data in the blink 
-of an eye.  When we try to use the same approach for a 
-much larger problem, it might become problematic.  For example,
+We seldom care whether our program takes a hundredth of a second or a 
+tenth of a second on a small problem.  Our focus is on efficiency
+with large problem sizes, where performance is more likely to be
+an issue.  For example,
 consider the following function for determining whether a list
 of integers contains any duplicate items: 
 
@@ -161,36 +159,37 @@ classes. From fastest to slowest (on large problems), these are:
   achieve logarithmic time for a whole program, since we must at 
   least read the data it processes (already that requires linear 
   time), but sometimes an individual function can have logarithmic 
-  performance.  _Binary search_ is a 
+  performance.  [_Binary search_](07-02-Binary-Search.md) is an 
+  example of an algorithm that requires logarithmic time.
 - _Linear time_:  The execution time of the program or function is 
   directly proportional to problem size. For example, the built-in 
   function `max` has performance that is _linear_ in the length 
   of the list it is given. 
-- _log-linear time_: Execution time proportional to the problem size 
+- _Log-linear time_: Execution time proportional to the problem size 
   times the logarithm of problem size. For example, the built-in 
   Python function `sorted` has log-linear performance. 
 - _Quadratic time_: Performance is proportional to the square of the 
   problem size.  A quadratic time algorithm may be perfectly fine 
   if we know the problem size can never be large, but it is apt to 
   be unsatisfactory for very large data sets. 
-- _cubic, quartic, ... polynomial time_: Some functions could 
+- _Cubic, quartic, ... polynomial time_: Some functions could 
   require time proportional to $n^3$, $n^4$, etc., a polynomial with 
   a leading exponent larger than 2.  There are some problems for 
   which this is the best we can do, but these algorithms are 
   unlikely to be satisfactory for large problems. '
-- _exponential_:  If the performance of a 
+- _Exponential_:  If the performance of a 
   function or program is proportional to a function with problem 
   size in the exponent, e.g., $2^n$, we say it is exponential. 
   Consider for example an algorithm that must check every _subset_ 
   of a set of $n$ elements.  There are $2^n$ such subsets.  
   Functions that require time that is exponential in problem size 
-  can be applied only to very small problems, as even $2^20$ is over 
-  a million, and $2^32$ is over 4 billion. 
+  can be applied only to very small problems, as even $2^{20}$ is over 
+  a million, and $2^{32}$ is over 4 billion. 
 
 Note that for a programmer, "exponential" is not just a synonym for 
 "very big".  It has a precise meaning.  Computer scientists use the 
-term _hard problem_ to mean _a 
-problem for which the only possible solutions require exponential 
+term _hard problem_ to mean 
+_a problem for which the only possible solutions require exponential 
 time_.   We may cringe when others use the term "exponential" to mean 
 "really big", but we are ok with others using the term "hard" in 
 more informal senses. 
@@ -200,9 +199,9 @@ more informal senses.
 A _constant time_ algorithm can usually be written without any loops,
 or with a loop that does not depend on the input data.  
 
-A _linear time_ algorithm usually involves a loop that depends on 
-the problem size, e.g., a loop through the elements of a list.  To 
-be linear time, the operations within the loop must be constant time.
+A _linear time_ algorithm usually involves a loop that depends on
+problem size, e.g., a loop through the elements of a list.  Each 
+step within the loop must execute in constant time. 
 
 A loop that requires linear time, followed by another loop that 
 requires linear time, is still linear time. 
@@ -244,16 +243,26 @@ the `index` method of the `list` type is also a loop through the
 elements of the list.  The nested loop may  be out of our sight, but 
 it is still there, and the result is still quadratic complexity.
 
-Here are some Python built-in functions and methods that are loops: 
+Here are some Python built-in functions and methods that are 
+loops when applied to lists.
 
 - `max(l)`, `min(l)`, `sum(l)`  loop over elements of `l`.
 - `l.count(v)` loops over elements of `l` to count occurrences of `v`.
 - `l.index(v)` loops over elements of `l` to find the first
-   occurrence of `v`
+   occurrence of `v`.
 - `v in l` loops over elements of `l` searching for `v`. 
+- `l.remove(v)`
 - `sort(l), l.sorted()` contain more complex loops that require time 
   proportional to $n \lg n$, where $n$ is the length of $l$ and 
   $\lg$ means logarithm base 2.
+- `del s[i], s.pop(i)` loop over the items after position `i` to 
+  slide them forward.  However, `s.pop()` is a constant time operation.
+- `s.insert(i, x)` loops over the items after position `i` to make 
+  room.  However, `s.append(x)` is a constant time operation.
+
+Dicts support some of the same operations as lists, but `k in d` is 
+a constant time operation if `d` is a dict.  `max(d)`, `min(d)`, and 
+`sum(d)` are loops over elements of `d`, just as if `d` were a list. 
 
 ## Perspective
 
@@ -272,14 +281,12 @@ _most_ of the time in production use, but then one day when it
 encounters a larger problem and slows an application unacceptably, 
 it will likely be while the system is under heavy load.  
 
-Algorithmic efficiency is a 
-key consideration for performance-critical systems, but not
-the whole job. While 
-algorithmic 
-efficiency focuses on the _shape_ of the curve 
-it is typically followed by _performance tuning_ to squeeze out 
+Algorithmic efficiency is one key consideration for performance-critical
+systems, but not the only consideration. 
+Algorithm design focusing on the _shape_ of the curve 
+is typically followed by _performance tuning_ to squeeze out 
 additional constant factors. 
- Halving the time required by some 
+Halving the time required by some 
 function is "only" a constant factor, but halving the time required 
 for a large scientific simulation or halving the hosting expenses of 
 a large internet-based business is significant.
