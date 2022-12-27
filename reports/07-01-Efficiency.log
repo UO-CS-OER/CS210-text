@@ -1,0 +1,37 @@
+Traceback (most recent call last):
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 641, in run_until_complete
+    return future.result()
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/michal/Dropbox/22F-210/Book/CS210-text/env/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def has-dups(l: list[int]) -> bool: 
+  """Don't do it this way!"""
+  for i in range(len(l)):
+      if l.index(l[i]) != i:
+          return True
+  return False
+  
+print(f"Expecting True: {has_dups([0, 7, 3, 5, 9, 8, 17, 3, 2])}")
+print(f"Expecting False: {has_dups([0, 7, 3, 5, 9, 8, 17, 13, 2])}")  
+------------------
+
+[0;36m  Input [0;32mIn [3][0;36m[0m
+[0;31m    def has-dups(l: list[int]) -> bool:[0m
+[0m           ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (3514569900.py, line 1)
+

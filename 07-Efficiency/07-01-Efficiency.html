@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Efficiency &#8212; Introduction to Computer Science I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Binary Search" href="07-02-Binary-Search.html" />
+    <link rel="prev" title="Binding in Recursive Functions" href="../06-Binding/06-04-Binding-Recursion.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo-provisional.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Computer Science I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Computer Science, part 1
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  01 Getting a Start
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-01-Prospectus.html">
+   A Course in Computational Thinking
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-02-Install.html">
+   Installing Python and IDLE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-03-Kickstart.html">
+   Python Programming Kickstart
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  02 Writing Functions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-01-Functions.html">
+   Designing and Building Functions in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-02-Scope.html">
+   Binding:  Functions and Scope
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-03-Hygiene.html">
+   Function Hygiene in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-04-Terms.html">
+   Review of terms
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  03 Collections and Loops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-Collections-Loops/03-01-Collections.html">
+   Collections and Loops
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  04 More Loops and Collections
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-01-More-Loops.html">
+   Loops and more loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-02-Parallel-Lists.html">
+   Parallel Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-03-Indefinite-Loops.html">
+   Indefinite loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-04-Successive-Approximation.html">
+   Successive approximation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  05 Recursion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Recursion/05-01-Recursion.html">
+   Recursive Functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  06 Binding and Scope
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-Binding/06-01-Binding.html">
+   Binding and scope
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-Binding/06-02-Alias.html">
+   Aliasing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-Binding/06-03-Scopes.html">
+   Scopes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-Binding/06-04-Binding-Recursion.html">
+   Binding in Recursive Functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  07 Efficiency
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Efficiency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-02-Binary-Search.html">
+   Binary Search
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/07-Efficiency/07-01-Efficiency.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/UO-CS-OER/CS210-text"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F07-Efficiency/07-01-Efficiency.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/07-Efficiency/07-01-Efficiency.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/07-Efficiency/07-01-Efficiency.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#it-s-the-curve-that-counts">
+   It’s the curve that counts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algorithmic-efficiency-classes">
+   Algorithmic efficiency classes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fast-and-slow-patterns">
+   Fast and slow patterns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beware-hidden-loops">
+   Beware hidden loops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perspective">
+   Perspective
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binary-search">
+   Binary search
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Efficiency</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#it-s-the-curve-that-counts">
+   It’s the curve that counts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algorithmic-efficiency-classes">
+   Algorithmic efficiency classes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fast-and-slow-patterns">
+   Fast and slow patterns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beware-hidden-loops">
+   Beware hidden loops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perspective">
+   Perspective
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binary-search">
+   Binary search
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="efficiency">
+<h1>Efficiency<a class="headerlink" href="#efficiency" title="Permalink to this headline">#</a></h1>
+<p>We know that some programs run faster than others.  However, the
+speed the program runs at depends on many things, including
+the computer it is
+running on, the other programs that may be running at the same time,
+and the supporting software (e.g., the particular version of Python and
+the underlying operating system), as well as the input data provided
+to the program.</p>
+<p>We might be able to measure the performance of a
+particular execution of the program on a particular system and
+determine that it took 3.5 seconds.   Sometimes we do need that
+kind of masurement, but we also need a more
+general way to
+talk about the efficiency of the <em>program</em> that will tell us something
+about its relative speed on other data sets and other computers.
+That is what we call <em>algorithmic efficiency</em>.</p>
+<section id="it-s-the-curve-that-counts">
+<h2>It’s the curve that counts<a class="headerlink" href="#it-s-the-curve-that-counts" title="Permalink to this headline">#</a></h2>
+<p>Instead of counting seconds required to execute a program on a
+particular data set on a particular computer,
+we characterize <em>algorithmic efficiency</em> by a <em>relation</em> between
+problem size and execution time.  For example, if the time <em>t</em> required
+to execute a program could be described by an equation
+<span class="math notranslate nohighlight">\(t = mx + b\)</span>, where <em>m</em> is a constant, <em>x</em> is a measure of the problem
+size and <em>b</em> is
+a constant (e.g., it might be some fixed start-up time that does not
+depend on the input data), we would say that the program’s
+performance is <em>linear in x</em>, because <span class="math notranslate nohighlight">\(t = mx + b\)</span> is the equation
+of a straight line.</p>
+<p>We generally care most about how fast or slow a program is when
+given a very large problem to work on.  For very large programs,
+constant factors like <em>m</em> and <em>b</em> matter less than the exponent of
+the leading term.  For example, if we have one program whose
+performance is described by <span class="math notranslate nohighlight">\(t_1 = mx + b\)</span>, and another program whose
+performance is described by <span class="math notranslate nohighlight">\(t_2 = nx^2 + c\)</span>, we typically prefer
+the former even if <span class="math notranslate nohighlight">\(m &gt;&gt; n\)</span> and <span class="math notranslate nohighlight">\(b &gt;&gt; c\)</span>.  <span class="math notranslate nohighlight">\(t_1\)</span> may be larger when
+<span class="math notranslate nohighlight">\(x\)</span> is small, but for very large values of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(t_2\)</span> will certainly
+be larger.</p>
+<figure class="align-default" id="id1">
+<img alt="../_images/linear-quadratic.jpg" src="../_images/linear-quadratic.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">A program that requires <span class="math notranslate nohighlight">\(0.5x^2 + 2\)</span> operations for a
+problem of size <span class="math notranslate nohighlight">\(x\)</span> (dotted line)
+may be faster that a program that requires <span class="math notranslate nohighlight">\(5x + 10\)</span> operations
+(solid line)
+when <span class="math notranslate nohighlight">\(x\)</span> is small, but the lines cross around <span class="math notranslate nohighlight">\(x = 12\)</span>
+and thereafter the quadratic function grows much faster.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Why do we focus on large problem sizes?<br />
+Modern computers
+are so fast that, in most cases, our programs
+process a small amount of data in the blink
+of an eye.  When we try to use the same approach for a
+much larger problem, it might become problematic.  For example,
+consider the following function for determining whether a list
+of integers contains any duplicate items:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">has_dups</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> 
+  <span class="sd">&quot;&quot;&quot;Is l[i] == l[j] for i != j?&quot;&quot;&quot;</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)):</span>
+    <span class="c1"># Only need to compare items after position i</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)):</span>
+      <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+  <span class="k">return</span> <span class="kc">False</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expecting True: </span><span class="si">{</span><span class="n">has_dups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expecting False: </span><span class="si">{</span><span class="n">has_dups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Expecting True: True
+Expecting False: False
+</pre></div>
+</div>
+</div>
+</div>
+<p>The function seems simple and clear, and it works well enough for
+short lists like the test cases.  But how long could <code class="docutils literal notranslate"><span class="pre">has_dups</span></code> take
+on a much longer list, say 10,001 items?  If there are no duplicate
+elements, the outer loop will run 10,001 times, which is not bad by
+itself.  On the first iteration of the outer loop, the inner loop
+will execute 10,000 times. On the second, it will execute 9,999 times,
+then 9,998 times for the second time through the outer loop, and so
+on.  The total number of times the the comparison <code class="docutils literal notranslate"><span class="pre">l[i]</span> <span class="pre">==</span> <span class="pre">l[j]</span></code>
+will be executed is <span class="math notranslate nohighlight">\(1 + 2 + 3 + \ldots + 10,000\)</span>, which is
+<span class="math notranslate nohighlight">\(10,000 (10,000 + 1) /2\)</span>, or approximately 50,000,000.  For a list
+of <span class="math notranslate nohighlight">\(n\)</span> items, the total execution time is proportional to <span class="math notranslate nohighlight">\(n^2\)</span>;  we
+say it is <em>quadratic</em> in list size.</p>
+<p>If we graphed the time required by this first version of <code class="docutils literal notranslate"><span class="pre">has_dups</span></code>
+on the y axis, with list length as the x axis, we would see the
+shape of a parabola.</p>
+<p>We can make a version of <code class="docutils literal notranslate"><span class="pre">has_dups</span></code> that works much more
+efficiently on long lists.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">has_dups</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> 
+  <span class="sd">&quot;&quot;&quot;Is l[i] == l[j] for i != j?</span>
+<span class="sd">  This version is much faster for long lists.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+  <span class="c1"># Any duplicate items are now adjacent</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+      <span class="k">return</span> <span class="kc">True</span>
+  <span class="k">return</span> <span class="kc">False</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expecting True: </span><span class="si">{</span><span class="n">has_dups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expecting False: </span><span class="si">{</span><span class="n">has_dups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Expecting True: True
+Expecting False: False
+</pre></div>
+</div>
+</div>
+</div>
+<p>The built-in Python function <code class="docutils literal notranslate"><span class="pre">sorted</span></code>
+requires time proportional to <span class="math notranslate nohighlight">\(n \log_2 n\)</span> to sort a list with <span class="math notranslate nohighlight">\(n\)</span>
+elements. For 10,000 elements, this is approximately
+<span class="math notranslate nohighlight">\(10,000 \times 13 \times k\)</span>, where <span class="math notranslate nohighlight">\(k\)</span> is a constant and independent
+of list length.  If we graphed the time required by this second
+version of <code class="docutils literal notranslate"><span class="pre">has_dups</span></code>, we would see a line that curves slightly
+upward, but far less steeply than the parabola describing the first
+version.</p>
+<p>If <span class="math notranslate nohighlight">\(k\)</span> is fairly large (which depends on details of
+how <code class="docutils literal notranslate"><span class="pre">sorted</span></code> is implemented in Python), it is possible that our
+first implementation of <code class="docutils literal notranslate"><span class="pre">has_dups</span></code> could be faster for very short
+lists like those in our test cases … but who cares when both are
+so fast?   Our second implementation will be far faster for a list
+with 10,000 elements.  If we try <code class="docutils literal notranslate"><span class="pre">has_dups</span></code> on a list with a million
+elements, the second version will be execute reasonably quickly,
+while the first will be impractical.  We therefore prefer the second
+version.</p>
+</section>
+<section id="algorithmic-efficiency-classes">
+<h2>Algorithmic efficiency classes<a class="headerlink" href="#algorithmic-efficiency-classes" title="Permalink to this headline">#</a></h2>
+<p>If we ignore coefficients and constants and focus just on the shapes
+of the curves we see if we graph execution time against problem size,
+most of our programs and functions will fall into one of several
+efficiency
+classes. From fastest to slowest (on large problems), these are:</p>
+<ul class="simple">
+<li><p><em>Constant time</em>:  The execution time of the program does not
+depend on the size of the problem.  We seldom write whole programs
+that execute in constant time, but a program might include some
+functions whose execution time is independent of problem size.<br />
+For example, the built-in <code class="docutils literal notranslate"><span class="pre">len</span></code> function n Python does not depend
+on the length of the list.</p></li>
+<li><p><em>Logarithmic time</em>: The execution time of the function is
+proportional to the logarithm of the problem size.  We can seldom
+achieve logarithmic time for a whole program, since we must at
+least read the data it processes (already that requires linear
+time), but sometimes an individual function can have logarithmic
+performance.  <em>Binary search</em> is a</p></li>
+<li><p><em>Linear time</em>:  The execution time of the program or function is
+directly proportional to problem size. For example, the built-in
+function <code class="docutils literal notranslate"><span class="pre">max</span></code> has performance that is <em>linear</em> in the length
+of the list it is given.</p></li>
+<li><p><em>log-linear time</em>: Execution time proportional to the problem size
+times the logarithm of problem size. For example, the built-in
+Python function <code class="docutils literal notranslate"><span class="pre">sorted</span></code> has log-linear performance.</p></li>
+<li><p><em>Quadratic time</em>: Performance is proportional to the square of the
+problem size.  A quadratic time algorithm may be perfectly fine
+if we know the problem size can never be large, but it is apt to
+be unsatisfactory for very large data sets.</p></li>
+<li><p><em>cubic, quartic, … polynomial time</em>: Some functions could
+require time proportional to <span class="math notranslate nohighlight">\(n^3\)</span>, <span class="math notranslate nohighlight">\(n^4\)</span>, etc., a polynomial with
+a leading exponent larger than 2.  There are some problems for
+which this is the best we can do, but these algorithms are
+unlikely to be satisfactory for large problems. ‘</p></li>
+<li><p><em>exponential</em>:  If the performance of a
+function or program is proportional to a function with problem
+size in the exponent, e.g., <span class="math notranslate nohighlight">\(2^n\)</span>, we say it is exponential.
+Consider for example an algorithm that must check every <em>subset</em>
+of a set of <span class="math notranslate nohighlight">\(n\)</span> elements.  There are <span class="math notranslate nohighlight">\(2^n\)</span> such subsets.<br />
+Functions that require time that is exponential in problem size
+can be applied only to very small problems, as even <span class="math notranslate nohighlight">\(2^20\)</span> is over
+a million, and <span class="math notranslate nohighlight">\(2^32\)</span> is over 4 billion.</p></li>
+</ul>
+<p>Note that for a programmer, “exponential” is not just a synonym for
+“very big”.  It has a precise meaning.  Computer scientists use the
+term <em>hard problem</em> to mean <em>a
+problem for which the only possible solutions require exponential
+time</em>.   We may cringe when others use the term “exponential” to mean
+“really big”, but we are ok with others using the term “hard” in
+more informal senses.</p>
+</section>
+<section id="fast-and-slow-patterns">
+<h2>Fast and slow patterns<a class="headerlink" href="#fast-and-slow-patterns" title="Permalink to this headline">#</a></h2>
+<p>A <em>constant time</em> algorithm can usually be written without any loops,
+or with a loop that does not depend on the input data.</p>
+<p>A <em>linear time</em> algorithm usually involves a loop that depends on
+the problem size, e.g., a loop through the elements of a list.  To
+be linear time, the operations within the loop must be constant time.</p>
+<p>A loop that requires linear time, followed by another loop that
+requires linear time, is still linear time.</p>
+<p>When we put one loop <em>inside</em> another loop (nested), the complexity
+of the combination is the product of the complexities of the
+individual loops.  Our first attempt at <code class="docutils literal notranslate"><span class="pre">has_dups</span></code> nested loops that
+were each linear in the length of a list, resulting in quadratic
+complexity.</p>
+<p>Nested loops are not always as obvious as our first <code class="docutils literal notranslate"><span class="pre">has_dups</span></code>. We
+might write a function with a single loop through the elements of a
+list, and in the body of that loop we might call another function
+that also loops through the list.   We do not see <em>syntactic</em>
+nesting of one loop inside another, but they are <em>semantically</em> nested.</p>
+</section>
+<section id="beware-hidden-loops">
+<h2>Beware hidden loops<a class="headerlink" href="#beware-hidden-loops" title="Permalink to this headline">#</a></h2>
+<p>It is easy to accidentally create <em>semantically</em> nested loops by
+using built-in functions that loop over elements of a list.  For
+example, here is a third version of <code class="docutils literal notranslate"><span class="pre">has_dups</span></code> that has quadratic
+complexity:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">has_dups</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> 
+  <span class="sd">&quot;&quot;&quot;Don&#39;t do it this way!&quot;&quot;&quot;</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)):</span>
+      <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">!=</span> <span class="n">i</span><span class="p">:</span>
+          <span class="k">return</span> <span class="kc">True</span>
+  <span class="k">return</span> <span class="kc">False</span>
+  
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expecting True: </span><span class="si">{</span><span class="n">has_dups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expecting False: </span><span class="si">{</span><span class="n">has_dups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Expecting True: True
+Expecting False: False
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is only one visible loop in this version of <code class="docutils literal notranslate"><span class="pre">has_dups</span></code>, so you
+might be tempted to think it would execute in linear time.  However,
+the <code class="docutils literal notranslate"><span class="pre">index</span></code> method of the <code class="docutils literal notranslate"><span class="pre">list</span></code> type is also a loop through the
+elements of the list.  The nested loop may  be out of our sight, but
+it is still there, and the result is still quadratic complexity.</p>
+<p>Here are some Python built-in functions and methods that are loops:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max(l)</span></code>, <code class="docutils literal notranslate"><span class="pre">min(l)</span></code>, <code class="docutils literal notranslate"><span class="pre">sum(l)</span></code>  loop over elements of <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l.count(v)</span></code> loops over elements of <code class="docutils literal notranslate"><span class="pre">l</span></code> to count occurrences of <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l.index(v)</span></code> loops over elements of <code class="docutils literal notranslate"><span class="pre">l</span></code> to find the first
+occurrence of <code class="docutils literal notranslate"><span class="pre">v</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">in</span> <span class="pre">l</span></code> loops over elements of <code class="docutils literal notranslate"><span class="pre">l</span></code> searching for <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sort(l),</span> <span class="pre">l.sorted()</span></code> contain more complex loops that require time
+proportional to <span class="math notranslate nohighlight">\(n \lg n\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the length of <span class="math notranslate nohighlight">\(l\)</span> and
+<span class="math notranslate nohighlight">\(\lg\)</span> means logarithm base 2.</p></li>
+</ul>
+</section>
+<section id="perspective">
+<h2>Perspective<a class="headerlink" href="#perspective" title="Permalink to this headline">#</a></h2>
+<p>Most of the code we write is not performance-critical.  Often we can
+write simple, readable code that is <em>good enough</em> without thinking
+much about it.   Typically we try to write code that is
+straightforward, understandable, and not horrible with respect to
+efficiency.</p>
+<p>But we must be more careful.  Accidentally writing a
+function whose execution time is quadratic in the size of the data
+it processes can be a logic bomb waiting to go off at an
+inconvenient time.  Such a function may appear fine in testing,
+because test cases are typically small.  It may even be acceptable
+<em>most</em> of the time in production use, but then one day when it
+encounters a larger problem and slows an application unacceptably,
+it will likely be while the system is under heavy load.</p>
+<p>Algorithmic efficiency is a
+key consideration for performance-critical systems, but not
+the whole job. While
+algorithmic
+efficiency focuses on the <em>shape</em> of the curve
+it is typically followed by <em>performance tuning</em> to squeeze out
+additional constant factors.
+Halving the time required by some
+function is “only” a constant factor, but halving the time required
+for a large scientific simulation or halving the hosting expenses of
+a large internet-based business is significant.</p>
+<p>If you continue with computer science courses, you will dig much
+deeper into devising and analyzing efficient functions in data
+structures and algorithms courses.  Our treatment so far is informal,
+but you should be able to do some basic reasoning and distinguish
+between constant time, linear time, and quadratic algorithms on lists.</p>
+</section>
+<section id="binary-search">
+<h2>Binary search<a class="headerlink" href="#binary-search" title="Permalink to this headline">#</a></h2>
+<p>We looked at differences between linear time algorithms for lists
+and quadratic time algorithms, which typically involve nested loops.
+Can we get even more efficient than linear time?  The next section
+describes <em>binary search</em>, a way of achieving <em>logarithmic</em>
+complexity provided a list is in sorted order.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "UO-CS-OER/CS210-text",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./07-Efficiency"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../06-Binding/06-04-Binding-Recursion.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Binding in Recursive Functions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="07-02-Binary-Search.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Binary Search</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Michal Young, Boyana Norris, and Ram Durairajan<br/>
+  
+      &copy; Copyright 2022 University of Oregon.  Creative Commons Share-Alike Attribution license.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
