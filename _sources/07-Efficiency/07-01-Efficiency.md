@@ -176,7 +176,7 @@ classes. From fastest to slowest (on large problems), these are:
   require time proportional to $n^3$, $n^4$, etc., a polynomial with 
   a leading exponent larger than 2.  There are some problems for 
   which this is the best we can do, but these algorithms are 
-  unlikely to be satisfactory for large problems. '
+  unlikely to be satisfactory for large problems. 
 - _Exponential_:  If the performance of a 
   function or program is proportional to a function with problem 
   size in the exponent, e.g., $2^n$, we say it is exponential. 
@@ -251,7 +251,8 @@ loops when applied to lists.
 - `l.index(v)` loops over elements of `l` to find the first
    occurrence of `v`.
 - `v in l` loops over elements of `l` searching for `v`. 
-- `l.remove(v)`
+- `l.remove(v)` loops over the whole list, first searching for value 
+  v and then moving all the remaining items.
 - `sort(l), l.sorted()` contain more complex loops that require time 
   proportional to $n \lg n$, where $n$ is the length of $l$ and 
   $\lg$ means logarithm base 2.

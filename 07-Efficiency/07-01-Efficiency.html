@@ -763,7 +763,7 @@ be unsatisfactory for very large data sets.</p></li>
 require time proportional to <span class="math notranslate nohighlight">\(n^3\)</span>, <span class="math notranslate nohighlight">\(n^4\)</span>, etc., a polynomial with
 a leading exponent larger than 2.  There are some problems for
 which this is the best we can do, but these algorithms are
-unlikely to be satisfactory for large problems. ‘</p></li>
+unlikely to be satisfactory for large problems.</p></li>
 <li><p><em>Exponential</em>:  If the performance of a
 function or program is proportional to a function with problem
 size in the exponent, e.g., <span class="math notranslate nohighlight">\(2^n\)</span>, we say it is exponential.
@@ -841,7 +841,8 @@ loops when applied to lists.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">l.index(v)</span></code> loops over elements of <code class="docutils literal notranslate"><span class="pre">l</span></code> to find the first
 occurrence of <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">in</span> <span class="pre">l</span></code> loops over elements of <code class="docutils literal notranslate"><span class="pre">l</span></code> searching for <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">l.remove(v)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l.remove(v)</span></code> loops over the whole list, first searching for value
+v and then moving all the remaining items.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sort(l),</span> <span class="pre">l.sorted()</span></code> contain more complex loops that require time
 proportional to <span class="math notranslate nohighlight">\(n \lg n\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the length of <span class="math notranslate nohighlight">\(l\)</span> and
 <span class="math notranslate nohighlight">\(\lg\)</span> means logarithm base 2.</p></li>
