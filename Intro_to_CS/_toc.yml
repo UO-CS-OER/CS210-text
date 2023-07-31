@@ -38,3 +38,8 @@ parts:
       - file: 06-Binding/06-02-Alias.md
       - file: 06-Binding/06-03-Scopes.md
       - file: 06-Binding/06-04-Binding-Recursion.md
+
+  - caption: 07 Efficiency
+    chapters:
+      - file: 07-Efficiency/07-01-Efficiency.md
+      - file: 07-Efficiency/07-02-Binary-Search.md
