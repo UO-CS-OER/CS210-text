@@ -36,7 +36,28 @@ This is work in progress, and we appreciate your notes regarding
 parts of this text or accompanying materials that are not accessible 
 via screen reader. 
 
-## Alternative formats
+### Known issues for screen readers
+
+While these are issues we are aware of, we still welcome notes on 
+your experience regarding them, and especially ideas regarding how 
+we can overcome or ameliorate them.  
+
+- Some math content is not being read by some screen readers, 
+  notably JAWS.  We are investigating this issue.
+
+### Alternative formats for screen readers
 
 In addition to the web version, this text may be accessed in PDF and 
-Markdown formats.  
+Markdown formats. However, the format over which we have the most 
+control is HTML, and our initial experience is that PDF produced 
+from our source material is less rather than more accessible to 
+users of screen readers.   While we are happy to attempt to produce 
+the text in other formats, in most cases we think it will be more 
+practical to enhance or augment the HTML version.  
+
+## Other accessibility issues (besides vision)
+
+Are there other accessibility issues that we should be aware of, 
+besides compatibility with screen readers?  Please 
+[let us know](mailto:michal@uoregon.edu?subject=Textbook accessibility 
+issues). 
