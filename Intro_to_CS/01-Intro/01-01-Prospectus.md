@@ -64,7 +64,7 @@ The _things_ designed (but not constructed) by
 software developers are _computations_.
 The computations are
 constructed by computers, following our designs.
-Computations are weightless and cheap.  
+Computations are weightless and cheap.
 The designs of those computations, which we call
 _programs_ or _software_ or perhaps _software systems_, are complex
 and expensive. Any part of the construction that can be fully

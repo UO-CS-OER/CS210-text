@@ -1,0 +1,4 @@
+/* Custom CSS added at UO in response to accessibility review by Allia Service. */
+code {
+    --pst-color-inline-code: rgb(0, 120, 0); /* Inline code, greater contrast */
+}
