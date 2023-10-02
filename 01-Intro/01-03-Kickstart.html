@@ -156,7 +156,11 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Getting a Start</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">00 Accessibility Statement</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-Accessibility/00-01-Accessibility.html">Accessibility Statement</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Getting a Start</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01-01-Prospectus.html">A Course in Computational Thinking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01-02-Install.html">Installing Python and IDLE</a></li>
@@ -923,7 +927,21 @@ as well as the type of
 value that <code class="docutils literal notranslate"><span class="pre">my_max</span></code> will return (also <code class="docutils literal notranslate"><span class="pre">int</span></code>).  The first line
 or lines in the indented <em>body</em> of the function is a
 <em>docstring comment</em> explaining the purpose of the function
-(but not how it works).  In our first project we will also
+(but not how it works).  This “docstring” is conventionally
+enclosed in triple quotes.  Triple-quoted strings can extend over
+multiple lines and can contain parts enclosed in ordinary single or
+double quotes.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;A triple-quoted string can extend</span>
+<span class="sd">over multiple lines and contain ordinary &quot;double-quoted&quot; </span>
+<span class="sd">and &#39;single-quoted&#39; strings.  Their most common use is </span>
+<span class="sd">as &quot;docstring&quot; header comments for functions and for</span>
+<span class="sd">whole source code files.  Start the text of a docstring directly </span>
+<span class="sd">after the opening triple-quote, but put the closing triple-quote on</span>
+<span class="sd">a line of its own.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>In our first project we will also
 see how to add automated tests to a longer docstring comment.</p>
 <p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> in “<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_max(x:</span> <span class="pre">int,</span> <span class="pre">y:</span> <span class="pre">int)</span></code>” are called <em>formal
 arguments</em>.
@@ -987,9 +1005,23 @@ You will find it on github.</p>
 <p><span class="caption-number">Fig. 3 </span><span class="caption-text">Download the project as a zip archive from github.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Screen-reader users will find the Github web interface less than
+fully accessible.  What appears to sighted readers as a menu labeled
+<code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span> <span class="pre">Code</span></code> will appear as a button that instead pops a tabbed window.
+Find the <code class="docutils literal notranslate"><span class="pre">Code</span></code> button, and within the popped window find a link or
+button labeled <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">ZIP</span></code>.</p>
+</div>
 <p>Decompress the project archive into a directory (“folder”) and move
 the whole thing to a directory in which you keep all the projects
-for this class.   Inside the directory for this project, you will
+for this class.   If you need to move it from a default download
+folder, mov3 the <em>whole project folder</em> rather than individual
+files, and do not put it inside another folder for the individual
+project. You want only one folder named <code class="docutils literal notranslate"><span class="pre">jumbler</span></code>
+or <code class="docutils literal notranslate"><span class="pre">jumbler-main</span></code>, and not one <code class="docutils literal notranslate"><span class="pre">jumbler-main</span></code> inside another
+<code class="docutils literal notranslate"><span class="pre">jumbler-main</span></code>.</p>
+<p>Inside the directory for this project, you will
 find a directory called “docs”, and inside that you will find
 “<a class="reference external" href="http://HOWTO.md">HOWTO.md</a>” with instructions on completing the assignment.  Those
 instructions are in a form called “markdown”.  If you are familiar

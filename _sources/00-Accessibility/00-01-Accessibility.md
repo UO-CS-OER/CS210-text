@@ -17,8 +17,9 @@ kernelspec:
 We are committed to making this text and accompanying materials free,
 open, and accessible to everyone, including students with 
 disabilities. If you encounter accessibility issues with this text 
-or the accompanying materials, including projects, please [contact 
-us](mailto:michal@uoregon.edu?subject=Textbook accessibility issues).
+or the accompanying materials, including projects, please 
+[contact us](
+mailto:michal@uoregon.edu?subject=Textbook%20accessibility%20issues).
 
 ## Accessibility features
 
@@ -36,7 +37,7 @@ This is work in progress, and we appreciate your notes regarding
 parts of this text or accompanying materials that are not accessible 
 via screen reader. 
 
-### Known issues for screen readers
+### Known issues for readers with visual impairments
 
 While these are issues we are aware of, we still welcome notes on 
 your experience regarding them, and especially ideas regarding how 
@@ -44,6 +45,25 @@ we can overcome or ameliorate them.
 
 - Some math content is not being read by some screen readers, 
   notably JAWS.  We are investigating this issue.
+- Numerous projects have visual (graphic) components and complex 
+  graphic illustrations in instructions.   In some cases these are 
+  incidental to the project, and in other cases the graphics are 
+  more central to project functionality. 
+  - "Alt text" is not displaying as intended in instructions (HOWTO 
+    files) for screen readers. We 
+    believe this is because Github-flavored Markdown processing is 
+    making all illustrations links, effectively hiding alternative 
+    text except when graphics are not loaded at all.  As 
+    a workaround, we are project by project in Fall 2023 adding 
+    descriptive text inline after diagrams.
+  - Some static graphics in project instructions are too complex to 
+    render well as tactile graphics.  We will produce reduced 
+    resolution versions of some for tactile production, and in other 
+    cases provide longer text descriptions. 
+  - We are working to devise audio alternatives (or augmentation) 
+    for program graphics where possible.  If necessary we will produce 
+    alternative projects where program graphics are essential to a 
+    project and we cannot devise an adequate audio alternative. 
 
 ### Alternative formats for screen readers
 
@@ -59,5 +79,5 @@ practical to enhance or augment the HTML version.
 
 Are there other accessibility issues that we should be aware of, 
 besides compatibility with screen readers?  Please 
-[let us know](mailto:michal@uoregon.edu?subject=Textbook accessibility 
-issues). 
+[let us know](
+mailto:michal@uoregon.edu?subject=Textbook%20accessibility%20issues). 
