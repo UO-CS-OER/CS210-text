@@ -480,7 +480,8 @@ Download the project as a zip archive from github.
 ```{note}
 Screen-reader users will find the Github web interface less than 
 fully accessible.  What appears to sighted readers as a menu labeled 
-`<> Code` will appear as a button that instead pops a tabbed window.
+`<> Code` will appear to screen-readers as a button that instead pops a 
+tabbed window.
 Find the `Code` button, and within the popped window find a link or 
 button labeled `Download ZIP`.
 ```
@@ -488,7 +489,7 @@ button labeled `Download ZIP`.
 Decompress the project archive into a directory ("folder") and move 
 the whole thing to a directory in which you keep all the projects 
 for this class.   If you need to move it from a default download 
-folder, mov3 the _whole project folder_ rather than individual 
+folder, move the _whole project folder_ rather than individual 
 files, and do not put it inside another folder for the individual
 project. You want only one folder named `jumbler` 
 or `jumbler-main`, and not one `jumbler-main` inside another 
