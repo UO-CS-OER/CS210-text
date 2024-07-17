@@ -11,7 +11,7 @@ kernelspec:
   language: python
   name: python3
 ---
-# Recursive data structures
+# Recursive Data Structures
 
 Just as a function can call itself, a _collection_ data structure 
 like a dictionary, list, or tuple can contain other collections of 
@@ -35,7 +35,7 @@ some kind of "Finder" or "Explorer" application:
 img/directory-tree-vertical.png)
 
 
-Recursive data structures, like recursive algorithms, have one or 
+Like recursive algorithms, recursive data structures have one or 
 more _base_ cases and one or more _recursive_ cases.  We process 
 recursive data structures with recursive functions.  A base case in 
 the data structure will be handled by a base case in a function, and 
