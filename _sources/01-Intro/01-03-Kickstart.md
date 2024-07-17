@@ -393,23 +393,7 @@ as well as the type of
 value that `my_max` will return (also `int`).  The first line
 or lines in the indented _body_ of the function is a
 _docstring comment_ explaining the purpose of the function
-(but not how it works).  This "docstring" is conventionally 
-enclosed in triple quotes.  Triple-quoted strings can extend over 
-multiple lines and can contain parts enclosed in ordinary single or 
-double quotes. 
-
-```{code-block} python3
-"""A triple-quoted string can extend
-over multiple lines and contain ordinary "double-quoted" 
-and 'single-quoted' strings.  Their most common use is 
-as "docstring" header comments for functions and for
-whole source code files.  Start the text of a docstring directly 
-after the opening triple-quote, but put the closing triple-quote on
-a line of its own.
-"""
-```
-
-In our first project we will also
+(but not how it works).  In our first project we will also
 see how to add automated tests to a longer docstring comment. 
 
 `x` and `y` in "`def my_max(x: int, y: int)`" are called _formal 
@@ -477,25 +461,9 @@ You will find it on github.
 Download the project as a zip archive from github.  
 ```
 
-```{note}
-Screen-reader users will find the Github web interface less than 
-fully accessible.  What appears to sighted readers as a menu labeled 
-`<> Code` will appear to screen-readers as a button that instead pops a 
-tabbed window.
-Find the `Code` button, and within the popped window find a link or 
-button labeled `Download ZIP`.
-```
-
 Decompress the project archive into a directory ("folder") and move 
 the whole thing to a directory in which you keep all the projects 
-for this class.   If you need to move it from a default download 
-folder, move the _whole project folder_ rather than individual 
-files, and do not put it inside another folder for the individual
-project. You want only one folder named `jumbler` 
-or `jumbler-main`, and not one `jumbler-main` inside another 
-`jumbler-main`.  
-
-Inside the directory for this project, you will 
+for this class.   Inside the directory for this project, you will 
 find a directory called "docs", and inside that you will find
 "HOWTO.md" with instructions on completing the assignment.  Those 
 instructions are in a form called "markdown".  If you are familiar 
@@ -503,7 +471,6 @@ with the markdown format and already have a markdown reader tool
 installed, you can read the instructions that way.  Otherwise you 
 may prefer to read on github by clicking 
 through on `docs` and then `HOWTO.md` to reach
-[the formatted version](
-https://github.com/UO-CS210/jumbler/blob/main/docs/HOWTO.md).
+[the formatted version](https://github.com/UO-CS210/jumbler/blob/main/docs/HOWTO.md).
 
 

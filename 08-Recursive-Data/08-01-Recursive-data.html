@@ -1,0 +1,937 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Recursive data structures &#8212; Introduction to Computer Science I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessible.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Binary Search" href="../07-Efficiency/07-02-Binary-Search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo-provisional.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Computer Science I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Computer Science, part 1
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  01 Getting a Start
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-01-Prospectus.html">
+   A Course in Computational Thinking
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-02-Install.html">
+   Installing Python and IDLE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Intro/01-03-Kickstart.html">
+   Python Programming Kickstart
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  02 Writing Functions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-01-Functions.html">
+   Designing and Building Functions in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-02-Scope.html">
+   Binding:  Functions and Scope
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-03-Hygiene.html">
+   Function Hygiene in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Functions/02-04-Terms.html">
+   Review of terms
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  03 Collections and Loops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-Collections-Loops/03-01-Collections.html">
+   Collections and Loops
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  04 More Loops and Collections
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-01-More-Loops.html">
+   Loops and more loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-02-Parallel-Lists.html">
+   Parallel Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-03-Indefinite-Loops.html">
+   Indefinite loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-More-Loops/04-04-Successive-Approximation.html">
+   Successive approximation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  05 Recursion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Recursion/05-01-Recursion.html">
+   Recursive Functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  06 Binding and Scope
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-Binding/06-01-Binding.html">
+   Binding and scope
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-Binding/06-02-Alias.html">
+   Aliasing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-Binding/06-03-Scopes.html">
+   Scopes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-Binding/06-04-Binding-Recursion.html">
+   Binding in Recursive Functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  07 Efficiency
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07-Efficiency/07-01-Efficiency.html">
+   Efficiency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07-Efficiency/07-02-Binary-Search.html">
+   Binary Search
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  08 Recursive Data Structures
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Recursive data structures
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/08-Recursive-Data/08-01-Recursive-Data.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/UO-CS-OER/CS210-text"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F08-Recursive-Data/08-01-Recursive-Data.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/08-Recursive-Data/08-01-Recursive-Data.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/08-Recursive-Data/08-01-Recursive-Data.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-isinstance-to-distinguish-types">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     isinstance
+    </span>
+   </code>
+   to distinguish types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type-declarations-for-recursive-collection-types">
+     Type declarations for recursive collection types
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#features-and-terms">
+     Features and terms
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Recursive data structures</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-isinstance-to-distinguish-types">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     isinstance
+    </span>
+   </code>
+   to distinguish types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type-declarations-for-recursive-collection-types">
+     Type declarations for recursive collection types
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#features-and-terms">
+     Features and terms
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="recursive-data-structures">
+<h1>Recursive data structures<a class="headerlink" href="#recursive-data-structures" title="Permalink to this headline">#</a></h1>
+<p>Just as a function can call itself, a <em>collection</em> data structure
+like a dictionary, list, or tuple can contain other collections of
+the same kind.  We refer to these as <em>nested</em> structures.</p>
+<p>We have already seen nested lists to represent matrices,the grid of
+letters in our Boggle project.  Those nested structures
+had a fixed dimension, e.g., our Boggle boards used a single
+level of nesting to represent two-dimensional grids. We never had to
+determine whether one of the lists contained individual tiles or
+another level of nested list.  Now we will consider structures in
+which the level of nesting may vary.</p>
+<p>A computer file system is a familiar nested collection.  Directories
+(also called “folders”) are collections that may contain other
+directories, individual files, or both.  The operating system of
+your computer likely can display parts of this nested structure through
+some kind of “Finder” or “Explorer” application:</p>
+<p><img alt="Finder display of directory structure" src="../_images/directory-tree-vertical.png" /></p>
+<p>Recursive data structures, like recursive algorithms, have one or
+more <em>base</em> cases and one or more <em>recursive</em> cases.  We process
+recursive data structures with recursive functions.  A base case in
+the data structure will be handled by a base case in a function, and
+a recursive case in the data structure will be handled by a
+recursive function call.</p>
+<p>We will need a way to distinguish the base cases from recursive
+cases.  For a directory structure, Python provides
+functions <code class="docutils literal notranslate"><span class="pre">os.isfile</span></code> and <code class="docutils literal notranslate"><span class="pre">os.isdir</span></code> to identify the base case (a
+regular file) and the recursive case (a directory), respectively,
+as well as functions to combine and extract parts of paths
+and to find the current working directory.
+A function to recursively print the <em>directory tree</em> would use these
+to choose between the base and recursive cases of the algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">print_directory_tree</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Represent nesting by indentation&quot;&quot;&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># Just the last part of the path</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="c1"># The base case ...</span>
+        <span class="c1"># no recursive call</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">leader</span><span class="p">(</span><span class="n">level</span><span class="p">)</span><span class="si">}{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="c1"># The recursive case ...</span>
+        <span class="c1"># a directory that may contain other files and directories</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">leader</span><span class="p">(</span><span class="n">level</span><span class="p">)</span><span class="si">}{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">content</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="n">print_directory_tree</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">content</span><span class="p">),</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># &quot;Hidden&quot; files may be identified as neither files nor directories</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">leader</span><span class="p">(</span><span class="n">level</span><span class="p">)</span><span class="si">}</span><span class="s2">[Hidden: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">leader</span><span class="p">(</span><span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A leader in typography is a series of characters</span>
+<span class="sd">    that are used as a visual aid to connect items on a page.</span>
+<span class="sd">    [per Wikipedia]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;|   &quot;</span> <span class="o">*</span> <span class="p">(</span><span class="n">level</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;|–– &quot;</span>
+
+<span class="c1"># Print directory (folder) tree from current working directory</span>
+<span class="n">print_directory_tree</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>08-Recursive-Data
+|–– 08-02-Nested-Dicts.md
+|–– img
+|   |–– directory-tree-vertical.png
+|   |–– directory-tree-horizontal.png
+|–– Samples
+|   |–– dir_tree.py
+|–– 08-01-Recursive-Data.md
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You needn’t remember the functions for manipulating file paths.<br />
+The point of the example is to see how containment of
+a file or directory
+within another directory is exactly mirrored by recursive calls to
+the <code class="docutils literal notranslate"><span class="pre">print_directory_tree</span></code> function.  This exact mirroring between
+the structure of <em>data</em> and recursion in <em>computation</em> will be same
+when our recursive data structures are lists, dictionaries, tuples,
+or any other kind of nested collection.</p>
+</div>
+<section id="using-isinstance-to-distinguish-types">
+<h2>Using <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> to distinguish types<a class="headerlink" href="#using-isinstance-to-distinguish-types" title="Permalink to this headline">#</a></h2>
+<p>Suppose we wanted to sum all the integers in a nested
+list like <code class="docutils literal notranslate"><span class="pre">[[1,</span> <span class="pre">2],</span> <span class="pre">3,</span> <span class="pre">[4,</span> <span class="pre">[5,</span> <span class="pre">6]]]</span></code>.  We’ll call that a
+<em>deep sum</em>, because it sums even integers that are deeply nested in
+the list.  Our recursive algorithm should be something like this:</p>
+<ul class="simple">
+<li><p>(Base case)  The deep sum of a single integer is that
+integer itself.</p></li>
+<li><p>(Recursive case)  The deep sum of a nested list of integers
+is the sum of the deep sums of each element of the list.</p></li>
+</ul>
+<p>To distinguish the base case from the recursive case, we need to
+determine whether a value is a list or an integer.  The Python
+function <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> can tell us that.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">what_is_it</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Distinguish possibly nested list from integer&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> is an int&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> is a list&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> is neither int nor list&quot;</span><span class="p">)</span>
+
+<span class="n">what_is_it</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">what_is_it</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]])</span>
+<span class="n">what_is_it</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">what_is_it</span><span class="p">([])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3] is a list
+[[1, 2], 3, [4, [5, 6]]] is a list
+42 is an int
+[] is a list
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">isinstance</span></code>, we can write a <code class="docutils literal notranslate"><span class="pre">deep_sum</span></code> function with the base
+case and recursive case as outlined above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deep_sum</span><span class="p">(</span><span class="n">nest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Return a sum of all integers in a nested list of int&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nest</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">nest</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nest</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">nest</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">deep_sum</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">total</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Wait, what is this thing? </span><span class="si">{</span><span class="n">nest</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deep sum of [1, 2, 3] is </span><span class="si">{</span><span class="n">deep_sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deep sum of [[1, 2], 3, [4, [5, 6]]] is </span><span class="si">{</span><span class="n">deep_sum</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deep sum of 42 is </span><span class="si">{</span><span class="n">deep_sum</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deep sum of [] is </span><span class="si">{</span><span class="n">deep_sum</span><span class="p">([])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Deep sum of [1, 2, 3] is 6
+Deep sum of [[1, 2], 3, [4, [5, 6]]] is 21
+Deep sum of 42 is 42
+Deep sum of [] is 0
+</pre></div>
+</div>
+</div>
+</div>
+<section id="type-declarations-for-recursive-collection-types">
+<h3>Type declarations for recursive collection types<a class="headerlink" href="#type-declarations-for-recursive-collection-types" title="Permalink to this headline">#</a></h3>
+<p>As you may have noticed, I did not annotate the formal argument
+<code class="docutils literal notranslate"><span class="pre">value</span></code> with a type.  If I annotated it as <code class="docutils literal notranslate"><span class="pre">value:</span> <span class="pre">int</span></code>, it would be
+wrong when <code class="docutils literal notranslate"><span class="pre">value</span></code> was a list.  If I annotated as <code class="docutils literal notranslate"><span class="pre">value:</span> <span class="pre">list</span></code>, it
+would be wrong when <code class="docutils literal notranslate"><span class="pre">value</span></code> was an int.   How can I give a clear,
+concise, and correct type declaration for a recursive collection,
+such as a nested list?</p>
+<p>We will use two features of Python type annotations to solve this
+conundrum.  First, Python allows us to give names to data types.
+For example, suppose I were using <code class="docutils literal notranslate"><span class="pre">list[list[int]]</span></code> in many places
+to represent a grid of integers.  I could introduce a new type name
+<code class="docutils literal notranslate"><span class="pre">Grid</span></code> as a more readable and descriptive substitute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Grid</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>I could then use the name <code class="docutils literal notranslate"><span class="pre">Grid</span></code> as a type annotation, e.g.,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grid_sum</span><span class="p">(</span><span class="n">grid</span><span class="p">:</span> <span class="n">Grid</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+    <span class="sd">&quot;&quot;&quot;Total of all cells in the grid&quot;&quot;&quot;</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">row_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">col_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">row_num</span><span class="p">])):</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">grid</span><span class="p">[</span><span class="n">row_num</span><span class="p">][</span><span class="n">col_num</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">total</span>
+     
+<span class="n">g</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;grid_sum of g is </span><span class="si">{</span><span class="n">grid_sum</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>grid_sum of g is 21
+</pre></div>
+</div>
+</div>
+</div>
+<p>The second new feature we will use is to indicate that a value can
+be of one type or another.  In Python we use the
+vertical bar symbol <code class="docutils literal notranslate"><span class="pre">|</span></code>,
+pronounced “or”, to indicate that a variable could hold either of
+two or more different types of value.  For example, if we wanted to
+indicate that <code class="docutils literal notranslate"><span class="pre">x</span></code> is either an <code class="docutils literal notranslate"><span class="pre">int</span></code> or a <code class="docutils literal notranslate"><span class="pre">str</span></code>, we could write
+<code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">|</span> <span class="pre">str</span></code>.  If an argument to a function could be either an
+integer or a list of integers, we could annotate it as
+<code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">|</span> <span class="pre">list[int]</span></code>.</p>
+<p>Putting these together, we can create a description of a recursive
+data type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Nest</span> <span class="o">=</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;Nest&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Annoyingly, we had to put <code class="docutils literal notranslate"><span class="pre">Nest</span></code> in quotes in <code class="docutils literal notranslate"><span class="pre">list['Nest']</span></code>,
+because the type <code class="docutils literal notranslate"><span class="pre">Nest</span></code> technically does not exist
+until the whole statement is processed. In return for this small
+aggravation, though, we now have a powerful way of annotating
+recursive data structures.  Our <code class="docutils literal notranslate"><span class="pre">deep_sum</span></code> function could use  be
+written like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deep_sum</span><span class="p">(</span><span class="n">nest</span><span class="p">:</span> <span class="n">Nest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Return a sum of all integers in a nested list of int&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nest</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">nest</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nest</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">nest</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">deep_sum</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">total</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Wait, what is this thing? </span><span class="si">{</span><span class="n">nest</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deep sum of [1, 2, 3] is </span><span class="si">{</span><span class="n">deep_sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deep sum of [[1, 2], 3, [4, [5, 6]]] is </span><span class="si">{</span><span class="n">deep_sum</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deep sum of 42 is </span><span class="si">{</span><span class="n">deep_sum</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deep sum of [] is </span><span class="si">{</span><span class="n">deep_sum</span><span class="p">([])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Deep sum of [1, 2, 3] is 6
+Deep sum of [[1, 2], 3, [4, [5, 6]]] is 21
+Deep sum of 42 is 42
+Deep sum of [] is 0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="features-and-terms">
+<h3>Features and terms<a class="headerlink" href="#features-and-terms" title="Permalink to this headline">#</a></h3>
+<p>We’ve used several features of Python for the first time,
+and introduced some new terminology. Let’s
+review them quickly before moving on to more nested structures.</p>
+<ul class="simple">
+<li><p>When the elements of one collection contain elements of the same
+or a different kind of collection, we say the collections are
+<em>nested</em>.  We could have tuples nested in lists, for example, but
+the most important kind of <em>nested collection</em> is a <em>recursive
+data structure</em>, when a collection can contain elements of the
+same kind of collection.</p></li>
+<li><p>When we process a nested collection, the computation is a mirror
+image of the data structure:  Base cases are elements that are not
+collections (at least not nested collections), and recursive cases
+are collections in which further collections may be nested.</p></li>
+<li><p>We can check whether a value is of a certain type using the Python
+<code class="docutils literal notranslate"><span class="pre">isinstance</span></code> function, e.g., <code class="docutils literal notranslate"><span class="pre">isinstance(v,</span> <span class="pre">list)</span></code>.</p></li>
+<li><p>We can describe a nested collection using a <em>named, recursive
+type</em>, using the <code class="docutils literal notranslate"><span class="pre">|</span></code> symbol (pronounced “or”) to separate cases.<br />
+For example, a nested list of strings might be described by defining
+<code class="docutils literal notranslate"><span class="pre">StringNest</span> <span class="pre">=</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">list['StringNest']</span></code>.</p></li>
+</ul>
+<p>The next two sections provide additional examples of nested data
+structures.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "UO-CS-OER/CS210-text",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./08-Recursive-Data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../07-Efficiency/07-02-Binary-Search.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Binary Search</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Michal Young, Boyana Norris, and Ram Durairajan<br/>
+  
+      &copy; Copyright 2022-2023 University of Oregon.  Creative Commons Share-Alike Attribution license.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
