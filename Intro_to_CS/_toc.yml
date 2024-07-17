@@ -43,3 +43,9 @@ parts:
     chapters:
       - file: 07-Efficiency/07-01-Efficiency.md
       - file: 07-Efficiency/07-02-Binary-Search.md
+
+  - caption:  08 Recursive Data Structures
+    chapters:
+      - file: 08-Recursive-Data/08-01-Recursive-Data.md
+      - file: 08-Recursive-Data/08-02-Nested-Dicts.md
+      - file: 08-Recursive-Data/08-03-Treemap-Project.md
