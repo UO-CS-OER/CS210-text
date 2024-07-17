@@ -46,6 +46,6 @@ parts:
 
   - caption:  08 Recursive Data
     chapters:
-      - file: 08-Recursive-Data/08-01-Recursive-Data.md
+      - file: 08-Recursive-Data/08-01-Recursive-Data-Structures.md
       - file: 08-Recursive-Data/08-02-Nested-Dicts.md
       - file: 08-Recursive-Data/08-03-Treemap-Project.md

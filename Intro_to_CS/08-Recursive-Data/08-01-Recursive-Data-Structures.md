@@ -11,7 +11,7 @@ kernelspec:
   language: python
   name: python3
 ---
-# Recursive data structures
+# Recursive Data Structures
 
 Just as a function can call itself, a _collection_ data structure 
 like a dictionary, list, or tuple can contain other collections of 
@@ -28,14 +28,14 @@ which the level of nesting may vary.
 A computer file system is a familiar nested collection.  Directories 
 (also called "folders") are collections that may contain other 
 directories, individual files, or both.  The operating system of 
-your computer likely can display parts of this nested structure through 
+your computer can display parts of this nested structure through 
 some kind of "Finder" or "Explorer" application: 
 
 ![Finder display of directory structure](
 img/directory-tree-vertical.png)
 
 
-Recursive data structures, like recursive algorithms, have one or 
+Like recursive algorithms, recursive data structures have one or 
 more _base_ cases and one or more _recursive_ cases.  We process 
 recursive data structures with recursive functions.  A base case in 
 the data structure will be handled by a base case in a function, and 

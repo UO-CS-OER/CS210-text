@@ -11,7 +11,7 @@ kernelspec:
   language: python
   name: python3
 ---
-# Treemap visualization of recursive data
+# Treemap Visualization of Recursive Data
 
 The [project](https://github.com/UO-CS210/Treemap)
 accompanying this chapter asks you to create a visual representation 
