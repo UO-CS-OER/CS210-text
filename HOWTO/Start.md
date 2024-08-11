@@ -48,7 +48,7 @@ shows:
 
 The jupyter-book and ghp-import packages can be installed into the
 virtual environment using pip. The file `requirements.txt` has
-references to these packages.  For Python version 3.10, it should 
+references to these packages.  For Python version 3.11, it should 
 work "out of the box" like this: 
 
 ```commandline
