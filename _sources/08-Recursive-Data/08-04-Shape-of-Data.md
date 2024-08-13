@@ -17,7 +17,7 @@ kernelspec:
 The [treemap project](https://github.com/UO-CS210/Treemap) asks you 
 to process _hierarchical_ data, represented in files in
 [JSON](https://www.json.org/json-en.html) notation.  However, most
-of the publically available data you will find in the real world is
+of the publicly available data you will find in the real world is
 not represented this way.  You are more likely to encounter data in
 some "flat" tabular format, like comma-separated values (CSV)
 or relational database records.  If you want to use the implicit 
@@ -51,7 +51,7 @@ We could represent this data as a _list of lists_ by row or by column:
 ```{code-cell} python3
 columns = {"region": 0, "1975": 1, "2022": 2, "Chng_Abs": 3, 
 "Chng_Rel": 4}
-rows = [["China", .0652, .1572, .092, .141], 
+rows = [["China", .0652, .1572, .092, 1.41], 
         ["France", .082, .1269, .0449, .55],
         ["United States", .1043, .2087, .1044, 1.0]]
 rows[2][columns["Chng_Abs"]]      
@@ -78,7 +78,7 @@ income_distribution = {
     "1975": [.0652, .082, .1043],
     "2022": [.1572, .1269, .2087],
     "Chng_Abs": [.092, .0449, .1044],
-    "Chng_Rel": [.141, .55, 1.0]}
+    "Chng_Rel": [1.41, .55, 1.0]}
 income_distribution["Chng_Abs"][2]
 ```
 
@@ -210,13 +210,13 @@ Equivalently, one can think of an indented list as shorthand for the
 nested dictionary structure as written above: 
 
 - Noncommunicable disease
-    -Cardiovascular: 0.33
-    - Cancers: 0.18
-    - Respiratory: 0.07 
-    - Neurological: 0.039
-    - Digestive:  0.045
-    - Diabetes:  0.027 
-    - Other noncommunicable:  0.057
+  - Cardiovascular: 0.33
+  - Cancers: 0.18
+  - Respiratory: 0.07 
+  - Neurological: 0.039
+  - Digestive:  0.045
+  - Diabetes:  0.027 
+  - Other noncommunicable:  0.057
 - Infectious disease
     - Pneumonia: 0.044 
     - Diarrheal: 0.027
@@ -246,16 +246,16 @@ representation.  ("Join" is actually the name of an operation for
 combining tables in a relational database.)  
 
 It is often relatively straightforward to convert among 
-representations for the same information, provided we make a clear 
+representations of the same information, provided we make a clear 
 distinction between the _semantic content_ of the data and
 its representation.  
 
 ## Summary
 
 The same _information_ (semantic content) may be represented with 
-differently structured _data_.  Especially an external source of 
+differently structured _data_.  External sources of
 data (say, a spreadsheet or database) may not be organized in a way 
-that is convenient for the computations we wish to perform.  
+that is convenient for the computations we wish to perform.
 Hierarchical information, in particular, is often represented in some 
 "flat" structure (e.g., one or more tables) in which the 
 hierarchical structure is implicit.  Often it is useful to 

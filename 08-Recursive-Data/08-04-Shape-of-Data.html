@@ -511,7 +511,7 @@ document.write(`
 <p>The <a class="reference external" href="https://github.com/UO-CS210/Treemap">treemap project</a> asks you
 to process <em>hierarchical</em> data, represented in files in
 <a class="reference external" href="https://www.json.org/json-en.html">JSON</a> notation.  However, most
-of the publically available data you will find in the real world is
+of the publicly available data you will find in the real world is
 not represented this way.  You are more likely to encounter data in
 some “flat” tabular format, like comma-separated values (CSV)
 or relational database records.  If you want to use the implicit
@@ -569,7 +569,7 @@ different countries in 1975 and 2022:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;1975&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;2022&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Chng_Abs&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> 
 <span class="s2">&quot;Chng_Rel&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
-<span class="n">rows</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;China&quot;</span><span class="p">,</span> <span class="mf">.0652</span><span class="p">,</span> <span class="mf">.1572</span><span class="p">,</span> <span class="mf">.092</span><span class="p">,</span> <span class="mf">.141</span><span class="p">],</span> 
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;China&quot;</span><span class="p">,</span> <span class="mf">.0652</span><span class="p">,</span> <span class="mf">.1572</span><span class="p">,</span> <span class="mf">.092</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">],</span> 
         <span class="p">[</span><span class="s2">&quot;France&quot;</span><span class="p">,</span> <span class="mf">.082</span><span class="p">,</span> <span class="mf">.1269</span><span class="p">,</span> <span class="mf">.0449</span><span class="p">,</span> <span class="mf">.55</span><span class="p">],</span>
         <span class="p">[</span><span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="mf">.1043</span><span class="p">,</span> <span class="mf">.2087</span><span class="p">,</span> <span class="mf">.1044</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]]</span>
 <span class="n">rows</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Chng_Abs&quot;</span><span class="p">]]</span>      
@@ -602,7 +602,7 @@ used to exchange data with spreadsheet programs is a common example.</p>
     <span class="s2">&quot;1975&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">.0652</span><span class="p">,</span> <span class="mf">.082</span><span class="p">,</span> <span class="mf">.1043</span><span class="p">],</span>
     <span class="s2">&quot;2022&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">.1572</span><span class="p">,</span> <span class="mf">.1269</span><span class="p">,</span> <span class="mf">.2087</span><span class="p">],</span>
     <span class="s2">&quot;Chng_Abs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">.092</span><span class="p">,</span> <span class="mf">.0449</span><span class="p">,</span> <span class="mf">.1044</span><span class="p">],</span>
-    <span class="s2">&quot;Chng_Rel&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">.141</span><span class="p">,</span> <span class="mf">.55</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]}</span>
+    <span class="s2">&quot;Chng_Rel&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.41</span><span class="p">,</span> <span class="mf">.55</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]}</span>
 <span class="n">income_distribution</span><span class="p">[</span><span class="s2">&quot;Chng_Abs&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -808,9 +808,9 @@ format above, except that each label appears in a row by itself.
 Equivalently, one can think of an indented list as shorthand for the
 nested dictionary structure as written above:</p>
 <ul class="simple">
-<li><p>Noncommunicable disease
--Cardiovascular: 0.33</p>
+<li><p>Noncommunicable disease</p>
 <ul>
+<li><p>Cardiovascular: 0.33</p></li>
 <li><p>Cancers: 0.18</p></li>
 <li><p>Respiratory: 0.07</p></li>
 <li><p>Neurological: 0.039</p></li>
@@ -856,7 +856,7 @@ encounter, including some that combine multiple tables that must be
 representation.  (“Join” is actually the name of an operation for
 combining tables in a relational database.)</p>
 <p>It is often relatively straightforward to convert among
-representations for the same information, provided we make a clear
+representations of the same information, provided we make a clear
 distinction between the <em>semantic content</em> of the data and
 its representation.</p>
 </section>
@@ -864,9 +864,9 @@ its representation.</p>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>The same <em>information</em> (semantic content) may be represented with
-differently structured <em>data</em>.  Especially an external source of
+differently structured <em>data</em>.  External sources of
 data (say, a spreadsheet or database) may not be organized in a way
-that is convenient for the computations we wish to perform.<br />
+that is convenient for the computations we wish to perform.
 Hierarchical information, in particular, is often represented in some
 “flat” structure (e.g., one or more tables) in which the
 hierarchical structure is implicit.  Often it is useful to
