@@ -84,7 +84,7 @@ income_distribution["Chng_Abs"][2]
 
 Column-wise representation is common in scientific and statistical 
 computing.  It is the form used in [Pandas](https://pandas.pydata.org/)
-dataframes, with rows represented as [NumPy arrays](
+dataframes, with each column represented as a [NumPy array](
 https://numpy.org/doc/stable/reference/generated/numpy.array.html).
 
 ## Hierarchical data
