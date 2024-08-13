@@ -103,7 +103,7 @@ Jekyll process that github provides).
 This is what `ghp-import` does.   Again, it's not what a branch in
 git is normally designed for, but it is idiomatic on github. 
 
-`ghp-import -n -p -f Intro_to_CS/_build/html`.  
+`ghp-import -n -p -f Intro_to_CS/_build/html`  
 
 This copies the 
 `_build` subdirectory into the `gh-pages` branch on github, 
