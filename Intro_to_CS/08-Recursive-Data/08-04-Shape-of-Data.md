@@ -17,7 +17,7 @@ kernelspec:
 The [treemap project](https://github.com/UO-CS210/Treemap) asks you 
 to process _hierarchical_ data, represented in files in
 [JSON](https://www.json.org/json-en.html) notation.  However, most
-of the publically available data you will find in the real world is
+of the publicly available data you will find in the real world is
 not represented this way.  You are more likely to encounter data in
 some "flat" tabular format, like comma-separated values (CSV)
 or relational database records.  If you want to use the implicit 
