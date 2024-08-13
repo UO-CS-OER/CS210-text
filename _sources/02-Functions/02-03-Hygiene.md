@@ -164,7 +164,7 @@ in which longer names are needed:
 def relative_error(est: float, expected: float) -> float:
     """Relative error of estimate (est) as non-negative fraction 
     of expected value.
-    """"
+    """
 ```
 Here the formal parameters are `est` (for estimate) and `expected` 
 (for expected value, i.e., for the value that `est` should be close 
