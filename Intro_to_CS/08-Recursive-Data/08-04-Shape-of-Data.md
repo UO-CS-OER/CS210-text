@@ -286,8 +286,35 @@ its representation.
 The same _information_ (semantic content) may be represented with 
 differently structured _data_.  External sources of
 data (say, a spreadsheet or database) may not be organized in a way 
-that is convenient for the computations we wish to perform.
+that is convenient for the specific computations we wish to perform, 
+such as grouping and summarizing the data.
 Hierarchical information, in particular, is often represented in some 
 "flat" structure (e.g., one or more tables) in which the 
 hierarchical structure is implicit.  Often it is useful to 
 reorganize such data as a first step in using it. 
+
+### Example data preparation workflow
+
+Consider, for example, the [course enrollment data](
+https://github.com/UO-CS210/Treemap/blob/main/data/majors-23F.json)
+used in our  [treemap project](https://github.com/UO-CS210/Treemap).
+The primary source of this data was a class roster, with a row for 
+each student.  The primary major code for each student was a column 
+in that table, which was extracted to use as input in our
+[enrollment analysis project](https://github.com/UO-CS210/enrollment).
+The expansion of major codes to major names in that project, by 
+combining with a separate table of codes, is called a "join" 
+operation in database terminology.  While we printed the output of 
+that project in a human-friendly format, it is a trivial change to 
+instead produce a table in CSV or JSON format.  The grouping of 
+majors into schools, colleges, and divisions is represented by yet 
+another file.  I produced a JSON structure representing that 
+[structure at University of Oregon](
+https://github.com/UO-CS210/enrollment)
+and wrote another simple Python program to
+[combine the structure with the counts table](
+https://github.com/UO-CS210/Treemap/blob/main/structure/structure.py).
+As each of these steps is automated, they form a repeatable "workflow" 
+that can 
+be scripted to apply to class rosters in subsequent course offerings 
+or other courses. 
