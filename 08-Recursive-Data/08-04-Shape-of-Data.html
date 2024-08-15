@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/accessible.css?v=730afe76" />
@@ -494,7 +494,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-representations-of-hierarchical-data">Other representations of hierarchical data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-preparation-workflow">Example data preparation workflow</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -694,6 +697,108 @@ with a single row of numerical entries.  More typically we would find
 one or more columns used for labels, and one or more
 additional columns used for
 numerical values.</p>
+<p>In a “flat” tabular representation (e.g., a CSV file), a row may
+represent a <em>path</em> from the top-level category (e.g, “Infectious
+disease”) through sub-categories (e.g., “Pneumonia”), one per column,
+to one or more columns of numerical data.  For example, consider the
+following hierarchy, represented in tree form:</p>
+<p><img alt="Beverage consumption in a hypothetical organization" src="../_images/coffee-tree.svg" /></p>
+<p>Each path from the top of the tree to the amounts of coffee and tea
+consumed in a particular part of this imaginary organization (teams
+A1a, A1b, A2, and B) will be represented by one row in the tabular
+representation.   Intermediate levels A and A1 may be represented on
+separate rows:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Division</p></th>
+<th class="head"><p>Subdivision</p></th>
+<th class="head"><p>Team</p></th>
+<th class="head"><p>Coffee</p></th>
+<th class="head"><p>Tea</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>A1</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>A1a</p></td>
+<td><p>13</p></td>
+<td><p>24</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p>A1b</p></td>
+<td><p>19</p></td>
+<td><p>17</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>A2</p></td>
+<td><p></p></td>
+<td><p>7</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>49</p></td>
+<td><p>16</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Alternatively, each row may contain the complete path:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Division</p></th>
+<th class="head"><p>Subdivision</p></th>
+<th class="head"><p>Team</p></th>
+<th class="head"><p>Coffee</p></th>
+<th class="head"><p>Tea</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>A1</p></td>
+<td><p>A1a</p></td>
+<td><p>13</p></td>
+<td><p>24</p></td>
+</tr>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>A1</p></td>
+<td><p>A1b</p></td>
+<td><p>19</p></td>
+<td><p>17</p></td>
+</tr>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>A2</p></td>
+<td><p></p></td>
+<td><p>7</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>49</p></td>
+<td><p>16</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In place of empty cells, as in subdivision and team for for <em>B</em>
+above, a label may be repeated.  Applying this tactic to the
+mortality data, I have repeated “Neonatal” and “Maternal” in
+the “Cause” column:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Category</p></th>
@@ -793,14 +898,6 @@ numerical values.</p>
 </tbody>
 </table>
 </div>
-<p>In a “flat” tabular representation (e.g., a CSV file), a row may
-represent a <em>path</em> from the top-level category (e.g, “Infectious
-disease”) through sub-categories (e.g., “Pneumonia”), one per column,
-to one or
-more columns of numerical data.  When the lengths of paths are not
-identical, typically cells are either left empty, or cells in a row
-are repeated.  For example, since the path through “Neonatal” is shorter
-than the path through “Malaria”, I have repeated “Neonatal” in column 2.</p>
 <section id="indented-lists">
 <h3>Indented lists<a class="headerlink" href="#indented-lists" title="Link to this heading">#</a></h3>
 <p>An indented list is essentially equivalent to the flattened tabular
@@ -866,11 +963,35 @@ its representation.</p>
 <p>The same <em>information</em> (semantic content) may be represented with
 differently structured <em>data</em>.  External sources of
 data (say, a spreadsheet or database) may not be organized in a way
-that is convenient for the computations we wish to perform.
+that is convenient for the specific computations we wish to perform,
+such as grouping and summarizing the data.
 Hierarchical information, in particular, is often represented in some
 “flat” structure (e.g., one or more tables) in which the
 hierarchical structure is implicit.  Often it is useful to
 reorganize such data as a first step in using it.</p>
+<section id="example-data-preparation-workflow">
+<h3>Example data preparation workflow<a class="headerlink" href="#example-data-preparation-workflow" title="Link to this heading">#</a></h3>
+<p>Consider, for example, the <a class="reference external" href="https://github.com/UO-CS210/Treemap/blob/main/data/majors-23F.json">course enrollment data</a>
+used in our  <a class="reference external" href="https://github.com/UO-CS210/Treemap">treemap project</a>.
+The primary source of this data was a class roster, with a row for
+each student.  The primary major code for each student was a column
+in that table, which was extracted to use as input in our
+<a class="reference external" href="https://github.com/UO-CS210/enrollment">enrollment analysis project</a>.
+The expansion of major codes to major names in that project, by
+combining with a separate table of codes, is called a “join”
+operation in database terminology.  While we printed the output of
+that project in a human-friendly format, it is a trivial change to
+instead produce a table in CSV or JSON format.  The grouping of
+majors into schools, colleges, and divisions is represented by yet
+another file.  I produced a JSON structure representing that
+<a class="reference external" href="https://github.com/UO-CS210/enrollment">structure at University of Oregon</a>
+and wrote another simple Python program to
+<a class="reference external" href="https://github.com/UO-CS210/Treemap/blob/main/structure/structure.py">combine the structure with the counts table</a>.
+As each of these steps is automated, they form a repeatable “workflow”
+that can
+be scripted to apply to class rosters in subsequent course offerings
+or other courses.</p>
+</section>
 </section>
 </section>
 
@@ -937,7 +1058,10 @@ reorganize such data as a first step in using it.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-representations-of-hierarchical-data">Other representations of hierarchical data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-preparation-workflow">Example data preparation workflow</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

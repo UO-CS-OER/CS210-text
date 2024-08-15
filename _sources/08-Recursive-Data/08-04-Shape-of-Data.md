@@ -168,6 +168,45 @@ one or more columns used for labels, and one or more
 additional columns used for 
 numerical values.
 
+In a "flat" tabular representation (e.g., a CSV file), a row may 
+represent a _path_ from the top-level category (e.g, "Infectious 
+disease") through sub-categories (e.g., "Pneumonia"), one per column,
+to one or more columns of numerical data.  For example, consider the 
+following hierarchy, represented in tree form: 
+
+![Beverage consumption in a hypothetical organization](
+img/coffee-tree.svg)
+
+Each path from the top of the tree to the amounts of coffee and tea 
+consumed in a particular part of this imaginary organization (teams 
+A1a, A1b, A2, and B) will be represented by one row in the tabular 
+representation.   Intermediate levels A and A1 may be represented on 
+separate rows: 
+
+| Division | Subdivision | Team | Coffee | Tea |
+|----------|-------------|------|--------|-----|
+| A        |             |      |        |     |
+|          | A1          |      |        |     |
+|          |             | A1a  | 13     | 24  |
+|          |             | A1b  | 19     | 17  |
+|          | A2          |      | 7      | 12  |
+| B        |             |      | 49     | 16  |
+
+Alternatively, each row may contain the complete path:
+
+| Division | Subdivision | Team | Coffee | Tea |
+|----------|-------------|------|--------|-----|
+| A        | A1          | A1a  | 13     | 24  |
+| A        | A1          | A1b  | 19     | 17  |
+| A        | A2          |      | 7      | 12  |
+| B        |             |      | 49     | 16  |
+
+
+In place of empty cells, as in subdivision and team for for _B_ 
+above, a label may be repeated.  Applying this tactic to the 
+mortality data, I have repeated "Neonatal" and "Maternal" in 
+the "Cause" column: 
+
 | Category                | Cause               | Proportion |
 |-------------------------|---------------------|------------|
 | Noncommunicable disease | Cardiovascular      | 0.33       |
@@ -193,14 +232,6 @@ numerical values.
 | Violence                | Combat              | 0.002      |
 | Violence                | Terrorism           | 0.0005     |
 
-In a "flat" tabular representation (e.g., a CSV file), a row may 
-represent a _path_ from the top-level category (e.g, "Infectious 
-disease") through sub-categories (e.g., "Pneumonia"), one per column,
-to one or 
-more columns of numerical data.  When the lengths of paths are not
-identical, typically cells are either left empty, or cells in a row
-are repeated.  For example, since the path through "Neonatal" is shorter
-than the path through "Malaria", I have repeated "Neonatal" in column 2.
 
 ###  Indented lists 
 
@@ -255,8 +286,35 @@ its representation.
 The same _information_ (semantic content) may be represented with 
 differently structured _data_.  External sources of
 data (say, a spreadsheet or database) may not be organized in a way 
-that is convenient for the computations we wish to perform.
+that is convenient for the specific computations we wish to perform, 
+such as grouping and summarizing the data.
 Hierarchical information, in particular, is often represented in some 
 "flat" structure (e.g., one or more tables) in which the 
 hierarchical structure is implicit.  Often it is useful to 
 reorganize such data as a first step in using it. 
+
+### Example data preparation workflow
+
+Consider, for example, the [course enrollment data](
+https://github.com/UO-CS210/Treemap/blob/main/data/majors-23F.json)
+used in our  [treemap project](https://github.com/UO-CS210/Treemap).
+The primary source of this data was a class roster, with a row for 
+each student.  The primary major code for each student was a column 
+in that table, which was extracted to use as input in our
+[enrollment analysis project](https://github.com/UO-CS210/enrollment).
+The expansion of major codes to major names in that project, by 
+combining with a separate table of codes, is called a "join" 
+operation in database terminology.  While we printed the output of 
+that project in a human-friendly format, it is a trivial change to 
+instead produce a table in CSV or JSON format.  The grouping of 
+majors into schools, colleges, and divisions is represented by yet 
+another file.  I produced a JSON structure representing that 
+[structure at University of Oregon](
+https://github.com/UO-CS210/enrollment)
+and wrote another simple Python program to
+[combine the structure with the counts table](
+https://github.com/UO-CS210/Treemap/blob/main/structure/structure.py).
+As each of these steps is automated, they form a repeatable "workflow" 
+that can 
+be scripted to apply to class rosters in subsequent course offerings 
+or other courses. 
