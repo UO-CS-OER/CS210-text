@@ -308,7 +308,7 @@ instead produce a table in CSV or JSON format.  The grouping of
 majors into schools, colleges, and divisions is represented by yet 
 another file, a JSON structure representing that 
 [structure at University of Oregon](
-https://github.com/UO-CS210/enrollment).
+https://github.com/UO-CS210/Treemap/blob/main/structure/sample-majors-schema.json).
 I wrote another simple Python program to
 [combine the structure with the counts table](
 https://github.com/UO-CS210/Treemap/blob/main/structure/structure.py).
