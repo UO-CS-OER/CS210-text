@@ -51,7 +51,7 @@ We could represent this data as a _list of lists_ by row or by column:
 ```{code-cell} python3
 columns = {"region": 0, "1975": 1, "2022": 2, "Chng_Abs": 3, 
 "Chng_Rel": 4}
-rows = [["China", .0652, .1572, .092, .141], 
+rows = [["China", .0652, .1572, .092, 1.41], 
         ["France", .082, .1269, .0449, .55],
         ["United States", .1043, .2087, .1044, 1.0]]
 rows[2][columns["Chng_Abs"]]      
@@ -78,7 +78,7 @@ income_distribution = {
     "1975": [.0652, .082, .1043],
     "2022": [.1572, .1269, .2087],
     "Chng_Abs": [.092, .0449, .1044],
-    "Chng_Rel": [.141, .55, 1.0]}
+    "Chng_Rel": [1.41, .55, 1.0]}
 income_distribution["Chng_Abs"][2]
 ```
 
@@ -168,6 +168,45 @@ one or more columns used for labels, and one or more
 additional columns used for 
 numerical values.
 
+In a "flat" tabular representation (e.g., a CSV file), a row may 
+represent a _path_ from the top-level category (e.g, "Infectious 
+disease") through sub-categories (e.g., "Pneumonia"), one per column,
+to one or more columns of numerical data.  For example, consider the 
+following hierarchy, represented in tree form: 
+
+![Beverage consumption in a hypothetical organization](
+img/coffee-tree.svg)
+
+Each path from the top of the tree to the amounts of coffee and tea 
+consumed in a particular part of this imaginary organization (teams 
+A1a, A1b, A2, and B) will be represented by one row in the tabular 
+representation.   Intermediate levels A and A1 may be represented on 
+separate rows: 
+
+| Division | Subdivision | Team | Coffee | Tea |
+|----------|-------------|------|--------|-----|
+| A        |             |      |        |     |
+|          | A1          |      |        |     |
+|          |             | A1a  | 13     | 24  |
+|          |             | A1b  | 19     | 17  |
+|          | A2          |      | 7      | 12  |
+| B        |             |      | 49     | 16  |
+
+Alternatively, each row may contain the complete path:
+
+| Division | Subdivision | Team | Coffee | Tea |
+|----------|-------------|------|--------|-----|
+| A        | A1          | A1a  | 13     | 24  |
+| A        | A1          | A1b  | 19     | 17  |
+| A        | A2          |      | 7      | 12  |
+| B        |             |      | 49     | 16  |
+
+
+In place of empty cells, as in subdivision and team for for _B_ 
+above, a label may be repeated.  Applying this tactic to the 
+mortality data, I have repeated "Neonatal" and "Maternal" in 
+the "Cause" column: 
+
 | Category                | Cause               | Proportion |
 |-------------------------|---------------------|------------|
 | Noncommunicable disease | Cardiovascular      | 0.33       |
@@ -193,14 +232,6 @@ numerical values.
 | Violence                | Combat              | 0.002      |
 | Violence                | Terrorism           | 0.0005     |
 
-In a "flat" tabular representation (e.g., a CSV file), a row may 
-represent a _path_ from the top-level category (e.g, "Infectious 
-disease") through sub-categories (e.g., "Pneumonia"), one per column,
-to one or 
-more columns of numerical data.  When the lengths of paths are not
-identical, typically cells are either left empty, or cells in a row
-are repeated.  For example, since the path through "Neonatal" is shorter
-than the path through "Malaria", I have repeated "Neonatal" in column 2.
 
 ###  Indented lists 
 
@@ -210,13 +241,13 @@ Equivalently, one can think of an indented list as shorthand for the
 nested dictionary structure as written above: 
 
 - Noncommunicable disease
-    -Cardiovascular: 0.33
-    - Cancers: 0.18
-    - Respiratory: 0.07 
-    - Neurological: 0.039
-    - Digestive:  0.045
-    - Diabetes:  0.027 
-    - Other noncommunicable:  0.057
+  - Cardiovascular: 0.33
+  - Cancers: 0.18
+  - Respiratory: 0.07 
+  - Neurological: 0.039
+  - Digestive:  0.045
+  - Diabetes:  0.027 
+  - Other noncommunicable:  0.057
 - Infectious disease
     - Pneumonia: 0.044 
     - Diarrheal: 0.027
@@ -246,16 +277,16 @@ representation.  ("Join" is actually the name of an operation for
 combining tables in a relational database.)  
 
 It is often relatively straightforward to convert among 
-representations for the same information, provided we make a clear 
+representations of the same information, provided we make a clear 
 distinction between the _semantic content_ of the data and
 its representation.  
 
 ## Summary
 
 The same _information_ (semantic content) may be represented with 
-differently structured _data_.  Especially an external source of 
+differently structured _data_.  External sources of
 data (say, a spreadsheet or database) may not be organized in a way 
-that is convenient for the computations we wish to perform.  
+that is convenient for the computations we wish to perform.
 Hierarchical information, in particular, is often represented in some 
 "flat" structure (e.g., one or more tables) in which the 
 hierarchical structure is implicit.  Often it is useful to 
