@@ -302,16 +302,14 @@ The primary source of this data was a class roster, with a row for
 each student.  The primary major code for each student was a column 
 in that table, which was extracted to use as input in our
 [enrollment analysis project](https://github.com/UO-CS210/enrollment).
-The expansion of major codes to major names in that project, by 
-combining with a separate table of codes, is called a "join" 
-operation in database terminology.  While we printed the output of 
+While we printed the output of 
 that project in a human-friendly format, it is a trivial change to 
 instead produce a table in CSV or JSON format.  The grouping of 
 majors into schools, colleges, and divisions is represented by yet 
-another file.  I produced a JSON structure representing that 
+another file, a JSON structure representing that 
 [structure at University of Oregon](
-https://github.com/UO-CS210/enrollment)
-and wrote another simple Python program to
+https://github.com/UO-CS210/enrollment).
+I wrote another simple Python program to
 [combine the structure with the counts table](
 https://github.com/UO-CS210/Treemap/blob/main/structure/structure.py).
 As each of these steps is automated, they form a repeatable "workflow" 
