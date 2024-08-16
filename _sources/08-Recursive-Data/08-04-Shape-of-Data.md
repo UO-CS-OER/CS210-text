@@ -299,20 +299,33 @@ Consider, for example, the [course enrollment data](
 https://github.com/UO-CS210/Treemap/blob/main/data/majors-23F.json)
 used in our  [treemap project](https://github.com/UO-CS210/Treemap).
 The primary source of this data was a class roster, with a row for 
-each student.  The primary major code for each student was a column 
+each student. 
+
+![Class roster](img/roster.jpg)
+
+The primary major code for each student was a column 
 in that table, which was extracted to use as input in our
 [enrollment analysis project](https://github.com/UO-CS210/enrollment).
+We combined that table (a "join" operation) with another table
+relating major codes like "CS" to full titles like "Computer Science".
+
+![Major codes](img/major-codes.png)
+
 While we printed the output of 
 that project in a human-friendly format, it is a trivial change to 
-instead produce a table in CSV or JSON format.  The grouping of 
+instead produce a table in CSV or JSON format. 
+
+The grouping of 
 majors into schools, colleges, and divisions is represented by yet 
 another file, a JSON structure representing that 
 [structure at University of Oregon](
 https://github.com/UO-CS210/Treemap/blob/main/structure/sample-majors-schema.json).
-I wrote another simple Python program to
+I wrote a simple Python program to
 [combine the structure with the counts table](
 https://github.com/UO-CS210/Treemap/blob/main/structure/structure.py).
+
 As each of these steps is automated, they form a repeatable "workflow" 
 that can 
-be scripted to apply to class rosters in subsequent course offerings 
+be scripted to apply quickly and consistently
+to class rosters in subsequent course offerings 
 or other courses. 

@@ -974,20 +974,27 @@ reorganize such data as a first step in using it.</p>
 <p>Consider, for example, the <a class="reference external" href="https://github.com/UO-CS210/Treemap/blob/main/data/majors-23F.json">course enrollment data</a>
 used in our  <a class="reference external" href="https://github.com/UO-CS210/Treemap">treemap project</a>.
 The primary source of this data was a class roster, with a row for
-each student.  The primary major code for each student was a column
+each student.</p>
+<p><img alt="Class roster" src="../_images/roster.jpg" /></p>
+<p>The primary major code for each student was a column
 in that table, which was extracted to use as input in our
 <a class="reference external" href="https://github.com/UO-CS210/enrollment">enrollment analysis project</a>.
-While we printed the output of
+We combined that table (a “join” operation) with another table
+relating major codes like “CS” to full titles like “Computer Science”.</p>
+<p><img alt="Major codes" src="../_images/major-codes.png" /></p>
+<p>While we printed the output of
 that project in a human-friendly format, it is a trivial change to
-instead produce a table in CSV or JSON format.  The grouping of
+instead produce a table in CSV or JSON format.</p>
+<p>The grouping of
 majors into schools, colleges, and divisions is represented by yet
 another file, a JSON structure representing that
 <a class="reference external" href="https://github.com/UO-CS210/Treemap/blob/main/structure/sample-majors-schema.json">structure at University of Oregon</a>.
-I wrote another simple Python program to
-<a class="reference external" href="https://github.com/UO-CS210/Treemap/blob/main/structure/structure.py">combine the structure with the counts table</a>.
-As each of these steps is automated, they form a repeatable “workflow”
+I wrote a simple Python program to
+<a class="reference external" href="https://github.com/UO-CS210/Treemap/blob/main/structure/structure.py">combine the structure with the counts table</a>.</p>
+<p>As each of these steps is automated, they form a repeatable “workflow”
 that can
-be scripted to apply to class rosters in subsequent course offerings
+be scripted to apply quickly and consistently
+to class rosters in subsequent course offerings
 or other courses.</p>
 </section>
 </section>
