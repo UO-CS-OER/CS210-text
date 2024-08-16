@@ -306,8 +306,12 @@ each student.
 The primary major code for each student was a column 
 in that table, which was extracted to use as input in our
 [enrollment analysis project](https://github.com/UO-CS210/enrollment).
-We combined that table (a "join" operation) with another table
-relating major codes like "CS" to full titles like "Computer Science".
+We summarized that table by counting occurrences of
+each major code and 
+combined the summarized data
+with another table
+relating major codes like "ARCH" to full titles like
+"Architecture".
 
 ![Major codes](img/major-codes.png)
 
