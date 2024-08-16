@@ -326,7 +326,7 @@ another file, a JSON structure representing that
 https://github.com/UO-CS210/Treemap/blob/main/structure/sample-majors-schema.json).
 I wrote a simple Python program to
 [combine the structure with the counts table](
-https://github.com/UO-CS210/Treemap/blob/main/structure/structure.py).
+https://github.com/UO-CS210/Treemap/blob/main/structure/schematize.py).
 
 As each of these steps is automated, they form a repeatable "workflow" 
 that can 
