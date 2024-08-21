@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Binding and scope &#8212; Introduction to Computer Science I</title>
+    <title>Imported and Qualified Names &#8212; Introduction to Computer Science I</title>
   
   
   
@@ -58,11 +58,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '06-Binding/06-01-Binding';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06-Binding/06-03-1-Qualified';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Aliasing" href="06-02-Alias.html" />
-    <link rel="prev" title="Recursive Functions" href="../05-Recursion/05-01-Recursion.html" />
+    <link rel="next" title="Binding in Recursive Functions" href="06-04-Binding-Recursion.html" />
+    <link rel="prev" title="Scopes" href="06-03-Scopes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -210,10 +210,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">06 Binding and Scope</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Binding and scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-01-Binding.html">Binding and scope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-02-Alias.html">Aliasing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-03-Scopes.html">Scopes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06-03-1-Qualified.html">Imported and Qualified Names</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Imported and Qualified Names</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-04-Binding-Recursion.html">Binding in Recursive Functions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">07 Efficiency</span></p>
@@ -273,55 +273,6 @@
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/06-Binding/06-01-Binding.md" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="initThebeSBT()"
-  class="btn btn-sm btn-launch-thebe dropdown-item"
-  title="Launch Thebe"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="btn__text-container">Live Code</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -347,7 +298,7 @@
       
       
       
-      <li><a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F06-Binding/06-01-Binding.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F06-Binding/06-03-1-Qualified.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,24 +328,7 @@
       
       
       
-      <li><a href="../_sources/06-Binding/06-01-Binding.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="../_sources/06-Binding/06-01-Binding.md" target="_blank"
+      <li><a href="../_sources/06-Binding/06-03-1-Qualified.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -478,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Binding and scope</h1>
+    <h1>Imported and Qualified Names</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -488,11 +422,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing"><span class="xref myst">Aliasing</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scopes"><span class="xref myst">Scopes</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports-and-qualified-names"><span class="xref myst">Imports and qualified names</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-and-recursion"><span class="xref myst">Binding and recursion</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project">Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualified-names">Qualified names</a></li>
 </ul>
             </nav>
         </div>
@@ -504,54 +434,70 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="binding-and-scope">
-<h1>Binding and scope<a class="headerlink" href="#binding-and-scope" title="Link to this heading">#</a></h1>
-<p>We touched on variable bindings in local and global scopes in
-<a class="reference internal" href="../02-Functions/02-01-Functions.html"><span class="std std-doc">Chapter 2</span></a>.  It is time to both
-review that material and take a deeper dive.</p>
-<section id="aliasing">
-<h2><a class="reference internal" href="06-02-Alias.html"><span class="std std-doc">Aliasing</span></a><a class="headerlink" href="#aliasing" title="Link to this heading">#</a></h2>
-<p>We begin with a review of how <em>variables</em> are bound to <em>objects</em>
-containing <em>values</em> in <em>name spaces</em>.  This time, we focus especially
-on the consequences
-of <em>aliasing</em>, when two variables are bound to the same object.
-This leads us to make an important distinction between <em>mutable</em> and
-<em>immutable</em> objects.</p>
-</section>
-<section id="scopes">
-<h2><a class="reference internal" href="06-03-Scopes.html"><span class="std std-doc">Scopes</span></a><a class="headerlink" href="#scopes" title="Link to this heading">#</a></h2>
-<p>In Python (as in most programming
-languages), <em>activation records</em> reside as <em>frames</em> on a <em>stack</em>.
-Objects containing values, on the other hand, reside in the <em>heap</em>.
-Understanding <em>stack allocation</em> and <em>heap allocation</em> is
-fundamental to understanding functions in Python.</p>
-<p>With this understanding of binding, frames in the stack, and objects
-in the heap containing values, we can describe more precisely what
-Python does when it encounters a variable name, including “qualified
-names” from other modules.</p>
-</section>
-<section id="imports-and-qualified-names">
-<h2><a class="reference internal" href="06-03-1-Qualified.html"><span class="std std-doc">Imports and qualified names</span></a><a class="headerlink" href="#imports-and-qualified-names" title="Link to this heading">#</a></h2>
-<p>An <code class="docutils literal notranslate"><span class="pre">import</span></code> statement in Python is like a special kind of assignment,
-binding a <em>module object</em> to a name.  A module object is a
-<em>namespace</em> where other names can be bound to values.</p>
-<p>When we write a qualified name like <code class="docutils literal notranslate"><span class="pre">a.b.c</span></code>, we are asking Python to
-first find <code class="docutils literal notranslate"><span class="pre">a</span></code>, then look within <code class="docutils literal notranslate"><span class="pre">a</span></code> to find <code class="docutils literal notranslate"><span class="pre">b</span></code>, then look within
-<code class="docutils literal notranslate"><span class="pre">b</span></code> to find <code class="docutils literal notranslate"><span class="pre">c</span></code>.  If <code class="docutils literal notranslate"><span class="pre">a</span></code> is a module that we have imported, and <code class="docutils literal notranslate"><span class="pre">f</span></code>
-and <code class="docutils literal notranslate"><span class="pre">g</span></code> are functions defined in the source code of <code class="docutils literal notranslate"><span class="pre">a</span></code>, then after
-importing <code class="docutils literal notranslate"><span class="pre">a</span></code> we can refer to those functions as <code class="docutils literal notranslate"><span class="pre">a.f</span></code> and <code class="docutils literal notranslate"><span class="pre">a.g</span></code>.</p>
-</section>
-<section id="binding-and-recursion">
-<h2><a class="reference internal" href="06-04-Binding-Recursion.html"><span class="std std-doc">Binding and recursion</span></a><a class="headerlink" href="#binding-and-recursion" title="Link to this heading">#</a></h2>
-<p>Recursive functions follow the same scope rules as any other
-functions.  We revisit the palindrome example from the previous
-chapter to illustrate how binding rules and stack allocation of
-activation
-records work together.</p>
-</section>
-<section id="project">
-<h2>Project<a class="headerlink" href="#project" title="Link to this heading">#</a></h2>
-<p>TBD</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="imported-and-qualified-names">
+<h1>Imported and Qualified Names<a class="headerlink" href="#imported-and-qualified-names" title="Link to this heading">#</a></h1>
+<p>The LEGB rule for finding something by name applies to imported
+modules as well.  A module, whether from a built-in Python library
+or a new source file we construct, is a kind of object with a name.<br />
+An <code class="docutils literal notranslate"><span class="pre">import</span></code> statement is like an assignment that gives it a binding
+in the current module.</p>
+<p>We don’t usually assign modules to variables, but the code above
+demonstrates that Python treats the name of an imported module just
+like any other name.   If we did want to use another name for a
+module, Python provides an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">...</span> <span class="pre">as</span> <span class="pre">...</span></code> syntax:</p>
+<p>A module you write yourself is treated just like library module that
+Python provides.</p>
+<section id="qualified-names">
+<h2>Qualified names<a class="headerlink" href="#qualified-names" title="Link to this heading">#</a></h2>
+<p>A module is an object that can contain other objects, including
+functions and variables.   When we write <code class="docutils literal notranslate"><span class="pre">m.v</span></code>, we are asking
+Python to find <code class="docutils literal notranslate"><span class="pre">m</span></code>, and then to look inside <code class="docutils literal notranslate"><span class="pre">m</span></code> to find <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
+<p>Suppose, for example, we have this source file <code class="docutils literal notranslate"><span class="pre">exporter.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;exporter.py.  This module is designed to be imported by importer.py.</span>
+<span class="sd">Its &quot;symbols&quot;  (names of functions and variables) will be</span>
+<span class="sd">visible as attributes of the module.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">STEP_SIZE</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="n">STEP_SIZE</span>
+</pre></div>
+</div>
+<p>We might <em>import</em> it as a module in another source file, <code class="docutils literal notranslate"><span class="pre">exporter.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;importer.py.  Demonstration of referencing qualified names</span>
+<span class="sd">from another module.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">exporter</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">exporter</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">exporter</span><span class="o">.</span><span class="n">STEP_SIZE</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">exporter</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>After the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement in <code class="docutils literal notranslate"><span class="pre">importer.py</span></code>, <code class="docutils literal notranslate"><span class="pre">exporter</span></code> is the
+name of a <em>module object</em> that contains variables and functions.<br />
+When we write <code class="docutils literal notranslate"><span class="pre">exporter.step(10)</span></code> in <code class="docutils literal notranslate"><span class="pre">importer.py</span></code>, Python first
+looks for the name <code class="docutils literal notranslate"><span class="pre">exporter</span></code> (following the LEGB search order) and
+finds it in the global scope.  It looks within the module object for
+<code class="docutils literal notranslate"><span class="pre">step</span></code>, and finds a function object that it can call.  The <code class="docutils literal notranslate"><span class="pre">step</span></code>
+function in <code class="docutils literal notranslate"><span class="pre">exporter.py</span></code> uses the LEGB search order to find
+<code class="docutils literal notranslate"><span class="pre">STEP_SIZE</span></code>, but “global” in this case means “global to the same
+module that <code class="docutils literal notranslate"><span class="pre">step</span></code> is in”.  It finds the variable <code class="docutils literal notranslate"><span class="pre">STEP_SIZE</span></code>
+variable bound to integer value 5.</p>
+<p>Similarly the statement <code class="docutils literal notranslate"><span class="pre">exporter.STEP_SIZE</span> <span class="pre">=</span> <span class="pre">20</span></code> asks Python to
+look within the module object <code class="docutils literal notranslate"><span class="pre">exporter</span></code> to find <code class="docutils literal notranslate"><span class="pre">STEP_SIZE</span></code>.
+It finds a variable that can be bound to the new value 20.
+When we call
+<code class="docutils literal notranslate"><span class="pre">exporter.step</span></code> the second time, the <code class="docutils literal notranslate"><span class="pre">step</span></code> function again uses the
+<code class="docutils literal notranslate"><span class="pre">LEGB</span></code> order, and again finds <code class="docutils literal notranslate"><span class="pre">STEP_SIZE</span></code> in its own module (the
+“global” scope for that module), now bound to integer value 20.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>python3<span class="w"> </span><span class="m">06</span>-binding/samples/importer.py
+<span class="m">15</span>
+<span class="m">30</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -586,20 +532,20 @@ records work together.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../05-Recursion/05-01-Recursion.html"
+       href="06-03-Scopes.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Recursive Functions</p>
+        <p class="prev-next-title">Scopes</p>
       </div>
     </a>
     <a class="right-next"
-       href="06-02-Alias.html"
+       href="06-04-Binding-Recursion.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Aliasing</p>
+        <p class="prev-next-title">Binding in Recursive Functions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -619,11 +565,7 @@ records work together.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing"><span class="xref myst">Aliasing</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scopes"><span class="xref myst">Scopes</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports-and-qualified-names"><span class="xref myst">Imports and qualified names</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-and-recursion"><span class="xref myst">Binding and recursion</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project">Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualified-names">Qualified names</a></li>
 </ul>
   </nav></div>
 

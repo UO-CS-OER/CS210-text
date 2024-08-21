@@ -271,10 +271,10 @@ img/copy-recycled-name.png)
 The scope rules in Python are simple, but their consequences can be 
 confusing.  There are just two rules to remember: 
 
-- Python searches for names in _LEGB_ order, _L_ocal, _E_nclosing, 
-  _G_lobal,  _B_uilt-in.  (So far we have seen just _LGM_, but
+- Python searches for names in _LEGB_ order, *L*ocal, *E*nclosing, 
+  *G*lobal,  *B*uilt-in.  (So far we have seen just _LGM_, but
   "LEG-B" is easier to pronounce and thus easier to remember.)
-- The _L_ocal variables of a function are those that have been 
+- The *L*ocal variables of a function are those that have been 
   _bound_ through an explicit assignment or through argument passing.
 
 Everything else follows from these two rules. 

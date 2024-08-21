@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/accessible.css?v=730afe76" />
@@ -61,7 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '06-Binding/06-03-Scopes';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Binding in Recursive Functions" href="06-04-Binding-Recursion.html" />
+    <link rel="next" title="Imported and Qualified Names" href="06-03-1-Qualified.html" />
     <link rel="prev" title="Aliasing" href="06-02-Alias.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -213,6 +213,7 @@
 <li class="toctree-l1"><a class="reference internal" href="06-01-Binding.html">Binding and scope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-02-Alias.html">Aliasing</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Scopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-03-1-Qualified.html">Imported and Qualified Names</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-04-Binding-Recursion.html">Binding in Recursive Functions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">07 Efficiency</span></p>
@@ -862,10 +863,10 @@ the local variable hasn’t been given a value yet.</p>
 <p>The scope rules in Python are simple, but their consequences can be
 confusing.  There are just two rules to remember:</p>
 <ul class="simple">
-<li><p>Python searches for names in <em>LEGB</em> order, _L_ocal, _E_nclosing,
-_G_lobal,  _B_uilt-in.  (So far we have seen just <em>LGM</em>, but
+<li><p>Python searches for names in <em>LEGB</em> order, <em>L</em>ocal, <em>E</em>nclosing,
+<em>G</em>lobal,  <em>B</em>uilt-in.  (So far we have seen just <em>LGM</em>, but
 “LEG-B” is easier to pronounce and thus easier to remember.)</p></li>
-<li><p>The _L_ocal variables of a function are those that have been
+<li><p>The <em>L</em>ocal variables of a function are those that have been
 <em>bound</em> through an explicit assignment or through argument passing.</p></li>
 </ul>
 <p>Everything else follows from these two rules.</p>
@@ -912,11 +913,11 @@ _G_lobal,  _B_uilt-in.  (So far we have seen just <em>LGM</em>, but
       </div>
     </a>
     <a class="right-next"
-       href="06-04-Binding-Recursion.html"
+       href="06-03-1-Qualified.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Binding in Recursive Functions</p>
+        <p class="prev-next-title">Imported and Qualified Names</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
