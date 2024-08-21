@@ -40,9 +40,17 @@ in the heap containing values, we can describe more precisely what
 Python does when it encounters a variable name, including "qualified 
 names" from other modules.
 
-## TBD
-  - qualified names (imported modules)
-  - stack and heap (review)
+## [Imports and qualified names](06-03-1-Qualified.md)
+
+An `import` statement in Python is like a special kind of assignment,
+binding a _module object_ to a name.  A module object is a 
+_namespace_ where other names can be bound to values.  
+
+When we write a qualified name like `a.b.c`, we are asking Python to 
+first find `a`, then look within `a` to find `b`, then look within 
+`b` to find `c`.  If `a` is a module that we have imported, and `f` 
+and `g` are functions defined in the source code of `a`, then after 
+importing `a` we can refer to those functions as `a.f` and `a.g`. 
 
 ## [Binding and recursion](06-04-Binding-Recursion.md)
 
