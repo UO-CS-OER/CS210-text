@@ -272,14 +272,28 @@ nested dictionary structure as written above:
 
 There are additional variations in representations that you will
 encounter, including some that combine multiple tables that must be
-"joined" to recover the hierarchy and/or a unified flat 
-representation.  ("Join" is actually the name of an operation for
-combining tables in a relational database.)  
-
+combined ("joined") to recover the hierarchy and/or a unified flat 
+representation.
 It is often relatively straightforward to convert among 
 representations of the same information, provided we make a clear 
 distinction between the _semantic content_ of the data and
 its representation.  
+
+In the [treemap project](https://github.com/UO-CS210/Treemap), we 
+use only the libraries provided in a standard Python installation.  
+The [restructure](
+https://github.com/UO-CS210/Treemap/tree/main/restructure)
+directory provides some additional Python programs to pre-process 
+data and extract a hierarchical representation in JSON format.
+In a typical workflow, one might clean and summarize a data set with 
+other tools before extracting a hierarchical representation.  The 
+SQL language supported by most relational databases provides 
+operations including summarizing and combining tables.  The Pandas 
+framework for Python includes aggregation tools.  One might even 
+perform some data manipulation in a spreadsheet like Excel or Google 
+Sheets, but often it is best to fully automate a workflow so that it 
+can be reapplied consistently and efficiently to related or evolving 
+datasets. 
 
 ## Summary
 
@@ -333,3 +347,4 @@ that can
 be scripted to apply quickly and consistently
 to class rosters in subsequent course offerings 
 or other courses. 
+
