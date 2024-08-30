@@ -2,9 +2,10 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Introduction to Computer Science I
-author: Michal Young, Boyana Norris, and Ram Durairajan
+author: Michal Young
 logo: img/logo-provisional.png
-copyright: "2022-2023 University of Oregon.  Creative Commons Share-Alike Attribution license"
+copyright: "2022-2024 Michal Young and University of Oregon.  Creative Commons Share-Alike Attribution license"
+
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

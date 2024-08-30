@@ -4,6 +4,9 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Accessibility Statement
+    chapters:
+      - file: 00-Accessibility/00-01-Accessibility.md
   - caption: 01 Getting a Start
     chapters:
       - file: 01-Intro/01-01-Prospectus.md
@@ -29,10 +32,12 @@ parts:
       - file: 04-More-Loops/04-02-Parallel-Lists.md
       - file: 04-More-Loops/04-03-Indefinite-Loops.md
       - file: 04-More-Loops/04-04-Successive-Approximation.md
+      - file: 04-More-Loops/04-05-Exercises.md
 
   - caption: 05 Recursion
     chapters:
       - file: 05-Recursion/05-01-Recursion.md
+      - file: 05-Recursion/05-02-Exercises.md
 
   - caption: 06 Binding and Scope
     chapters:
