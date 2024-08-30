@@ -63,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="A Course in Computational Thinking" href="01-Intro/01-01-Prospectus.html" />
+    <link rel="next" title="A Free, Open, and Accessible Computer Science Text" href="00-Accessibility/00-01-Accessibility.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,7 +183,11 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Getting a Start</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accessibility Statement</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00-Accessibility/00-01-Accessibility.html">A Free, Open, and Accessible Computer Science Text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Getting a Start</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01-Intro/01-01-Prospectus.html">A Course in Computational Thinking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01-Intro/01-02-Install.html">Installing Python and IDLE</a></li>
@@ -195,10 +199,12 @@
 <li class="toctree-l1"><a class="reference internal" href="02-Functions/02-02-Scope.html">Binding:  Functions and Scope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-Functions/02-03-Hygiene.html">Function Hygiene in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-Functions/02-04-Terms.html">Review of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-Functions/02-05-Exercises.html">Exercises</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">03 Collections and Loops</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="03-Collections-Loops/03-01-Collections.html">Collections and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-Collections-Loops/03-02-Exercises.html">Exercises</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">04 More Loops and Collections</span></p>
 <ul class="nav bd-sidenav">
@@ -206,10 +212,12 @@
 <li class="toctree-l1"><a class="reference internal" href="04-More-Loops/04-02-Parallel-Lists.html">Parallel Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-More-Loops/04-03-Indefinite-Loops.html">Indefinite loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-More-Loops/04-04-Successive-Approximation.html">Successive approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-More-Loops/04-05-Exercises.html">Exercises</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">05 Recursion</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="05-Recursion/05-01-Recursion.html">Recursive Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-Recursion/05-02-Exercises.html">Exercises</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">06 Binding and Scope</span></p>
 <ul class="nav bd-sidenav">
@@ -276,6 +284,55 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/intro.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -328,6 +385,23 @@
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/intro.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
       
       
       
@@ -441,6 +515,12 @@ open source license.  Instructions are in
 You are also invited to open an issue through the github repository
 with corrections, critique, or suggestions for improvement.</p>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Accessibility Statement</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="00-Accessibility/00-01-Accessibility.html">A Free, Open, and Accessible Computer Science Text</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Getting a Start</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="01-Intro/01-01-Prospectus.html">A Course in Computational Thinking</a></li>
@@ -455,12 +535,14 @@ with corrections, critique, or suggestions for improvement.</p>
 <li class="toctree-l1"><a class="reference internal" href="02-Functions/02-02-Scope.html">Binding:  Functions and Scope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-Functions/02-03-Hygiene.html">Function Hygiene in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-Functions/02-04-Terms.html">Review of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-Functions/02-05-Exercises.html">Exercises</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">03 Collections and Loops</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="03-Collections-Loops/03-01-Collections.html">Collections and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-Collections-Loops/03-02-Exercises.html">Exercises</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -470,12 +552,14 @@ with corrections, critique, or suggestions for improvement.</p>
 <li class="toctree-l1"><a class="reference internal" href="04-More-Loops/04-02-Parallel-Lists.html">Parallel Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-More-Loops/04-03-Indefinite-Loops.html">Indefinite loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-More-Loops/04-04-Successive-Approximation.html">Successive approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-More-Loops/04-05-Exercises.html">Exercises</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">05 Recursion</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="05-Recursion/05-01-Recursion.html">Recursive Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-Recursion/05-02-Exercises.html">Exercises</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -537,11 +621,11 @@ with corrections, critique, or suggestions for improvement.</p>
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="01-Intro/01-01-Prospectus.html"
+       href="00-Accessibility/00-01-Accessibility.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">A Course in Computational Thinking</p>
+        <p class="prev-next-title">A Free, Open, and Accessible Computer Science Text</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -561,7 +645,7 @@ with corrections, critique, or suggestions for improvement.</p>
   <div class="footer-item">
     
 <p class="component-author">
-By Michal Young, Boyana Norris, and Ram Durairajan
+By Michal Young
 </p>
 
   </div>
@@ -571,7 +655,7 @@ By Michal Young, Boyana Norris, and Ram Durairajan
 
   <p class="copyright">
     
-      © Copyright 2022-2023 University of Oregon.  Creative Commons Share-Alike Attribution license.
+      © Copyright 2022-2024 Michal Young and University of Oregon.  Creative Commons Share-Alike Attribution license.
       <br/>
     
   </p>

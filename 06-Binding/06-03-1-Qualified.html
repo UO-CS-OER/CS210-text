@@ -180,7 +180,11 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Getting a Start</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accessibility Statement</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-Accessibility/00-01-Accessibility.html">A Free, Open, and Accessible Computer Science Text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Getting a Start</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-01-Prospectus.html">A Course in Computational Thinking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-02-Install.html">Installing Python and IDLE</a></li>
@@ -192,10 +196,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-02-Scope.html">Binding:  Functions and Scope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-03-Hygiene.html">Function Hygiene in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-04-Terms.html">Review of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-05-Exercises.html">Exercises</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">03 Collections and Loops</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-01-Collections.html">Collections and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-02-Exercises.html">Exercises</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">04 More Loops and Collections</span></p>
 <ul class="nav bd-sidenav">
@@ -203,10 +209,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-02-Parallel-Lists.html">Parallel Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-03-Indefinite-Loops.html">Indefinite loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-04-Successive-Approximation.html">Successive approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-05-Exercises.html">Exercises</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">05 Recursion</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05-Recursion/05-01-Recursion.html">Recursive Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-Recursion/05-02-Exercises.html">Exercises</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">06 Binding and Scope</span></p>
 <ul class="current nav bd-sidenav">
@@ -273,6 +281,55 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/06-Binding/06-03-1-Qualified.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -325,6 +382,23 @@
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/06-Binding/06-03-1-Qualified.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
       
       
       
@@ -441,10 +515,39 @@ modules as well.  A module, whether from a built-in Python library
 or a new source file we construct, is a kind of object with a name.<br />
 An <code class="docutils literal notranslate"><span class="pre">import</span></code> statement is like an assignment that gives it a binding
 in the current module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>            <span class="c1"># Now &quot;csv&quot; is the name of a module object</span>
+
+<span class="n">another_name</span> <span class="o">=</span> <span class="n">csv</span>    <span class="c1"># Legal, but not the best approach</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">another_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;module &#39;csv&#39; from &#39;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/csv.py&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
 <p>We don’t usually assign modules to variables, but the code above
 demonstrates that Python treats the name of an imported module just
 like any other name.   If we did want to use another name for a
 module, Python provides an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">...</span> <span class="pre">as</span> <span class="pre">...</span></code> syntax:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">doctest</span> <span class="k">as</span> <span class="nn">dt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;module &#39;doctest&#39; from &#39;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/doctest.py&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
 <p>A module you write yourself is treated just like library module that
 Python provides.</p>
 <section id="qualified-names">
@@ -580,7 +683,7 @@ When we call
   <div class="footer-item">
     
 <p class="component-author">
-By Michal Young, Boyana Norris, and Ram Durairajan
+By Michal Young
 </p>
 
   </div>
@@ -590,7 +693,7 @@ By Michal Young, Boyana Norris, and Ram Durairajan
 
   <p class="copyright">
     
-      © Copyright 2022-2023 University of Oregon.  Creative Commons Share-Alike Attribution license.
+      © Copyright 2022-2024 Michal Young and University of Oregon.  Creative Commons Share-Alike Attribution license.
       <br/>
     
   </p>

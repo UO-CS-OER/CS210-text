@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Review of terms &#8212; Introduction to Computer Science I</title>
+    <title>Exercises &#8212; Introduction to Computer Science I</title>
   
   
   
@@ -58,11 +58,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '02-Functions/02-04-Terms';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-Functions/02-05-Exercises';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Exercises" href="02-05-Exercises.html" />
-    <link rel="prev" title="Function Hygiene in Python" href="02-03-Hygiene.html" />
+    <link rel="next" title="Collections and Loops" href="../03-Collections-Loops/03-01-Collections.html" />
+    <link rel="prev" title="Review of terms" href="02-04-Terms.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -195,8 +195,8 @@
 <li class="toctree-l1"><a class="reference internal" href="02-01-Functions.html">Designing and Building Functions in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-02-Scope.html">Binding:  Functions and Scope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-03-Hygiene.html">Function Hygiene in Python</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Review of terms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02-05-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-04-Terms.html">Review of terms</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercises</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">03 Collections and Loops</span></p>
 <ul class="nav bd-sidenav">
@@ -289,7 +289,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/02-Functions/02-04-Terms.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/02-Functions/02-05-Exercises.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -355,7 +355,7 @@
       
       
       
-      <li><a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F02-Functions/02-04-Terms.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F02-Functions/02-05-Exercises.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -385,7 +385,7 @@
       
       
       
-      <li><a href="../_sources/02-Functions/02-04-Terms.ipynb" target="_blank"
+      <li><a href="../_sources/02-Functions/02-05-Exercises.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Download notebook file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -402,7 +402,7 @@
       
       
       
-      <li><a href="../_sources/02-Functions/02-04-Terms.md" target="_blank"
+      <li><a href="../_sources/02-Functions/02-05-Exercises.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -486,7 +486,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Review of terms</h1>
+    <h1>Exercises</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -496,9 +496,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope-namespace-frame-symbol-table">Scope, namespace, frame, symbol table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-and-global-variables">Local and global variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-and-actual-arguments-parameters">Formal and actual arguments (parameters)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#answers-to-exercises">Answers to exercises</a></li>
 </ul>
             </nav>
         </div>
@@ -510,62 +508,177 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="review-of-terms">
-<h1>Review of terms<a class="headerlink" href="#review-of-terms" title="Link to this heading">#</a></h1>
-<p>Terminology of functions and scopes can be confusing, because there
-are many different terms commonly used for the same or almost the
-same concept … even in the Python documentation.</p>
-<section id="scope-namespace-frame-symbol-table">
-<h2>Scope, namespace, frame, symbol table<a class="headerlink" href="#scope-namespace-frame-symbol-table" title="Link to this heading">#</a></h2>
-<p>A <em>namespace</em> may also be called a <em>symbol table</em> or a <em>frame</em>.<br />
-These terms are not quite identical (a <em>frame</em> is really a
-structure inside the Python interpreter used to implement a
-<em>namespace</em>), but they are so closely related that you can treat
-them as synonyms.</p>
-<p>The term <em>scope</em> is also almost
-interchangeable with <em>namespace</em>, except “local scope” means
-“the namespace of the currently executing function.”  There is
-always exactly one “local” scope and one “global” scope, while there
-may be many namespaces that are temporarily inaccessible.</p>
-<p>Every frame implements a namespace, which may be the local scope or
-global scope.  Outside of any function, the local scope and the
-global scope may be the same namespace.</p>
-<p>The technical distinctions may matter
-to you someday if you build your own programming language interpreter.<br />
-For now you can treat <em>namespace</em>, <em>scope</em>, and <em>frame</em>
-as synonyms.</p>
-</section>
-<section id="local-and-global-variables">
-<h2>Local and global variables<a class="headerlink" href="#local-and-global-variables" title="Link to this heading">#</a></h2>
-<p>A <em>local variable</em> is a variable in the namespace (scope) of a
-function, accessible only when that function is executing.  A
-<em>global variable</em> is a variable defined in the global namespace,
-which may also be accessible from within functions.</p>
-</section>
-<section id="formal-and-actual-arguments-parameters">
-<h2>Formal and actual arguments (parameters)<a class="headerlink" href="#formal-and-actual-arguments-parameters" title="Link to this heading">#</a></h2>
-<p>The terms <em>parameter</em> (<em>formal parameter</em> or <em>actual parameter</em>)
-and <em>argument</em> (<em>formal argument</em> or <em>actual argument</em>) are
-synonymous.  The author of
-this chapter looked to the Python documentation to see which term
-was standard in Python.  The disappointing answer was “both”.</p>
-<p>It could be
-confusing to pair “formal parameter” with “actual argument”, so we will
-try to be consistent in preferring “argument” in both contexts.
-Occasionally we will use both terms, since you will often encounter
-“formal parameter” in other documentation.<br />
-Sometimes we will mess up … let us know so we can fix
-inconsistencies in this text.</p>
-<p>When we use the term <em>argument</em> in the context of defining a
-function, we mean <em>formal argument</em>, that is, the name that will be
-used within the function body.  When we use
-the term <em>argument</em> in the context of calling a function, we mean
-<em>actual argument</em>, that is, the value transmitted to the function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>  <span class="c1"># a is a formal argument</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Does nothing&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h1>
+<p>These exercises are taken from old exams.  Check your
+understanding by working them
+individually before peeking forward to answers or discussing
+them with classmates.</p>
+<ol class="arabic simple">
+<li><p>What does this program print?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
 
-<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>      <span class="c1"># x is an actual argument</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">, z=</span><span class="si">{</span><span class="n">z</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>What will go wrong with this program? How should you fix it?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sign</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return -1, 0, or 1 depending on n being negative, zero, or </span>
+<span class="sd">    positive</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">sign</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>What is wrong with this function?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns double the original value of x.&quot;&quot;&quot;</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="answers-to-exercises">
+<h2>Answers to exercises<a class="headerlink" href="#answers-to-exercises" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>What does this program print?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">, z=</span><span class="si">{</span><span class="n">z</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Answer:  <code class="docutils literal notranslate"><span class="pre">x=5,</span> <span class="pre">y=7,</span> <span class="pre">z=8</span></code></p>
+<p>This is a question about variable scope and argument passing.  The
+<code class="docutils literal notranslate"><span class="pre">x</span></code> in an activation of function <code class="docutils literal notranslate"><span class="pre">f</span></code> is distinct from
+the globabl <code class="docutils literal notranslate"><span class="pre">x</span></code>.  The <em>actual argument</em> <code class="docutils literal notranslate"><span class="pre">y</span></code> is
+copied to the <em>formal argument</em> <code class="docutils literal notranslate"><span class="pre">x</span></code> when <code class="docutils literal notranslate"><span class="pre">f</span></code> is
+called, so incrementing <code class="docutils literal notranslate"><span class="pre">x</span></code> in <code class="docutils literal notranslate"><span class="pre">f</span></code> affects neither the
+global n<code class="docutils literal notranslate"><span class="pre">x</span></code> nor the global <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p>Don’t be confused by f-strings like <code class="docutils literal notranslate"><span class="pre">f&quot;x={x},</span> <span class="pre">y={y},</span> <span class="pre">z={z}&quot;</span></code>.
+This <code class="docutils literal notranslate"><span class="pre">f</span></code> is not the same as the function <code class="docutils literal notranslate"><span class="pre">f</span></code>.<br />
+f-strings are used in Python to format output by <em>interpolating</em>
+values into template strings.  For example, within the f-string, <code class="docutils literal notranslate">&#160; <span class="pre">{x}</span></code> is replaced by the value of variable <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<ol class="arabic simple" start="2">
+<li><p>What will go wrong with this program? How should you fix it?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sign</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return -1, 0, or 1 depending on n being negative, zero, or </span>
+<span class="sd">    positive</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">sign</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Function <code class="docutils literal notranslate"><span class="pre">sign</span></code> is not returning the <code class="docutils literal notranslate"><span class="pre">result</span></code> variable.  The
+<code class="docutils literal notranslate"><span class="pre">result</span></code> variable exists only while the function is executing. When
+we try to print <code class="docutils literal notranslate"><span class="pre">result</span></code> from outside the <code class="docutils literal notranslate"><span class="pre">sign</span></code> function, we will
+encounter an error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+          <span class="o">^^^^^^</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;result&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</pre></div>
+</div>
+<p>We can fix it this way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sign</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return -1, 0, or 1 depending on n being negative, zero, or </span>
+<span class="sd">    positive</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">sign</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the function stops running as soon as it returns a value, we
+could also shorten it up like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sign</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return -1, 0, or 1 depending on n being negative, zero, or </span>
+<span class="sd">    positive</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="mi">0</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">sign</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>What is wrong with this function?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns double the original value of x.&quot;&quot;&quot;</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The signature of this function (given in its header,
+<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">double(x:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">int:</span></code> and its docstring is a kind of contract
+with code that uses it.  The header says it has a
+<em>result</em>, which is an
+integer, and the docstring says that result will be twice the
+original value of x.  That’s a lie.  It does not have a <em>result</em>.
+It has an <em>effect</em>, which is printing double the value x.  It should
+return the value instead, like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns double the original value of x.&quot;&quot;&quot;</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">z</span>
 </pre></div>
 </div>
 </section>
@@ -602,20 +715,20 @@ the term <em>argument</em> in the context of calling a function, we mean
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02-03-Hygiene.html"
+       href="02-04-Terms.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Function Hygiene in Python</p>
+        <p class="prev-next-title">Review of terms</p>
       </div>
     </a>
     <a class="right-next"
-       href="02-05-Exercises.html"
+       href="../03-Collections-Loops/03-01-Collections.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exercises</p>
+        <p class="prev-next-title">Collections and Loops</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -635,9 +748,7 @@ the term <em>argument</em> in the context of calling a function, we mean
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope-namespace-frame-symbol-table">Scope, namespace, frame, symbol table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-and-global-variables">Local and global variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-and-actual-arguments-parameters">Formal and actual arguments (parameters)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#answers-to-exercises">Answers to exercises</a></li>
 </ul>
   </nav></div>
 
