@@ -654,6 +654,70 @@ have a corresponding price in the price list.</p>
 <span class="c1"># Expect 11</span>
 </pre></div>
 </div>
+<ol class="arabic" start="6">
+<li><p>Suppose we have a string <code class="docutils literal notranslate"><span class="pre">S</span></code> with a value like “xxyyyzz”.  We can
+say that <code class="docutils literal notranslate"><span class="pre">S</span></code> is made up of “runs” of “x”, “y”, and “z”.  To be
+general, we can even consider a single character a run of length
+1, so we would say that “xxyyyzqqxx” is composed of runs of 2 “x”,
+then 3 “y”, then 1 “z”, 2 “q”, and finally 2 “x”.  If we asked
+what the <em>longest run</em> in “xxyyyzqqxx” is, the answer would be 3,
+because the run of 3 “y” is longest.   Finish function <code class="docutils literal notranslate"><span class="pre">long_run</span></code>
+to determine the length of the longest run of identical
+characters in a string.</p>
+<p>This is a challenging problem!  Hint:  Use one variable to keep
+track of the length of the <em>current</em> run, another to keep track
+of the length of the <em>longest</em> run, and another to keep track of
+the character in the current run.</p>
+</li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">long_run</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns length of longest run of identical characters in s.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">0</span>  <span class="c1"># FIXME</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_run</span><span class="p">(</span><span class="s2">&quot;xxyyyzqqxx&quot;</span><span class="p">))</span>
+<span class="c1"># Expect 3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_run</span><span class="p">(</span><span class="s2">&quot;abcde&quot;</span><span class="p">))</span>
+<span class="c1"># Expect 1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_run</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">))</span>
+<span class="c1"># Expect 0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_run</span><span class="p">(</span><span class="s2">&quot;abcdd&quot;</span><span class="p">))</span>
+<span class="c1"># Expect 2</span>
+</pre></div>
+</div>
+<ol class="arabic" start="7">
+<li><p>We will say a list of integers is a <em>progression</em> if the
+difference between every consecutive pair of elements is the same.
+For excample, in the list [1, 3, 5, 7], the pairs of consecutive
+elements are (1, 3), (3, 5), and (5, 7), all of which have a
+difference of 2, so [1, 3, 5, 7] is a progression.  [1, 4, 6] is
+not a progression because (1, 4) has difference 3 but (4, 6) has
+difference 2.</p>
+<p>Finish <code class="docutils literal notranslate"><span class="pre">is_progression</span></code>:</p>
+</li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_progression</span><span class="p">(</span> <span class="n">li</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns True if the difference between every consecutive</span>
+<span class="sd">    pair of elements in li is the same.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="kc">False</span> <span class="c1"># FIXME</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]))</span>
+<span class="c1"># Expect True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
+<span class="c1"># Expect False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
+<span class="c1"># Expect True  (negative differences are ok)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+<span class="c1"># Expect False   (-2 != 2)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([]))</span>
+<span class="c1"># Expect True  (no pairs differ if there aren&#39;t any pairs)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
+<span class="c1"># Expect True</span>
+</pre></div>
+</div>
 <section id="solutions-to-exercises">
 <h2>Solutions to exercises<a class="headerlink" href="#solutions-to-exercises" title="Link to this heading">#</a></h2>
 <p>1a.  Linear search solution to <code class="docutils literal notranslate"><span class="pre">lookup</span></code>.</p>
@@ -888,6 +952,171 @@ statement.</p></li>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
 11
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Longest run of identical characters in a string.
+It’s ok if you coded a special case for the empty string.
+There are many ways solve this, but that doesn’t make it easy!</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">long_run</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns length of longest run of identical characters in s.&quot;&quot;&quot;</span>
+    <span class="n">length_max</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">length_cur</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">cur_char</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">char</span> <span class="o">!=</span> <span class="n">cur_char</span><span class="p">:</span>
+            <span class="n">cur_char</span> <span class="o">=</span> <span class="n">char</span>
+            <span class="n">length_cur</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">length_cur</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">length_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">length_cur</span><span class="p">,</span> <span class="n">length_max</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">length_max</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_run</span><span class="p">(</span><span class="s2">&quot;xxyyyzqqxx&quot;</span><span class="p">))</span>
+<span class="c1"># Expect 3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_run</span><span class="p">(</span><span class="s2">&quot;abcde&quot;</span><span class="p">))</span>
+<span class="c1"># Expect 1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_run</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">))</span>
+<span class="c1"># Expect 0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_run</span><span class="p">(</span><span class="s2">&quot;abcdd&quot;</span><span class="p">))</span>
+<span class="c1"># Expect 2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+1
+0
+2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is another solution.  It’s not quite as short, but might be
+easier to understand.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">long_run</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns length of longest run of identical characters in s.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="c1"># Knowing we have at least one character makes it a</span>
+    <span class="c1"># little easier to initialize before the loop</span>
+    <span class="n">length_max</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">length_cur</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">cur_char</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="n">cur_char</span><span class="p">:</span>
+            <span class="n">length_cur</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">length_cur</span> <span class="o">&gt;</span> <span class="n">length_max</span><span class="p">:</span>
+                <span class="n">length_max</span> <span class="o">=</span> <span class="n">length_cur</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">length_cur</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">cur_char</span> <span class="o">=</span> <span class="n">char</span>
+    <span class="k">return</span> <span class="n">length_max</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_run</span><span class="p">(</span><span class="s2">&quot;xxyyyzqqxx&quot;</span><span class="p">))</span>
+<span class="c1"># Expect 3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_run</span><span class="p">(</span><span class="s2">&quot;abcde&quot;</span><span class="p">))</span>
+<span class="c1"># Expect 1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_run</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">))</span>
+<span class="c1"># Expect 0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_run</span><span class="p">(</span><span class="s2">&quot;abcdd&quot;</span><span class="p">))</span>
+<span class="c1"># Expect 2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+1
+0
+2
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Here is one solution to <code class="docutils literal notranslate"><span class="pre">is_progression</span></code>.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_progression</span><span class="p">(</span> <span class="n">li</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns True if the difference between every consecutive</span>
+<span class="sd">    pair of elements in li is the same.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="n">target_diff</span> <span class="o">=</span> <span class="n">li</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">li</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">target_diff</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]))</span>
+<span class="c1"># Expect True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
+<span class="c1"># Expect False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
+<span class="c1"># Expect True  (negative differences are ok)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+<span class="c1"># Expect False   (-2 != 2)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([]))</span>
+<span class="c1"># Expect True  (no pairs differ if there aren&#39;t any pairs)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
+<span class="c1"># Expect True</span>
+</pre></div>
+</div>
+<p>Here is a slightly different solution, using a variable to remember
+the element just before the current element.  Do you find it easier
+to understand, harder, or the same?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_progression</span><span class="p">(</span> <span class="n">li</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns True if the difference between every consecutive</span>
+<span class="sd">    pair of elements in li is the same.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="n">target_diff</span> <span class="o">=</span> <span class="n">li</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">li</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">prior</span> <span class="o">=</span> <span class="n">li</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">li</span><span class="p">[</span><span class="mi">2</span><span class="p">:]:</span>
+        <span class="k">if</span> <span class="n">el</span>  <span class="o">-</span> <span class="n">prior</span> <span class="o">!=</span> <span class="n">target_diff</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">prior</span> <span class="o">=</span> <span class="n">el</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]))</span>
+<span class="c1"># Expect True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
+<span class="c1"># Expect False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
+<span class="c1"># Expect True  (negative differences are ok)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+<span class="c1"># Expect False   (-2 != 2)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([]))</span>
+<span class="c1"># Expect True  (no pairs differ if there aren&#39;t any pairs)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_progression</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
+<span class="c1"># Expect True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+False
+True
+True
 </pre></div>
 </div>
 </div>
