@@ -164,6 +164,69 @@ print(score_word("DUCK"))
 # Expect 11
 ```
 
+6. Suppose we have a string `S` with a value like "xxyyyzz".  We can 
+   say that `S` is made up of "runs" of "x", "y", and "z".  To be 
+   general, we can even consider a single character a run of length 
+   1, so we would say that "xxyyyzqqxx" is composed of runs of 2 "x",
+   then 3 "y", then 1 "z", 2 "q", and finally 2 "x".  If we asked 
+   what the _longest run_ in "xxyyyzqqxx" is, the answer would be 3, 
+   because the run of 3 "y" is longest.   Finish function `long_run` 
+   to determine the length of the longest run of identical 
+   characters in a string. 
+
+   This is a challenging problem!  Hint:  Use one variable to keep 
+   track of the length of the _current_ run, another to keep track 
+   of the length of the _longest_ run, and another to keep track of 
+   the character in the current run. 
+
+```python
+def long_run(s: str) -> int: 
+    """Returns length of longest run of identical characters in s."""
+    return 0  # FIXME
+
+print(long_run("xxyyyzqqxx"))
+# Expect 3
+
+print(long_run("abcde"))
+# Expect 1
+
+print(long_run(""))
+# Expect 0
+
+print(long_run("abcdd"))
+# Expect 2
+```
+
+7. We will say a list of integers is a _progression_ if the 
+   difference between every consecutive pair of elements is the same.
+   For excample, in the list [1, 3, 5, 7], the pairs of consecutive 
+   elements are (1, 3), (3, 5), and (5, 7), all of which have a 
+   difference of 2, so [1, 3, 5, 7] is a progression.  [1, 4, 6] is 
+   not a progression because (1, 4) has difference 3 but (4, 6) has 
+   difference 2.   
+
+   Finish `is_progression`:
+
+```python
+def is_progression( li: list[int]) -> bool: 
+    """Returns True if the difference between every consecutive
+    pair of elements in li is the same.
+    """
+    return False # FIXME
+
+print(is_progression([1, 3, 5, 7]))
+# Expect True
+print(is_progression([1, 4, 6]))
+# Expect False
+print(is_progression([10, 8, 6]))
+# Expect True  (negative differences are ok)
+print(is_progression([2, 4, 6, 8, 6, 4, 2]))
+# Expect False   (-2 != 2)
+print(is_progression([]))
+# Expect True  (no pairs differ if there aren't any pairs)
+print(is_progression([3, 5]))
+# Expect True
+```
 
 ## Solutions to exercises
 
@@ -339,4 +402,135 @@ print(score_word("QUACK"))
 
 print(score_word("DUCK"))
 # Expect 11
+```
+
+6.  Longest run of identical characters in a string.
+   It's ok if you coded a special case for the empty string.
+   There are many ways solve this, but that doesn't make it easy!
+
+```{code-cell} python3
+def long_run(s: str) -> int:
+    """Returns length of longest run of identical characters in s."""
+    length_max = 0
+    length_cur = 0
+    cur_char = None
+    for char in s:
+        if char != cur_char:
+            cur_char = char
+            length_cur = 0
+        length_cur += 1
+        length_max = max(length_cur, length_max)
+    return length_max
+
+
+print(long_run("xxyyyzqqxx"))
+# Expect 3
+
+print(long_run("abcde"))
+# Expect 1
+
+print(long_run(""))
+# Expect 0
+
+print(long_run("abcdd"))
+# Expect 2
+```
+
+Here is another solution.  It's not quite as short, but might be 
+easier to understand. 
+
+```{code-cell} python3
+def long_run(s: str) -> int:
+    """Returns length of longest run of identical characters in s."""
+    if len(s) == 0:
+        return 0
+    # Knowing we have at least one character makes it a
+    # little easier to initialize before the loop
+    length_max = 0
+    length_cur = 0
+    cur_char = s[0]
+    for char in s:
+        if char == cur_char:
+            length_cur += 1
+            if length_cur > length_max:
+                length_max = length_cur
+        else:
+            length_cur = 1
+            cur_char = char
+    return length_max
+
+
+print(long_run("xxyyyzqqxx"))
+# Expect 3
+
+print(long_run("abcde"))
+# Expect 1
+
+print(long_run(""))
+# Expect 0
+
+print(long_run("abcdd"))
+# Expect 2
+```
+
+7.  Here is one solution to `is_progression`.  
+
+```python
+def is_progression( li: list[int]) -> bool:
+    """Returns True if the difference between every consecutive
+    pair of elements in li is the same.
+    """
+    if len(li) < 3:
+        return True
+    target_diff = li[1] - li[0]
+    for i in range(2, len(li)):
+        if li[i] - li[i-1] != target_diff:
+            return False
+    return True
+
+print(is_progression([1, 3, 5, 7]))
+# Expect True
+print(is_progression([1, 4, 6]))
+# Expect False
+print(is_progression([10, 8, 6]))
+# Expect True  (negative differences are ok)
+print(is_progression([2, 4, 6, 8, 6, 4, 2]))
+# Expect False   (-2 != 2)
+print(is_progression([]))
+# Expect True  (no pairs differ if there aren't any pairs)
+print(is_progression([3, 5]))
+# Expect True
+```
+
+Here is a slightly different solution, using a variable to remember 
+the element just before the current element.  Do you find it easier 
+to understand, harder, or the same? 
+
+```{code-cell} python3
+def is_progression( li: list[int]) -> bool:
+    """Returns True if the difference between every consecutive
+    pair of elements in li is the same.
+    """
+    if len(li) < 3:
+        return True
+    target_diff = li[1] - li[0]
+    prior = li[1]
+    for el in li[2:]:
+        if el  - prior != target_diff:
+            return False
+        prior = el
+    return True
+
+print(is_progression([1, 3, 5, 7]))
+# Expect True
+print(is_progression([1, 4, 6]))
+# Expect False
+print(is_progression([10, 8, 6]))
+# Expect True  (negative differences are ok)
+print(is_progression([2, 4, 6, 8, 6, 4, 2]))
+# Expect False   (-2 != 2)
+print(is_progression([]))
+# Expect True  (no pairs differ if there aren't any pairs)
+print(is_progression([3, 5]))
+# Expect True
 ```
