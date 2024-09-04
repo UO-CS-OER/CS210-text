@@ -46,6 +46,7 @@ parts:
       - file: 06-Binding/06-03-Scopes.md
       - file: 06-Binding/06-03-1-Qualified.md
       - file: 06-Binding/06-04-Binding-Recursion.md
+      - file: 06-Binding/06-05-Exercises.md
 
   - caption: 07 Efficiency
     chapters:
