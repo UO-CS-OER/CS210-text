@@ -1,0 +1,999 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exercises &#8212; Introduction to Computer Science I</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessible.css?v=730afe76" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=ff8fa330"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '07-Efficiency/07-03-Exercises';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Recursive Data Structures" href="../08-Recursive-Data/08-01-Recursive-Data-Structures.html" />
+    <link rel="prev" title="Binary Search" href="07-02-Binary-Search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-provisional.png" class="logo__image only-light" alt="Introduction to Computer Science I - Home"/>
+    <script>document.write(`<img src="../_static/logo-provisional.png" class="logo__image only-dark" alt="Introduction to Computer Science I - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Computer Science, part 1
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accessibility Statement</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-Accessibility/00-01-Accessibility.html">A Free, Open, and Accessible Computer Science Text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Getting a Start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-01-Prospectus.html">A Course in Computational Thinking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-02-Install.html">Installing Python and IDLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-03-Kickstart.html">Python Programming Kickstart</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 Writing Functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-01-Functions.html">Designing and Building Functions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-02-Scope.html">Binding:  Functions and Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-03-Hygiene.html">Function Hygiene in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-04-Terms.html">Review of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-05-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 Collections and Loops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-01-Collections.html">Collections and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-02-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 More Loops and Collections</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-01-More-Loops.html">Loops and more loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-02-Parallel-Lists.html">Parallel Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-03-Indefinite-Loops.html">Indefinite loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-04-Successive-Approximation.html">Successive approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-05-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05 Recursion</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05-Recursion/05-01-Recursion.html">Recursive Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-Recursion/05-02-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06 Binding and Scope</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-01-Binding.html">Binding and scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-02-Alias.html">Aliasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-03-Scopes.html">Scopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-03-1-Qualified.html">Imported and Qualified Names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-04-Binding-Recursion.html">Binding in Recursive Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-05-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07 Efficiency</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07-01-Efficiency.html">Efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-02-Binary-Search.html">Binary Search</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08 Recursive Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../08-Recursive-Data/08-01-Recursive-Data-Structures.html">Recursive Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-Recursive-Data/08-02-Nested-Dicts.html">Other Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-Recursive-Data/08-03-Treemap-Project.html">Treemap Visualization of Recursive Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-Recursive-Data/08-04-Shape-of-Data.html">Addendum: The Shape of Data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/07-Efficiency/07-03-Exercises.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UO-CS-OER/CS210-text" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F07-Efficiency/07-03-Exercises.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/07-Efficiency/07-03-Exercises.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/07-Efficiency/07-03-Exercises.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exercises</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Consider a function to remove duplicates from a list. Our first
+(incorrect) attempt might be something like this:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">unique_elements</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;INCORRECT algorithm --- crashes with index error&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Remove any duplicate elements&quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">lst</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                <span class="n">lst</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lst</span>
+</pre></div>
+</div>
+<p>This function has at least two errors.  First, it is modifying list
+<code class="docutils literal notranslate"><span class="pre">lst</span></code>, a violation of the contract given in its header and
+docstring.  From the function header and docstring, we should expect
+it to leave <code class="docutils literal notranslate"><span class="pre">lst</span></code> unchanged.  But even if we modified its docstring
+to say that it removed duplicates from <code class="docutils literal notranslate"><span class="pre">lst</span></code>, it would still fail
+with an index error.  Can you see why?</p>
+<p>A second attempt might build up a copy of only the unique elements.
+This function works correctly, but it is not an efficient solution.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">unique_elements</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Works, but quadratic complexity ... make it linear&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)):</span>
+        <span class="c1"># Copy only the *last* instance</span>
+        <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>At a glance you might expect this to be a linear time algorithm,
+relative to the length of <code class="docutils literal notranslate"><span class="pre">lst</span></code>.  There is only one loop, right?
+But it is actually a quadratic time
+algorithm.  Can you see why?</p>
+<p>Write a version of <code class="docutils literal notranslate"><span class="pre">unique_elements</span></code> that requires time linear in
+the length of <code class="docutils literal notranslate"><span class="pre">lst</span></code>.  Hint:  Adding and checking elements in a <code class="docutils literal notranslate"><span class="pre">set</span></code>
+or <code class="docutils literal notranslate"><span class="pre">dict</span></code> data structure are constant time operations.</p>
+<p>Bonus puzzle with additional Python goodies:  Suppose we did want to
+remove duplicates from the
+list, rather than returning a copy without duplicates.  Can you do
+that in linear time?  (My solution to this involves “slice”
+operations on a list, which you can read about in the
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range">Python library documentation for mutable sequences</a>)</p>
+<ol class="arabic simple" start="2">
+<li><p>Finish function <code class="docutils literal notranslate"><span class="pre">find</span></code> by writing a binary search for a list of
+(key, value) pairs ordered by key.  Try to write it without
+referring back to the binary search function presented in this
+chapter.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">table</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span> <span class="n">failure</span><span class="p">:</span> <span class="nb">int</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return value associated with key, or failure value (default -1) if key not present.</span>
+<span class="sd">    Table is list of (key, value) pairs, ordered (sorted) by key.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">0</span>  <span class="c1"># FIXME</span>
+
+<span class="n">fruit_calories</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># Per 100mg serving</span>
+    <span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="mi">52</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;figs&quot;</span><span class="p">,</span> <span class="mi">74</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;kiwi&quot;</span><span class="p">,</span> <span class="mi">61</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;papaya&quot;</span><span class="p">,</span> <span class="mi">39</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;plum&quot;</span><span class="p">,</span> <span class="mi">46</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;watermelon&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)]</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Apple -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting 52)&quot;</span><span class="p">)</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;kiwi&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kiwi -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting 61)&quot;</span><span class="p">)</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;papaya&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Papaya -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting 39)&quot;</span><span class="p">)</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;watermelon&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Watermelon -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting 30)&quot;</span><span class="p">)</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;aardvark&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aardvark -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting -1)&quot;</span><span class="p">)</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;grape&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Grape -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting -1)&quot;</span><span class="p">)</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;zzz&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;zzz -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting -1)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Sometimes we want to prepare for binary search, but we can’t put
+the items we wish to search into sorted order.  for example, we
+might want to search by more than one criterion, like searching a
+table of names by either given name (“first name” in English) or
+surname (“last name” in English). Then, instead of sorting the
+list itself, we can make a sorted <em>index</em> as an auxillary
+structure. For example, suppose we have the following table of
+game scores, ordered by given name:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Amara&#39;</span><span class="p">,</span> <span class="s1">&#39;Chandler&#39;</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Brooklyn&#39;</span><span class="p">,</span> <span class="s1">&#39;Hatfield&#39;</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Cherish&#39;</span><span class="p">,</span> <span class="s1">&#39;Burnett&#39;</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Cruz&#39;</span><span class="p">,</span> <span class="s1">&#39;Alvarado&#39;</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Delaney&#39;</span><span class="p">,</span> <span class="s1">&#39;Espinoza&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Hayley&#39;</span><span class="p">,</span> <span class="s1">&#39;Khan&#39;</span><span class="p">,</span> <span class="mi">57</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Isiah&#39;</span><span class="p">,</span> <span class="s1">&#39;Yoder&#39;</span><span class="p">,</span> <span class="mi">41</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Jazmine&#39;</span><span class="p">,</span> <span class="s1">&#39;Crosby&#39;</span><span class="p">,</span> <span class="mi">29</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Kevin&#39;</span><span class="p">,</span> <span class="s1">&#39;Cochran&#39;</span><span class="p">,</span> <span class="mi">14</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Mike&#39;</span><span class="p">,</span> <span class="s1">&#39;Ingram&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Niko&#39;</span><span class="p">,</span> <span class="s1">&#39;Brandt&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Scarlet&#39;</span><span class="p">,</span> <span class="s1">&#39;Gamble&#39;</span><span class="p">,</span> <span class="mi">39</span><span class="p">]</span>
+          <span class="p">]</span>
+</pre></div>
+</div>
+<p>then an auxillary index by surname might be</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">surname_index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>which indicates that the name that is first by surname is “Cruz
+Alvarado”, in position 3, followed by “Niko Brandt” in position 10,
+then “Cherish Burnett” in position 2, and so on.</p>
+<p><img alt="Auxillary index of surnames" src="../_images/aux-index.svg" /></p>
+<p>Database systems do something like this, although they use a
+different structure (a tree rather than a list) for each auxillary
+index.</p>
+<p>Now suppose we want to search a list with an auxillary index.  We
+could pass a function for extracting the search key field from each
+row, like the <code class="docutils literal notranslate"><span class="pre">key</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">sort</span></code> and <code class="docutils literal notranslate"><span class="pre">sorted</span></code> built-in
+functions, but for the sake of this exercise we’ll just pass a
+column index.</p>
+<p>We can then write a binary search function using the auxillary index:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">indexed_search</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">],</span> <span class="n">aux_index</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">key_column</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns row in values such that row[key_column] == key, if there is any such row, otherwise [].</span>
+<span class="sd">    Requires aux_index be a list of indices of values ordered by values in key_column.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[]</span>  <span class="c1"># FIXME</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Yoder -&gt; </span><span class="si">{</span><span class="n">indexed_search</span><span class="p">(</span><span class="s1">&#39;Yoder&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">scores</span><span class="p">,</span><span class="w"> </span><span class="n">surname_index</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hatfield -&gt; </span><span class="si">{</span><span class="n">indexed_search</span><span class="p">(</span><span class="s1">&#39;Hatfield&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">scores</span><span class="p">,</span><span class="w"> </span><span class="n">surname_index</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Espinoza -&gt; </span><span class="si">{</span><span class="n">indexed_search</span><span class="p">(</span><span class="s1">&#39;Espinoza&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">scores</span><span class="p">,</span><span class="w"> </span><span class="n">surname_index</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Smith -&gt; </span><span class="si">{</span><span class="n">indexed_search</span><span class="p">(</span><span class="s1">&#39;Smith&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">scores</span><span class="p">,</span><span class="w"> </span><span class="n">surname_index</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output we expect is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Yoder</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="s1">&#39;Isiah&#39;</span><span class="p">,</span> <span class="s1">&#39;Yoder&#39;</span><span class="p">,</span> <span class="mi">41</span><span class="p">]</span>
+<span class="n">Hatfield</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="s1">&#39;Brooklyn&#39;</span><span class="p">,</span> <span class="s1">&#39;Hatfield&#39;</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">Espinoza</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="s1">&#39;Delaney&#39;</span><span class="p">,</span> <span class="s1">&#39;Espinoza&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">Smith</span> <span class="o">-&gt;</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<section id="solutions">
+<h2>Solutions<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Extract unique elements from a list.  The first version given
+above crashes with an index error because <code class="docutils literal notranslate"><span class="pre">lst.pop(i)</span></code> makes the
+list shorter.  The second version is quadratic time because,
+even though only one loop is visible in our code,
+the <code class="docutils literal notranslate"><span class="pre">in</span></code> in <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">lst[i]</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">lst[i+1:]</span></code> is actually a loop. To
+do better, we need to use only constant time operations within
+the loop.   A <code class="docutils literal notranslate"><span class="pre">dict</span></code> or <code class="docutils literal notranslate"><span class="pre">set</span></code> can provide the constant time
+operations we need.  As the <code class="docutils literal notranslate"><span class="pre">dict</span></code> structure may be more familiar,
+I’ll give that version first:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">unique_elements</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Linear time algorithm&quot;&quot;&quot;</span>
+    <span class="n">seen</span> <span class="o">=</span> <span class="p">{}</span>    <span class="c1"># Elements we have already seen</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">seen</span><span class="p">[</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">uniq</span> <span class="o">=</span> <span class="n">unique_elements</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">uniq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 7, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we only care about whether an element is in the <code class="docutils literal notranslate"><span class="pre">dict</span></code>, rather
+than associating a value we need with each element, we can use a
+<code class="docutils literal notranslate"><span class="pre">set</span></code> instead of a <code class="docutils literal notranslate"><span class="pre">dict</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">unique_elements</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Linear time algorithm&quot;&quot;&quot;</span>
+    <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>    <span class="c1"># Elements we have already seen</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">uniq</span> <span class="o">=</span> <span class="n">unique_elements</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">uniq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 7, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bonus puzzle:  Removing duplicates in linear time.  We haven’t
+studied “slicing” lists, but the Python standard library
+documentation (you do have it bookmarked, right?) describes
+operations on <em>slices</em> like <code class="docutils literal notranslate"><span class="pre">lst[i:j]</span></code>.  Assigning to a slice of a
+list requires linear time in the length of that list.  A constant
+number of linear time operations is still linear time.  We can reuse
+the <code class="docutils literal notranslate"><span class="pre">unique_elements</span></code> function we have already written and combine
+it with a couple of slice assignments to get a 1remove_duplicates`
+function that works in linear time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_dups</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Remove duplicate elements from lst&quot;&quot;&quot;</span>
+    <span class="n">uniques</span> <span class="o">=</span> <span class="n">unique_elements</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>    <span class="c1"># Linear time</span>
+    <span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">uniques</span><span class="p">)]</span> <span class="o">=</span> <span class="n">uniques</span>     <span class="c1"># Linear time</span>
+    <span class="n">lst</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">uniques</span><span class="p">):]</span> <span class="o">=</span> <span class="p">[]</span>           <span class="c1"># Linear time</span>
+    <span class="c1"># Doing 3 linear time operations is still linear time!</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">remove_dups</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transmogrified&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transmogrified
+[1, 2, 7, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Binary search in a list of (key value) pairs.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">table</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span> <span class="n">failure</span><span class="p">:</span> <span class="nb">int</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return value associated with key, or failure value (default -1) if key not present.</span>
+<span class="sd">    Table is list of (key, value) pairs, ordered (sorted) by key.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">v</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">failure</span>
+
+<span class="n">fruit_calories</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># Per 100mg serving</span>
+    <span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="mi">52</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;figs&quot;</span><span class="p">,</span> <span class="mi">74</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;kiwi&quot;</span><span class="p">,</span> <span class="mi">61</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;papaya&quot;</span><span class="p">,</span> <span class="mi">39</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;plum&quot;</span><span class="p">,</span> <span class="mi">46</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;watermelon&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)]</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Apple -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting 52)&quot;</span><span class="p">)</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;kiwi&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kiwi -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting 61)&quot;</span><span class="p">)</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;papaya&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Papaya -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting 39)&quot;</span><span class="p">)</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;watermelon&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Watermelon -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting 30)&quot;</span><span class="p">)</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;aardvark&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aardvark -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting -1)&quot;</span><span class="p">)</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;grape&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Grape -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting -1)&quot;</span><span class="p">)</span>
+
+<span class="n">cal</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;zzz&quot;</span><span class="p">,</span> <span class="n">fruit_calories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;zzz -&gt; </span><span class="si">{</span><span class="n">cal</span><span class="si">}</span><span class="s2"> (expecting -1)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Apple -&gt; 52 (expecting 52)
+Kiwi -&gt; 61 (expecting 61)
+Papaya -&gt; 39 (expecting 39)
+Watermelon -&gt; 30 (expecting 30)
+Aardvark -&gt; -1 (expecting -1)
+Grape -&gt; -1 (expecting -1)
+zzz -&gt; -1 (expecting -1)
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Binary search with an auxillary index.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Amara&#39;</span><span class="p">,</span> <span class="s1">&#39;Chandler&#39;</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Brooklyn&#39;</span><span class="p">,</span> <span class="s1">&#39;Hatfield&#39;</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Cherish&#39;</span><span class="p">,</span> <span class="s1">&#39;Burnett&#39;</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Cruz&#39;</span><span class="p">,</span> <span class="s1">&#39;Alvarado&#39;</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Delaney&#39;</span><span class="p">,</span> <span class="s1">&#39;Espinoza&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Hayley&#39;</span><span class="p">,</span> <span class="s1">&#39;Khan&#39;</span><span class="p">,</span> <span class="mi">57</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Isiah&#39;</span><span class="p">,</span> <span class="s1">&#39;Yoder&#39;</span><span class="p">,</span> <span class="mi">41</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Jazmine&#39;</span><span class="p">,</span> <span class="s1">&#39;Crosby&#39;</span><span class="p">,</span> <span class="mi">29</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Kevin&#39;</span><span class="p">,</span> <span class="s1">&#39;Cochran&#39;</span><span class="p">,</span> <span class="mi">14</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Mike&#39;</span><span class="p">,</span> <span class="s1">&#39;Ingram&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Niko&#39;</span><span class="p">,</span> <span class="s1">&#39;Brandt&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;Scarlet&#39;</span><span class="p">,</span> <span class="s1">&#39;Gamble&#39;</span><span class="p">,</span> <span class="mi">39</span><span class="p">]</span>
+          <span class="p">]</span>
+
+<span class="n">surname_index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">indexed_search</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">],</span> <span class="n">aux_index</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">key_column</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns row in values such that row[key_column] == key, if there is any such row, otherwise [].</span>
+<span class="sd">    Requires aux_index be a list of indices of values ordered by values in key_column.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">aux_index</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">high</span> <span class="o">+</span> <span class="n">low</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">aux_index</span><span class="p">[</span><span class="n">mid</span><span class="p">]]</span>
+        <span class="n">row_key</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">key_column</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">row_key</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">row</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">row_key</span><span class="p">:</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="p">[]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Yoder -&gt; </span><span class="si">{</span><span class="n">indexed_search</span><span class="p">(</span><span class="s1">&#39;Yoder&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">scores</span><span class="p">,</span><span class="w"> </span><span class="n">surname_index</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hatfield -&gt; </span><span class="si">{</span><span class="n">indexed_search</span><span class="p">(</span><span class="s1">&#39;Hatfield&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">scores</span><span class="p">,</span><span class="w"> </span><span class="n">surname_index</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Espinoza -&gt; </span><span class="si">{</span><span class="n">indexed_search</span><span class="p">(</span><span class="s1">&#39;Espinoza&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">scores</span><span class="p">,</span><span class="w"> </span><span class="n">surname_index</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Smith -&gt; </span><span class="si">{</span><span class="n">indexed_search</span><span class="p">(</span><span class="s1">&#39;Smith&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">scores</span><span class="p">,</span><span class="w"> </span><span class="n">surname_index</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Yoder -&gt; [&#39;Isiah&#39;, &#39;Yoder&#39;, 41]
+Hatfield -&gt; [&#39;Brooklyn&#39;, &#39;Hatfield&#39;, 90]
+Espinoza -&gt; [&#39;Delaney&#39;, &#39;Espinoza&#39;, 10]
+Smith -&gt; []
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "UO-CS-OER/CS210-text",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./07-Efficiency"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="07-02-Binary-Search.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Binary Search</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../08-Recursive-Data/08-01-Recursive-Data-Structures.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Recursive Data Structures</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michal Young
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022-2024 Michal Young and University of Oregon.  Creative Commons Share-Alike Attribution license.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
