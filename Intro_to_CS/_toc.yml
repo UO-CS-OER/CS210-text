@@ -52,6 +52,7 @@ parts:
     chapters:
       - file: 07-Efficiency/07-01-Efficiency.md
       - file: 07-Efficiency/07-02-Binary-Search.md
+      - file: 07-Efficiency/07-03-Exercises.md
 
   - caption:  08 Recursive Data
     chapters:
