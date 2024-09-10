@@ -1,0 +1,1167 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exercises &#8212; Introduction to Computer Science I</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessible.css?v=730afe76" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=ff8fa330"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '08-Recursive-Data/08-05-Exercises';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Addendum: The Shape of Data" href="08-04-Shape-of-Data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-provisional.png" class="logo__image only-light" alt="Introduction to Computer Science I - Home"/>
+    <script>document.write(`<img src="../_static/logo-provisional.png" class="logo__image only-dark" alt="Introduction to Computer Science I - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Computer Science, part 1
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accessibility Statement</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-Accessibility/00-01-Accessibility.html">A Free, Open, and Accessible Computer Science Text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Getting a Start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-01-Prospectus.html">A Course in Computational Thinking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-02-Install.html">Installing Python and IDLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-03-Kickstart.html">Python Programming Kickstart</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 Writing Functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-01-Functions.html">Designing and Building Functions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-02-Scope.html">Binding:  Functions and Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-03-Hygiene.html">Function Hygiene in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-04-Terms.html">Review of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-05-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 Collections and Loops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-01-Collections.html">Collections and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-02-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 More Loops and Collections</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-01-More-Loops.html">Loops and more loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-02-Parallel-Lists.html">Parallel Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-03-Indefinite-Loops.html">Indefinite loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-04-Successive-Approximation.html">Successive approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-05-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05 Recursion</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05-Recursion/05-01-Recursion.html">Recursive Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-Recursion/05-02-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06 Binding and Scope</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-01-Binding.html">Binding and scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-02-Alias.html">Aliasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-03-Scopes.html">Scopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-03-1-Qualified.html">Imported and Qualified Names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-04-Binding-Recursion.html">Binding in Recursive Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-05-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07 Efficiency</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-01-Efficiency.html">Efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-02-Binary-Search.html">Binary Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-03-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08 Recursive Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08-01-Recursive-Data-Structures.html">Recursive Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-02-Nested-Dicts.html">Other Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-03-Treemap-Project.html">Treemap Visualization of Recursive Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-04-Shape-of-Data.html">Addendum: The Shape of Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/08-Recursive-Data/08-05-Exercises.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UO-CS-OER/CS210-text" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F08-Recursive-Data/08-05-Exercises.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/08-Recursive-Data/08-05-Exercises.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/08-Recursive-Data/08-05-Exercises.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exercises</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Write a function to <em>flatten</em> a nested list of integers, i.e., to
+return a list containing all the same integers but without
+nesting. For example, given <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">[2,</span> <span class="pre">[3,</span> <span class="pre">4],</span> <span class="pre">5],</span> <span class="pre">6]</span></code>, <code class="docutils literal notranslate"><span class="pre">flatten</span> <span class="pre">(l)</span></code> should return <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6]</span></code>.</p></li>
+<li><p>An <em>S-expression</em> is a form of nested list.</p>
+<ul class="simple">
+<li><p>An S-expression can be an <em>atom</em>.  For this exercise, atoms
+will be strings.</p></li>
+<li><p>An S-expression can be a list in which the first element is
+called the <em>head</em> and must be an atom.  The remainder of the
+list (zero or more elements) is called the <em>tail</em>.  Each
+element of the tail is an S-expression.</p></li>
+</ul>
+</li>
+</ol>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">[&quot;1.&quot;,</span> <span class="pre">&quot;a&quot;,</span> <span class="pre">[&quot;b&quot;,</span> <span class="pre">&quot;b.1&quot;,</span> <span class="pre">&quot;b.2&quot;],</span> <span class="pre">&quot;c&quot;]</span></code> is an
+S-expression.</p>
+<p>Write a function to print an S-expression as a bulleted list. For
+example, given the list above, your function should print</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>- 1.
+  - a
+  - b
+      - b.1
+      - b.2
+  - c
+</pre></div>
+</div>
+<p>Given this S-expression</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">menu</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Menu&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Coffee&quot;</span><span class="p">,</span>  <span class="s2">&quot;Caffe latte&quot;</span><span class="p">,</span> <span class="s2">&quot;Caffe espresso&quot;</span><span class="p">,</span> <span class="s2">&quot;Cappuccino&quot;</span><span class="p">,</span> <span class="s2">&quot;Latte macchiato&quot;</span><span class="p">],</span>
+                <span class="p">[</span><span class="s2">&quot;Tea&quot;</span><span class="p">,</span>  <span class="p">[</span><span class="s2">&quot;Green Teas&quot;</span><span class="p">,</span> <span class="s2">&quot;烏龍 (Oolong)&quot;</span><span class="p">,</span> <span class="s2">&quot;毛尖花 (Mao Jian flowers)&quot;</span><span class="p">,</span> <span class="s2">&quot;抹茶 (Matcha)&quot;</span><span class="p">],</span>
+                        <span class="p">[</span><span class="s2">&quot;Black and Red Teas&quot;</span><span class="p">,</span> <span class="s2">&quot;Darjeeling&quot;</span><span class="p">,</span> <span class="s2">&quot;Lapsang Souchong&quot;</span><span class="p">,</span> <span class="s2">&quot;Assam&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;Masala chai&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;Water&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>it should print</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>- Menu
+    - Coffee
+        - Caffe latte
+        - Caffe espresso
+        - Cappuccino
+        - Latte macchiato
+    - Tea
+        - Green Teas
+            - 烏龍 (Oolong)
+            - 毛尖花 (Mao Jian flowers)
+            - 抹茶 (Matcha)
+        - Black and Red Teas
+            - Darjeeling
+            - Lapsang Souchong
+            - Assam
+        - Masala chai
+    - Water
+</pre></div>
+</div>
+<ol class="arabic" start="3">
+<li><p>A specification of a data structure is called a <em>schema</em>
+(plural: <em>schemata</em>). For
+example, a database schema might describe one or more database
+tables and associate a name and type with each column in each
+table.   A user of the <em>pandas</em> statistical software package
+might use
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.columns.html">pandas.DataFrame.columns</a>
+and
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dtypes.html">pandas.DataFrame.dtypes</a>
+to query the schema of a dataframe.
+In Python we use type annotations to document the schema of each
+formal argument to a function, whether that schema is as simple
+as a built-in type iike <code class="docutils literal notranslate"><span class="pre">int</span></code> or as complex as the recursive
+<code class="docutils literal notranslate"><span class="pre">Nest</span></code> data structure we used in
+<a class="reference external" href="https://github.com/UO-CS210/Treemap">our treemap project</a>.</p>
+<p>It is convenient to save and restore Python data structures
+using the <a class="reference external" href="https://www.json.org/json-en.html">JSON</a> data exchnge
+format.  Python makes it easy using the built-in
+<a class="reference external" href="https://docs.python.org/3/library/json.html">json</a> module.
+However, when we read a JSON document into a Python structure,
+it is not easy to check that it conforms to the structures we
+expected.   It would be nice to be able to check the structure
+against a schema.</p>
+<p>We can use S-expressions to express schemata for nested
+structures of lists and dicts produced by <code class="docutils literal notranslate"><span class="pre">json.load</span></code> or
+<code class="docutils literal notranslate"><span class="pre">json.loads</span></code>. We’ll begin by limiting ourselves to structures of
+fixed depth (i.e., nested but not recursive), and limit the
+atomic elements to <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, and <code class="docutils literal notranslate"><span class="pre">float</span></code>. The permitted
+forms of a schema will be</p>
+<ul class="simple">
+<li><p>An atomic type name <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p>A composite structure <code class="docutils literal notranslate"><span class="pre">[list</span> <span class="pre">S]</span></code> or <code class="docutils literal notranslate"><span class="pre">[dict</span> <span class="pre">A</span> <span class="pre">S]</span></code>, where <code class="docutils literal notranslate"><span class="pre">S</span></code> is
+a schema and <code class="docutils literal notranslate"><span class="pre">A</span></code> is an atomic type name.</p></li>
+</ul>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">'a':</span> <span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3],</span> <span class="pre">'b':</span> <span class="pre">[3,</span> <span class="pre">4]}</span></code> would conform to
+schema <code class="docutils literal notranslate"><span class="pre">[dict</span> <span class="pre">str</span> <span class="pre">[list</span> <span class="pre">int]]</span></code> but would not conform to schema
+<code class="docutils literal notranslate"><span class="pre">[list</span> <span class="pre">[dict</span> <span class="pre">str</span> <span class="pre">int]]</span></code>.</p>
+<p>Write a checker function that takes a structure and a schema
+(expressed as an S-expression) and
+returns <code class="docutils literal notranslate"><span class="pre">True</span></code> iff the structure conforms to the schema.</p>
+</li>
+<li><p>The schema specifications in exercise 3 allow us to specify the
+content of a <em>homogenous</em> list (that is, a list in which each
+element has the same type), but they do not let us specify that a
+list should have exactly <em>k</em> elements, which a particular type
+for each element (e.g., each column in a database table or a
+spreadsheet).   Extend your solution to exercise 2 with a new
+composite structure <code class="docutils literal notranslate"><span class="pre">[&quot;row&quot;,</span> <span class="pre">S,</span> <span class="pre">S,</span> <span class="pre">...]</span></code> where each <code class="docutils literal notranslate"><span class="pre">S</span></code> is a schema.
+For example <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">&quot;apple&quot;,</span> <span class="pre">[2,</span> <span class="pre">3,</span> <span class="pre">6]]</span></code> conforms to
+<code class="docutils literal notranslate"><span class="pre">[&quot;row&quot;,</span>&#160; <span class="pre">int,</span> <span class="pre">str,</span> <span class="pre">[list,</span> <span class="pre">int]])</span></code>.</p></li>
+</ol>
+<p>4a. Bonus challenge:
+A schema is itself a nested (and recursive)
+data structure.  Write a checker that returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if a schema
+is correctly structured.</p>
+<p>4b. Bonus challenge (advanced):<br />
+Devise an approach to specify schemata for
+recursive data structures.   You will need a way to introduce
+names for the recursive elements and a way to allow alternatives
+(so that you can give a recursive case and a base case for the
+structure).  Providing enough expressive power while keeping the
+schemata as simple and readable as possible is not easy!</p>
+<section id="solutions">
+<h2>Solutions<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Write a function to <em>flatten</em> a nested list of integers, i.e., to
+return a list containing all the same integers but without
+nesting. For example, given <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">[2,</span> <span class="pre">[3,</span> <span class="pre">4],</span> <span class="pre">5],</span> <span class="pre">6]</span></code>, <code class="docutils literal notranslate"><span class="pre">flatten</span> <span class="pre">(l)</span></code> should return <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6]</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IntNest</span> <span class="o">=</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;IntNest&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">IntNest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span> 
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span> 
+        <span class="c1"># Base case:</span>
+        <span class="c1"># Counter-intuitively, we will pack the int </span>
+        <span class="c1"># into a list so that we can treat all results</span>
+        <span class="c1"># uniformly in the recursive case.</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">l</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span> 
+        <span class="c1"># Recursive case:  Obtain a flat list from each element,</span>
+        <span class="c1"># and merge them. </span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span> 
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">flatten</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This isn&#39;t an IntNest: </span><span class="si">{</span><span class="n">l</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">l_flat</span> <span class="o">=</span> <span class="n">flatten</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l_flat</span><span class="p">)</span>  <span class="c1"># Expect [1, 2, 3, 4, 5, 6]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s another approach, which is probably a little more efficient
+because appending to a list is faster than concatenating lists:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alternative version, with a helper function </span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">construct_flat</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">IntNest</span><span class="p">,</span> <span class="n">flat</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Insert each integer into flat&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">flat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span> 
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span> 
+             <span class="n">construct_flat</span><span class="p">(</span><span class="n">el</span><span class="p">,</span> <span class="n">flat</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This isn&#39;t an IntNest: </span><span class="si">{</span><span class="n">l</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">IntNest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">construct_flat</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+    
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">l_flat</span> <span class="o">=</span> <span class="n">flatten</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l_flat</span><span class="p">)</span>  <span class="c1"># Expect [1, 2, 3, 4, 5, 6]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6]
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="2">
+<li><p>Write a function to print an S-expression as a bulleted list.
+In this sample solution, I introduce a type name <code class="docutils literal notranslate"><span class="pre">Sexp</span></code> to formulate
+some (but not all) of the rules for S-expressions, and use a
+keyword argument <code class="docutils literal notranslate"><span class="pre">level</span></code> with a default value of 0 to control
+indentation level.   The <code class="docutils literal notranslate"><span class="pre">howto</span></code> document for the <a class="reference external" href="https://github.com/UO-CS210/Treemap">treemap project</a>
+introduces complex type definitions like the declaration of
+<code class="docutils literal notranslate"><span class="pre">Sexp</span></code> in this exercise and <code class="docutils literal notranslate"><span class="pre">Schema</span></code> in the next.</p>
+<p>Printing with <code class="docutils literal notranslate"><span class="pre">end=&quot;&quot;</span></code> is a way to print
+without going to the next line, but you could accomplish the same
+thing by building up a string for the “leader” (indentation plus
+bullet) on each line.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Sexp</span> <span class="o">=</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;Sexp&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">print_bulleted</span><span class="p">(</span><span class="n">exp</span><span class="p">:</span> <span class="n">Sexp</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Printed nest as bulleted list.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">level</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">exp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">exp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">exp</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">print_bulleted</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">level</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            
+<span class="n">menu</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Menu&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Coffee&quot;</span><span class="p">,</span>  <span class="s2">&quot;Caffe latte&quot;</span><span class="p">,</span> <span class="s2">&quot;Caffe espresso&quot;</span><span class="p">,</span> <span class="s2">&quot;Cappuccino&quot;</span><span class="p">,</span> <span class="s2">&quot;Latte macchiato&quot;</span><span class="p">],</span>
+                <span class="p">[</span><span class="s2">&quot;Tea&quot;</span><span class="p">,</span>  <span class="p">[</span><span class="s2">&quot;Green Teas&quot;</span><span class="p">,</span> <span class="s2">&quot;烏龍 (Oolong)&quot;</span><span class="p">,</span> <span class="s2">&quot;毛尖花 (Mao Jian flowers)&quot;</span><span class="p">,</span> <span class="s2">&quot;抹茶 (Matcha)&quot;</span><span class="p">],</span>
+                        <span class="p">[</span><span class="s2">&quot;Black and Red Teas&quot;</span><span class="p">,</span> <span class="s2">&quot;Darjeeling&quot;</span><span class="p">,</span> <span class="s2">&quot;Lapsang Souchong&quot;</span><span class="p">,</span> <span class="s2">&quot;Assam&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;Masala chai&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;Water&quot;</span><span class="p">]</span>
+
+<span class="n">print_bulleted</span><span class="p">(</span><span class="n">menu</span><span class="p">)</span>           
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Menu
+    - Coffee
+        - Caffe latte
+        - Caffe espresso
+        - Cappuccino
+        - Latte macchiato
+    - Tea
+        - Green Teas
+            - 烏龍 (Oolong)
+            - 毛尖花 (Mao Jian flowers)
+            - 抹茶 (Matcha)
+        - Black and Red Teas
+            - Darjeeling
+            - Lapsang Souchong
+            - Assam
+        - Masala chai
+    - Water
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Check conformance of a structure to a schema. Your solution does
+not need to be as complex as mine – it is ok to assume the schema
+is well-formed.  A lot of the code
+in my sample solution, below, is checking the well-formedness of
+the schema as we work through the schema and the structure
+together.  Note that my sample solution raises an exception when
+the schema is
+ill-formed, instead of returning <code class="docutils literal notranslate"><span class="pre">False</span></code> as it does when the
+schema is well-formed but the structure does not conform to the
+schema.  The exception messages print types like <code class="docutils literal notranslate"><span class="pre">int</span></code> as <code class="docutils literal notranslate"><span class="pre">&lt;class</span>&#160; <span class="pre">int&gt;</span></code> … let me know if you find a way to fix that!</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Schema</span> <span class="o">=</span> <span class="nb">type</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;Schema&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">conforms</span><span class="p">(</span><span class="n">structure</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Schema</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Like &quot;isinstance&quot; but checking a structure against a</span>
+<span class="sd">    schema that could be int, str, float or an S-expression</span>
+<span class="sd">    [list S] or [dict A S]. where A is int, str, or float and</span>
+<span class="sd">    S is a schema.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">schema</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">pass</span>  <span class="c1"># continued below</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ill-formed schema </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2"> should be int, float, str,&quot;</span> <span class="o">+</span>
+                         <span class="s2">&quot;[list element-schema], or [dict key-type value-schema]&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Schema is a list</span>
+    <span class="n">t</span><span class="p">,</span> <span class="o">*</span><span class="n">components</span> <span class="o">=</span> <span class="n">schema</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schema composite types are list and dict, not </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">components</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schema for list should have one component type, not </span><span class="si">{</span><span class="n">components</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">comp_type</span> <span class="o">=</span> <span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">structure</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">conforms</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># t is dict</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">components</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dict schema should have two component types, for key and value, not </span><span class="si">{</span><span class="n">components</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">key_type</span><span class="p">,</span> <span class="n">value_type</span> <span class="o">=</span> <span class="n">components</span>
+        <span class="k">if</span> <span class="n">key_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dict schema key type should be str, int, or float, not </span><span class="si">{</span><span class="n">key_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">structure</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">key_type</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">conforms</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">value_type</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">conforms</span><span class="p">({</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]},</span>  
+               <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]))</span>            <span class="c1"># Expect True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conforms</span><span class="p">({</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]},</span> 
+               <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]))</span>           <span class="c1"># Expect False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conforms</span><span class="p">([{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="mi">4</span> <span class="p">}],</span> 
+                <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]))</span>          <span class="c1"># Expect True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conforms</span><span class="p">([{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="mi">4</span> <span class="p">}],</span> 
+               <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]))</span>           <span class="c1"># Expect False</span>
+
+<span class="c1"># Exception rather than False for malformed schemata</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">conforms</span><span class="p">({</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]},</span>
+             <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span>
+    <span class="k">raise</span><span class="p">(</span><span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Malformed schema should have failed!&quot;</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rejected malformed schema as expected: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+False
+Rejected malformed schema as expected: dict schema key type should be str, int, or float, not [&lt;class &#39;list&#39;&gt;, &lt;class &#39;int&#39;&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>The <em>row</em> schema is an additional case to consider, with
+traversal of the structure and schema as parallel arrays.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Schema</span> <span class="o">=</span> <span class="nb">type</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;Schema&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">conforms</span><span class="p">(</span><span class="n">structure</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Schema</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Like &quot;isinstance&quot; but checking a structure against a</span>
+<span class="sd">    schema that could be int, str, float or an S-expression</span>
+<span class="sd">    [list S] or [dict A S]. where A is int, str, or float and</span>
+<span class="sd">    S is a schema.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">schema</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">pass</span>  <span class="c1"># continued below</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ill-formed schema </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2"> should be int, float, str,&quot;</span> <span class="o">+</span>
+                         <span class="s2">&quot;[list element-schema], or [dict key-type value-schema]&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Schema is a list</span>
+    <span class="n">t</span><span class="p">,</span> <span class="o">*</span><span class="n">components</span> <span class="o">=</span> <span class="n">schema</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="s2">&quot;row&quot;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schema composite types are list and dict, not </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">components</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schema for list should have one component type, not </span><span class="si">{</span><span class="n">components</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">comp_type</span> <span class="o">=</span> <span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">structure</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">conforms</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;row&quot;</span><span class="p">:</span>
+        <span class="c1"># Also a list, but instead of one homogenous element type, we expect</span>
+        <span class="c1"># a schema for each column</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span>  <span class="nb">len</span><span class="p">(</span><span class="n">components</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">structure</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">components</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">conforms</span><span class="p">(</span><span class="n">structure</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">components</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># t is dict</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">components</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dict schema should have two component types, for key and value, not </span><span class="si">{</span><span class="n">components</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">key_type</span><span class="p">,</span> <span class="n">value_type</span> <span class="o">=</span> <span class="n">components</span>
+        <span class="k">if</span> <span class="n">key_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dict schema key type should be str, int, or float, not </span><span class="si">{</span><span class="n">key_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">structure</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">key_type</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">conforms</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">value_type</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">conforms</span><span class="p">({</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]},</span>  <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]))</span>        <span class="c1"># Expect True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conforms</span><span class="p">({</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]},</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]))</span>         <span class="c1"># Expect False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conforms</span><span class="p">([{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="mi">4</span> <span class="p">}],</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]))</span>  <span class="c1"># Expect True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conforms</span><span class="p">([{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="mi">4</span> <span class="p">}],</span> <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]))</span>  <span class="c1"># Expect False</span>
+<span class="c1"># Row schemata</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conforms</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> 
+               <span class="p">[</span><span class="s2">&quot;row&quot;</span><span class="p">,</span>  <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]))</span>              <span class="c1"># Expect  True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conforms</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}],</span> 
+               <span class="p">[</span><span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]))</span> <span class="c1"># Expect True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conforms</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}],</span> 
+               <span class="p">[</span><span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]))</span>     <span class="c1"># Expect False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+False
+True
+True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>4a.  Schema well-formedness checker.  The interesting thing about my
+solution is the way it maintains a boolean variable meaning “ok so
+far” so that it can find multiple errors.  How does it compare to
+yours?  Also note how a separate function <code class="docutils literal notranslate"><span class="pre">check_schema</span></code> starts and
+finishes the checking, to simplify the main recursive function
+<code class="docutils literal notranslate"><span class="pre">schema_well_formed</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Schema</span> <span class="o">=</span> <span class="nb">type</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;Schema&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">schema_well_formed</span><span class="p">(</span><span class="n">schema</span><span class="p">:</span> <span class="n">Schema</span><span class="p">,</span> <span class="n">errors</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check schema for being well-formed.</span>
+<span class="sd">    Optional argument &#39;errors&#39; receives a list of errors.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">errors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Recall the default argument gotcha from the Binding and Scope chapter.</span>
+        <span class="c1"># This is the standard workaround.</span>
+        <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Bind it now, not once at point of function definition</span>
+    <span class="c1"># The rest of this is like a stripped-down version of &#39;conforms&#39;, but with</span>
+    <span class="c1"># descriptions of issues encountered in the schema.</span>
+    <span class="k">if</span> <span class="n">schema</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">pass</span>  <span class="c1"># continued below</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ill-formed schema </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2"> should be int, float, str,&quot;</span> <span class="o">+</span>
+                         <span class="s2">&quot;[list, element-schema], or [dict, key-type, value-schema]&quot;</span> <span class="o">+</span>
+                         <span class="s2">&quot;or [&#39;row&#39;, col-schema, col-schema, ...]&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+
+    <span class="c1"># Schema is a list.  Boolean variasble &quot;ok&quot; is flipped to False when we encounter</span>
+    <span class="c1"># any error, but we continue to collect all errors we can find.</span>
+    <span class="n">ok</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">t</span><span class="p">,</span> <span class="o">*</span><span class="n">components</span> <span class="o">=</span> <span class="n">schema</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="s2">&quot;row&quot;</span><span class="p">]:</span>
+        <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schema composite types are list, row, and dict, not </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2"> in </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">ok</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">components</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">ok</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schema for list should have one component type, not </span><span class="si">{</span><span class="n">components</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">comp_type</span> <span class="o">=</span> <span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">comp_type</span> <span class="ow">in</span> <span class="n">components</span><span class="p">:</span>
+            <span class="n">ok</span> <span class="o">=</span> <span class="n">schema_well_formed</span><span class="p">(</span><span class="n">comp_type</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ok</span>
+    <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;row&quot;</span><span class="p">:</span>
+        <span class="c1"># Also a list, but instead of one homogenous element type, we expect</span>
+        <span class="c1"># a schema for each column</span>
+        <span class="k">for</span> <span class="n">comp_type</span> <span class="ow">in</span> <span class="n">components</span><span class="p">:</span>
+            <span class="n">ok</span> <span class="o">=</span> <span class="n">schema_well_formed</span><span class="p">(</span><span class="n">comp_type</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ok</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># t is dict</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">components</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">ok</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dict schema should have two component types, for key and value, not </span><span class="si">{</span><span class="n">components</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">components</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">key_type</span> <span class="o">=</span> <span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">key_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+                <span class="n">ok</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valid key types for dict are str, int, float, not </span><span class="si">{</span><span class="n">key_type</span><span class="si">}</span><span class="s2"> in </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">value_type</span> <span class="ow">in</span> <span class="n">components</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">ok</span> <span class="o">=</span> <span class="n">schema_well_formed</span><span class="p">(</span><span class="n">value_type</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ok</span>
+    <span class="k">return</span> <span class="n">ok</span>
+    
+
+<span class="k">def</span> <span class="nf">check_schema</span><span class="p">(</span><span class="n">schema</span><span class="p">:</span> <span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gathers and prints error messages plus overall well-formedness&quot;&quot;&quot;</span>
+    <span class="n">errors</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">if</span> <span class="n">schema_well_formed</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">errors</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Good schema </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">, errors=</span><span class="si">{</span><span class="n">errors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schema </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2"> rejected&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Errors:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">errors</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">()</span>
+
+
+<span class="n">check_schema</span><span class="p">([</span><span class="nb">dict</span><span class="p">,</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span>  <span class="c1"># Bad, can&#39;t use list as dict key</span>
+<span class="n">check_schema</span><span class="p">([</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span>          <span class="c1"># Good</span>
+<span class="n">check_schema</span><span class="p">([</span><span class="nb">list</span><span class="p">,</span> <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span>          <span class="c1"># Good</span>
+<span class="n">check_schema</span><span class="p">([</span><span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span> <span class="c1"># Good</span>
+<span class="n">check_schema</span><span class="p">([</span><span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Schema [&lt;class &#39;dict&#39;&gt;, [&lt;class &#39;list&#39;&gt;, &lt;class &#39;int&#39;&gt;], [&lt;class &#39;list&#39;&gt;, &lt;class &#39;int&#39;&gt;]] rejected
+Errors:
+Valid key types for dict are str, int, float, not [&lt;class &#39;list&#39;&gt;, &lt;class &#39;int&#39;&gt;] in [&lt;class &#39;dict&#39;&gt;, [&lt;class &#39;list&#39;&gt;, &lt;class &#39;int&#39;&gt;], [&lt;class &#39;list&#39;&gt;, &lt;class &#39;int&#39;&gt;]]
+
+Good schema [&lt;class &#39;dict&#39;&gt;, &lt;class &#39;str&#39;&gt;, [&lt;class &#39;list&#39;&gt;, &lt;class &#39;int&#39;&gt;]], errors=[]
+Good schema [&lt;class &#39;list&#39;&gt;, [&lt;class &#39;dict&#39;&gt;, &lt;class &#39;str&#39;&gt;, &lt;class &#39;int&#39;&gt;]], errors=[]
+Good schema [&#39;row&#39;, &lt;class &#39;int&#39;&gt;, &lt;class &#39;str&#39;&gt;, &lt;class &#39;int&#39;&gt;, &lt;class &#39;str&#39;&gt;, [&lt;class &#39;dict&#39;&gt;, &lt;class &#39;str&#39;&gt;, &lt;class &#39;int&#39;&gt;]], errors=[]
+Good schema [&#39;row&#39;, &lt;class &#39;int&#39;&gt;, &lt;class &#39;str&#39;&gt;, &lt;class &#39;int&#39;&gt;, &lt;class &#39;str&#39;&gt;, [&#39;row&#39;, &lt;class &#39;int&#39;&gt;]], errors=[]
+</pre></div>
+</div>
+</div>
+</div>
+<p>4b.  Devise an approach to specify schemata for
+recursive data structures. This is an open-ended design challenge
+that you could approach in many different ways, to the extent that
+I don’t know how to provide a “sample solution” like the more
+constrained exercises.  You might wish to look at how the
+<a class="reference external" href="https://json-schema.org/understanding-json-schema/structuring">JSON Schema</a>
+specification handles recursion (look for a heading “Recursion”),
+but … honestly, I find that spec overcomplicated and not clearly
+documented.  I’d like you to do better.</p>
+<p>See what you can come up with, and then
+let’s talk about it.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "UO-CS-OER/CS210-text",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./08-Recursive-Data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="08-04-Shape-of-Data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Addendum: The Shape of Data</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michal Young
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022-2024 Michal Young and University of Oregon.  Creative Commons Share-Alike Attribution license.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

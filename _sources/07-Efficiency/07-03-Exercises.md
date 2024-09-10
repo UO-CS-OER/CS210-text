@@ -299,22 +299,6 @@ print(f"zzz -> {cal} (expecting -1)")
 3. Binary search with an auxillary index.
 
 ```{code-cell} python3
-scores = [['Amara', 'Chandler', 40],
-          ['Brooklyn', 'Hatfield', 90],
-          ['Cherish', 'Burnett', 19],
-          ['Cruz', 'Alvarado', 80],
-          ['Delaney', 'Espinoza', 10],
-          ['Hayley', 'Khan', 57],
-          ['Isiah', 'Yoder', 41],
-          ['Jazmine', 'Crosby', 29],
-          ['Kevin', 'Cochran', 14],
-          ['Mike', 'Ingram', 8],
-          ['Niko', 'Brandt', 16],
-          ['Scarlet', 'Gamble', 39]
-          ]
-
-surname_index = [3, 10, 2, 0, 8, 7, 4, 11, 1, 9, 5, 6]
-
 def indexed_search(key: str, values: list[list], aux_index: list[int], key_column: int) -> list:
     """Returns row in values such that row[key_column] == key, if there is any such row, otherwise [].
     Requires aux_index be a list of indices of values ordered by values in key_column.
@@ -332,6 +316,16 @@ def indexed_search(key: str, values: list[list], aux_index: list[int], key_colum
         else:
             low = mid + 1
     return []
+
+
+scores = [['Amara', 'Chandler', 40], ['Brooklyn', 'Hatfield', 90],
+          ['Cherish', 'Burnett', 19], ['Cruz', 'Alvarado', 80],
+          ['Delaney', 'Espinoza', 10],['Hayley', 'Khan', 57], 
+          ['Isiah', 'Yoder', 41], ['Jazmine', 'Crosby', 29], 
+          ['Kevin', 'Cochran', 14], ['Mike', 'Ingram', 8], 
+          ['Niko', 'Brandt', 16], ['Scarlet', 'Gamble', 39]]
+
+surname_index = [3, 10, 2, 0, 8, 7, 4, 11, 1, 9, 5, 6]
 
 print(f"Yoder -> {indexed_search('Yoder', scores, surname_index, 1)}")
 print(f"Hatfield -> {indexed_search('Hatfield', scores, surname_index, 1)}")

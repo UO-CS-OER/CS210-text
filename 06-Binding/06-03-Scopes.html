@@ -223,11 +223,13 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Scopes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-03-1-Qualified.html">Imported and Qualified Names</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-04-Binding-Recursion.html">Binding in Recursive Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-05-Exercises.html">Exercises</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">07 Efficiency</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-01-Efficiency.html">Efficiency</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-02-Binary-Search.html">Binary Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-03-Exercises.html">Exercises</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">08 Recursive Data</span></p>
 <ul class="nav bd-sidenav">
@@ -235,6 +237,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../08-Recursive-Data/08-02-Nested-Dicts.html">Other Nested Structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Recursive-Data/08-03-Treemap-Project.html">Treemap Visualization of Recursive Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Recursive-Data/08-04-Shape-of-Data.html">Addendum: The Shape of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-Recursive-Data/08-05-Exercises.html">Exercises</a></li>
 </ul>
 
     </div>
@@ -499,6 +502,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-variables-are-local">Which variables are local?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-arguments-are-local-variables">Formal arguments are local variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-an-element-does-not-bind-the-collection">Modifying an element does not bind the collection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-arguments-a-binding-gotcha">Default Arguments: A Binding <em>Gotcha</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">Recap</a></li>
 </ul>
             </nav>
@@ -866,6 +870,80 @@ tries to make a copy of the local variable, which will fail because
 the local variable hasn’t been given a value yet.</p>
 <p><img alt="Can't reuse name for copy into local variable" src="../_images/copy-recycled-name.png" /></p>
 </section>
+<section id="default-arguments-a-binding-gotcha">
+<h2>Default Arguments: A Binding <em>Gotcha</em><a class="headerlink" href="#default-arguments-a-binding-gotcha" title="Link to this heading">#</a></h2>
+<p>Occasionally we have to think carefully about scope and about the
+<em>time</em> of binding to avoid unintended effects.  Some infamous
+<a class="reference external" href="https://docs.python-guide.org/writing/gotchas/">Python “gotchas”</a>
+result from unintended effects through shared bindings.</p>
+<p>A Python function can have keyword arguments as well as positional
+arguments, and those keyword arguments can have default values.  The
+keyword argument is bound to its default value just once, when the
+function is defined.   This seems fine …</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stars</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="p">[])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Should return list of n stars.  Oops.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">initial</span>
+    <span class="n">initial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">stars</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">initial</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">stars</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;*&#39;, &#39;*&#39;, &#39;*&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Handy!  But watch out …</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">stars</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;*&#39;, &#39;*&#39;, &#39;*&#39;, &#39;*&#39;, &#39;*&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Although the formal argument <code class="docutils literal notranslate"><span class="pre">initial</span></code> is local to function <code class="docutils literal notranslate"><span class="pre">stars</span></code>,
+the default value is bound to a mutable value whose scope is the
+module in which the function appears.  It is just as if we had written:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sneaky</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">def</span> <span class="nf">stars</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="n">sneaky</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Should return list of n stars.  Oops.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">initial</span>
+    <span class="n">initial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">stars</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">initial</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">stars</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stars</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;*&#39;, &#39;*&#39;, &#39;*&#39;]
+[&#39;*&#39;, &#39;*&#39;, &#39;*&#39;, &#39;*&#39;, &#39;*&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Variable <code class="docutils literal notranslate"><span class="pre">sneaky</span></code> is bound to an empty list just once, and then
+that binding is copied to <code class="docutils literal notranslate"><span class="pre">initial</span></code> each
+time we call <code class="docutils literal notranslate"><span class="pre">stars</span></code> without providing an explicit value for
+<code class="docutils literal notranslate"><span class="pre">initial</span></code>.  Many an hour of
+debugging has been spent diagnosing unexpected effects of such
+shared bindings.</p>
+</section>
 <section id="recap">
 <h2>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
 <p>The scope rules in Python are simple, but their consequences can be
@@ -948,6 +1026,7 @@ confusing.  There are just two rules to remember:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-variables-are-local">Which variables are local?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-arguments-are-local-variables">Formal arguments are local variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-an-element-does-not-bind-the-collection">Modifying an element does not bind the collection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-arguments-a-binding-gotcha">Default Arguments: A Binding <em>Gotcha</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">Recap</a></li>
 </ul>
   </nav></div>
