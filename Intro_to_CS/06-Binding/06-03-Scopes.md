@@ -266,6 +266,58 @@ the local variable hasn't been given a value yet.
 ![Can't reuse name for copy into local variable](
 img/copy-recycled-name.png)
 
+## Default Arguments: A Binding _Gotcha_
+
+Occasionally we have to think carefully about scope and about the 
+_time_ of binding to avoid unintended effects.  Some infamous
+[Python "gotchas"](https://docs.python-guide.org/writing/gotchas/) 
+result from unintended effects through shared bindings. 
+
+A Python function can have keyword arguments as well as positional 
+arguments, and those keyword arguments can have default values.  The 
+keyword argument is bound to its default value just once, when the 
+function is defined.   This seems fine ... 
+
+```{code-cell} python3
+def stars(n: int, initial=[]) -> list[str]:
+    """Should return list of n stars.  Oops."""
+    if n == 0:
+        return initial
+    initial.append("*")
+    return stars(n-1, initial)
+
+print(stars(3))
+```
+ Handy!  But watch out ... 
+
+```{code-cell} python3
+print(stars(2))
+```
+
+Although the formal argument `initial` is local to function `stars`, 
+the default value is bound to a mutable value whose scope is the 
+module in which the function appears.  It is just as if we had written: 
+
+```{code-cell}  python3
+sneaky = []
+def stars(n: int, initial=sneaky) -> list[str]:
+    """Should return list of n stars.  Oops."""
+    if n == 0:
+        return initial
+    initial.append("*")
+    return stars(n-1, initial)
+
+print(stars(3))
+print(stars(2))
+```
+
+Variable `sneaky` is bound to an empty list just once, and then
+that binding is copied to `initial` each 
+time we call `stars` without providing an explicit value for 
+`initial`.  Many an hour of 
+debugging has been spent diagnosing unexpected effects of such 
+shared bindings.   
+
 ## Recap
 
 The scope rules in Python are simple, but their consequences can be 
