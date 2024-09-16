@@ -42,6 +42,7 @@ parts:
     chapters:
       - file: 05-Recursion/05-01-Recursion.md
       - file: 05-Recursion/05-02-Exercises.md
+      - file: 05-Recursion/05-03-Project.md
 
   - caption: 06 Binding and Scope
     chapters:
@@ -57,6 +58,7 @@ parts:
       - file: 07-Efficiency/07-01-Efficiency.md
       - file: 07-Efficiency/07-02-Binary-Search.md
       - file: 07-Efficiency/07-03-Exercises.md
+      - file: 07-Efficiency/07-04-Project.md
 
   - caption:  08 Recursive Data
     chapters:
@@ -65,3 +67,4 @@ parts:
       - file: 08-Recursive-Data/08-03-Treemap-Project.md
       - file: 08-Recursive-Data/08-04-Shape-of-Data.md
       - file: 08-Recursive-Data/08-05-Exercises.md
+      - file: 08-Recursive-Data/08-06-Project.md
