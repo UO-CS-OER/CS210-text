@@ -27,6 +27,7 @@ parts:
     chapters:
       - file: 03-Collections-Loops/03-01-Collections.md
       - file: 03-Collections-Loops/03-02-Exercises.md
+      - file: 03-Collections-Loops/03-03-Project.md
 
   - caption: 04 More Loops and Collections
     chapters:
@@ -35,6 +36,7 @@ parts:
       - file: 04-More-Loops/04-03-Indefinite-Loops.md
       - file: 04-More-Loops/04-04-Successive-Approximation.md
       - file: 04-More-Loops/04-05-Exercises.md
+      - file: 04-More-Loops/04-06-Project.md
 
   - caption: 05 Recursion
     chapters:
