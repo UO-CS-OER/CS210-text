@@ -13,6 +13,8 @@ kernelspec:
 ---
 # Project
 
+![A cave with three chambers](img/cave-final.png)
+
 [Flooding the Cave](https://github.com/UO-CS210/flood-fill,Links)
 is an introduction to recursion (functions that call themselves). It is
 a short project, with a minimum of distraction from the one key problem,

@@ -13,6 +13,8 @@ kernelspec:
 ---
 # Project
 
+![A physical Boggle board](img/sample-board.jpeg)
+
 The [Boggler project](https://github.com/UO-CS210/06-Boggle)
 uses a recursive depth-first search to find words in a
 [Boggle](https://en.wikipedia.org/wiki/Boggle) board.  This part of 

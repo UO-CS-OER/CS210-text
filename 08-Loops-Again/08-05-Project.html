@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/accessible.css?v=730afe76" />
@@ -58,10 +58,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '08-Recursive-Data/08-06-Project';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '08-Loops-Again/08-05-Project';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Exercises" href="08-05-Exercises.html" />
+    <link rel="next" title="Recursive Data Structures" href="../09-Recursive-Data/09-01-Recursive-Data-Structures.html" />
+    <link rel="prev" title="More on Lists, Indexes, and Slices" href="08-03-Lists-Again.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -236,14 +237,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-03-Exercises.html">Exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-04-Project.html">Project</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">08 Recursive Data</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08 Loop Forms and Idioms</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08-01-Recursive-Data-Structures.html">Recursive Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08-02-Nested-Dicts.html">Other Nested Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08-03-Treemap-Project.html">Treemap Visualization of Recursive Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08-04-Shape-of-Data.html">Addendum: The Shape of Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08-05-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-01-Loops-Again.html">Loops Again</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-02-WhatFor.html">What for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-03-Lists-Again.html">More on Lists, Indexes, and Slices</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">09 Recursive Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-01-Recursive-Data-Structures.html">Recursive Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-02-Nested-Dicts.html">Other Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-03-Treemap-Project.html">Treemap Visualization of Recursive Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-04-Shape-of-Data.html">Addendum: The Shape of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-05-Exercises.html">Exercises</a></li>
 </ul>
 
     </div>
@@ -298,7 +305,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/08-Recursive-Data/08-06-Project.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/08-Loops-Again/08-05-Project.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,7 +371,7 @@
       
       
       
-      <li><a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F08-Recursive-Data/08-06-Project.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F08-Loops-Again/08-05-Project.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -394,7 +401,7 @@
       
       
       
-      <li><a href="../_sources/08-Recursive-Data/08-06-Project.ipynb" target="_blank"
+      <li><a href="../_sources/08-Loops-Again/08-05-Project.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Download notebook file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -411,7 +418,7 @@
       
       
       
-      <li><a href="../_sources/08-Recursive-Data/08-06-Project.md" target="_blank"
+      <li><a href="../_sources/08-Loops-Again/08-05-Project.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -509,15 +516,20 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="project">
 <h1>Project<a class="headerlink" href="#project" title="Link to this heading">#</a></h1>
-<p>The <a class="reference external" href="https://github.com/UO-CS210/Treemap">Treemap project</a>
-recursively decomposes hierarchically structured data
-while constructing a hierarchical diagram following the same structure.
-Treemaps are as a space-efficient display for hierarchical
-(tree-structured) data.</p>
-<p>The treemap project also introduces some new Python goodies,
-including disjunctive and recursive type annotations. Like many of
-our projects, it also stresses disciplined incremental development
-of software.</p>
+<p><img alt="A map of a bicycle ride" src="../_images/SmithLoop-550x350.png" /></p>
+<p>Ramer-Douglas-Peucker (also known as Douglas-Peucker and as Duda-Hart
+split-and-merge) is an important geometry algorithm for reducing the
+number of points in a path to produce a good approximation. For example,
+the route shown in the illustration above started as 14,392 readings
+from a GPS device. The program developed in this project reduced it to
+the 353 points that are plotted on the basemap.
+Ramer-Douglas-Peucker is widely used in cartography and robotics, and
+has other applications.</p>
+<p>This project provides more practice in recursion, list indexing, and
+loop design.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/UO-CS210/08-Path-Simplifier">Path simplifier</a></p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -533,7 +545,7 @@ of software.</p>
         },
         kernelOptions: {
             name: "python3",
-            path: "./08-Recursive-Data"
+            path: "./08-Loops-Again"
         },
         predefinedOutput: true
     }
@@ -551,13 +563,22 @@ of software.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="08-05-Exercises.html"
+       href="08-03-Lists-Again.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Exercises</p>
+        <p class="prev-next-title">More on Lists, Indexes, and Slices</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../09-Recursive-Data/09-01-Recursive-Data-Structures.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Recursive Data Structures</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

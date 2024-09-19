@@ -1,0 +1,910 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>What for? &#8212; Introduction to Computer Science I</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessible.css?v=730afe76" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=ff8fa330"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '08-Loops-Again/08-02-WhatFor';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="More on Lists, Indexes, and Slices" href="08-03-Lists-Again.html" />
+    <link rel="prev" title="Loops Again" href="08-01-Loops-Again.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-provisional.png" class="logo__image only-light" alt="Introduction to Computer Science I - Home"/>
+    <script>document.write(`<img src="../_static/logo-provisional.png" class="logo__image only-dark" alt="Introduction to Computer Science I - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Computer Science, part 1
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accessibility Statement</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-Accessibility/00-01-Accessibility.html">A Free, Open, and Accessible Computer Science Text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Getting a Start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-01-Prospectus.html">A Course in Computational Thinking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-02-Install.html">Installing Python and IDLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-03-Kickstart.html">Python Programming Kickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-04-Project.html">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 Writing Functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-01-Functions.html">Designing and Building Functions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-02-Scope.html">Binding:  Functions and Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-03-Hygiene.html">Function Hygiene in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-04-Terms.html">Review of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-05-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-06-Project.html">Projects</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 Collections and Loops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-01-Collections.html">Collections and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-02-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-03-Project.html">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 More Loops and Collections</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-01-More-Loops.html">Loops and more loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-02-Parallel-Lists.html">Parallel Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-03-Indefinite-Loops.html">Indefinite loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-04-Successive-Approximation.html">Successive approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-05-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-06-Project.html">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05 Recursion</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05-Recursion/05-01-Recursion.html">Recursive Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-Recursion/05-02-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-Recursion/05-03-Project.html">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06 Binding and Scope</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-01-Binding.html">Binding and scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-02-Alias.html">Aliasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-03-Scopes.html">Scopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-03-1-Qualified.html">Imported and Qualified Names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-04-Binding-Recursion.html">Binding in Recursive Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-05-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07 Efficiency</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-01-Efficiency.html">Efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-02-Binary-Search.html">Binary Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-03-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-04-Project.html">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08 Loop Forms and Idioms</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08-01-Loops-Again.html">Loops Again</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">What for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-03-Lists-Again.html">More on Lists, Indexes, and Slices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-05-Project.html">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">09 Recursive Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-01-Recursive-Data-Structures.html">Recursive Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-02-Nested-Dicts.html">Other Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-03-Treemap-Project.html">Treemap Visualization of Recursive Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-04-Shape-of-Data.html">Addendum: The Shape of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-05-Exercises.html">Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/08-Loops-Again/08-02-WhatFor.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UO-CS-OER/CS210-text" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2F08-Loops-Again/08-02-WhatFor.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/08-Loops-Again/08-02-WhatFor.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/08-Loops-Again/08-02-WhatFor.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>What for?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-list-of-lists">A list of lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration-through-the-items-in-a-list">Iteration through the items in a list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration-through-the-indices-of-a-list">Iteration through the indices of a list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typeerror-from-mistaken-identity">TypeError from mistaken identity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexerror-from-using-the-wrong-loop-bound">IndexError from using the wrong loop bound</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-bound-is-which">Which bound is which</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handle-empty-lists">Handle empty lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mnemonic-loop-variable-names">Mnemonic loop variable names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisonous-variable-names">Poisonous variable names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="what-for">
+<h1>What for?<a class="headerlink" href="#what-for" title="Link to this heading">#</a></h1>
+<p><em>Contributed by <a class="reference external" href="https://audmcname.com/">Audra McNamee</a></em></p>
+<p>Python offers convenient and concise ways to write loops, but
+similarity between different patterns of <code class="docutils literal notranslate"><span class="pre">for</span></code> loops often
+confuses students.  Using one pattern when another is
+required often leads to <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> exceptions.</p>
+<p>This brief walkthrough will help you distinguish between</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+</pre></div>
+</div>
+<section id="a-list-of-lists">
+<h2>A list of lists<a class="headerlink" href="#a-list-of-lists" title="Link to this heading">#</a></h2>
+<p>Throughout this walkthrough,
+assume <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">=</span> <span class="pre">[[</span> <span class="pre">item1,</span> <span class="pre">item2],</span> <span class="pre">[item3,</span> <span class="pre">item4],</span> <span class="pre">[item5,</span> <span class="pre">item6</span> <span class="pre">]]</span></code>.
+We visualize this list of lists as being arranged in rows and columns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span>    <span class="p">[[</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">],</span>
+            <span class="p">[</span><span class="n">item3</span><span class="p">,</span> <span class="n">item4</span><span class="p">],</span>
+            <span class="p">[</span><span class="n">item5</span><span class="p">,</span> <span class="n">item6</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>We say <code class="docutils literal notranslate"><span class="pre">array</span></code> has three rows and two columns.</p>
+</section>
+<section id="iteration-through-the-items-in-a-list">
+<h2>Iteration through the items in a list<a class="headerlink" href="#iteration-through-the-items-in-a-list" title="Link to this heading">#</a></h2>
+<p>In Python, lists (and strings) are iterable objects.
+Thus, it’s perfectly valid to write</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>In first iteration, <code class="docutils literal notranslate"><span class="pre">row</span></code> is <code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2]</span></code>.</p>
+<p>In the second iteration, <code class="docutils literal notranslate"><span class="pre">row</span></code> is <code class="docutils literal notranslate"><span class="pre">[item3,</span> <span class="pre">item4]</span></code>.</p>
+<p>In the third iteration, <code class="docutils literal notranslate"><span class="pre">row</span></code> is <code class="docutils literal notranslate"><span class="pre">[item5,</span> <span class="pre">item6]</span></code>.</p>
+<p>Note that when we iterate through <em>elements</em> of a list,
+we get the elements themselves, and not their positions.</p>
+</section>
+<section id="iteration-through-the-indices-of-a-list">
+<h2>Iteration through the indices of a list<a class="headerlink" href="#iteration-through-the-indices-of-a-list" title="Link to this heading">#</a></h2>
+<p>When you require an item’s position as well
+as its value, iteration with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+</pre></div>
+</div>
+<p>is appropriate.</p>
+<p>In the first iteration, <code class="docutils literal notranslate"><span class="pre">row</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>In the second iteration, <code class="docutils literal notranslate"><span class="pre">row</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>In the third iteration, <code class="docutils literal notranslate"><span class="pre">row</span></code> is <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+</section>
+<section id="typeerror-from-mistaken-identity">
+<h2>TypeError from mistaken identity<a class="headerlink" href="#typeerror-from-mistaken-identity" title="Link to this heading">#</a></h2>
+<p>Type errors typically result from iterating through
+loop elements when we need their indices, or using
+indices as if they were elements.</p>
+<p>Say you intend to loop through an object by column, and write</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+	<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The third line, <code class="docutils literal notranslate"><span class="pre">print(array[row][col])</span></code>,
+will produce an IndexError after the first iteration.
+<code class="docutils literal notranslate"><span class="pre">col</span></code> is <code class="docutils literal notranslate"><span class="pre">item1</span></code> and <code class="docutils literal notranslate"><span class="pre">row</span></code> is <code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">item3]</span></code>.
+To access <code class="docutils literal notranslate"><span class="pre">array[row][col]</span></code> we would need <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">col</span></code>
+to be indices, but instead <code class="docutils literal notranslate"><span class="pre">col</span></code> is an element of
+the list.
+<code class="docutils literal notranslate"><span class="pre">array[[item1,</span> <span class="pre">item2,</span> <span class="pre">item3]][item1]</span></code>
+is a type error.</p>
+<p>Since we needed indices for <code class="docutils literal notranslate"><span class="pre">array[row][col]</span></code>, in
+this case we should use <code class="docutils literal notranslate"><span class="pre">for</span></code> loops that iterate through<br />
+list indices:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+	<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>In the first iteration <code class="docutils literal notranslate"><span class="pre">col</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">row</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>.
+<code class="docutils literal notranslate"><span class="pre">array[0][0]</span></code> is the element in row <code class="docutils literal notranslate"><span class="pre">0</span></code> and and column <code class="docutils literal notranslate"><span class="pre">0</span></code>,
+so <code class="docutils literal notranslate"><span class="pre">item1</span></code> will be printed.</p>
+<p>The take-away: always know whether
+you’re iterating by item or by index.</p>
+</section>
+<section id="indexerror-from-using-the-wrong-loop-bound">
+<h2>IndexError from using the wrong loop bound<a class="headerlink" href="#indexerror-from-using-the-wrong-loop-bound" title="Link to this heading">#</a></h2>
+<p>Say you attempt to iterate through <code class="docutils literal notranslate"><span class="pre">array</span></code>
+by columns with this code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+	<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This code will print a few elements correctly, then crash.
+Try to spot the error before reading on.</p>
+<section id="which-bound-is-which">
+<h3>Which bound is which<a class="headerlink" href="#which-bound-is-which" title="Link to this heading">#</a></h3>
+<p>The code  above prints <code class="docutils literal notranslate"><span class="pre">item1</span></code>, …, <code class="docutils literal notranslate"><span class="pre">item6</span></code>
+then crashes with <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.
+This is because <code class="docutils literal notranslate"><span class="pre">range(len(array))</span></code>
+iterates from 0 to 2, but there is no column 2.
+When the loop attempts
+<code class="docutils literal notranslate"><span class="pre">print(array[0][2])</span></code> Python raises<code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p>
+<p>When we write loops to iterate through the indices
+of list, we need to make sure the bounds of the
+loop match the list we are iterating through.
+In the case above, <code class="docutils literal notranslate"><span class="pre">col</span></code> ranges through
+<code class="docutils literal notranslate"><span class="pre">range(len(array))</span></code>, the indexes of the rows,
+when we need the indexes of the columns.</p>
+<p>Correct code to print each element  could be</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+	<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Now <code class="docutils literal notranslate"><span class="pre">len(array[0])</span></code> is the number of columns,
+and <code class="docutils literal notranslate"><span class="pre">len(array)</span></code> is the number of rows, so
+<code class="docutils literal notranslate"><span class="pre">array[row][col]</span></code>  will always be a valid combination
+of row index and column index (provided each row
+is the same length).</p>
+</section>
+</section>
+<section id="handle-empty-lists">
+<h2>Handle empty lists<a class="headerlink" href="#handle-empty-lists" title="Link to this heading">#</a></h2>
+<p>If the length of <code class="docutils literal notranslate"><span class="pre">array</span></code> could equal 0, you must be
+careful not to access the first column (column 0) if
+there is no such column.  The code above starting with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+</pre></div>
+</div>
+<p>will crash if <code class="docutils literal notranslate"><span class="pre">array</span></code> is <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>. For this case
+we need a <em>guard</em>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+   <span class="c1"># Do the appropriate thing for the empty array</span>
+<span class="k">else</span><span class="p">:</span> 
+   <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>    
+       <span class="o">...</span> 
+</pre></div>
+</div>
+<p>Often the appropriate action will be to return
+a default value, and we can simplify this to</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+   <span class="k">return</span> <span class="n">appropriate_value</span> 
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>  
+   <span class="o">...</span>   
+</pre></div>
+</div>
+</section>
+<section id="mnemonic-loop-variable-names">
+<h2>Mnemonic loop variable names<a class="headerlink" href="#mnemonic-loop-variable-names" title="Link to this heading">#</a></h2>
+<p>A mnemonic is a memory aid.  One of the most
+valuable mnemonic aids available to programmers is
+variable names.  Naming variables well can help us
+keep track of how we are controlling loops and
+prevent inconsistency.</p>
+<p>If we loop through the <em>elements</em> of a list, we can use
+variable names that indicate that as clearly as possible.
+If the rows of our array were teams, and the columns were
+members of each team, then our loops might have
+been written</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">team</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">team</span><span class="p">:</span> 
+</pre></div>
+</div>
+<p>If we loop through the <em>indexes</em> of the elements, it can
+help to use variable names that remind us of that:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">team_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">member_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+</pre></div>
+</div>
+<p>Sometimes introducing variables for both the index
+and the element is useful in keeping the distinction clear:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iteration by row</span>
+<span class="k">for</span> <span class="n">row_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">row_i</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">col_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)):</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">col_i</span><span class="p">]</span>
+        <span class="o">...</span> 
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iteration by column</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+   <span class="c1"># Return the appropriate value</span>
+<span class="k">for</span> <span class="n">col_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+    <span class="k">for</span> <span class="n">row_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">row_i</span><span class="p">]</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">col_i</span><span class="p">]</span>
+        <span class="o">...</span> 
+</pre></div>
+</div>
+<p>This code is slightly more verbose than code without
+the extra variables, but the extra lines are worthwhile
+if they make the code clearer.</p>
+<p>Python provides a handy shorthand for looping through indexes and
+elements together, with the built-in function <a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate"><code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a>.</p>
+<p>In the snippet above, we can replace</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">row_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">row_i</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">row_i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+</pre></div>
+</div>
+</section>
+<section id="poisonous-variable-names">
+<h2>Poisonous variable names<a class="headerlink" href="#poisonous-variable-names" title="Link to this heading">#</a></h2>
+<p>At the very least we should avoid using misleading
+variable names.  Never ever ever do this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+   <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+       <span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">row</span><span class="p">])</span>
+       <span class="c1"># BURN THIS CODE. BURY IT. WEAR GLOVES. </span>
+</pre></div>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>Python gives you convenient choices in patterns
+for <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, but you need
+to choose carefully and consistently.</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">element</span> <span class="pre">in</span> <span class="pre">array:</span></code> to loop through list elements,
+or <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">element_i</span> <span class="pre">in</span> <span class="pre">range(len(array))</span></code> to loop through
+indices.  You can optionally use the <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function to
+iterate through both.</p></li>
+<li><p>Use the right list to determine the range of indices.</p></li>
+<li><p>If the <em>outer</em> loop iterates through indices of an
+<em>inner</em> list, you will probably need to write a
+special case handler for an empty <em>outer</em> list.</p></li>
+<li><p>Use variable names that help you remember which
+list is which, and whether you are iterating through
+list elements or list indices.</p></li>
+<li><p>When we write <code class="docutils literal notranslate"><span class="pre">a[x][y]</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> is always the index of the
+outer list and <code class="docutils literal notranslate"><span class="pre">y</span></code> is always the index of the inner list,
+no matter what they are called.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "UO-CS-OER/CS210-text",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./08-Loops-Again"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="08-01-Loops-Again.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Loops Again</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="08-03-Lists-Again.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">More on Lists, Indexes, and Slices</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-list-of-lists">A list of lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration-through-the-items-in-a-list">Iteration through the items in a list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration-through-the-indices-of-a-list">Iteration through the indices of a list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typeerror-from-mistaken-identity">TypeError from mistaken identity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexerror-from-using-the-wrong-loop-bound">IndexError from using the wrong loop bound</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-bound-is-which">Which bound is which</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handle-empty-lists">Handle empty lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mnemonic-loop-variable-names">Mnemonic loop variable names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisonous-variable-names">Poisonous variable names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michal Young
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022-2024 Michal Young and University of Oregon.  Creative Commons Share-Alike Attribution license.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
