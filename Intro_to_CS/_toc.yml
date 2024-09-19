@@ -60,11 +60,18 @@ parts:
       - file: 07-Efficiency/07-03-Exercises.md
       - file: 07-Efficiency/07-04-Project.md
 
-  - caption:  08 Recursive Data
+  - caption: 08 Loop Forms and Idioms
     chapters:
-      - file: 08-Recursive-Data/08-01-Recursive-Data-Structures.md
-      - file: 08-Recursive-Data/08-02-Nested-Dicts.md
-      - file: 08-Recursive-Data/08-03-Treemap-Project.md
-      - file: 08-Recursive-Data/08-04-Shape-of-Data.md
-      - file: 08-Recursive-Data/08-05-Exercises.md
-      - file: 08-Recursive-Data/08-06-Project.md
+      - file: 08-Loops-Again/08-01-Loops-Again.md
+      - file: 08-Loops-Again/08-02-WhatFor.md
+      - file: 08-Loops-Again/08-03-Lists-Again.md
+      - file: 08-Loops-Again/08-04-Exercises.md
+      - file: 08-Loops-Again/08-05-Project.md
+
+  - caption:  09 Recursive Data
+    chapters:
+      - file: 09-Recursive-Data/09-01-Recursive-Data-Structures.md
+      - file: 09-Recursive-Data/09-02-Nested-Dicts.md
+      - file: 09-Recursive-Data/09-03-Treemap-Project.md
+      - file: 09-Recursive-Data/09-04-Shape-of-Data.md
+      - file: 09-Recursive-Data/09-05-Exercises.md
