@@ -13,6 +13,8 @@ kernelspec:
 ---
 # Project
 
+![Oregon wildfire clusters](img/screenshot.jpg)
+
 The [wildfire clustering project](
 https://github.com/UO-CS210/wildfire)
 uses _k-means clustering_ to group wildfire records geographically.  

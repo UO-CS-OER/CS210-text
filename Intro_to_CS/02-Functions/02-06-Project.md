@@ -13,6 +13,8 @@ kernelspec:
 ---
 # Projects
 
+![Scattered points in a quarter circle](img/pi-quadrant-scatter.png)
+
 The project associated with this chapter is estimating the value of 
 the mathematical constant π (pi) using
 [_Monte Carlo Simulation_](
