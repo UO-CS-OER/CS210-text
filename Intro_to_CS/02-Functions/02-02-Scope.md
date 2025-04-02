@@ -289,7 +289,8 @@ There are several things to notice:
   bound to more than one name.  This is called _aliasing_.  
   It will become important when we consider objects like 
   lists that can be modified, with intentional effects
-  or unintentional [side effects](Functions:Hygiene:side-effects).
+  or unintentional [side effects](
+  02-Functions:03-03-Hygiene:side-effects).
 
 
 Aliasing of the same int object to the name `m` in the 

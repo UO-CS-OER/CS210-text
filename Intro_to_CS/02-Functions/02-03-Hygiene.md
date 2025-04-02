@@ -247,6 +247,7 @@ combination particularly well. A rare example of a built-in method
 that has both an effect and a result is the `list` method `pop`, 
 which both removes an item from the list and returns it. 
 
+<a anchor="side-effects" />
 ## Side effects
 
 When a function or method affects something _other than_ its 
