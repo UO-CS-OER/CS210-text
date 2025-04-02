@@ -1,0 +1,894 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Style Guide for Python Programs &#8212; Introduction to Computer Science I</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessible.css?v=730afe76" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Appendices/Appendix-1-Style';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Exercises" href="../09-Recursive-Data/09-05-Exercises.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-provisional.png" class="logo__image only-light" alt="Introduction to Computer Science I - Home"/>
+    <script>document.write(`<img src="../_static/logo-provisional.png" class="logo__image only-dark" alt="Introduction to Computer Science I - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Computer Science, part 1
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">00 Accessibility Statement</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-Accessibility/00-01-Accessibility.html">A Free, Open, and Accessible Computer Science Text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Getting a Start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-01-Prospectus.html">A Course in Computational Thinking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-02-Install.html">Installing Python and IDLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-03-Kickstart.html">Python Programming Kickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Intro/01-04-Project.html">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 Writing Functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-01-Functions.html">Designing and Building Functions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-02-Scope.html">Binding:  Functions and Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-03-Hygiene.html">Function Hygiene in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-04-Terms.html">Review of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-05-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Functions/02-06-Project.html">Projects</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 Collections and Loops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-01-Collections.html">Collections and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-02-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-03-Project.html">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 More Loops and Collections</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-01-More-Loops.html">Loops and more loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-02-Parallel-Lists.html">Parallel Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-03-Indefinite-Loops.html">Indefinite loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-04-Successive-Approximation.html">Successive approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-05-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-More-Loops/04-06-Project.html">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05 Recursion</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05-Recursion/05-01-Recursion.html">Recursive Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-Recursion/05-02-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-Recursion/05-03-Project.html">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06 Binding and Scope</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-01-Binding.html">Binding and scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-02-Alias.html">Aliasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-03-Scopes.html">Scopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-03-1-Qualified.html">Imported and Qualified Names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-04-Binding-Recursion.html">Binding in Recursive Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-Binding/06-05-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07 Efficiency</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-01-Efficiency.html">Efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-02-Binary-Search.html">Binary Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-03-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-Efficiency/07-04-Project.html">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08 Loop Forms and Idioms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-01-Loops-Again.html">Loops Again</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-02-WhatFor.html">What for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-03-Lists-Again.html">More on Lists, Indexes, and Slices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-04-Exercises.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-05-Project.html">Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">09 Recursive Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-01-Recursive-Data-Structures.html">Recursive Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-02-Nested-Dicts.html">Other Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-03-Treemap-Project.html">Treemap Visualization of Recursive Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-04-Shape-of-Data.html">Addendum: The Shape of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-05-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Style Guide for Python Programs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/UO-CS-OER/CS210-text/main?urlpath=tree/Intro_to_CS/Appendices/Appendix-1-Style.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UO-CS-OER/CS210-text" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UO-CS-OER/CS210-text/issues/new?title=Issue%20on%20page%20%2FAppendices/Appendix-1-Style.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Appendices/Appendix-1-Style.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/Appendices/Appendix-1-Style.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Style Guide for Python Programs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#living-document">Living Document</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics-when-in-doubt-follow-pep-8">Basics: When in doubt, follow PEP 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-and-function-names">Variable and Function Names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-length">Line Length</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-docstrings">Function docstrings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-annotations-in-function-headers">Type annotations in function headers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutation">Mutation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composite-type-annotations">Composite type annotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-cases-in-docstrings">Test cases in docstrings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-constants-vs-magic-values">Symbolic Constants vs Magic Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="style-guide-for-python-programs">
+<h1>Style Guide for Python Programs<a class="headerlink" href="#style-guide-for-python-programs" title="Link to this heading">#</a></h1>
+<p>Most software development organizations have coding guidelines that
+constitute a <em>house style</em>. These may be based on some more widely used
+standard, but often they will also incorporate norms and preferences
+developed by a particular organization. Our style guide for CIS 210
+at UO is based on
+<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>, extended with
+some additional rules suited to an introductory course.</p>
+<section id="living-document">
+<h2>Living Document<a class="headerlink" href="#living-document" title="Link to this heading">#</a></h2>
+<p>This document represents my best effort at defining style guidelines for
+CIS 210, but like many software documents it requires regular revision.
+We may find that we need some additional rules, or that some existing
+rules are annoyingly strict, or that something is not as clear as it
+should be. Also I make mistakes. Students are encouraged to suggest
+revisions. Meanwhile, the standard for any particular project is the
+version of this document as of the project due date.</p>
+</section>
+<section id="basics-when-in-doubt-follow-pep-8">
+<h2>Basics: When in doubt, follow PEP 8<a class="headerlink" href="#basics-when-in-doubt-follow-pep-8" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>
+is a widely used standard for Python code. It provides guidelines for
+all variety of matters from indentation to spacing in expressions.<br />
+Many matters in PEP8 are beyond the scope of CS 210.  Our key
+concerns for CS 210 are summarized here.  If something is unclear or
+not covered here, you may wish to refer to PEP8 (but also let us
+know if something should be spelled out more clearly here).</p>
+</section>
+<section id="variable-and-function-names">
+<h2>Variable and Function Names<a class="headerlink" href="#variable-and-function-names" title="Link to this heading">#</a></h2>
+<p>We will follow PEP8 naming conventions.
+Use <code class="docutils literal notranslate"><span class="pre">lower_case</span></code> (also known as “snake case”)
+for variables and functions.  Use
+<code class="docutils literal notranslate"><span class="pre">SHOUTS</span></code> (all upper case)
+for global constants.  Later, in CS 211 you will also encounter
+<code class="docutils literal notranslate"><span class="pre">UpperCamelCase</span></code> for user-defined classes.</p>
+<p>Users of a programming language form communities with conventions that
+are specific to that language.
+You might have
+used different naming
+conventions with some other programming language.  For example, if
+you have programmed in JavaScript, you might have used
+<code class="docutils literal notranslate"><span class="pre">lowerCamelCase</span></code> for variable names, instead
+of <code class="docutils literal notranslate"><span class="pre">snake_case</span></code> with underscores. When using Python, choose
+pythonic conventions.</p>
+</section>
+<section id="line-length">
+<h2>Line Length<a class="headerlink" href="#line-length" title="Link to this heading">#</a></h2>
+<p>PEP 8 recommends a maximum line length of 79 characters.<br />
+This matters!  The human eye has limited accuracy as it moves from the
+end of one line of text to the beginning of the next line. 79 is not a
+magic number (accuracy depends on many other factors, such as vertical
+space between lines), but under typical circumstances it is
+approximately the length at which readers begin to have trouble finding
+the beginning of the correct next line.</p>
+<p>PEP 8 refers to
+<a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">PEP 257</a> for docstring
+conventions. We will also follow PEP 257 conventions. We will <em>not</em>
+specify function and method type signatures in docstrings (see below for
+the alternative), but when appropriate we may use docstring comments to
+say more about arguments and return values.</p>
+</section>
+<section id="function-docstrings">
+<h2>Function docstrings<a class="headerlink" href="#function-docstrings" title="Link to this heading">#</a></h2>
+<p>A docstring should provide information that is <em>useful to a developer</em>.
+In particular, consider a developer who is building a new module that
+uses the functions or classes in your module, or who has been asked to
+add a feature to the code, fix a bug, or modify some functionality.
+Avoid noisy repetition of information that is already present in type
+hints, as well as information that is implicit.</p>
+<p>Every user-written function should include a docstring.  The first
+line of a docstring should very concisely describe what the function
+does.  Some functions require longer docstrings to clearly and
+precisely define their behavior; use your judgment, but be sure the
+docstring describes <em>what</em> the function does rather than <em>how</em> it
+does it.  In CS 210 many of our function docstrings will also
+contain test cases, as described below.</p>
+<section id="type-annotations-in-function-headers">
+<h3>Type annotations in function headers<a class="headerlink" href="#type-annotations-in-function-headers" title="Link to this heading">#</a></h3>
+<p>We will use Python
+<a class="reference external" href="https://www.python.org/dev/peps/pep-0484/">type annotations</a>
+(also known as <em>type hints</em>) to specify the signature (argument and
+return types) of functions and methods.
+Type annotations make it possible to specify the
+<em>signature</em> of a function very compactly, compared to describing
+argument types in a docstring. Instead of this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">frobnaz</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;frob the naz.</span>
+<span class="sd">    :n:  integer, frob it this many times</span>
+<span class="sd">    :s:  string from which we extract the naz</span>
+<span class="sd">    :returns: string in which the naz has been frobbed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>we will write</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">frobnaz</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;returns copy s with its frob nazzed n times&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>An absent return type is equivalent to specifying that the function or
+method returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</section>
+<section id="mutation">
+<h3>Mutation<a class="headerlink" href="#mutation" title="Link to this heading">#</a></h3>
+<p>Functions that return a value other than <code class="docutils literal notranslate"><span class="pre">None</span></code> (and which therefore
+have
+the <code class="docutils literal notranslate"><span class="pre">-&gt;</span> <span class="pre">T</span></code>
+annotation for some type <code class="docutils literal notranslate"><span class="pre">T</span></code>) should typically <em>not</em> modify the value of
+their arguments.</p>
+<p>For example, if I write this function header:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">jazziest</span><span class="p">(</span><span class="n">musicians</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>it is implicit that the input list of musicians is not modified.</p>
+<p>On rare occasions, concise and efficient code may require a function to
+both return a<br />
+value <em>and</em> modify an argument. The
+<code class="docutils literal notranslate"><span class="pre">pop</span></code> method for lists is an example of a mutator method that returns a
+result. This is permissible but must be clearly and explicitly
+spelled out in the docstring, and to the extent possible the
+function name should suggest that it modifies its input.</p>
+<p>For example, if the above function returned the jazziest musician an
+also removed it from the list, the function header and docstring might
+look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pull_jazziest</span><span class="p">(</span><span class="n">musicians</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Remove and return jazziest musician from musicians&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="composite-type-annotations">
+<h3>Composite type annotations<a class="headerlink" href="#composite-type-annotations" title="Link to this heading">#</a></h3>
+<p>Types like <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">str</span></code> can be used directly in type annotations.
+Types like <code class="docutils literal notranslate"><span class="pre">tuple</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span></code> can also be used in type annotations, but
+typically we will prefer to be more specific, e.g., not just a <code class="docutils literal notranslate"><span class="pre">tuple</span></code>
+but more precisely
+<em>tuple in which the first element is a string and the second element is
+an int</em>. We can make this more specific annotation by importing type
+constructors from the <code class="docutils literal notranslate"><span class="pre">typing</span></code> module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span><span class="w"> </span><span class="nf">i_eat_tuples</span><span class="p">(</span><span class="n">t</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert (&quot;k&quot;, n)  to  (n, (n, n))&quot;&quot;&quot;</span>
+    <span class="n">the_string</span><span class="p">,</span> <span class="n">the_int</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">the_int</span><span class="p">,</span> <span class="p">(</span><span class="n">the_int</span><span class="p">,</span> <span class="n">the_int</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert [(k,v), (k,v), ...] to {k:v, k:v, ...}&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">:</span>
+      <span class="n">result</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</section>
+<section id="test-cases-in-docstrings">
+<h3>Test cases in docstrings<a class="headerlink" href="#test-cases-in-docstrings" title="Link to this heading">#</a></h3>
+<p>It is essential to test functions incrementally, as they are written,
+rather than waiting until a project is complete.  In CS 210 we will
+<em>doctests</em> (tests embedded in function header docstrings) for this
+purpose.   For example, this function header from the Boggler
+project contains a single test case for the <code class="docutils literal notranslate"><span class="pre">normalize</span></code> function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Canonical for strings in dictionary or on board</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; normalize(&quot;filter&quot;)</span>
+<span class="sd">    &#39;FILTER&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>As you may infer from the example, a test case is given as
+code following the <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>, with an expected result on the following
+line.</p>
+<p>We will usually provide a starter test suite with a project,
+mostly in the form of doctests.   These will help you find and
+correct errors early in a project, when they are easiest to fix.<br />
+However, a function that passes all  The
+provided test suite is <em>never</em> exhaustive, and passing the provided test
+cases is <em>not</em> a guarantee that a project is correct.</p>
+</section>
+</section>
+<section id="symbolic-constants-vs-magic-values">
+<h2>Symbolic Constants vs Magic Values<a class="headerlink" href="#symbolic-constants-vs-magic-values" title="Link to this heading">#</a></h2>
+<p>A <em>magic number</em> is a constant other than 0, 1, <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">[]</span></code> that appears literally in code. For example, this snippet
+contains a magic number:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="mf">3.141592</span>
+</pre></div>
+</div>
+<p>For more explanation of magic numbers and why they are undesirable, see
+the “Unnamed numerical constants” section of the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Magic_number_(programming)">Magic Numbers</a>
+article on
+Wikipedia. I use the concept here to refer not only to numeric
+constants, but also to strings that carry some special meaning in an
+application.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put this near the beginning of the file</span>
+<span class="n">PI</span> <span class="o">=</span> <span class="mf">3.141592</span>
+<span class="o">...</span>
+<span class="c1"># Then use the symbolic name throughout</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">PI</span>
+</pre></div>
+</div>
+<p>If the same constant is used in more than one code file, and especially
+if it is a value that could conceivably be changed, it should be
+factored out into a separate source file. For example, if you are
+constructing a board game with multiple source files, the size of the
+game board probably belongs in a separate source file.</p>
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>
+contains much more than we have included here.  It can be
+worthwhile reading even if you need to skip over parts that
+describe Python features with which you are not yet familiar.  The
+<a class="reference external" href="https://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a>
+is a good example of a “house style” for Python within a software
+development organization.</p>
+<p>Kernighan and Plauger’s text
+<a class="reference external" href="https://en.wikipedia.org/wiki/The_Elements_of_Programming_Style">Elements of Programming Style</a>
+is deservedly regarded as a classic.  Despite its age and examples
+drawn from an old programming language that you may (hopefully)
+never use, <em>Elements of Programming Style</em> is especially valuable
+for clear reasoning on matters like good choice of variable names
+and writing useful comments.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "UO-CS-OER/CS210-text",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Appendices"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../09-Recursive-Data/09-05-Exercises.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exercises</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#living-document">Living Document</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics-when-in-doubt-follow-pep-8">Basics: When in doubt, follow PEP 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-and-function-names">Variable and Function Names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-length">Line Length</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-docstrings">Function docstrings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-annotations-in-function-headers">Type annotations in function headers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutation">Mutation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composite-type-annotations">Composite type annotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-cases-in-docstrings">Test cases in docstrings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-constants-vs-magic-values">Symbolic Constants vs Magic Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michal Young
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022-2024 Michal Young and University of Oregon.  Creative Commons Share-Alike Attribution license.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/accessible.css?v=730afe76" />
@@ -46,7 +46,7 @@
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
@@ -180,7 +180,7 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accessibility Statement</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">00 Accessibility Statement</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../00-Accessibility/00-01-Accessibility.html">A Free, Open, and Accessible Computer Science Text</a></li>
 </ul>
@@ -242,6 +242,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-01-Loops-Again.html">Loops Again</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-02-WhatFor.html">What for?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-03-Lists-Again.html">More on Lists, Indexes, and Slices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-04-Exercises.html">Exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-05-Project.html">Project</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">09 Recursive Data</span></p>
@@ -251,6 +252,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-03-Treemap-Project.html">Treemap Visualization of Recursive Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-04-Shape-of-Data.html">Addendum: The Shape of Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-05-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Appendices/Appendix-1-Style.html">Style Guide for Python Programs</a></li>
 </ul>
 
     </div>
@@ -519,7 +524,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings">Docstrings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argument-names">Argument names</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-effects-and-side-effects">Results, effects, and side effects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#side-effects">Side effects</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-function-hygiene-guidelines">Summary of function hygiene guidelines</a></li>
 </ul>
             </nav>
@@ -539,7 +543,7 @@ document.write(`
 <p>Consider again the <code class="docutils literal notranslate"><span class="pre">abs_diff</span></code> function defined in the prior chapter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">abs_diff</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">abs_diff</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Absolute value of the difference between x and y.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span> 
         <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
@@ -682,7 +686,7 @@ associated with them (e.g., if the first argument should be a height
 in centimeters and second should be an angle in degrees), then <code class="docutils literal notranslate"><span class="pre">x</span></code>
 and <code class="docutils literal notranslate"><span class="pre">y</span></code> would be poor names.   Consider the following function,
 in which longer names are needed:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">relative_error</span><span class="p">(</span><span class="n">est</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">expected</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">relative_error</span><span class="p">(</span><span class="n">est</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">expected</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Relative error of estimate (est) as non-negative fraction </span>
 <span class="sd">    of expected value.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -717,7 +721,7 @@ but not both. For example, here is a function that returns a list
 containing just the positive elements from a list of integers:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">select_pos</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_pos</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a list of the positive elements from m.&quot;&quot;&quot;</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">m</span><span class="p">:</span> 
@@ -745,7 +749,7 @@ We could also write a function that appends the positive elements of
 one list to another:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">append_pos</span><span class="p">(</span><span class="n">src</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">dest</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">append_pos</span><span class="p">(</span><span class="n">src</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">dest</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Positive elements of src are appended to dest.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">src</span><span class="p">:</span> 
         <span class="k">if</span> <span class="n">el</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -780,9 +784,8 @@ significantly shorter, clearer, or faster, we must document that
 combination particularly well. A rare example of a built-in method
 that has both an effect and a result is the <code class="docutils literal notranslate"><span class="pre">list</span></code> method <code class="docutils literal notranslate"><span class="pre">pop</span></code>,
 which both removes an item from the list and returns it.</p>
-</section>
-<section id="side-effects">
-<h2>Side effects<a class="headerlink" href="#side-effects" title="Link to this heading">#</a></h2>
+<a anchor="side-effects" />
+## Side effects
 <p>When a function or method affects something <em>other than</em> its
 arguments or the object on which a method is called, it is called a
 <em>side effect</em>.  Side effects make it easy to create program bugs and
@@ -893,7 +896,6 @@ will be angry at the you of this week if you do.</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings">Docstrings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argument-names">Argument names</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-effects-and-side-effects">Results, effects, and side effects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#side-effects">Side effects</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-function-hygiene-guidelines">Summary of function hygiene guidelines</a></li>
 </ul>
   </nav></div>

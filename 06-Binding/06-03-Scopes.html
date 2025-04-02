@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/accessible.css?v=730afe76" />
@@ -46,7 +46,7 @@
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
@@ -180,7 +180,7 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accessibility Statement</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">00 Accessibility Statement</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../00-Accessibility/00-01-Accessibility.html">A Free, Open, and Accessible Computer Science Text</a></li>
 </ul>
@@ -242,6 +242,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-01-Loops-Again.html">Loops Again</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-02-WhatFor.html">What for?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-03-Lists-Again.html">More on Lists, Indexes, and Slices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-04-Exercises.html">Exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-05-Project.html">Project</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">09 Recursive Data</span></p>
@@ -565,11 +566,11 @@ i.e., covered up and hidden.  For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shadow the built-in len function</span>
-<span class="k">def</span> <span class="nf">len</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Don&#39;t do this.  Avoid shadowing built-ins!&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="mi">21</span>
    
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;Short string&quot;</span><span class="p">))</span>
@@ -596,7 +597,7 @@ messages.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Oops</span>
 
-<span class="k">def</span> <span class="nf">total_length</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">total_length</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Total length of all the strings in l&quot;&quot;&quot;</span>
     <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span> 
@@ -610,12 +611,12 @@ messages.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="n">tot</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> 
 <span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">return</span> <span class="n">tot</span>
 <span class="ne">---&gt; </span><span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="n">total_length</span><span class="p">([</span><span class="s2">&quot;this&quot;</span><span class="p">,</span> <span class="s2">&quot;that&quot;</span><span class="p">,</span> <span class="s2">&quot;the other&quot;</span><span class="p">]))</span>
 
-<span class="nn">Input In [2],</span> in <span class="ni">total_length</span><span class="nt">(l)</span>
+<span class="nn">Cell In[2], line 7,</span> in <span class="ni">total_length</span><span class="nt">(l)</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span> 
 <span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">tot</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> 
@@ -645,7 +646,7 @@ are the variables that are bound within the function.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;global x&gt;&gt;&quot;</span>
 <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;global y&gt;&gt;&quot;</span>
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Access both local and global variables&quot;&quot;&quot;</span>
     <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Something new&quot;</span>       <span class="c1"># y is bound here! </span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39; while executing f&quot;</span><span class="p">)</span>
@@ -679,7 +680,7 @@ what happens if we move the assignment after the print statements:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;global x&gt;&gt;&quot;</span>
 <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;global y&gt;&gt;&quot;</span>
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Access both local and global variables&quot;&quot;&quot;</span>
     <span class="c1"># assignment to y has not been made yet</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39; while executing f&quot;</span><span class="p">)</span>
@@ -702,14 +703,14 @@ The value of x is &#39;&lt;&lt;global x&gt;&gt;&#39; while executing f
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39;, y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; before calling f()&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========  Calling f  ========&quot;</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">f</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========  After call to f ====&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39;, y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; after calling f&quot;</span><span class="p">)</span>
 
-<span class="nn">Input In [4],</span> in <span class="ni">f</span><span class="nt">()</span>
+<span class="nn">Cell In[4], line 8,</span> in <span class="ni">f</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># assignment to y has not been made yet</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of x is &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39; while executing f&quot;</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of y is &#39;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39; while executing f&quot;</span><span class="p">)</span>
@@ -732,7 +733,7 @@ for each formal argument.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;global x&gt;&gt;&quot;</span>
 <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;global y&gt;&gt;&quot;</span>
 
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;x will be bound by a call, and y by assignment, </span>
 <span class="sd">    so both x and y will be local variables.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -774,7 +775,7 @@ the variable itself.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">g</span><span class="p">():</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">():</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;This function does NOT bind m; </span>
 <span class="sd">    it only modifies an element of m.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -808,7 +809,7 @@ and some others) have a <code class="docutils literal notranslate"><span class="
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">g</span><span class="p">():</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">():</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;This function binds v</span>
 <span class="sd">    to a copy of the global m.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -841,7 +842,7 @@ local variable <em>everywhere</em> in the function.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">g</span><span class="p">():</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">():</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;This function binds attempts to bind</span>
 <span class="sd">    local m to a copy of global m, but it fails</span>
 <span class="sd">    because every reference to m is to the local m. </span>
@@ -857,13 +858,13 @@ local variable <em>everywhere</em> in the function.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [8],</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">m</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">37</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Within g the value of m is now </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">g</span><span class="p">()</span>
 
-<span class="nn">Input In [8],</span> in <span class="ni">g</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">g</span><span class="p">():</span> 
+<span class="nn">Cell In[8], line 8,</span> in <span class="ni">g</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">():</span> 
 <span class="g g-Whitespace">      </span><span class="mi">4</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;This function binds attempts to bind</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span><span class="sd">     local m to a copy of global m, but it fails</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span><span class="sd">     because every reference to m is to the local m. </span>
@@ -895,7 +896,7 @@ keyword argument is bound to its default value just once, when the
 function is defined.   This seems fine …</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stars</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="p">[])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">stars</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="p">[])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Should return list of n stars.  Oops.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">initial</span>
@@ -931,7 +932,7 @@ module in which the function appears.  It is just as if we had written:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sneaky</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">def</span> <span class="nf">stars</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="n">sneaky</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stars</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="n">sneaky</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Should return list of n stars.  Oops.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">initial</span>

@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/accessible.css?v=730afe76" />
@@ -46,7 +46,7 @@
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
@@ -179,7 +179,7 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accessibility Statement</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">00 Accessibility Statement</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../00-Accessibility/00-01-Accessibility.html">A Free, Open, and Accessible Computer Science Text</a></li>
 </ul>
@@ -241,6 +241,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-01-Loops-Again.html">Loops Again</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-02-WhatFor.html">What for?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-03-Lists-Again.html">More on Lists, Indexes, and Slices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-04-Exercises.html">Exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-05-Project.html">Project</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">09 Recursive Data</span></p>
@@ -654,7 +655,7 @@ nesting. For example, given <code class="docutils literal notranslate"><span cla
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IntNest</span> <span class="o">=</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;IntNest&#39;</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">IntNest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">flatten</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">IntNest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span> 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span> 
         <span class="c1"># Base case:</span>
         <span class="c1"># Counter-intuitively, we will pack the int </span>
@@ -689,7 +690,7 @@ because appending to a list is faster than concatenating lists:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alternative version, with a helper function </span>
 <span class="c1">#</span>
-<span class="k">def</span> <span class="nf">construct_flat</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">IntNest</span><span class="p">,</span> <span class="n">flat</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">construct_flat</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">IntNest</span><span class="p">,</span> <span class="n">flat</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Insert each integer into flat&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
         <span class="n">flat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
@@ -699,7 +700,7 @@ because appending to a list is faster than concatenating lists:</p>
     <span class="k">else</span><span class="p">:</span> 
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This isn&#39;t an IntNest: </span><span class="si">{</span><span class="n">l</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     
-<span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">IntNest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">flatten</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">IntNest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">construct_flat</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">result</span>
@@ -734,7 +735,7 @@ bullet) on each line.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Sexp</span> <span class="o">=</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;Sexp&#39;</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">print_bulleted</span><span class="p">(</span><span class="n">exp</span><span class="p">:</span> <span class="n">Sexp</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">print_bulleted</span><span class="p">(</span><span class="n">exp</span><span class="p">:</span> <span class="n">Sexp</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Printed nest as bulleted list.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">level</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -793,7 +794,7 @@ schema.  The exception messages print types like <code class="docutils literal n
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Schema</span> <span class="o">=</span> <span class="nb">type</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;Schema&#39;</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">conforms</span><span class="p">(</span><span class="n">structure</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Schema</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">conforms</span><span class="p">(</span><span class="n">structure</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Schema</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Like &quot;isinstance&quot; but checking a structure against a</span>
 <span class="sd">    schema that could be int, str, float or an S-expression</span>
 <span class="sd">    [list S] or [dict A S]. where A is int, str, or float and</span>
@@ -875,7 +876,7 @@ traversal of the structure and schema as parallel arrays.</p></li>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Schema</span> <span class="o">=</span> <span class="nb">type</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;Schema&#39;</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">conforms</span><span class="p">(</span><span class="n">structure</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Schema</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">conforms</span><span class="p">(</span><span class="n">structure</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Schema</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Like &quot;isinstance&quot; but checking a structure against a</span>
 <span class="sd">    schema that could be int, str, float or an S-expression</span>
 <span class="sd">    [list S] or [dict A S]. where A is int, str, or float and</span>
@@ -965,7 +966,7 @@ finishes the checking, to simplify the main recursive function
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Schema</span> <span class="o">=</span> <span class="nb">type</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;Schema&#39;</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">schema_well_formed</span><span class="p">(</span><span class="n">schema</span><span class="p">:</span> <span class="n">Schema</span><span class="p">,</span> <span class="n">errors</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">schema_well_formed</span><span class="p">(</span><span class="n">schema</span><span class="p">:</span> <span class="n">Schema</span><span class="p">,</span> <span class="n">errors</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Check schema for being well-formed.</span>
 <span class="sd">    Optional argument &#39;errors&#39; receives a list of errors.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1020,7 +1021,7 @@ finishes the checking, to simplify the main recursive function
     <span class="k">return</span> <span class="n">ok</span>
     
 
-<span class="k">def</span> <span class="nf">check_schema</span><span class="p">(</span><span class="n">schema</span><span class="p">:</span> <span class="n">Schema</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">check_schema</span><span class="p">(</span><span class="n">schema</span><span class="p">:</span> <span class="n">Schema</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Gathers and prints error messages plus overall well-formedness&quot;&quot;&quot;</span>
     <span class="n">errors</span><span class="o">=</span><span class="p">[]</span>
     <span class="k">if</span> <span class="n">schema_well_formed</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">errors</span><span class="p">):</span>

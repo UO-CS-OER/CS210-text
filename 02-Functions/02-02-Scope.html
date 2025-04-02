@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/accessible.css?v=730afe76" />
@@ -46,7 +46,7 @@
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
@@ -180,7 +180,7 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accessibility Statement</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">00 Accessibility Statement</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../00-Accessibility/00-01-Accessibility.html">A Free, Open, and Accessible Computer Science Text</a></li>
 </ul>
@@ -242,6 +242,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-01-Loops-Again.html">Loops Again</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-02-WhatFor.html">What for?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-03-Lists-Again.html">More on Lists, Indexes, and Slices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-04-Exercises.html">Exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-Loops-Again/08-05-Project.html">Project</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">09 Recursive Data</span></p>
@@ -541,7 +542,8 @@ that come built-in to Python (like <code class="docutils literal notranslate"><s
 that you can create yourself.  In this chapter we will look further
 at both, but especially at functions that you write.</p>
 <figure class="align-default" id="tools">
-<a class="reference internal image-reference" href="../_images/kitchen-tools.jpg"><img alt="../_images/kitchen-tools.jpg" src="../_images/kitchen-tools.jpg" style="height: 250px;" /></a>
+<a class="reference internal image-reference" href="../_images/kitchen-tools.jpg"><img alt="../_images/kitchen-tools.jpg" src="../_images/kitchen-tools.jpg" style="height: 250px;" />
+</a>
 <figcaption>
 <p><span class="caption-number">Fig. 4 </span><span class="caption-text">Tools alone will not make you a good cook, or a good programmer,
 but good cooks and programmers know their tools.</span><a class="headerlink" href="#tools" title="Link to this image">#</a></p>
@@ -589,7 +591,7 @@ your intent to use them.</p>
 library that is not already available, you <em>import</em> it, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 </pre></div>
 </div>
 </div>
@@ -605,7 +607,7 @@ to use.  For example, to generate a random integer between
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>97
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31
 </pre></div>
 </div>
 </div>
@@ -634,7 +636,7 @@ that is also called <code class="docutils literal notranslate"><span class="pre"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4638359299344582
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.29083962463969515
 </pre></div>
 </div>
 </div>
@@ -673,7 +675,7 @@ without conscious attempts at memorization.</p>
 function <em>body</em> that describes how it works.  Here is a simple
 function that returns the absolute difference between two integer
 values:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">abs_diff</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">abs_diff</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Absolute value of the difference between x and y.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span> 
         <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
@@ -714,7 +716,7 @@ the function are assigned to the formal arguments, which might have
 different names than the variables that we pass:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diff</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">diff</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a - b.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
 
@@ -732,10 +734,10 @@ different names than the variables that we pass:</p>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">z</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>     <span class="c1"># Error!  Variable a doesn&#39;t exist here. </span>
 
 <span class="ne">NameError</span>: name &#39;a&#39; is not defined
 </pre></div>
@@ -756,7 +758,7 @@ basically means there is no variable <code class="docutils literal notranslate">
 likewise exist only as long as the function is executing.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Example return a + 1.&quot;&quot;&quot;</span>
     <span class="n">thing</span> <span class="o">=</span> <span class="n">a</span>
     <span class="k">return</span> <span class="n">thing</span> <span class="o">+</span> <span class="mi">1</span>
@@ -773,10 +775,10 @@ likewise exist only as long as the function is executing.</p>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [5],</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">x</span> <span class="o">=</span> <span class="n">example</span><span class="p">(</span><span class="mi">41</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>    <span class="c1"># No thing here! </span>
 
 <span class="ne">NameError</span>: name &#39;thing&#39; is not defined
 </pre></div>
@@ -795,7 +797,7 @@ with the same name to exist in different scopes.</p>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="n">m</span> <span class="o">=</span> <span class="mi">19</span>
 
-<span class="k">def</span> <span class="nf">example</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Example to illustrate scope&quot;&quot;&quot;</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">77</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is bound to </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> within example&quot;</span><span class="p">)</span>
@@ -844,7 +846,7 @@ how values are passed to functions in Python.</p></li>
 bound to more than one name.  This is called <em>aliasing</em>.<br />
 It will become important when we consider objects like
 lists that can be modified, with intentional effects
-or unintentional <a class="reference internal" href="#Functions:Hygiene:side-effects"><span class="xref myst">side effects</span></a>.</p></li>
+or unintentional <a class="reference internal" href="#02-Functions:03-03-Hygiene:side-effects"><span class="xref myst">side effects</span></a>.</p></li>
 </ul>
 <p>Aliasing of the same int object to the name <code class="docutils literal notranslate"><span class="pre">m</span></code> in the
 execution of <code class="docutils literal notranslate"><span class="pre">example</span></code>, and to <code class="docutils literal notranslate"><span class="pre">x</span></code> in the global namespace, is
@@ -868,7 +870,7 @@ other functions, but also from the global namespace of our program.
 We do <em>not</em> want to write code like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bad_bad_bad</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bad_bad_bad</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Don&#39;t do this!&quot;&quot;&quot;</span>
     <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>   <span class="c1"># s is not local to bad_bad_bad. </span>
     
@@ -904,7 +906,7 @@ constant</em>, like the variable <code class="docutils literal notranslate"><spa
 
 <span class="c1"># ... other code ... </span>
 
-<span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">anagram</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="n">anagram</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Print words in DICT that match anagram.</span>
 <span class="sd">    ... test cases here ... </span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -931,7 +933,7 @@ time the function is called.   This code will not even work:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_foo</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="k">def</span> <span class="nf">foo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;This will not work!&quot;&quot;&quot;</span>
   <span class="n">count_foo</span> <span class="o">=</span> <span class="n">count_foo</span> <span class="o">+</span> <span class="mi">1</span>
   <span class="k">return</span> <span class="n">count_foo</span>
@@ -945,15 +947,15 @@ time the function is called.   This code will not even work:</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [8],</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span>   <span class="n">count_foo</span> <span class="o">=</span> <span class="n">count_foo</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span>   <span class="k">return</span> <span class="n">count_foo</span>
 <span class="ne">----&gt; </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">foo</span><span class="p">())</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="n">foo</span><span class="p">())</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="n">foo</span><span class="p">())</span>
 
-<span class="nn">Input In [8],</span> in <span class="ni">foo</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+<span class="nn">Cell In[8], line 5,</span> in <span class="ni">foo</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
 <span class="g g-Whitespace">      </span><span class="mi">4</span><span class="w">   </span><span class="sd">&quot;&quot;&quot;This will not work!&quot;&quot;&quot;</span>
 <span class="ne">----&gt; </span><span class="mi">5</span>   <span class="n">count_foo</span> <span class="o">=</span> <span class="n">count_foo</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span>   <span class="k">return</span> <span class="n">count_foo</span>
@@ -979,7 +981,7 @@ local variable with the same name.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_foo</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="k">def</span> <span class="nf">foo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;This will work.  That doesn&#39;t make it a good idea.&quot;&quot;&quot;</span>
     <span class="k">global</span> <span class="n">count_foo</span>
     <span class="n">count_foo</span> <span class="o">=</span> <span class="n">count_foo</span> <span class="o">+</span> <span class="mi">1</span>
