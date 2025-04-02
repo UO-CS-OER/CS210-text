@@ -75,3 +75,7 @@ parts:
       - file: 09-Recursive-Data/09-03-Treemap-Project.md
       - file: 09-Recursive-Data/09-04-Shape-of-Data.md
       - file: 09-Recursive-Data/09-05-Exercises.md
+
+  - caption: Appendices
+    chapters:
+      - file: Appendices/Appendix-1-Style.md
