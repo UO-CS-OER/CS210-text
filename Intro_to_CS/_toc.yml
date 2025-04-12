@@ -29,6 +29,10 @@ parts:
       - file: 03-Collections-Loops/03-02-Exercises.md
       - file: 03-Collections-Loops/03-03-Project.md
 
+  - caption:  Graphic Interlude
+    chapters:
+    - file: 03A-Abstraction/03A-Abstraction.md
+
   - caption: 04 More Loops and Collections
     chapters:
       - file: 04-More-Loops/04-01-More-Loops.md
