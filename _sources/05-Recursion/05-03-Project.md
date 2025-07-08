@@ -15,7 +15,7 @@ kernelspec:
 
 ![A cave with three chambers](img/cave-final.png)
 
-[Flooding the Cave](https://github.com/UO-CS210/flood-fill,Links)
+[Flooding the Cave](https://github.com/UO-CS210/flood-fill)
 is an introduction to recursion (functions that call themselves). It is
 a short project, with a minimum of distraction from the one key problem,
 a flood-fill function that spreads water in all directions within a
