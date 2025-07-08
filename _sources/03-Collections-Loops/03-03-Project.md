@@ -14,7 +14,7 @@ kernelspec:
 # Project
 
 The [enrollment analysis project](
-https://github.com/UO-CS210/enrollmentLinks)
+https://github.com/UO-CS210/enrollment)
 asks you to loop over a collection of elements representing
 individual student enrollments in a class, selecting and separating
 values to produce a summary of enrollments by major.
