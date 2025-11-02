@@ -206,6 +206,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-02-Exercises.html">Exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-Collections-Loops/03-03-Project.html">Project</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Graphic Interlude</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03A-Abstraction/03A-Abstraction.html">Interlude: Conquering Harder Problems with Abstraction</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">04 More Loops and Collections</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04-01-More-Loops.html">Loops and more loops</a></li>
@@ -252,6 +256,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-03-Treemap-Project.html">Treemap Visualization of Recursive Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-04-Shape-of-Data.html">Addendum: The Shape of Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../09-Recursive-Data/09-05-Exercises.html">Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Appendices/Appendix-1-Style.html">Style Guide for Python Programs</a></li>
 </ul>
 
     </div>
@@ -744,17 +752,17 @@ of</em> that item.</p>
     
 <span class="n">big_city</span> <span class="o">=</span> <span class="n">max_index</span><span class="p">(</span><span class="n">city_pops</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">city_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">city_pops</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">city_names</span><span class="p">[</span><span class="n">big_city</span><span class="p">],</span> <span class="n">city_pops</span><span class="p">[</span><span class="n">big_city</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Springfield 68481
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Portland 705278
 </pre></div>
 </div>
 </div>
 </div>
-<p>We will use this technique in our<a class="reference external" href="https://github.com/UO-CS210/wildfire">clustering project</a>.   We will search one list for the <em>index of</em> the cluster to which
+<p>We will use this technique in our <a class="reference external" href="https://github.com/UO-CS210/wildfire">clustering project</a>.   We will search one list for the <em>index of</em> the cluster to which
 a fire record should belong, then use that index to add the fire to
 the cluster.</p>
 </section>

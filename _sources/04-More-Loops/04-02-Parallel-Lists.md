@@ -181,10 +181,10 @@ city_pops = [
     
 big_city = max_index(city_pops)
 
-print(city_names[i], city_pops[i])
+print(city_names[big_city], city_pops[big_city])
 ```
 
-We will use this technique in our[clustering project](
+We will use this technique in our [clustering project](
 https://github.com/UO-CS210/wildfire
 ).   We will search one list for the _index of_ the cluster to which 
 a fire record should belong, then use that index to add the fire to 
