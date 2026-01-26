@@ -72,6 +72,10 @@ parts:
       - file: 08-Loops-Again/08-04-Exercises.md
       - file: 08-Loops-Again/08-05-Project.md
 
+  - caption: Graphic Interlude
+    chapters:
+      - file: 08A-Careers/08A-Careers.md
+
   - caption:  09 Recursive Data
     chapters:
       - file: 09-Recursive-Data/09-01-Recursive-Data-Structures.md
